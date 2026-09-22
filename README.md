@@ -9,9 +9,9 @@ We help legal and ops teams review contracts against their own past agreements â
 | Name | Hat |
 |------|-----|
 | Aniruddhan Narasimhan | Product |
-| Sreya Nagulapati | Engineering |
+| Hamshika Radhakrishnan | Engineering |
 | Swetha Rathinavelu Saravanakumar | Data and Evaluation |
-| Hamshika Radhakrishnan | Users and Research |
+| Sreya Nagulapati | Users and Research |
 | Gowtham Senthil | Operations |
 
 **Hat responsibilities:**
