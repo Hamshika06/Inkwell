@@ -1,0 +1,42 @@
+{
+  "no_majority_policy": "drop",
+  "consolidation_threshold": "0.75",
+  "dedup": false,
+  "conflict_policy": null,
+  "extraction_attrs": {
+    "Personal Information Type": "PII_TYPE",
+    "Third Party Entity": "THIRD_PARTY",
+    "Purpose": "PURPOSE",
+    "Retention Period": "RETENTION"
+  },
+  "keep_only_segments_with_spans": false,
+  "split": [
+    0.8,
+    0.1,
+    0.1
+  ],
+  "seed": 42,
+  "split_unit": "policy (company-level checked via group_id)",
+  "majority_rule": ">= 2 of 3 annotators; label_fractions saved in classifier_data.jsonl",
+  "span_repair": "offsets checked on the raw segment; on mismatch search for the text (nearest), else drop",
+  "errant_spans": "removed by (annotation id, attribute) from documentation/errant_span_indexes",
+  "bio_overlap_rule": "spans snapped to whole tokens; shorter wins; overlapping spans rejected",
+  "cleaning": "<br> -> space, other tags removed, whitespace collapsed, done after the span check",
+  "categories": [
+    "First Party Collection/Use",
+    "Third Party Sharing/Collection",
+    "User Choice/Control",
+    "Data Security",
+    "International and Specific Audiences",
+    "User Access, Edit and Deletion",
+    "Policy Change",
+    "Data Retention",
+    "Do Not Track",
+    "Other"
+  ],
+  "skipped_folders": [
+    "original_policies",
+    "pretty_print",
+    "pretty_print_uniquified"
+  ]
+}

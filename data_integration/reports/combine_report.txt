@@ -1,0 +1,46 @@
+OPP-115: 3729 classifier rows, 3729 extraction rows
+C3PA:    22409 units
+OPP-115 website domains found for 115 policies
+
+[dedup] C3PA units removed because the text is in OPP-115: 179 (Counter({'near duplicate of OPP-115 text': 178, 'exact duplicate of an OPP-115 segment': 1}))
+[split] C3PA companies inheriting an OPP-115 split: 7 (434 units); assigned at random: 373 (21796 units)
+
+ROWS PER SOURCE AND SPLIT
+  opp115  train=2934  validation=446  test=349  total=3729
+  c3pa    train=17690  validation=2387  test=2153  total=22230
+
+CATEGORY COUNTS (rows with the label) BY SPLIT
+  First Party Collection/Use             train=  9264 val= 1312 test= 1082   | opp115= 1209 c3pa=10449
+  Third Party Sharing/Collection         train=  7515 val= 1005 test=  984   | opp115=  945 c3pa= 8559
+  User Choice/Control                    train=  1604 val=  205 test=  206   | opp115=  358 c3pa= 1657
+  Data Security                          train=   173 val=   17 test=   20   | opp115=  210 c3pa=    0
+  International and Specific Audiences   train=   222 val=   30 test=   49   | opp115=  301 c3pa=    0
+  User Access, Edit and Deletion         train=  2530 val=  316 test=  280   | opp115=  149 c3pa= 2977
+  Policy Change                          train=   787 val=  142 test=  115   | opp115=  119 c3pa=  925
+  Data Retention                         train=    59 val=    5 test=   14   | opp115=   78 c3pa=    0
+  Do Not Track                           train=    24 val=    4 test=    3   | opp115=   31 c3pa=    0
+  Other                                  train=   850 val=  117 test=   91   | opp115= 1058 c3pa=    0
+
+CHECKS
+[PASS] row counts: OPP-115 rows equal the input
+[PASS] row counts: C3PA rows == input minus removed duplicates -- 22230 == 22409 - 179
+[PASS] ids are unique
+[PASS] OPP-115 rows kept their original split
+[PASS] every row has a valid split
+[PASS] label vectors match label names and have 10 entries
+[PASS] every row has at least one label
+[PASS] mask: OPP-115 rows supervise all 10 categories
+[PASS] mask: every labelled category is supervised (mask=1)
+[PASS] mask: C3PA rows supervise only their positive labels
+[PASS] split: every company with C3PA data is in exactly one split -- 0 violations []
+[PASS] split: OPP-115-only companies in more than one split (inherited from OPP-115) -- 0 companies
+[PASS] split: companies present in both sources are in one split -- 7 shared companies
+[PASS] no text involving C3PA appears in more than one split -- 0 texts
+[PASS] no text is shared between OPP-115 and C3PA
+[WARN] text repeated across splits inside OPP-115 itself (inherited) -- 28 texts
+[PASS] category totals == OPP-115 input + kept C3PA input
+[PASS] extraction: rows are the OPP-115 rows (C3PA has no span tags)
+[PASS] extraction: tokens, offsets and tags have equal lengths
+[PASS] extraction: each row has the same split as the classifier row
+[PASS] extraction: span count unchanged -- 11083
+ALL CHECKS PASSED

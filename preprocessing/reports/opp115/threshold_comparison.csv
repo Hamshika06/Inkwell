@@ -1,0 +1,4 @@
+threshold,rows,attr_entries,with_span,span_ok,span_fixed,span_dropped,span_errant,segments_with_spans
+0.5,17291,116011,61744,60094,449,687,514,3658
+0.75,19720,133136,70792,68881,481,761,669,3673
+1.0,21510,142850,75583,73336,578,938,731,3728
