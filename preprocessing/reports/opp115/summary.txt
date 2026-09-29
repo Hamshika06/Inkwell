@@ -1,0 +1,93 @@
+OPP-115 root: OPP-115
+
+======================================================================
+STEP 1  LOAD
+======================================================================
+115 policies, 3792 segments, 23194 annotation rows, 794 known-bad span entries
+Raw annotation spans: {'ok': 75401, 'dropped': 1157, 'errant': 754, 'fixed': 594}
+
+======================================================================
+STEP 2  MAJORITY VOTE
+======================================================================
+  -> all segments: 3,792 units in 115 files
+Segments with no majority category: 63 (expected 63)
+No-majority segments dropped.
+  -> after majority vote: 3,729 units in 115 files
+
+======================================================================
+STEP 3  DUPLICATES
+======================================================================
+Distinct texts with >1 copy: 76 (162 units)
+...with conflicting label sets: 18 texts (36 units)
+Duplicates kept (use --dedup to remove them).
+
+======================================================================
+STEP 4  POLICY METADATA AND GROUPS
+======================================================================
+Policies with a domain: 100.0%
+Domains with more than one policy (must share a split): 0
+Policies with 0 units left: 0
+
+======================================================================
+STEP 5  SPANS (consolidation)
+======================================================================
+threshold  rows  attr_entries  with_span  span_ok  span_fixed  span_dropped  span_errant  segments_with_spans
+      0.5 17291        116011      61744    60094         449           687          514                 3658
+     0.75 19720        133136      70792    68881         481           761          669                 3673
+      1.0 21510        142850      75583    73336         578           938          731                 3728
+chosen threshold: 0.75
+Spans lost while cleaning: 0
+
+Segments per split: {'test': 349, 'train': 2934, 'validation': 446}; policies per split: Counter({'train': 92, 'test': 12, 'validation': 11})
+
+======================================================================
+STEP 6  BUILD AND VALIDATE
+======================================================================
+
+Final: 3,729 units from 115 policies, 115 groups
+Units per split: {'train': 2934, 'validation': 446, 'test': 349}
+Category counts:
+labels
+First Party Collection/Use              1209
+Other                                   1058
+Third Party Sharing/Collection           945
+User Choice/Control                      358
+International and Specific Audiences     301
+Data Security                            210
+User Access, Edit and Deletion           149
+Policy Change                            119
+Data Retention                            78
+Do Not Track                              31
+Spans in opp115.jsonl: 19,041; extraction rows: 3,729; BIO spans kept: 11,083; rejected: {'same_type': 5231, 'other_type': 2261} (same_type = overlaps a span of the same attribute, mostly duplicate highlights; other_type = overlaps a span of a different attribute, which BIO cannot represent)
+Dropped by reason:
+reason
+no category chosen by 2 of 3 annotators    63
+
+CHECKS
+[PASS] shared rows: unit_id is unique
+[PASS] shared rows: keys and key order equal the C3PA row format
+[PASS] shared rows: text is non-empty and free of literal \n
+[PASS] shared rows: labels are in the schema, mask has 10 ones
+[PASS] shared rows: every row has at least one label
+[PASS] shared rows: group_id is set
+[PASS] shared rows: span offsets cut the row text back out
+[PASS] row counts: opp115.jsonl == classifier_data.jsonl -- 3729 vs 3729
+[PASS] row counts: extraction_data.jsonl == classifier_data.jsonl (unless span-only filter) -- 3729 vs 3729
+[PASS] row counts: funnel last step == rows written
+[PASS] row counts: all segments - dropped == rows written -- 3792 - 63 = 3729
+[PASS] reports: docs csv has the C3PA columns first
+[PASS] reports: dropped csv columns are uid, Text, reason
+[PASS] reports: funnel csv starts with step, units, files
+[PASS] split: every policy is in exactly one split (both output files)
+[PASS] split: every company (group_id) is in exactly one split -- 0 violations
+[PASS] split: policy lists are disjoint, match the data and cover all policies with units
+[WARN] split: text repeated across splits (duplicates were kept; use --dedup) -- 28 texts
+[PASS] labels: category counts == independent recount from annotations/ for the kept segments
+[PASS] labels: label_fractions agree with the majority labels (>= 2/3)
+[PASS] extraction: BIO tags decode back to the saved spans and their text -- 11083 spans, 0 bad rows
+[PASS] extraction: info -- decoded span text equals the originally highlighted text -- 10582/11083 exact (95.5%); the rest differ only because spans are widened to whole tokens
+[PASS] info: category counts vs the EDA -- identical to the EDA
+ALL CHECKS PASSED
+
+DONE
+Data and reports: Preprocessing_OPP115\output_final

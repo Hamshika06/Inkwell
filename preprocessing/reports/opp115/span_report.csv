@@ -1,0 +1,23 @@
+attribute,dropped,errant,fixed,ok
+Access Scope,3,7,3,604
+Access Type,2,3,7,724
+Action First-Party,52,49,35,6459
+Action Third Party,6,28,13,4958
+Audience Type,194,8,39,696
+Change Type,15,0,3,459
+Choice Scope,0,15,16,3418
+Choice Type,17,23,68,4741
+Collection Mode,20,23,15,4364
+Do Not Track policy,4,0,6,80
+Does/Does Not,37,88,15,7122
+Identifiability,9,121,14,4058
+Notification Type,6,1,5,487
+Other Type,572,27,209,2736
+Personal Information Type,56,256,17,14024
+Purpose,101,51,71,12120
+Retention Period,4,0,1,326
+Retention Purpose,0,0,4,275
+Security Measure,45,3,32,928
+Third Party Entity,7,39,6,4727
+User Choice,5,0,12,232
+User Type,2,12,3,1863
