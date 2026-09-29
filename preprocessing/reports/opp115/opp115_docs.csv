@@ -1,0 +1,116 @@
+doc_id,uid,subset,title,site_name,url,domain,n_units,group_id,split
+opp115:1017,opp115/1017,opp115,Sci-News,Sci-News,http://sci-news.com/privacy-policy.html,sci-news.com,13,sci-news.com,train
+opp115:1028,opp115/1028,opp115,Red Orbit,Red Orbit,http://redorbit.com/privacy_statement/,redorbit.com,41,redorbit.com,train
+opp115:1034,opp115/1034,opp115,Autoblog,Autoblog,http://privacy.aol.com/privacy-policy/,autoblog.com,43,autoblog.com,train
+opp115:1050,opp115/1050,opp115,Honda,Honda,http://honda.com/site/site_privacy.aspx,honda.com,70,honda.com,validation
+opp115:105,opp115/105,opp115,Amazon,Amazon,http://amazon.com/gp/help/customer/display.html/?nodeId=468496,amazon.com,35,amazon.com,test
+opp115:1070,opp115/1070,opp115,WNEP,WNEP,http://privacy.tribune.com,wnep.com,32,wnep.com,train
+opp115:1083,opp115/1083,opp115,High Gear Media,High Gear Media,http://highgearmedia.com/privacypolicy,thecarconnection.com,31,thecarconnection.com,train
+opp115:1089,opp115/1089,opp115,Detroit Free Press,Detroit Free Press,http://static.freep.com/privacy/,freep.com,33,freep.com,train
+opp115:1099,opp115/1099,opp115,Enthusiast Network,Enthusiast Network,http://enthusiastnetwork.com/privacy/,motortrend.com,39,motortrend.com,train
+opp115:1106,opp115/1106,opp115,Allstate,Allstate,http://allstate.com/about/privacy-statement-aic.aspx,allstate.com,46,allstate.com,train
+opp115:1164,opp115/1164,opp115,American City Business Journals,American City Business Journals,http://acbj.com/privacy/#VI,hemmings.com,38,hemmings.com,train
+opp115:1205,opp115/1205,opp115,OpenSecrets.org,OpenSecrets.org,http://opensecrets.org/about/policy.php,opensecrets.org,8,opensecrets.org,validation
+opp115:1206,opp115/1206,opp115,Dallas County Community College District,Dallas County Community College District,http://dcccd.edu/Pages/PrivacySecurity.aspx,dcccd.edu,16,dcccd.edu,train
+opp115:1221,opp115/1221,opp115,The GW Medical Faculty Associates,The GW Medical Faculty Associates,http://gwdocs.com/privacy,gwdocs.com,6,gwdocs.com,test
+opp115:1224,opp115/1224,opp115,Austin Community College,Austin Community College,http://austincc.edu/web-privacy-statement,austincc.edu,19,austincc.edu,test
+opp115:1252,opp115/1252,opp115,Cincy Museum,Cincy Museum,http://cincymuseum.org/privacy,cincymuseum.org,24,cincymuseum.org,train
+opp115:1259,opp115/1259,opp115,The Motley Fool,The Motley Fool,http://fool.com/legal/privacy-statement.aspx,fool.com,55,fool.com,train
+opp115:1261,opp115/1261,opp115,Zacks,Zacks,http://zacks.com/privacy.php,zacks.com,13,zacks.com,test
+opp115:1264,opp115/1264,opp115,Citizen,Citizen,http://citizen.org/Page.aspx?pid=187,citizen.org,14,citizen.org,train
+opp115:1300,opp115/1300,opp115,Chicago Marathon,Chicago Marathon,http://bankofamerica.com/privacy/online-privacy-notice.go,chicagomarathon.com,82,chicagomarathon.com,train
+opp115:1306,opp115/1306,opp115,Chase Payment Tech,Chase Payment Tech,http://chasepaymentech.com/privacypolicy,chasepaymentech.com,25,chasepaymentech.com,train
+opp115:133,opp115/133,opp115,Fortune,Fortune,http://subscription.timeinc.com/storefront/privacy/fortune/generic_privacy_new.html,fortune.com,41,fortune.com,train
+opp115:135,opp115/135,opp115,Instagram,Instagram,http://instagram.com/about/legal/privacy/,instagram.com,38,instagram.com,train
+opp115:1360,opp115/1360,opp115,The Hill,The Hill,http://thehill.com/privacy-policy,thehill.com,19,thehill.com,train
+opp115:1361,opp115/1361,opp115,Yahoo News,Yahoo News,http://policies.yahoo.com/us/en/yahoo/privacy/index.htm,news.yahoo.com,34,news.yahoo.com,train
+opp115:1419,opp115/1419,opp115,Miami New Times,Miami New Times,http://miaminewtimes.com/about/privacy-policy,miaminewtimes.com,33,miaminewtimes.com,train
+opp115:144,opp115/144,opp115,Vogue,Vogue,http://condenast.com/privacy-policy#privacypolicy,style.com,31,style.com,train
+opp115:1468,opp115/1468,opp115,Rockstar Games,Rockstar Games,http://rockstargames.com/privacy,rockstargames.com,61,rockstargames.com,validation
+opp115:1470,opp115/1470,opp115,Steam,Steam,http://store.steampowered.com/privacy_agreement/,store.steampowered.com,20,store.steampowered.com,test
+opp115:1498,opp115/1498,opp115,Ticketmaster,Ticketmaster,http://ticketmaster.com/h/privacy.html,ticketmaster.com,38,ticketmaster.com,validation
+opp115:1510,opp115/1510,opp115,JibJab,JibJab,http://jibjab.com/about/privacy,jibjab.com,43,jibjab.com,train
+opp115:1539,opp115/1539,opp115,Geocaching,Geocaching,http://geocaching.com/about/privacypolicy.aspx,geocaching.com,27,geocaching.com,test
+opp115:1545,opp115/1545,opp115,Taylor Swift,Taylor Swift,http://taylorswift.com/taylor-privacy-policy/,taylorswift.com,28,taylorswift.com,train
+opp115:1582,opp115/1582,opp115,MSN,MSN,http://microsoft.com/privacystatement/en-us/BingandMSN/default.aspx,msn.com,32,msn.com,train
+opp115:1610,opp115/1610,opp115,Pittsburgh Post-Gazette,Pittsburgh Post-Gazette,http://post-gazette.com/privacypolicy/,post-gazette.com,28,post-gazette.com,train
+opp115:1618,opp115/1618,opp115,The Salt Lake Tribune,The Salt Lake Tribune,http://sltrib.com/info/privacy/,sltrib.com,45,sltrib.com,test
+opp115:1636,opp115/1636,opp115,Sidearm Sports,Sidearm Sports,http://sidearmsports.com/privacypolicy/,fightingillini.com,52,fightingillini.com,train
+opp115:1637,opp115/1637,opp115,The Daily Illini,The Daily Illini,http://dailyillini.com/page/privacy,dailyillini.com,14,dailyillini.com,train
+opp115:164,opp115/164,opp115,Adweek,Adweek,http://adweek.com/privacy-policy,adweek.com,17,adweek.com,train
+opp115:1666,opp115/1666,opp115,WSMV Channel,WSMV Channel,http://wsmv.com/story/18990/this-web-sites-privacy-policy,wsmv.com,31,wsmv.com,train
+opp115:1673,opp115/1673,opp115,Tulsa World,Tulsa World,http://tulsaworld.com/site/privacy.html,tulsaworld.com,48,tulsaworld.com,train
+opp115:1683,opp115/1683,opp115,Los Angeles Daily News,Los Angeles Daily News,http://dailynews.com/privacy,dailynews.com,32,dailynews.com,train
+opp115:1694,opp115/1694,opp115,Lids,Lids,http://lids.com/HelpDesk/Security/PrivacyPolicy,lids.com,38,lids.com,train
+opp115:1703,opp115/1703,opp115,Sports-Reference.com,Sports-Reference.com,http://sports-reference.com/privacy.shtml,basketball-reference.com,21,basketball-reference.com,train
+opp115:1708,opp115/1708,opp115,Yardbarker,Yardbarker,http://foxsports.com/privacy-policy,yardbarker.com,39,yardbarker.com,train
+opp115:1713,opp115/1713,opp115,Latin Post,Latin Post,http://latinpost.com/privacypolicy,latinpost.com,85,latinpost.com,train
+opp115:175,opp115/175,opp115,Major League Baseball,Major League Baseball,http://mlb.mlb.com/mlb/help/mlb_help_about_privacy.jsp,mlb.mlb.com,33,mlb.mlb.com,train
+opp115:186,opp115/186,opp115,ABC News,ABC News,http://disneyprivacycenter.com/privacy-policy-translations/english/,abcnews.go.com,43,abcnews.go.com,train
+opp115:200,opp115/200,opp115,Washington Post,Washington Post,http://washingtonpost.com/privacy-policy/2011/11/18/gIQASIiaiN_story.html,washingtonpost.com,41,washingtonpost.com,train
+opp115:202,opp115/202,opp115,Food Allergy,Food Allergy,http://foodallergy.org/privacy-policy,foodallergy.org,25,foodallergy.org,train
+opp115:207,opp115/207,opp115,Dictionary.com,Dictionary.com,http://dictionary.reference.com/privacy,dictionary.reference.com,32,dictionary.reference.com,train
+opp115:20,opp115/20,opp115,The Atlantic,The Atlantic,http://theatlantic.com/privacy-policy/,theatlantic.com,36,theatlantic.com,train
+opp115:21,opp115/21,opp115,IMDb,IMDb,http://imdb.com/privacy,imdb.com,35,imdb.com,train
+opp115:228,opp115/228,opp115,Gawker,Gawker,http://legal.kinja.com/privacy-policy-90190742,gawker.com,25,gawker.com,train
+opp115:26,opp115/26,opp115,New York Times,New York Times,http://nytimes.com/privacy,nytimes.com,67,nytimes.com,validation
+opp115:303,opp115/303,opp115,Reddit,Reddit,http://reddit.com/help/privacypolicy,reddit.com,54,reddit.com,train
+opp115:320,opp115/320,opp115,Essence,Essence,http://subscription.timeinc.com/storefront/privacy/essence/generic_privacy_new.html,essence.com,44,essence.com,train
+opp115:325,opp115/325,opp115,Orange County Register,Orange County Register,http://ocregister.com/privacy/,ocregister.com,20,ocregister.com,train
+opp115:32,opp115/32,opp115,The Verge,The Verge,http://voxmedia.com/privacy-policy,theverge.com,29,theverge.com,train
+opp115:331,opp115/331,opp115,TGI Fridays,TGI Fridays,http://tgifridays.com/privacy,tgifridays.com,17,tgifridays.com,train
+opp115:33,opp115/33,opp115,NBC Universal,NBC Universal,http://nbcuniversal.com/privacy/full-privacy-policy,nbc.com,60,nbc.com,train
+opp115:348,opp115/348,opp115,Walmart,Walmart,http://corporate.walmart.com/privacy-security/walmart-privacy-policy,walmart.com,62,walmart.com,train
+opp115:359,opp115/359,opp115,Minnesota Vikings,Minnesota Vikings,http://vikings.com/footer/privacy-policy.html,vikings.com,40,vikings.com,train
+opp115:394,opp115/394,opp115,NewsBusters,NewsBusters,http://newsbusters.org/privacy-policy,newsbusters.org,42,newsbusters.org,train
+opp115:414,opp115/414,opp115,Washingtonian,Washingtonian,http://washingtonian.com/privacy-policy/,washingtonian.com,23,washingtonian.com,validation
+opp115:453,opp115/453,opp115,Barnes and Noble,Barnes and Noble,http://barnesandnoble.com/h/help/privacy-policy-complete,barnesandnoble.com,103,barnesandnoble.com,train
+opp115:456,opp115/456,opp115,Board Game Geek,Board Game Geek,http://boardgamegeek.com/privacy,boardgamegeek.com,10,boardgamegeek.com,train
+opp115:481,opp115/481,opp115,The Fredrick News-Post,The Fredrick News-Post,http://fredericknewspost.com/site/privacy.html,fredericknewspost.com,18,fredericknewspost.com,train
+opp115:503,opp115/503,opp115,Buffalo Wild Wings,Buffalo Wild Wings,http://buffalowildwings.com/en/privacy-policy-terms/,buffalowildwings.com,20,buffalowildwings.com,train
+opp115:517,opp115/517,opp115,Kaledia Health,Kaledia Health,http://kaleidahealth.org/general-information/privacy.asp,kaleidahealth.org,66,kaleidahealth.org,validation
+opp115:523,opp115/523,opp115,USA.gov,USA.gov,http://usa.gov/policies,usa.gov,19,usa.gov,train
+opp115:531,opp115/531,opp115,National Archives,National Archives,http://archives.gov/global-pages/privacy.html,archives.gov,50,archives.gov,train
+opp115:541,opp115/541,opp115,The Institute for Study Abroad,The Institute for Study Abroad,http://ifsa-butler.org/about-us/about-ifsa-butler/terms-of-use.html,ifsa-butler.org,13,ifsa-butler.org,train
+opp115:559,opp115/559,opp115,Library of Congress,Library of Congress,http://loc.gov/legal/#privacy_policy,loc.gov,23,loc.gov,train
+opp115:571,opp115/571,opp115,Abita,Abita,http://abita.com/sign_up/privacy_policy,abita.com,14,abita.com,train
+opp115:581,opp115/581,opp115,Coffee Review,Coffee Review,http://coffeereview.com/privacy/,coffeereview.com,16,coffeereview.com,train
+opp115:584,opp115/584,opp115,Community Coffee,Community Coffee,http://communitycoffee.com/termsofuse,communitycoffee.com,3,communitycoffee.com,validation
+opp115:586,opp115/586,opp115,Caribou Coffee,Caribou Coffee,http://cariboucoffee.com/footer-folder/privacy,cariboucoffee.com,32,cariboucoffee.com,train
+opp115:58,opp115/58,opp115,Esquire,Esquire,http://esquire.com/about/privacy-policy,esquire.com,46,esquire.com,validation
+opp115:591,opp115/591,opp115,Google Sites,Google Sites,http://google.com/intl/en/policies/privacy/,sites.google.com,44,sites.google.com,train
+opp115:59,opp115/59,opp115,Liquor,Liquor,http://liquor.com/privacy-policy/,liquor.com,13,liquor.com,train
+opp115:627,opp115/627,opp115,Dairy Queen,Dairy Queen,http://dairyqueen.com/us-en/Privacy-Statement/,dairyqueen.com,22,dairyqueen.com,test
+opp115:635,opp115/635,opp115,Playstation,Playstation,http://playstation.com/en-us/legal/privacy-policy/,playstation.com,43,playstation.com,train
+opp115:640,opp115/640,opp115,GameStop,GameStop,http://gamestop.com/gs/help/PrivacyPolicy.aspx,gamestop.com,42,gamestop.com,train
+opp115:641,opp115/641,opp115,GameRankings,GameRankings,http://legalterms.cbsinteractive.com/privacy,gamerankings.com,11,gamerankings.com,train
+opp115:642,opp115/642,opp115,The Free Dictionary,The Free Dictionary,http://thefreedictionary.com/privacy-policy.htm,thefreedictionary.com,15,thefreedictionary.com,train
+opp115:652,opp115/652,opp115,Penguin Random House,Penguin Random House,http://randomhouse.com/about/privacy.html,primagames.com,45,primagames.com,test
+opp115:676,opp115/676,opp115,RestaurantNews.com,RestaurantNews.com,http://restaurantnews.com/privacy-policy/,restaurantnews.com,10,restaurantnews.com,train
+opp115:686,opp115/686,opp115,Military.com,Military.com,http://military.com/about-us/privacy-policy,military.com,44,military.com,train
+opp115:701,opp115/701,opp115,Tanger Outlets,Tanger Outlets,http://tangeroutlet.com/privacy,tangeroutlet.com,3,tangeroutlet.com,train
+opp115:70,opp115/70,opp115,Allrecipes,Allrecipes,http://meredith.com/privacy.html,allrecipes.com,71,allrecipes.com,train
+opp115:723,opp115/723,opp115,Dog Breed Info,Dog Breed Info,http://dogbreedinfo.com/privacypolicy.htm,dogbreedinfo.com,4,dogbreedinfo.com,train
+opp115:744,opp115/744,opp115,Minecraft,Minecraft,http://minecraft.gamepedia.com/Minecraft_Wiki:Privacy_policy,minecraft.gamepedia.com,26,minecraft.gamepedia.com,train
+opp115:745,opp115/745,opp115,Eat Chicken,Eat Chicken,http://eatchicken.com/privacy-policy.aspx,eatchicken.com,4,eatchicken.com,train
+opp115:746,opp115/746,opp115,Kraft Recipes,Kraft Recipes,http://kraftrecipes.com/about/privacynotice.aspx,kraftrecipes.com,32,kraftrecipes.com,test
+opp115:760,opp115/760,opp115,National Zoo,National Zoo,http://si.edu/privacy,nationalzoo.si.edu,18,nationalzoo.si.edu,train
+opp115:777,opp115/777,opp115,JLab Education,JLab Education,http://education.jlab.org/jhtmllib/JLabSecurityBanner.html,education.jlab.org,3,education.jlab.org,train
+opp115:807,opp115/807,opp115,Lodge,Lodge,http://lodgemfg.com/page.asp?p_key=0A23CFF9980440FC8D283BC55A36328C,lodgemfg.com,32,lodgemfg.com,train
+opp115:817,opp115/817,opp115,Iron Horse Vineyards,Iron Horse Vineyards,http://ironhorsevineyards.com/Online-Policies/Privacy-Policy,ironhorsevineyards.com,7,ironhorsevineyards.com,train
+opp115:82,opp115/82,opp115,DrinksMixer.com,DrinksMixer.com,http://sheknows.com/privacy-policy,drinksmixer.com,46,drinksmixer.com,train
+opp115:856,opp115/856,opp115,Science,Science,http://sciencemag.org/site/help/about/privacy.xhtml,sciencemag.org,35,sciencemag.org,train
+opp115:862,opp115/862,opp115,Disinfo,Disinfo,http://disinfo.com/privacy/,disinfo.com,24,disinfo.com,validation
+opp115:883,opp115/883,opp115,TED,TED,http://ted.com/about/our-organization/our-policies-terms/privacy-policy,ted.com,25,ted.com,train
+opp115:884,opp115/884,opp115,Natural News,Natural News,http://naturalnews.com/PrivacyPolicy.html,naturalnews.com,5,naturalnews.com,train
+opp115:891,opp115/891,opp115,Everyday Health,Everyday Health,http://everydayhealth.com/privacyterms/#everyday_health_privacy_policy,everydayhealth.com,42,everydayhealth.com,train
+opp115:898,opp115/898,opp115,UpToDate,UpToDate,http://uptodate.com/home/privacy-policy,uptodate.com,10,uptodate.com,train
+opp115:907,opp115/907,opp115,Earth Kam,Earth Kam,http://earthkam.ucsd.edu/privacy,earthkam.org,11,earthkam.org,test
+opp115:919,opp115/919,opp115,University of Houston,University of Houston,http://uh.edu/policies/privacy/,uh.edu,7,uh.edu,train
+opp115:928,opp115/928,opp115,St. Louis Federal Reserve,St. Louis Federal Reserve,http://research.stlouisfed.org/privacy.html,ideas.repec.org,30,ideas.repec.org,train
+opp115:93,opp115/93,opp115,PBS,PBS,http://pbs.org/about/policies/privacy-policy/,pbs.org,40,pbs.org,train
+opp115:940,opp115/940,opp115,Internet Brands,Internet Brands,http://internetbrands.com/privacy/privacy-main.html,wikitravel.org,104,wikitravel.org,train
+opp115:962,opp115/962,opp115,Lynda,Lynda,http://lynda.com/aboutus/otl-privacy.aspx,lynda.com,74,lynda.com,test
+opp115:988,opp115/988,opp115,Solar Views,Solar Views,http://solarviews.com/eng/privacy.htm,solarviews.com,1,solarviews.com,train
+opp115:98,opp115/98,opp115,New Orleans Online,New Orleans Online,http://neworleansonline.com/notmc/privacy.html,neworleansonline.com,40,neworleansonline.com,validation
+opp115:995,opp115/995,opp115,Mohegan Sun,Mohegan Sun,http://mohegansun.com/about-mohegan-sun/privacy-policy.html,mohegansun.com,7,mohegansun.com,train
