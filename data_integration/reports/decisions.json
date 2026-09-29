@@ -1,0 +1,26 @@
+{
+  "c3pa_mask": "positive",
+  "c3pa_weight": 1.0,
+  "near_duplicate_threshold": 0.5,
+  "shingle_words": 8,
+  "seed": 42,
+  "c3pa_split_targets": [
+    0.8,
+    0.1,
+    0.1
+  ],
+  "split_rule": "OPP-115 keeps its own split; C3PA is split by company; a C3PA company that is also an OPP-115 website inherits that website's split; other companies are assigned at random",
+  "dedup_rule": "C3PA units whose text equals an OPP-115 segment, or shares >= near_dup of its 8-word phrases with OPP-115, are removed (OPP-115 is kept because its labels are majority-voted)",
+  "categories": [
+    "First Party Collection/Use",
+    "Third Party Sharing/Collection",
+    "User Choice/Control",
+    "Data Security",
+    "International and Specific Audiences",
+    "User Access, Edit and Deletion",
+    "Policy Change",
+    "Data Retention",
+    "Do Not Track",
+    "Other"
+  ]
+}
