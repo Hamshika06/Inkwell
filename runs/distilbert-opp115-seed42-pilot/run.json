@@ -1,0 +1,44 @@
+{
+  "kind": "encoder",
+  "model": "distilbert-base-uncased",
+  "seed": 42,
+  "dataset_version": "v1",
+  "dataset_sha256": "043fd5a9c36515483b0a218051343fe7e1707a64613d60dfdd35fb1ac427ea53",
+  "manifest_sha256": "821e7b239996053c5f54f47bb00b09ea04cdc5db68113e960ec96b001e457a25",
+  "selection_split": "validation",
+  "training_seconds": 244.70966645795852,
+  "training_device": "cpu",
+  "torch": "2.11.0",
+  "config": {
+    "model": "distilbert-base-uncased",
+    "source": "opp115",
+    "c3pa_weight": 0.1,
+    "seed": 42,
+    "epochs": 1,
+    "batch_size": 8,
+    "lr": 5e-05,
+    "out": "runs/distilbert-opp115-seed42-pilot"
+  },
+  "positive_class_weights": [
+    2.120689630508423,
+    3.011080265045166,
+    9.454874038696289,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    2.476590633392334
+  ],
+  "score_type": "logit; sigmoid gives probability",
+  "history": [
+    {
+      "epoch": 1,
+      "mean_loss": 0.578219801640313,
+      "validation_macro_f1_at_0_5": 0.6025256055923442
+    }
+  ],
+  "cpu_ms_per_segment": 15.211975663656961,
+  "model_bytes": 268806545
+}

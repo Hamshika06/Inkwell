@@ -1,0 +1,15 @@
+{
+  "kind": "svm",
+  "seed": 42,
+  "dataset_version": "v1",
+  "dataset_sha256": "043fd5a9c36515483b0a218051343fe7e1707a64613d60dfdd35fb1ac427ea53",
+  "manifest_sha256": "821e7b239996053c5f54f47bb00b09ea04cdc5db68113e960ec96b001e457a25",
+  "train_source": "opp115",
+  "selection_split": "validation",
+  "score_type": "SVM decision margin, not probability",
+  "training_seconds": 0.4622637080028653,
+  "cpu_ms_per_segment": 0.038962783979844644,
+  "model_bytes": 2779132,
+  "python": "3.10.11",
+  "sklearn": "1.7.2"
+}

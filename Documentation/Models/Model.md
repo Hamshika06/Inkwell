@@ -4,7 +4,7 @@
 # Overview
 
 - Inkwell's core model is a **multi-label clause classifier**: it reads one privacy-policy segment and outputs a probability for each category in the unified label schema.
-- We fine-tune two encoders, **DistilBERT** and **RoBERTa-base**, on the combined OPP-115 + C3PA training set, and ship whichever wins on held-out modern policies.
+- We fine-tune two encoders, **DistilBERT** and **RoBERTa-base**, on the combined OPP-115 + C3PA training set, and select using validation metrics; evaluate the selected configuration once on test. Full modern F1 awaits human-reviewed labels.
 - This single model powers every downstream feature:
   - **FAQ answers** (Stage 1)
   - **Silence detection** (Stage 1)
@@ -17,9 +17,9 @@
 | Input | One policy segment (paragraph), max 512 subword tokens |
 | Output | One sigmoid probability per category + thresholded label set |
 | Candidate backbones | `distilbert-base-uncased` (66M params), `roberta-base` (125M params) |
-| Training data | OPP-115 (115 policies, 2016) + C3PA (411 policies, 2024), merged via `config/label_mapping.json` |
-| Label schema | OPP-115's 10 categories (C3PA's 6 categories mapped onto them) |
-| Primary metric | Macro-F1 on held-out modern (C3PA) policies |
+| Training data | OPP-115 (115 policies, 2016) + C3PA (411 policies, 2024), merged via `configs/label_mapping.json` |
+| Label schema | OPP-115's 10 categories (C3PA's 5 mapped categories mapped onto them) |
+| Primary metric | Macro-F1 on fully labelled OPP-115 validation; modern F1 pending reviewed data |
 | Generative components | None. No LLM API, no generated text. |
 | Owner | Engineering (training), Data and Evaluation (metrics) |
 | Status | In development, Fall 2026 |
@@ -74,18 +74,18 @@
 ### Architecture
 
 - Pipeline: segment text → tokenizer → encoder → pooled `[CLS]` / `<s>` vector (768-d) → dropout (0.1) → linear layer (768 → 10) → sigmoid per category.
-- Hugging Face implementation: `AutoModelForSequenceClassification` with `problem_type="multi_label_classification"` and `num_labels=10`.
+- Hugging Face implementation: `AutoModelForSequenceClassification` with `num_labels=10`, plus a custom training loop that consumes masks and row weights; built-in multi-label loss alone does not implement this contract.
 
 ### Loss
 
-- **Masked, class-weighted binary cross-entropy.** For segment *i* and category *c*, with mask *m*, weight *w* and probability *p*:
+- **Masked, class-weighted binary cross-entropy.** For segment *i* and category *c*, with mask *m*, row weight *w*, positive-class weight *p_c*, and logit *z*:
 
 $$
-L = \frac{\sum_{i,c} m_{ic}\, w_c \left[ -y_{ic}\log p_{ic} - (1-y_{ic})\log(1-p_{ic}) \right]}{\sum_{i,c} m_{ic}}
+L = \frac{\sum_{i,c} w_i m_{ic} [-p_c y_{ic}\log \sigma(z_{ic})-(1-y_{ic})\log(1-\sigma(z_{ic}))]}{\sum_{i,c}w_i m_{ic}}
 $$
 
-- **Mask (m):** C3PA rows only annotate 6 of 10 categories, so unannotated categories are excluded from the loss instead of being treated as negatives.
-- **Weight (w_c):** negatives / positives for category *c*, clipped to at most 10, to boost rare categories.
+- **Mask (m):** combined C3PA rows supervise their positive labels only. All other entries are unknown and excluded from loss.
+- **Positive-class weight (p_c):** supervised negatives / positives from training, clipped to [1, 10]. It multiplies only the positive term. Row weights multiply the entire masked loss. See `inkwell/loss.py` for the implemented formula.
 - **Focal loss** (gamma = 2) is an ablation, not the default.
 
 ### Hyperparameters
@@ -124,10 +124,10 @@ $$
 
 ## Evaluation
 
-- **Primary metric: macro-F1 on the modern (C3PA) test set.**
+- **Selection metric: macro-F1 on OPP-115 validation.** C3PA currently supports positive-label recall only, not precision or F1. A fully reviewed modern benchmark is required before modern F1 can guide selection.
   - It weights rare categories equally.
   - It measures the policies real users will paste in today.
-- Every metric is computed **with the label mask**, on **held-out policies only** (splits by `policy_id`).
+- Full precision/recall/F1 requires explicit positives and negatives for every category. Positive-only C3PA masks are used for training and positive-label recall checks only. Tune thresholds and select models on validation; evaluate the frozen configuration once on test.
 
 ### Metrics
 
@@ -157,7 +157,11 @@ $$
 
 - **Significance:** 3 seeds per configuration, plus a paired bootstrap (1,000 resamples over policies) on macro-F1 for the final pairwise comparison.
 
-### Results (to be filled)
+### Implemented milestone
+
+The SVM baseline and Stage 1 demo are runnable; the masked encoder trainer is implemented. Follow [experiment instructions](../EXPERIMENTS.md). Frozen OPP-115 v1 baseline test scores are macro-F1 0.7004 and micro-F1 0.7459. Modern full F1 awaits human-reviewed labels. The architecture and experiment matrix below describe the target system, not completed encoder experiments.
+
+### Results (encoder comparison pending)
 
 | Model | Train data | Macro-F1 old | Macro-F1 modern | Micro-F1 modern | Latency (ms/seg) |
 | --- | --- | --- | --- | --- | --- |
@@ -304,7 +308,7 @@ $$
 
 ### Delivery checklist
 
-- [ ] `config/label_mapping.json` finalized, C3PA mapping reviewed by two teammates
+- [ ] `configs/label_mapping.json` finalized, C3PA mapping reviewed by two teammates
 - [ ] Splits frozen by `policy_id`; duplicate-overlap rate reported
 - [ ] Baselines (SVM, regex) scored on old and modern test sets
 - [ ] DistilBERT and RoBERTa-base trained with 3 seeds each

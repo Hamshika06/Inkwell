@@ -1,0 +1,123 @@
+{
+  "opp115": {
+    "macro_f1": 0.7003769333819868,
+    "micro_f1": 0.745920745920746,
+    "per_category": {
+      "First Party Collection/Use": {
+        "precision": 0.6834532374100719,
+        "recall": 0.9693877551020408,
+        "f1": 0.8016877637130801,
+        "positive_support": 98,
+        "negative_support": 229
+      },
+      "Third Party Sharing/Collection": {
+        "precision": 0.7473684210526316,
+        "recall": 0.8452380952380952,
+        "f1": 0.7932960893854749,
+        "positive_support": 84,
+        "negative_support": 243
+      },
+      "User Choice/Control": {
+        "precision": 0.6666666666666666,
+        "recall": 0.6486486486486487,
+        "f1": 0.6575342465753424,
+        "positive_support": 37,
+        "negative_support": 290
+      },
+      "Data Security": {
+        "precision": 0.8571428571428571,
+        "recall": 0.631578947368421,
+        "f1": 0.7272727272727273,
+        "positive_support": 19,
+        "negative_support": 308
+      },
+      "International and Specific Audiences": {
+        "precision": 0.868421052631579,
+        "recall": 0.717391304347826,
+        "f1": 0.7857142857142857,
+        "positive_support": 46,
+        "negative_support": 281
+      },
+      "User Access, Edit and Deletion": {
+        "precision": 0.6666666666666666,
+        "recall": 0.8235294117647058,
+        "f1": 0.7368421052631579,
+        "positive_support": 17,
+        "negative_support": 310
+      },
+      "Policy Change": {
+        "precision": 1.0,
+        "recall": 0.4666666666666667,
+        "f1": 0.6363636363636364,
+        "positive_support": 15,
+        "negative_support": 312
+      },
+      "Data Retention": {
+        "precision": 1.0,
+        "recall": 0.23076923076923078,
+        "f1": 0.375,
+        "positive_support": 13,
+        "negative_support": 314
+      },
+      "Do Not Track": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "positive_support": 3,
+        "negative_support": 324
+      },
+      "Other": {
+        "precision": 0.6941176470588235,
+        "recall": 0.686046511627907,
+        "f1": 0.6900584795321637,
+        "positive_support": 86,
+        "negative_support": 241
+      }
+    }
+  },
+  "c3pa": {
+    "contract": "positive-label recall only; false positives are unmeasured; never use for model selection",
+    "per_category": {
+      "First Party Collection/Use": {
+        "positive_support": 975,
+        "recall": 0.8902564102564102
+      },
+      "Third Party Sharing/Collection": {
+        "positive_support": 897,
+        "recall": 0.6588628762541806
+      },
+      "User Choice/Control": {
+        "positive_support": 167,
+        "recall": 0.7245508982035929
+      },
+      "Data Security": {
+        "positive_support": 0,
+        "recall": null
+      },
+      "International and Specific Audiences": {
+        "positive_support": 0,
+        "recall": null
+      },
+      "User Access, Edit and Deletion": {
+        "positive_support": 262,
+        "recall": 0.5
+      },
+      "Policy Change": {
+        "positive_support": 99,
+        "recall": 0.6363636363636364
+      },
+      "Data Retention": {
+        "positive_support": 0,
+        "recall": null
+      },
+      "Do Not Track": {
+        "positive_support": 0,
+        "recall": null
+      },
+      "Other": {
+        "positive_support": 0,
+        "recall": null
+      }
+    }
+  }
+}
