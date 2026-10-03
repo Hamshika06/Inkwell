@@ -41,24 +41,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 sns.set_theme(style="whitegrid")
 SETS = ["db", "ws"]
-OPP_CATEGORIES = ["First Party Collection/Use", "Third Party Sharing/Collection", "User Choice/Control",
-                  "Data Security", "International and Specific Audiences", "User Access, Edit and Deletion",
-                  "Policy Change", "Data Retention", "Do Not Track", "Other"]
-
-C3PA_TO_OPP = {
-    "Categories of Personal Information Collected": "First Party Collection/Use",
-    "Categories of Personal Information Shared / Disclosed": "Third Party Sharing/Collection",
-    "Categories of Personal Information Sold": "Third Party Sharing/Collection",
-    "Description of Right to Know PI Collected": "User Access, Edit and Deletion",
-    "Description of Right to Know PI sold / shared": "User Access, Edit and Deletion",
-    "Description of Right to Delete": "User Access, Edit and Deletion",
-    "Description of Right to Correct Information": "User Access, Edit and Deletion",
-    "Description of Right to Opt-out of sale of PI": "User Choice/Control",
-    "Description of Right to Limit use of PI": "User Choice/Control",
-    "Updated Privacy Policy": "Policy Change",
-}
-C3PA_DROP = {"Others", "Methods to exercise rights",
-             "Description of Right to Non-discrimination on exercising rights"}
+import json
+CONFIG_DIR = Path(__file__).resolve().parents[1] / "configs"
+OPP_CATEGORIES = json.loads((CONFIG_DIR / "label_schema.json").read_text())["categories"]
+mapping = json.loads((CONFIG_DIR / "label_mapping.json").read_text())
+C3PA_TO_OPP = mapping["c3pa_to_opp115"]
+C3PA_DROP = set(mapping["c3pa_drop"])
 
 
 class Reporter:

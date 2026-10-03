@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "c3pa_to_opp115": {
+    "Categories of Personal Information Collected": "First Party Collection/Use",
+    "Categories of Personal Information Shared / Disclosed": "Third Party Sharing/Collection",
+    "Categories of Personal Information Sold": "Third Party Sharing/Collection",
+    "Description of Right to Know PI Collected": "User Access, Edit and Deletion",
+    "Description of Right to Know PI sold / shared": "User Access, Edit and Deletion",
+    "Description of Right to Delete": "User Access, Edit and Deletion",
+    "Description of Right to Correct Information": "User Access, Edit and Deletion",
+    "Description of Right to Opt-out of sale of PI": "User Choice/Control",
+    "Description of Right to Limit use of PI": "User Choice/Control",
+    "Updated Privacy Policy": "Policy Change"
+  },
+  "c3pa_drop": [
+    "Description of Right to Non-discrimination on exercising rights",
+    "Methods to exercise rights",
+    "Others"
+  ]
+}

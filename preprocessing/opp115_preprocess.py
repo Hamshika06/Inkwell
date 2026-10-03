@@ -61,9 +61,7 @@ EXTRACTION_ATTRS = {  # attribute name in the JSON -> BIO tag suffix
     "Purpose": "PURPOSE",
     "Retention Period": "RETENTION",
 }
-CATEGORIES = ["First Party Collection/Use", "Third Party Sharing/Collection", "User Choice/Control",
-              "Data Security", "International and Specific Audiences", "User Access, Edit and Deletion",
-              "Policy Change", "Data Retention", "Do Not Track", "Other"]
+CATEGORIES = json.loads((Path(__file__).resolve().parents[1] / "configs" / "label_schema.json").read_text())["categories"]
 CAT_INDEX = {c: i for i, c in enumerate(CATEGORIES)}
 # key order of a row in data/interim/c3pa.jsonl
 SHARED_KEYS = ["source", "doc_id", "group_id", "unit_id", "text", "labels", "label_mask", "spans",

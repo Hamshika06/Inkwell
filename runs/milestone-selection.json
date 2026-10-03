@@ -1,0 +1,23 @@
+{
+  "selection_metric": "OPP-115 validation macro-F1",
+  "selected": {
+    "run": "runs/svm-opp115-seed42",
+    "validation_macro_f1": 0.8323642317681168,
+    "run_sha256": "b4ced4651951ba7e78ad80f35fb8cf1f5104f729e9ed914afdf90d7e5caa0351",
+    "thresholds_sha256": "acbe8dcc849bbe73749c20e15921e4d3b5261901c9fcc74782015387592d7fb9"
+  },
+  "candidates": [
+    {
+      "run": "runs/svm-opp115-seed42",
+      "validation_macro_f1": 0.8323642317681168,
+      "run_sha256": "b4ced4651951ba7e78ad80f35fb8cf1f5104f729e9ed914afdf90d7e5caa0351",
+      "thresholds_sha256": "acbe8dcc849bbe73749c20e15921e4d3b5261901c9fcc74782015387592d7fb9"
+    },
+    {
+      "run": "runs/distilbert-opp115-seed42-pilot",
+      "validation_macro_f1": 0.718225242190272,
+      "run_sha256": "9399a75e41a885346771b3be2c2b82d653fb9985ea2a4db7b3833f1323cf1908",
+      "thresholds_sha256": "fcd90305191ade0e8921f4bccf1d6b9b7d61d0766fb47511853542d7bbf75b44"
+    }
+  ]
+}

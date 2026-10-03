@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local training downloads and encoder checkpoints
+.model-cache/
+runs/**/model/
+runs/**/tokenizer/

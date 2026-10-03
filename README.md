@@ -6,7 +6,7 @@
 
 Inkwell **identifies and classifies clauses** in a privacy policy against a fixed set of categories (data collection, sharing, retention, deletion rights, and so on). Every category assignment is tied to the exact clause that produced it — never a generated summary or paraphrase — and where a category has no matching clause anywhere in the policy, Inkwell reports that explicitly instead of guessing. There is no generative model and no LLM API anywhere in the pipeline.
 
-**Quick links:** [Weekly reports](reports/) · [User evidence](evidence/) · 
+**Quick links:** [Weekly reports](reports/) · [Run the classifier and demo](Documentation/EXPERIMENTS.md) 
 
 ---
 
@@ -62,7 +62,7 @@ Policy text ──► Segmenter ──► Segment classifier (multi-label, per-c
 | Dataset | Use | License / citation |
 | --- | --- | --- |
 | **OPP-115** | Backbone for the category schema, classifier, and attribute extractor | Research, teaching, and scholarship use only (CC BY-NC-style terms). Commercial license for annotation files available separately via CMU. Source: [usableprivacy.org/data](https://usableprivacy.org/data) |
-| **C3PA** | Modern (2024-era) policy text: unsupervised adaptation for all categories, plus labels for 6 mapped categories | No stated reuse license on the repo as of this writing — needs direct confirmation with the authors before any public/commercial use. Source: [github.com/MaazBinMusa/C3PA_Dataset](https://github.com/MaazBinMusa/C3PA_Dataset) |
+| **C3PA** | Modern (2024-era) policy text: unsupervised adaptation for all categories, plus labels for 5 mapped categories | No stated reuse license on the repo as of this writing — needs direct confirmation with the authors before any public/commercial use. Source: [github.com/MaazBinMusa/C3PA_Dataset](https://github.com/MaazBinMusa/C3PA_Dataset) |
 | **PolicyIE** | Retention and Security intents and slot annotations; adaptation text | License needs verification in dataset repo |
 | **PolicyQA** | Open Q&A (Stage 2) | License needs verification in dataset repo |
 
@@ -91,7 +91,7 @@ Policy text ──► Segmenter ──► Segment classifier (multi-label, per-c
 }
 ```
 
-**Unified label schema:** OPP-115's categories are the backbone. C3PA (6 categories) and PolicyIE (2 categories) are mapped onto it through a lookup file at `config/label_mapping.json`. Every training and evaluation step, plus silence detection, reads from this file.
+**Unified label schema:** OPP-115's categories are the backbone. `configs/label_schema.json` owns the label order, and `configs/label_mapping.json` maps C3PA onto five categories. PolicyIE integration remains planned. The classifier and demo use the shared schema.
 
 **Splits:** by `policy_id`, never by segment, to prevent leakage. Multi-annotator disagreement in OPP-115 is resolved by majority vote.
 
@@ -100,13 +100,17 @@ Policy text ──► Segmenter ──► Segment classifier (multi-label, per-c
 - **DistilBERT** and **RoBERTa-base** — fine-tuned as the segment classifier (multi-label) and as the attribute/span extractor (BIO tagging). Both are evaluated so we can report which is the better fit for clause classification vs. span extraction, rather than assuming one wins.
 - No LLM API and no generative model at any stage — classification and extraction only.
 
+## Runnable milestone
+
+The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experiment instructions](Documentation/EXPERIMENTS.md) for commands, the frozen v1 dataset contract, and modern review workflow. Encoder training code is implemented; the encoder comparison and human-reviewed modern benchmark remain pending.
+
 ## Evaluation
 
-All numbers below are for the model that runs in the demo product. If the evaluated model and the shipped model ever differ, this README will say so.
+The demo currently uses the saved TF-IDF + SVM run. Its test configuration was frozen using validation thresholds. All completed numbers below are for the model that runs in the demo product. If the evaluated model and the shipped model ever differ, this README will say so.
 
 | Model | Task | Metric | Result |
 | --- | --- | --- | --- |
-| TF-IDF + SVM baseline | Segment classification | Macro / micro F1 | TBD |
+| TF-IDF + SVM baseline | Segment classification, OPP-115 v1 test | Macro / micro F1 | 0.7004 / 0.7459 |
 | Regex matcher baseline | Segment classification | Macro / micro F1 | TBD |
 | DistilBERT, OPP-115 only | Segment classification | Per-category, macro / micro F1 | TBD |
 | RoBERTa-base, OPP-115 only | Segment classification | Per-category, macro / micro F1 | TBD |
@@ -122,7 +126,7 @@ Error analysis and negative results will be documented in `docs/error_analysis.m
 
 ## Known limitations
 
-- **Do Not Track** and **International/Specific Audiences** are not covered by any of our datasets. We either hand-label a small batch of modern policies or report this as an explicit gap.
+- **Do Not Track** and **International/Specific Audiences** have OPP-115 annotations but no mapped C3PA annotations. We either hand-label a small batch of modern policies or report this as an explicit gap.
 - Silence detection can only flag categories missing from *our* schema and training data — it cannot detect legal non-compliance, and should not be presented as a compliance check.
 - OPP-115 policies are older; performance on modern policies is measured, not assumed.
 - FAQ extraction depends on clean classification into the relevant categories (e.g., Access/Edit/Deletion, Retention); ambiguous or boilerplate clauses may still need human judgment.

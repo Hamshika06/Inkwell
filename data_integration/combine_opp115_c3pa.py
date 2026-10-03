@@ -47,9 +47,7 @@ import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
-CATEGORIES = ["First Party Collection/Use", "Third Party Sharing/Collection", "User Choice/Control",
-              "Data Security", "International and Specific Audiences", "User Access, Edit and Deletion",
-              "Policy Change", "Data Retention", "Do Not Track", "Other"]
+CATEGORIES = json.loads((Path(__file__).resolve().parents[1] / "configs" / "label_schema.json").read_text())["categories"]
 CAT_INDEX = {c: i for i, c in enumerate(CATEGORIES)}
 SPLITS = ("train", "validation", "test")
 SHINGLE = 8
