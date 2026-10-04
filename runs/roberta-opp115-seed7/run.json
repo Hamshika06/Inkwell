@@ -1,0 +1,86 @@
+{
+  "kind": "encoder",
+  "model": "roberta-base",
+  "seed": 7,
+  "dataset_version": "v1",
+  "dataset_sha256": "043fd5a9c36515483b0a218051343fe7e1707a64613d60dfdd35fb1ac427ea53",
+  "manifest_sha256": "821e7b239996053c5f54f47bb00b09ea04cdc5db68113e960ec96b001e457a25",
+  "selection_split": "validation",
+  "training_seconds": 1056.527216763001,
+  "peak_process_rss_platform_units": 3808932,
+  "peak_cuda_bytes": 5932771328,
+  "training_device": "cuda",
+  "torch": "2.11.0+cu130",
+  "config": {
+    "model": "roberta-base",
+    "source": "opp115",
+    "c3pa_weight": 0.1,
+    "seed": 7,
+    "epochs": 10,
+    "batch_size": 16,
+    "lr": 2e-05,
+    "out": "runs/roberta-opp115-seed7"
+  },
+  "positive_class_weights": [
+    2.120689630508423,
+    3.011080265045166,
+    9.454874038696289,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    2.476590633392334
+  ],
+  "score_type": "logit; sigmoid gives probability",
+  "history": [
+    {
+      "epoch": 1,
+      "mean_loss": 0.794572274329254,
+      "validation_macro_f1_at_0_5": 0.49564713777136565
+    },
+    {
+      "epoch": 2,
+      "mean_loss": 0.39149820409427033,
+      "validation_macro_f1_at_0_5": 0.7495706348297726
+    },
+    {
+      "epoch": 3,
+      "mean_loss": 0.25787401927933506,
+      "validation_macro_f1_at_0_5": 0.7658282036598797
+    },
+    {
+      "epoch": 4,
+      "mean_loss": 0.1864468252790567,
+      "validation_macro_f1_at_0_5": 0.8095015497078017
+    },
+    {
+      "epoch": 5,
+      "mean_loss": 0.1434823612152542,
+      "validation_macro_f1_at_0_5": 0.8245385417745371
+    },
+    {
+      "epoch": 6,
+      "mean_loss": 0.11077341357071097,
+      "validation_macro_f1_at_0_5": 0.8261872253163489
+    },
+    {
+      "epoch": 7,
+      "mean_loss": 0.09242550009933624,
+      "validation_macro_f1_at_0_5": 0.8359093790263101
+    },
+    {
+      "epoch": 8,
+      "mean_loss": 0.07593768658065006,
+      "validation_macro_f1_at_0_5": 0.8338420263931408
+    },
+    {
+      "epoch": 9,
+      "mean_loss": 0.06438805356374762,
+      "validation_macro_f1_at_0_5": 0.8328247905093076
+    }
+  ],
+  "cpu_ms_per_segment": 238.76458341818017,
+  "model_bytes": 503458502
+}
