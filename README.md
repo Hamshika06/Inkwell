@@ -102,23 +102,26 @@ Policy text ──► Segmenter ──► Segment classifier (multi-label, per-c
 
 ## Runnable milestone
 
-The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experiment instructions](Documentation/EXPERIMENTS.md) for commands, the frozen v1 dataset contract, and modern review workflow. Encoder training code is implemented; the encoder comparison and human-reviewed modern benchmark remain pending.
+The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experiment instructions](Documentation/EXPERIMENTS.md) for commands, the frozen v1 dataset contract, and modern review workflow. Encoder training code is implemented, and a DistilBERT fine-tune on OPP-115 (3 seeds) is recorded in `runs/`; the RoBERTa-base comparison, the runs that add C3PA, and the human-reviewed modern benchmark remain pending.
 
 ## Evaluation
 
-The demo currently uses the saved TF-IDF + SVM run. Its test configuration was frozen using validation thresholds. All completed numbers below are for the model that runs in the demo product. If the evaluated model and the shipped model ever differ, this README will say so.
+The demo currently uses the saved TF-IDF + SVM run. Its test configuration was frozen using validation thresholds. The DistilBERT results below are measured on the same frozen v1 data, but that model is not in the demo yet. If the evaluated model and the shipped model ever differ, this README will say so.
 
 | Model | Task | Metric | Result |
 | --- | --- | --- | --- |
 | TF-IDF + SVM baseline | Segment classification, OPP-115 v1 test | Macro / micro F1 | 0.7004 / 0.7459 |
 | Regex matcher baseline | Segment classification | Macro / micro F1 | TBD |
-| DistilBERT, OPP-115 only | Segment classification | Per-category, macro / micro F1 | TBD |
+| DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 test (seed 42, evaluated once) | Macro / micro F1 | 0.7033 / 0.7694 |
+| DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 validation (mean ± std, 3 seeds) | Macro / micro F1 | 0.835 ± 0.012 / 0.814 ± 0.005 |
 | RoBERTa-base, OPP-115 only | Segment classification | Per-category, macro / micro F1 | TBD |
 | Best encoder, domain-adapted | Segment classification | Per-category, macro / micro F1 | TBD |
 | Span extractor | Attribute extraction | Span-level F1 (seqeval) | TBD |
 | Silence detection | Gap flagging | Precision/recall on held-out policies with known gaps | TBD |
 | FAQ extraction | Answer correctness | Tester-judged correctness on common questions | TBD |
 | Open Q&A (Stage 2) | Retrieval + span accuracy | Correct segment retrieved / correct span returned | TBD |
+
+DistilBERT and the SVM are about even on OPP-115 (test macro-F1 0.7033 vs 0.7004; validation 0.835 vs 0.832), a gap smaller than the seed-to-seed spread, so neither is declared better yet. Per-category scores and the seed-by-seed results are in [`Documentation/EXPERIMENTS.md`](Documentation/EXPERIMENTS.md).
 
 **Core empirical comparison:** OPP-115-only vs. domain-adapted, each evaluated on old (OPP-115) and modern (held-out C3PA/PolicyIE) text, and DistilBERT vs. RoBERTa-base head-to-head on the same splits.
 
