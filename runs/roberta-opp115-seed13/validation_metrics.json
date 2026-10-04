@@ -1,0 +1,76 @@
+{
+  "macro_f1": 0.8591581529794297,
+  "micro_f1": 0.8370786516853933,
+  "per_category": {
+    "First Party Collection/Use": {
+      "precision": 0.8488372093023255,
+      "recall": 0.9012345679012346,
+      "f1": 0.874251497005988,
+      "positive_support": 162,
+      "negative_support": 278
+    },
+    "Third Party Sharing/Collection": {
+      "precision": 0.8818897637795275,
+      "recall": 0.8549618320610687,
+      "f1": 0.8682170542635659,
+      "positive_support": 131,
+      "negative_support": 309
+    },
+    "User Choice/Control": {
+      "precision": 0.7931034482758621,
+      "recall": 0.5897435897435898,
+      "f1": 0.6764705882352942,
+      "positive_support": 39,
+      "negative_support": 401
+    },
+    "Data Security": {
+      "precision": 0.7894736842105263,
+      "recall": 0.8823529411764706,
+      "f1": 0.8333333333333334,
+      "positive_support": 17,
+      "negative_support": 423
+    },
+    "International and Specific Audiences": {
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1": 0.9,
+      "positive_support": 30,
+      "negative_support": 410
+    },
+    "User Access, Edit and Deletion": {
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "f1": 0.8333333333333334,
+      "positive_support": 18,
+      "negative_support": 422
+    },
+    "Policy Change": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1": 0.9523809523809523,
+      "positive_support": 10,
+      "negative_support": 430
+    },
+    "Data Retention": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.8888888888888888,
+      "positive_support": 5,
+      "negative_support": 435
+    },
+    "Do Not Track": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "positive_support": 4,
+      "negative_support": 436
+    },
+    "Other": {
+      "precision": 0.7338709677419355,
+      "recall": 0.7982456140350878,
+      "f1": 0.7647058823529411,
+      "positive_support": 114,
+      "negative_support": 326
+    }
+  }
+}
