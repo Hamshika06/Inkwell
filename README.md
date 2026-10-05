@@ -102,7 +102,7 @@ Policy text ──► Segmenter ──► Segment classifier (multi-label, per-c
 
 ## Runnable milestone
 
-The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experiment instructions](Documentation/EXPERIMENTS.md) for commands, the frozen v1 dataset contract, and modern review workflow. Encoder training code is implemented, and a DistilBERT fine-tune on OPP-115 (3 seeds) is recorded in `runs/`; the RoBERTa-base comparison, the runs that add C3PA, and the human-reviewed modern benchmark remain pending.
+The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experiment instructions](Documentation/EXPERIMENTS.md) for commands, the frozen v1 dataset contract, and modern review workflow. Encoder training code is implemented, and DistilBERT and RoBERTa-base fine-tunes on OPP-115 (3 seeds each) are recorded in `runs/`; the runs that add C3PA, and the human-reviewed modern benchmark remain pending.
 
 ## Evaluation
 
@@ -114,7 +114,8 @@ The demo currently uses the saved TF-IDF + SVM run. Its test configuration was f
 | Regex matcher baseline | Segment classification | Macro / micro F1 | TBD |
 | DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 test (seed 42, evaluated once) | Macro / micro F1 | 0.7033 / 0.7694 |
 | DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 validation (mean ± std, 3 seeds) | Macro / micro F1 | 0.835 ± 0.012 / 0.814 ± 0.005 |
-| RoBERTa-base, OPP-115 only | Segment classification | Per-category, macro / micro F1 | TBD |
+| RoBERTa-base, OPP-115 only | Segment classification, OPP-115 v1 test (seed 42, evaluated once) | Macro / micro F1 | 0.7404 / 0.8005 |
+| RoBERTa-base, OPP-115 only | Segment classification, OPP-115 v1 validation (mean ± std, 3 seeds) | Macro / micro F1 | 0.862 ± 0.003 / 0.840 ± 0.005 |
 | Best encoder, domain-adapted | Segment classification | Per-category, macro / micro F1 | TBD |
 | Span extractor | Attribute extraction | Span-level F1 (seqeval) | TBD |
 | Silence detection | Gap flagging | Precision/recall on held-out policies with known gaps | TBD |
