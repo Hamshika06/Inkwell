@@ -55,10 +55,12 @@ Errors return `{"detail": "..."}`:
 
 ## Encoder weights
 
-The SVM model is in git. The DistilBERT and RoBERTa weights (~270 MB and ~500 MB) are not; training saved them on Colab only. At startup the API loads the SVM immediately and loads encoders in the background, from either:
+The SVM model is in git. Encoder weights are not; they live in the Hugging Face model repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights), laid out as `<run>/model/...` and `<run>/tokenizer/...`. It holds DistilBERT (`distilbert-opp115-seed42`, verified: reproduces validation macro-F1 0.8212). RoBERTa (`roberta-opp115-seed42`) has not been uploaded yet.
 
-1. `runs/<run>/model/` and `runs/<run>/tokenizer/` on disk (git-ignored), or
-2. the Hugging Face model repo named by `INKWELL_WEIGHTS_REPO`, laid out as `<run>/model/...` and `<run>/tokenizer/...`.
+At startup the API loads the SVM immediately and loads each encoder in the background from:
+
+1. `runs/<run>/model/` and `runs/<run>/tokenizer/` on disk (git-ignored), or else
+2. a download from `INKWELL_WEIGHTS_REPO` into that same place (about 270 MB for DistilBERT, once per fresh machine or container).
 
 An encoder with no weights is reported as `unavailable` and the other models keep working.
 
@@ -67,8 +69,8 @@ An encoder with no weights is reported as `unavailable` and the other models kee
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `ALLOWED_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Comma-separated CORS origins. Setting it replaces the default. |
-| `INKWELL_WEIGHTS_REPO` | unset | HF model repo with encoder weights, e.g. `your-user/inkwell-weights` |
-| `HF_TOKEN` | unset | Read token, needed if the weights repo is private. On a Space, add it as a **secret**. |
+| `INKWELL_WEIGHTS_REPO` | `Hamshika/inkwell-weights` | HF model repo with encoder weights; `""` disables downloads |
+| `HF_TOKEN` | unset | Read token, needed only if the weights repo is private. Locally put it in the git-ignored `.env`; on a host, store it as a **secret**. |
 | `INKWELL_MODELS` | `svm,distilbert,roberta` | Which models to load |
 | `MAX_ENCODER_SEGMENTS` | `200` | Paragraph cap per encoder request |
 | `INKWELL_BACKGROUND_LOAD` | `1` | `0` loads encoders before accepting traffic (Cloud Run) |

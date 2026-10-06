@@ -8,3 +8,4 @@ threadpoolctl==3.7.0
 
 fastapi==0.142.2
 uvicorn==0.54.0
+python-dotenv==1.2.1

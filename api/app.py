@@ -7,6 +7,7 @@ import time
 from contextlib import asynccontextmanager
 
 import sklearn
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,6 +16,10 @@ from fastapi.staticfiles import StaticFiles
 from inkwell.common import CATEGORIES, ROOT
 from inkwell.predict import Predictor
 from inkwell.stage1 import FAQS, analyze, segment
+
+# Local secrets such as HF_TOKEN; never overrides variables a host already set. .env is git-ignored
+# and not copied into images.
+load_dotenv(ROOT / ".env")
 
 RUNS = ROOT / "runs"
 WEB = ROOT / "web"
@@ -27,7 +32,8 @@ MAX_BYTES = 1_000_000  # Same limit as demo/server.py.
 MAX_ENCODER_SEGMENTS = int(os.environ.get("MAX_ENCODER_SEGMENTS", 200))
 ENABLED = [m.strip() for m in os.environ.get("INKWELL_MODELS", ",".join(MODELS)).split(",") if m.strip() in MODELS]
 # Hugging Face model repo holding <run>/model/ and <run>/tokenizer/ for encoders not present under runs/.
-WEIGHTS_REPO = os.environ.get("INKWELL_WEIGHTS_REPO")
+# Set INKWELL_WEIGHTS_REPO to "" to never download.
+WEIGHTS_REPO = os.environ.get("INKWELL_WEIGHTS_REPO", "Hamshika/inkwell-weights")
 # Load encoders after the server starts (default) or before it accepts traffic ("0"; for hosts such as
 # Cloud Run that throttle CPU outside requests, where a background load would stall).
 BACKGROUND_LOAD = os.environ.get("INKWELL_BACKGROUND_LOAD", "1") != "0"
@@ -45,7 +51,9 @@ def load(key):
             raise FileNotFoundError(f"No weights in runs/{run.name}/model and INKWELL_WEIGHTS_REPO is not set")
         from huggingface_hub import snapshot_download
         snapshot_download(WEIGHTS_REPO, allow_patterns=[f"{run.name}/model/*", f"{run.name}/tokenizer/*"],
-                          local_dir=RUNS, token=os.environ.get("HF_TOKEN"))
+                          local_dir=RUNS, token=os.environ.get("HF_TOKEN") or None)
+        if not (run / "model").is_dir() or not (run / "tokenizer").is_dir():
+            raise FileNotFoundError(f"{WEIGHTS_REPO} has no {run.name}/model and {run.name}/tokenizer yet")
     predictor = Predictor(run)
     # model.joblib is a pickle; refuse to serve from a scikit-learn it was not saved with.
     if predictor.run["kind"] == "svm" and predictor.run.get("sklearn") != sklearn.__version__:

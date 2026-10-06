@@ -31,7 +31,7 @@ def main():
             shutil.copytree(ROOT / "runs" / run, out / "runs" / run,
                             ignore=shutil.ignore_patterns("__pycache__") if args.with_weights else skip)
             if args.with_weights and key != "svm" and not (out / "runs" / run / "model").is_dir():
-                raise SystemExit(f"--with-weights: runs/{run}/model is missing (see Documentation/DEPLOYMENT.md step 1)")
+                print(f"warning: runs/{run}/model is missing; the image will try INKWELL_WEIGHTS_REPO at startup")
     shutil.copy(ROOT / ("api/Dockerfile.svm" if args.svm_only else "api/Dockerfile"), out / "Dockerfile")
     shutil.copy(ROOT / "api/README.md", out / "README.md")  # Also the Space card on Hugging Face.
     print(f"Deploy folder ready: {out.resolve()}")
