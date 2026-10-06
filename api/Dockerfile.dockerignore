@@ -1,0 +1,14 @@
+# Used by BuildKit with `docker build -f api/Dockerfile .`: send only what the image needs.
+*
+!inkwell/
+!configs/
+!runs/svm-opp115-seed42/
+!runs/distilbert-opp115-seed42/
+!runs/roberta-opp115-seed42/
+!api/
+!web/
+**/__pycache__
+**/.venv
+# Encoder weights stay out of the image; the API downloads them or reads a mounted copy.
+runs/*/model
+runs/*/tokenizer
