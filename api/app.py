@@ -2,9 +2,11 @@
 import importlib.util
 import json
 import os
+import shutil
 import threading
 import time
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 import sklearn
 from dotenv import load_dotenv
@@ -31,9 +33,14 @@ MAX_BYTES = 1_000_000  # Same limit as demo/server.py.
 # Encoders cost ~0.1-0.25 s per paragraph on CPU; cap them so one request cannot hold the server for minutes.
 MAX_ENCODER_SEGMENTS = int(os.environ.get("MAX_ENCODER_SEGMENTS", 200))
 ENABLED = [m.strip() for m in os.environ.get("INKWELL_MODELS", ",".join(MODELS)).split(",") if m.strip() in MODELS]
-# Hugging Face model repo holding <run>/model/ and <run>/tokenizer/ for encoders not present under runs/.
-# Set INKWELL_WEIGHTS_REPO to "" to never download.
+# Encoder weights always come from this Hugging Face model repo (never from the project folder), read
+# with HF_TOKEN. It holds <folder>/model/ and <folder>/tokenizer/ per run.
 WEIGHTS_REPO = os.environ.get("INKWELL_WEIGHTS_REPO", "Hamshika/inkwell-weights")
+# Where downloaded weights are kept while the app runs: outside the repository, reused across restarts on
+# the same machine. On Cloud Run and in Docker it is the container's own disk and disappears with it.
+WEIGHTS_CACHE = Path(os.environ.get("INKWELL_WEIGHTS_CACHE", Path.home() / ".cache" / "inkwell"))
+# Folder names to try in the weights repo, run name first. RoBERTa was uploaded as "robertabert-...".
+REPO_FOLDERS = {"roberta-opp115-seed42": ["roberta-opp115-seed42", "robertabert-opp115-seed42"]}
 # Load encoders after the server starts (default) or before it accepts traffic ("0"; for hosts such as
 # Cloud Run that throttle CPU outside requests, where a background load would stall).
 BACKGROUND_LOAD = os.environ.get("INKWELL_BACKGROUND_LOAD", "1") != "0"
@@ -41,20 +48,42 @@ ORIGINS = [o.strip() for o in os.environ.get(
     "ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if o.strip()]
 
 
+def fetch(run):
+    """Mirror the run's model/ and tokenizer/ from WEIGHTS_REPO into WEIGHTS_CACHE and return a folder
+    Predictor can load: those weights next to the run's committed metadata (run.json, labels, thresholds)."""
+    from huggingface_hub import HfApi, snapshot_download
+    if not WEIGHTS_REPO:
+        raise FileNotFoundError("INKWELL_WEIGHTS_REPO is empty; encoder weights come from Hugging Face")
+    token = os.environ.get("HF_TOKEN", "").strip() or None  # Secrets stored from a shell often end in a newline.
+    names = REPO_FOLDERS.get(run.name, [run.name])
+    mirror = WEIGHTS_CACHE / WEIGHTS_REPO.replace("/", "--")
+    try:
+        files = set(HfApi(token=token).list_repo_files(WEIGHTS_REPO))
+        name = next((n for n in names if f"{n}/model/config.json" in files), None)
+        if name is None:
+            raise LookupError(f"{WEIGHTS_REPO} has no {run.name}/model and {run.name}/tokenizer yet")
+        # Fetches only files that changed since the last start. local_dir avoids the shared cache's
+        # symlinks, which Windows refuses without Developer Mode.
+        snapshot_download(WEIGHTS_REPO, allow_patterns=[f"{name}/model/*", f"{name}/tokenizer/*"],
+                          local_dir=mirror, token=token)
+    except LookupError:
+        raise
+    except Exception:  # Hub unreachable: reuse an earlier download on this machine if there is one.
+        name = next((n for n in names if (mirror / n / "model").is_dir()), None)
+        if name is None:
+            raise
+    folder = mirror / name
+    for file in ("run.json", "labels.json", "thresholds.json"):
+        shutil.copy(run / file, folder / file)
+    return folder
+
+
 def load(key):
     run = RUNS / MODELS[key][1]
     encoder = json.loads((run / "run.json").read_text())["kind"] != "svm"
     if encoder and importlib.util.find_spec("torch") is None:
         raise RuntimeError("Encoder packages are not installed (pip install -r api/requirements-encoders.txt)")
-    if encoder and not (run / "model").is_dir():
-        if not WEIGHTS_REPO:
-            raise FileNotFoundError(f"No weights in runs/{run.name}/model and INKWELL_WEIGHTS_REPO is not set")
-        from huggingface_hub import snapshot_download
-        snapshot_download(WEIGHTS_REPO, allow_patterns=[f"{run.name}/model/*", f"{run.name}/tokenizer/*"],
-                          local_dir=RUNS, token=os.environ.get("HF_TOKEN") or None)
-        if not (run / "model").is_dir() or not (run / "tokenizer").is_dir():
-            raise FileNotFoundError(f"{WEIGHTS_REPO} has no {run.name}/model and {run.name}/tokenizer yet")
-    predictor = Predictor(run)
+    predictor = Predictor(fetch(run) if encoder else run)
     # model.joblib is a pickle; refuse to serve from a scikit-learn it was not saved with.
     if predictor.run["kind"] == "svm" and predictor.run.get("sklearn") != sklearn.__version__:
         raise RuntimeError(f"{run.name} was saved with scikit-learn {predictor.run.get('sklearn')}, "

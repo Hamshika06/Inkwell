@@ -9,7 +9,7 @@ The API in `api/` also serves the frontend in `web/`, so one running service is 
 | **B. Google Cloud Run** | all three* | free within monthly quota | yes (billing account) | 2 GB RAM, scales to zero |
 | **C. Hugging Face Docker Space** | all three* | PRO, $9/month | yes | Docker Spaces now require PRO; free accounts cannot create them |
 
-\* DistilBERT downloads automatically from [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights). RoBERTa shows *unavailable* until its weights are uploaded there (Step 1).
+\* DistilBERT and RoBERTa are read from the Hugging Face repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights) with `HF_TOKEN` (Step 1). No weights are stored in the project or baked into images.
 
 The encoders cannot run on a 512 MB free tier: torch plus both models needs about 2 GB. That is why option A is SVM-only.
 
@@ -41,36 +41,28 @@ Don't open `web/index.html` by double-clicking. A page opened as a file can't ca
 
 **macOS/Linux:** `python3.10 -m venv api/.venv && api/.venv/bin/pip install -r api/requirements-encoders.txt && api/.venv/bin/uvicorn api.app:app --port 7860`. Use `requirements.txt` instead for SVM only.
 
-## Step 1: Encoder weights
+## Step 1: Encoder weights (read from Hugging Face)
 
-Only the SVM model is in git. Encoder weights live in the Hugging Face model repo `Hamshika/inkwell-weights`, which the API reads by default (`INKWELL_WEIGHTS_REPO`). If a run is not already under `runs/<run>/model` and `runs/<run>/tokenizer`, the API downloads it there at startup.
+Only the SVM model is in git. DistilBERT and RoBERTa always come from the Hugging Face model repo `Hamshika/inkwell-weights` (`INKWELL_WEIGHTS_REPO`), read with `HF_TOKEN`:
 
-| Run | In the repo | Verified |
+1. When the app starts, it downloads each encoder's `model/` and `tokenizer/` from the repo, about 770 MB for both. Later starts on the same machine only fetch files that changed.
+2. The download goes to a cache **outside the project**: `%USERPROFILE%\.cache\inkwell` on Windows, or the container's own disk in Docker and Cloud Run, where it disappears with the container. Set `INKWELL_WEIGHTS_CACHE` to move it. Nothing is written to `runs/`.
+3. Visitors never download weights. Their browser sends text to the server, and the server runs the models.
+
+| Run | Folder in the repo | Verified |
 | --- | --- | --- |
-| `distilbert-opp115-seed42` | yes | MATCH: validation macro-F1 0.8212 |
-| `roberta-opp115-seed42` | **not yet** | — |
+| `distilbert-opp115-seed42` | `distilbert-opp115-seed42/` | MATCH: validation macro-F1 0.8212 |
+| `roberta-opp115-seed42` | `robertabert-opp115-seed42/` (uploaded under this name; the app accepts it) | MATCH: validation macro-F1 0.8650 |
 
-**To add RoBERTa**, whoever has the folder uploads it in the same layout:
+**Token:** put `HF_TOKEN=<read token>` in `.env` at the repository root. The app loads it; `.env` is git-ignored and never copied into images. On hosts, store `HF_TOKEN` as a secret (Option B shows how). The token must have read access to `Hamshika/inkwell-weights`.
 
-```
-hf auth login
-hf upload Hamshika/inkwell-weights runs/roberta-opp115-seed42/model     roberta-opp115-seed42/model
-hf upload Hamshika/inkwell-weights runs/roberta-opp115-seed42/tokenizer roberta-opp115-seed42/tokenizer
-```
-
-Then restart the app; it downloads RoBERTa on the next start.
-
-**Check any checkpoint** before relying on it. Each run's thresholds were tuned for one exact checkpoint, and this rescores the validation split (never test):
+**Check a checkpoint** after replacing one in the repo. Each run's thresholds were tuned for one exact checkpoint, so download the run into `runs/<run>/model` and `runs/<run>/tokenizer` temporarily and rescore the validation split (never test):
 
 ```
 api\.venv\Scripts\python -m api.check_weights runs/roberta-opp115-seed42      # expect MATCH (0.8650)
 ```
 
-On Windows, run this from a clone made with `git clone -c core.autocrlf=false <url>`. Otherwise Git rewrites `data/` and `configs/` with CRLF line endings, and the frozen-benchmark checksum fails.
-
-**Private repo:** if the repo is made private, put `HF_TOKEN=<read token>` in `.env` at the repository root. The API loads it, and `.env` is git-ignored and never copied into images. On hosts, set `HF_TOKEN` as a secret.
-
-If a checkpoint is lost, retrain on Colab with the commands in `EXPERIMENTS.md`. A retrain gives new thresholds and metrics, so replace the whole run folder and update the reported numbers. Never pair new weights with the old `thresholds.json`.
+Delete the temporary copy afterwards. On Windows, run this from a clone made with `git clone -c core.autocrlf=false <url>`; otherwise Git rewrites `data/` and `configs/` with CRLF line endings and the frozen-benchmark checksum fails. If a checkpoint is lost, retrain with the commands in `EXPERIMENTS.md` and replace the whole run folder. Never pair new weights with the old `thresholds.json`.
 
 ## Docker (local)
 
@@ -81,10 +73,10 @@ docker build -f api/Dockerfile.svm -t inkwell-svm .     # SVM only, ~560 MB imag
 docker run --rm -p 7860:7860 inkwell-svm
 
 docker build -f api/Dockerfile -t inkwell .             # all three, ~1.8 GB image
-docker run --rm -p 7860:7860 -v "%cd%\runs\distilbert-opp115-seed42\model:/home/user/app/runs/distilbert-opp115-seed42/model:ro" ... inkwell
+docker run --rm -p 7860:7860 --env-file .env inkwell    # reads HF_TOKEN from .env
 ```
 
-Open http://127.0.0.1:7860. Weights are never baked into the image by default. Mount them as shown, one `-v` per `model` and `tokenizer` folder, or set `INKWELL_WEIGHTS_REPO` (see option C). Both images run as a non-root user and listen on `$PORT` (default 7860).
+Open http://127.0.0.1:7860. Use `-p <host-port>:7860`: the right-hand number must stay 7860. The full image downloads the encoders from Hugging Face at startup (about 40 s) and needs about 430 MB of RAM plus 740 MB of disk. Both images run as a non-root user and listen on `$PORT` (default 7860).
 
 ---
 
@@ -117,29 +109,37 @@ Cloud Run gives 2 GB containers that scale to zero. The monthly free quota (abou
    gcloud config set project <project-id>
    gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
    ```
-3. Bundle the app. The image goes to your project's private Artifact Registry.
-   ```sh
-   api\.venv\Scripts\python -m api.bundle --out dist/deploy
+3. Store the Hugging Face token as a secret, and let Cloud Run's service account read it (PowerShell):
    ```
-   The container downloads the encoder weights from `Hamshika/inkwell-weights` on each cold start (about 270 MB for DistilBERT). For faster cold starts, download them locally first (run the app once) and add `--with-weights` to bake them into the image.
-4. Deploy:
-   ```sh
-   gcloud run deploy inkwell --source dist/deploy --region us-central1 \
-     --memory 2Gi --cpu 2 --min-instances 0 --max-instances 1 \
-     --set-env-vars INKWELL_BACKGROUND_LOAD=0 --allow-unauthenticated
+   gcloud services enable secretmanager.googleapis.com
+   "<your HF read token>" | gcloud secrets create hf-token --data-file=-
+   $num = gcloud projects describe <project-id> --format="value(projectNumber)"
+   gcloud secrets add-iam-policy-binding hf-token --member="serviceAccount:$num-compute@developer.gserviceaccount.com" --role="roles/secretmanager.secretAccessor"
+   ```
+4. Deploy. Either let Google build from source:
+   ```
+   api\.venv\Scripts\python -m api.bundle --out dist/deploy
+   gcloud run deploy inkwell --source dist/deploy --region us-east1 --memory 2Gi --cpu 2 --min-instances 0 --max-instances 1 --set-env-vars INKWELL_BACKGROUND_LOAD=0 --set-secrets HF_TOKEN=hf-token:latest --allow-unauthenticated
+   ```
+   or push the image you built locally to Artifact Registry and deploy that:
+   ```
+   gcloud auth configure-docker us-east1-docker.pkg.dev
+   docker tag inkwell us-east1-docker.pkg.dev/<project-id>/<repo>/inkwell:latest
+   docker push us-east1-docker.pkg.dev/<project-id>/<repo>/inkwell:latest
+   gcloud run deploy inkwell --image us-east1-docker.pkg.dev/<project-id>/<repo>/inkwell:latest --region us-east1 --memory 2Gi --cpu 2 --min-instances 0 --max-instances 1 --set-env-vars INKWELL_BACKGROUND_LOAD=0 --set-secrets HF_TOKEN=hf-token:latest --allow-unauthenticated
    ```
    - `INKWELL_BACKGROUND_LOAD=0` loads all models before the container accepts traffic. Cloud Run only gives the container CPU during requests, so a background load would stall.
-   - `--max-instances 1` caps the cost.
+   - `--max-instances 1` caps the cost. 2 GiB covers the models in memory plus their downloaded files (Cloud Run's disk counts against memory).
 5. Open the `https://inkwell-....run.app` URL that the command prints.
 
-A cold start takes roughly 15–30 s with baked-in weights, longer when it downloads them. If the weights repo is private, add `--set-secrets HF_TOKEN=<secret-name>:latest` (store the token in Secret Manager first). RoBERTa takes about 0.25 s per paragraph on CPU, and encoder requests are capped at 200 paragraphs.
+Each cold start downloads the encoders from Hugging Face, so the first visit after idle takes about a minute. RoBERTa takes about 0.25 s per paragraph on CPU, and encoder requests are capped at 200 paragraphs.
 
 ## Option C: Hugging Face Docker Space (all three models, PRO required)
 
 Hugging Face now requires PRO ($9/month) to create Docker or Gradio Spaces. If you have PRO:
 
 1. The weights repo already exists (`Hamshika/inkwell-weights`, Step 1). Model repos are still free; only Spaces compute changed.
-2. Create a public Docker Space (CPU basic). If the weights repo is private, add the secret `HF_TOKEN` (a read token) under **Settings → Variables and secrets**.
+2. Create a public Docker Space (CPU basic) and add the secret `HF_TOKEN` (a read token) under **Settings → Variables and secrets**.
 3. Bundle and upload. The bundle's `README.md` carries the Space's YAML header.
    ```sh
    python -m api.bundle --out dist/deploy

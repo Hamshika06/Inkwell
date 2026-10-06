@@ -55,22 +55,18 @@ Errors return `{"detail": "..."}`:
 
 ## Encoder weights
 
-The SVM model is in git. Encoder weights are not; they live in the Hugging Face model repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights), laid out as `<run>/model/...` and `<run>/tokenizer/...`. It holds DistilBERT (`distilbert-opp115-seed42`, verified: reproduces validation macro-F1 0.8212). RoBERTa (`roberta-opp115-seed42`) has not been uploaded yet.
+The SVM model is in git. DistilBERT and RoBERTa are always read from the Hugging Face model repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights) with `HF_TOKEN`; nothing is stored in the project. At startup the API serves the SVM immediately and, for each encoder, downloads `<folder>/model/` and `<folder>/tokenizer/` into `INKWELL_WEIGHTS_CACHE` (outside the repository; later starts fetch only changed files), then loads them next to the run's committed thresholds. Both checkpoints reproduce their recorded validation macro-F1 (DistilBERT 0.8212, RoBERTa 0.8650). RoBERTa is stored in the repo as `robertabert-opp115-seed42/`, which the API accepts.
 
-At startup the API loads the SVM immediately and loads each encoder in the background from:
-
-1. `runs/<run>/model/` and `runs/<run>/tokenizer/` on disk (git-ignored), or else
-2. a download from `INKWELL_WEIGHTS_REPO` into that same place (about 270 MB for DistilBERT, once per fresh machine or container).
-
-An encoder with no weights is reported as `unavailable` and the other models keep working.
+If the hub is unreachable, the API reuses an earlier download on the same machine; otherwise that encoder is reported as `unavailable` and the other models keep working.
 
 ## Configuration
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `ALLOWED_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Comma-separated CORS origins. Setting it replaces the default. |
-| `INKWELL_WEIGHTS_REPO` | `Hamshika/inkwell-weights` | HF model repo with encoder weights; `""` disables downloads |
-| `HF_TOKEN` | unset | Read token, needed only if the weights repo is private. Locally put it in the git-ignored `.env`; on a host, store it as a **secret**. |
+| `INKWELL_WEIGHTS_REPO` | `Hamshika/inkwell-weights` | HF model repo with encoder weights |
+| `INKWELL_WEIGHTS_CACHE` | `~/.cache/inkwell` | Where downloaded weights are kept while the app runs |
+| `HF_TOKEN` | unset | Read token for the weights repo. Locally put it in the git-ignored `.env`; on a host, store it as a **secret**. |
 | `INKWELL_MODELS` | `svm,distilbert,roberta` | Which models to load |
 | `MAX_ENCODER_SEGMENTS` | `200` | Paragraph cap per encoder request |
 | `INKWELL_BACKGROUND_LOAD` | `1` | `0` loads encoders before accepting traffic (Cloud Run) |
@@ -101,4 +97,4 @@ Build from the repository root. Both images run as non-root UID 1000 and listen 
 
 ## Deploy
 
-`python -m api.bundle --out dist/deploy [--svm-only | --with-weights]` assembles a folder with `Dockerfile` (and this README, the Hugging Face Space card) at its root, for hosts that build from an uploaded folder. Step-by-step guides for Render (free, SVM), Google Cloud Run (all three) and Hugging Face Spaces (PRO): `Documentation/DEPLOYMENT.md`.
+`python -m api.bundle --out dist/deploy [--svm-only]` assembles a folder with `Dockerfile` (and this README, the Hugging Face Space card) at its root, for hosts that build from an uploaded folder. Step-by-step guides for Render (free, SVM), Google Cloud Run (all three) and Hugging Face Spaces (PRO): `Documentation/DEPLOYMENT.md`.
