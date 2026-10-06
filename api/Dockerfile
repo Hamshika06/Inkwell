@@ -1,7 +1,7 @@
 # All three models + the web frontend. Build from the repository root:
 #   docker build -f api/Dockerfile -t inkwell .
-# Needs ~2 GB RAM with both encoders loaded. Encoder weights are not baked in: mount them under
-# runs/<run>/model and tokenizer, or set INKWELL_WEIGHTS_REPO (+ HF_TOKEN if private) to download at startup.
+# Weights are not in the image: at startup the app downloads DistilBERT and RoBERTa from
+# INKWELL_WEIGHTS_REPO (default Hamshika/inkwell-weights) with HF_TOKEN. Give it HF_TOKEN as a secret.
 # For a 512 MB free host, use api/Dockerfile.svm instead.
 FROM python:3.10-slim
 
