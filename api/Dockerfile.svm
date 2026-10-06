@@ -1,0 +1,23 @@
+# SVM only + the web frontend: no torch, ~90 MB RAM, fits free 512 MB hosts (Render, Koyeb).
+# Build from the repository root:
+#   docker build -f api/Dockerfile.svm -t inkwell-svm .
+# The DistilBERT/RoBERTa cards show as unavailable. Use api/Dockerfile for all three models.
+FROM python:3.10-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 INKWELL_MODELS=svm
+RUN useradd -m -u 1000 user
+WORKDIR /home/user/app
+
+COPY api/requirements.txt api/
+RUN pip install --no-cache-dir -r api/requirements.txt
+
+COPY --chown=user inkwell/ inkwell/
+COPY --chown=user configs/ configs/
+COPY --chown=user runs/svm-opp115-seed42/ runs/svm-opp115-seed42/
+COPY --chown=user api/ api/
+COPY --chown=user web/ web/
+
+USER user
+EXPOSE 7860
+# Hosts such as Render and Cloud Run set $PORT; 7860 otherwise.
+CMD ["sh", "-c", "exec uvicorn api.app:app --host 0.0.0.0 --port ${PORT:-7860}"]

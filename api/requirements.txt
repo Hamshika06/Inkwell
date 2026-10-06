@@ -1,0 +1,10 @@
+# SVM path + web server. Use Python 3.10 or 3.11 (training used 3.10.11; numpy 1.26.4 has no
+# wheels for 3.13+). model.joblib is a pickle: these pins match runs/svm-opp115-seed42/run.json.
+numpy==1.26.4
+scikit-learn==1.7.2
+joblib==1.5.3
+scipy==1.15.3
+threadpoolctl==3.7.0
+
+fastapi==0.142.2
+uvicorn==0.54.0
