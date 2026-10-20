@@ -1,0 +1,9 @@
+# Used by BuildKit with `docker build -f api/Dockerfile.svm .`: send only what the image needs.
+*
+!inkwell/
+!configs/
+!runs/svm-opp115-seed42/
+!api/
+!web/
+**/__pycache__
+**/.venv

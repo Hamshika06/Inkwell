@@ -71,6 +71,50 @@ C3PA positive-label recall for the seed-42 run (recall only; false positives are
 - **Cost:** the saved model is about 269 MB, and CPU scoring took 109 to 126 ms per segment on Colab's CPU. This is a different machine from the pilot's 15.2 ms, so the two are not comparable.
 - The demo still uses the SVM. The selection files in `runs/` have not been regenerated with these runs.
 
+## RoBERTa-base fine-tune (OPP-115 only)
+
+```sh
+python -m scripts.train_encoder --model roberta-base --source opp115 --epochs 10 --batch-size 16 --lr 2e-5 --seed 42 --out runs/roberta-opp115-seed42
+python -m scripts.train_encoder --model roberta-base --source opp115 --epochs 10 --batch-size 16 --lr 2e-5 --seed 13 --out runs/roberta-opp115-seed13
+python -m scripts.train_encoder --model roberta-base --source opp115 --epochs 10 --batch-size 16 --lr 2e-5 --seed 7 --out runs/roberta-opp115-seed7
+python -m scripts.evaluate_test --run runs/roberta-opp115-seed42
+```
+
+`roberta-base` is fine-tuned on OPP-115 training rows only (`--source opp115`; C3PA is not used). Training runs for up to 10 epochs and stops early after 2 epochs without improvement in validation macro-F1; all three seeds stopped at epoch 9 (best epoch 7 in each case). Batch size is 16 and the learning rate is 2e-5. Thresholds are tuned on validation. Runs used a Colab GPU (torch 2.11.0+cu130) on frozen dataset v1. Only the small result files are committed; the model and tokenizer folders (~480 MB per run) are git-ignored.
+
+| Seed | Epochs run | Training time | Validation macro-F1 | Validation micro-F1 |
+| --- | --- | --- | --- | --- |
+| 42 | 9 | 1060 s | 0.8650 | 0.8465 |
+| 13 | 9 | 1069 s | 0.8592 | 0.8371 |
+| 7 | 9 | 1057 s | 0.8604 | 0.8368 |
+| **Mean ± std** | | | **0.862 ± 0.003** | **0.840 ± 0.005** |
+
+Seed 42 was evaluated once on the OPP-115 v1 test set after the configuration was fixed: **macro-F1 0.7404, micro-F1 0.8005**. Only seed 42 has a test result.
+
+Per-category F1. Validation is the mean ± std over the three seeds; test is seed 42 only; the SVM column is the saved SVM run on test. (Val. positives are the same frozen v1 validation split DistilBERT uses, so the counts are identical across models.)
+
+| Category | Validation F1 | Val. positives | Test F1 | Test positives | SVM test F1 |
+| --- | --- | --- | --- | --- | --- |
+| First Party Collection/Use | 0.866 ± 0.014 | 162 | 0.852 | 98 | 0.802 |
+| Third Party Sharing/Collection | 0.877 ± 0.007 | 131 | 0.873 | 84 | 0.793 |
+| User Choice/Control | 0.735 ± 0.043 | 39 | 0.725 | 37 | 0.658 |
+| Data Security | 0.815 ± 0.014 | 17 | 0.774 | 19 | 0.727 |
+| International and Specific Audiences | 0.905 ± 0.007 | 30 | 0.784 | 46 | 0.786 |
+| User Access, Edit and Deletion | 0.794 ± 0.028 | 18 | 0.643 | 17 | 0.737 |
+| Policy Change | 0.968 ± 0.022 | 10 | 0.800 | 15 | 0.636 |
+| Data Retention | 0.889 ± 0.000 | 5 | 0.375 | 13 | 0.375 |
+| Do Not Track | 1.000 ± 0.000 | 4 | 0.800 | 3 | 0.800 |
+| Other | 0.766 ± 0.002 | 114 | 0.778 | 86 | 0.690 |
+
+C3PA positive-label recall for the seed-42 run (recall only; false positives are unmeasured, so this is never used for selection): First Party 0.912, Third Party 0.601, User Choice 0.760, Access/Edit/Deletion 0.370, Policy Change 0.646.
+
+### Reading these results
+
+- **RoBERTa leads both the SVM and DistilBERT on test, but by a margin similar to the seed-to-seed spread.** Test macro-F1 is 0.7404 against 0.7004 (SVM) and 0.7033 (DistilBERT); test micro-F1 is 0.8005 against 0.7459 and 0.7694. The gap over DistilBERT (0.037) is larger than RoBERTa's own validation std (0.003), which is some evidence of a real edge.
+- **Rare categories are still the weak point.** Data Retention (5 validation / 13 test positives) scores 0.889 ± 0.000 on validation but only 0.375 on test — the same overstatement pattern seen in DistilBERT's Data Retention row. Do Not Track (4 / 3 positives) matches DistilBERT exactly at 0.800 test F1.
+- **RoBERTa costs more to run.** The saved model is about 480 MB versus DistilBERT's ~269 MB, and CPU scoring took roughly 239–250 ms/segment on Colab's CPU versus DistilBERT's 109–126 ms — call it ~2x the inference cost for the test-set gains above.
+
+
 ## Demo acceptance
 
 Open http://127.0.0.1:8765. Paste a policy with blank lines between paragraphs, classify, and click any evidence clause. The original submitted text is preserved; every displayed clause is an exact substring identified by character offsets. FAQ cards and all ten categories use complete classified segments. Unmatched categories say “No matching clause detected.” Policy HTML is displayed as text, never executed. User submissions are not written to disk. URL ingestion and attribute span highlighting are deferred.

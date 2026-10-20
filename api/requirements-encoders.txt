@@ -1,0 +1,10 @@
+# Everything in requirements.txt plus DistilBERT/RoBERTa inference.
+-r requirements.txt
+# CPU-only torch wheels: much smaller than the default CUDA build on Linux.
+--extra-index-url https://download.pytorch.org/whl/cpu
+# Same torch/transformers as training (run.json records torch 2.11.0).
+torch==2.11.0
+transformers==4.57.6
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface-hub==0.36.2
