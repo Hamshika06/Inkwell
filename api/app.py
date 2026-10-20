@@ -8,6 +8,7 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
+import jwt
 import sklearn
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
@@ -27,7 +28,7 @@ RUNS = ROOT / "runs"
 WEB = ROOT / "web"
 MODELS = {"svm": ("TF-IDF + SVM", "svm-opp115-seed42"),
           "distilbert": ("DistilBERT", "distilbert-opp115-seed42"),
-          "roberta": ("RoBERTa-base", "roberta-opp115-seed42")}
+          "roberta": ("RoBERTa (C3PA + OPP-115)", "roberta-c3pa-opp115-seed42")}
 DEFAULT_MODEL = "svm"
 MAX_BYTES = 1_000_000  # Same limit as demo/server.py.
 # Encoders cost ~0.1-0.25 s per paragraph on CPU; cap them so one request cannot hold the server for minutes.
@@ -39,13 +40,49 @@ WEIGHTS_REPO = os.environ.get("INKWELL_WEIGHTS_REPO", "Hamshika/inkwell-weights"
 # Where downloaded weights are kept while the app runs: outside the repository, reused across restarts on
 # the same machine. On Cloud Run and in Docker it is the container's own disk and disappears with it.
 WEIGHTS_CACHE = Path(os.environ.get("INKWELL_WEIGHTS_CACHE", Path.home() / ".cache" / "inkwell"))
-# Folder names to try in the weights repo, run name first. RoBERTa was uploaded as "robertabert-...".
-REPO_FOLDERS = {"roberta-opp115-seed42": ["roberta-opp115-seed42", "robertabert-opp115-seed42"]}
+# Folder names to try in the weights repo, run name first. The combined RoBERTa run is uploaded there
+# as "roberta-combined-seed42" (same run.json, thresholds and metrics as runs/roberta-c3pa-opp115-seed42).
+REPO_FOLDERS = {"roberta-c3pa-opp115-seed42": ["roberta-c3pa-opp115-seed42", "roberta-combined-seed42"]}
 # Load encoders after the server starts (default) or before it accepts traffic ("0"; for hosts such as
 # Cloud Run that throttle CPU outside requests, where a background load would stall).
 BACKGROUND_LOAD = os.environ.get("INKWELL_BACKGROUND_LOAD", "1") != "0"
 ORIGINS = [o.strip() for o in os.environ.get(
     "ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if o.strip()]
+# Sign-in through Firebase Authentication (Google, GitHub, email and password). It is on when the web app's
+# Firebase settings are set; /analyze then requires "Authorization: Bearer <Firebase ID token>". These are
+# public client settings, not secrets. Without them sign-in is off and the app is open, as before.
+FIREBASE = {key: os.environ.get(f"FIREBASE_{key.upper()}", "").strip()
+            for key in ("api_key", "auth_domain", "project_id", "app_id")}
+AUTH_ENABLED = all(FIREBASE[key] for key in ("api_key", "auth_domain", "project_id"))
+# Google's public keys for Firebase ID tokens (rotated by Google; PyJWKClient caches them).
+FIREBASE_JWKS_URL = "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com"
+_jwks = None
+
+
+def verify_user(request):
+    """Return the signed-in user's token claims, or raise 401. Returns None when sign-in is off."""
+    global _jwks
+    if not AUTH_ENABLED:
+        return None
+    scheme, _, token = request.headers.get("authorization", "").partition(" ")
+    if scheme.lower() != "bearer" or not token:
+        raise HTTPException(401, "Sign in to analyze policies", headers={"WWW-Authenticate": "Bearer"})
+    if _jwks is None:
+        _jwks = jwt.PyJWKClient(FIREBASE_JWKS_URL, cache_keys=True, lifespan=3600)
+    project = FIREBASE["project_id"]
+    try:
+        key = _jwks.get_signing_key_from_jwt(token).key
+        claims = jwt.decode(token, key, algorithms=["RS256"], audience=project, leeway=60,
+                            issuer=f"https://securetoken.google.com/{project}",
+                            options={"require": ["exp", "iat", "sub", "aud", "iss"]})
+    except jwt.PyJWKClientConnectionError:
+        raise HTTPException(503, "Could not reach Google to check your sign-in; try again")
+    except (jwt.PyJWKClientError, jwt.InvalidTokenError):
+        raise HTTPException(401, "Your sign-in is invalid or has expired; sign in again",
+                            headers={"WWW-Authenticate": "Bearer"})
+    if not claims.get("sub"):
+        raise HTTPException(401, "Your sign-in is invalid; sign in again", headers={"WWW-Authenticate": "Bearer"})
+    return claims
 
 
 def fetch(run):
@@ -126,7 +163,7 @@ async def lifespan(app):
 
 app = FastAPI(title="Inkwell API", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=ORIGINS, allow_methods=["GET", "POST"],
-                   allow_headers=["Content-Type"])
+                   allow_headers=["Content-Type", "Authorization"])
 
 
 class Recorder:
@@ -150,6 +187,14 @@ def schema():
     return {"categories": CATEGORIES, "faqs": FAQS}
 
 
+@app.get("/auth-config")
+def auth_config():
+    """Public Firebase web settings for the login page; "enabled" is false when sign-in is not configured."""
+    return {"enabled": AUTH_ENABLED,
+            "firebase": {"apiKey": FIREBASE["api_key"], "authDomain": FIREBASE["auth_domain"],
+                         "projectId": FIREBASE["project_id"], "appId": FIREBASE["app_id"]} if AUTH_ENABLED else None}
+
+
 @app.get("/models")
 def models(request: Request):
     return {"default": DEFAULT_MODEL,
@@ -158,6 +203,7 @@ def models(request: Request):
 
 @app.post("/analyze")
 async def analyze_policy(request: Request):
+    await run_in_threadpool(verify_user, request)  # Before reading the body: unsigned requests stop here.
     if int(request.headers.get("content-length") or 0) > MAX_BYTES:
         raise HTTPException(413, "Policy text exceeds the 1 MB limit")
     body = bytearray()
