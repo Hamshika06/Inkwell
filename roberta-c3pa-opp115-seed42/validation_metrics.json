@@ -1,0 +1,76 @@
+{
+  "macro_f1": 0.8117386908148824,
+  "micro_f1": 0.8242990654205608,
+  "per_category": {
+    "First Party Collection/Use": {
+      "precision": 0.8265895953757225,
+      "recall": 0.8827160493827161,
+      "f1": 0.8537313432835821,
+      "positive_support": 162,
+      "negative_support": 278
+    },
+    "Third Party Sharing/Collection": {
+      "precision": 0.7884615384615384,
+      "recall": 0.9389312977099237,
+      "f1": 0.8571428571428571,
+      "positive_support": 131,
+      "negative_support": 309
+    },
+    "User Choice/Control": {
+      "precision": 0.8518518518518519,
+      "recall": 0.5897435897435898,
+      "f1": 0.696969696969697,
+      "positive_support": 39,
+      "negative_support": 401
+    },
+    "Data Security": {
+      "precision": 0.9285714285714286,
+      "recall": 0.7647058823529411,
+      "f1": 0.8387096774193549,
+      "positive_support": 17,
+      "negative_support": 423
+    },
+    "International and Specific Audiences": {
+      "precision": 0.9333333333333333,
+      "recall": 0.9333333333333333,
+      "f1": 0.9333333333333333,
+      "positive_support": 30,
+      "negative_support": 410
+    },
+    "User Access, Edit and Deletion": {
+      "precision": 0.6428571428571429,
+      "recall": 0.5,
+      "f1": 0.5625,
+      "positive_support": 18,
+      "negative_support": 422
+    },
+    "Policy Change": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "positive_support": 10,
+      "negative_support": 430
+    },
+    "Data Retention": {
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.75,
+      "positive_support": 5,
+      "negative_support": 435
+    },
+    "Do Not Track": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "positive_support": 4,
+      "negative_support": 436
+    },
+    "Other": {
+      "precision": 0.7818181818181819,
+      "recall": 0.7543859649122807,
+      "f1": 0.7678571428571429,
+      "positive_support": 114,
+      "negative_support": 326
+    }
+  }
+}
