@@ -4,7 +4,7 @@
 !configs/
 !runs/svm-opp115-seed42/
 !runs/distilbert-opp115-seed42/
-!runs/roberta-opp115-seed42/
+!runs/roberta-c3pa-opp115-seed42/
 !api/
 !web/
 **/__pycache__

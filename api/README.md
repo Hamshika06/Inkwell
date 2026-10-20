@@ -18,7 +18,7 @@ HTTP API (and web frontend host) for Inkwell's Stage 1 privacy-policy clause cla
 | --- | --- | --- | --- |
 | `svm` (default) | `runs/svm-opp115-seed42` | 0.700 / 0.746 | <1 ms per paragraph |
 | `distilbert` | `runs/distilbert-opp115-seed42` | 0.703 / 0.769 | ~110 ms per paragraph |
-| `roberta` | `runs/roberta-opp115-seed42` | 0.740 / 0.800 | ~250 ms per paragraph |
+| `roberta` | `runs/roberta-c3pa-opp115-seed42` (trained on C3PA + OPP-115) | 0.669 / 0.744 | ~230 ms per paragraph |
 
 Research baseline trained on OPP-115 (research, teaching and scholarship use only). A missing match may be a classifier error. Not legal advice. Submitted text is not logged or stored.
 
@@ -29,7 +29,8 @@ Research baseline trained on OPP-115 (research, teaching and scholarship use onl
 | `GET` | `/health` | `{"status": "ok", "run": "svm-opp115-seed42", "models": {"svm": "ready", ...}}` |
 | `GET` | `/schema` | `{"categories": [...10 categories...], "faqs": {question: category}}` |
 | `GET` | `/models` | Each model's `status` (`ready`, `loading`, `unavailable`), `error`, test F1 and CPU cost |
-| `POST` | `/analyze` | `demo/server.py`'s response, plus extra keys (below) |
+| `GET` | `/auth-config` | `{"enabled": bool, "firebase": {apiKey, authDomain, projectId, appId}}`: public sign-in settings for the login page |
+| `POST` | `/analyze` | `demo/server.py`'s response, plus extra keys (below). Requires `Authorization: Bearer <Firebase ID token>` when sign-in is on |
 
 `POST /analyze` takes `{"text": "<policy text>", "model": "svm"}`. `model` is optional and defaults to `svm`; separate paragraphs with blank lines. The response keeps the demo contract and adds keys:
 
@@ -50,12 +51,13 @@ A segment carries a label exactly when `scores[i] >= thresholds[i]`. SVM scores 
 
 Errors return `{"detail": "..."}`:
 - **400**: empty or whitespace-only text, non-string `text`, a body that is not a JSON object, or an unknown `model`.
+- **401**: sign-in is on and the request has no valid Firebase ID token (missing, expired, wrong project or bad signature).
 - **413**: body over 1 MB (1,000,000 bytes), or more than `MAX_ENCODER_SEGMENTS` paragraphs for an encoder.
 - **503**: the model is still loading or unavailable (the message says why).
 
 ## Encoder weights
 
-The SVM model is in git. DistilBERT and RoBERTa are always read from the Hugging Face model repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights) with `HF_TOKEN`; nothing is stored in the project. At startup the API serves the SVM immediately and, for each encoder, downloads `<folder>/model/` and `<folder>/tokenizer/` into `INKWELL_WEIGHTS_CACHE` (outside the repository; later starts fetch only changed files), then loads them next to the run's committed thresholds. Both checkpoints reproduce their recorded validation macro-F1 (DistilBERT 0.8212, RoBERTa 0.8650). RoBERTa is stored in the repo as `robertabert-opp115-seed42/`, which the API accepts.
+The SVM model is in git. DistilBERT and RoBERTa are always read from the Hugging Face model repo [`Hamshika/inkwell-weights`](https://huggingface.co/Hamshika/inkwell-weights) with `HF_TOKEN`; nothing is stored in the project. At startup the API serves the SVM immediately and, for each encoder, downloads `<folder>/model/` and `<folder>/tokenizer/` into `INKWELL_WEIGHTS_CACHE` (outside the repository; later starts fetch only changed files), then loads them next to the run's committed thresholds. Both checkpoints reproduce their recorded validation macro-F1 (DistilBERT 0.8212, RoBERTa 0.8117). RoBERTa is the combined C3PA + OPP-115 run, stored in the repo as `roberta-combined-seed42/`, which the API accepts. The earlier OPP-115-only RoBERTa (`runs/roberta-opp115-seed42`) is no longer served.
 
 If the hub is unreachable, the API reuses an earlier download on the same machine; otherwise that encoder is reported as `unavailable` and the other models keep working.
 
@@ -71,10 +73,11 @@ If the hub is unreachable, the API reuses an earlier download on the same machin
 | `MAX_ENCODER_SEGMENTS` | `200` | Paragraph cap per encoder request |
 | `INKWELL_BACKGROUND_LOAD` | `1` | `0` loads encoders before accepting traffic (Cloud Run) |
 | `PORT` | `7860` | Listen port inside the Docker images |
+| `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID`, `FIREBASE_APP_ID` | unset | Firebase web app settings. When the first three are set, sign-in is on and `/analyze` requires a signed-in user; tokens are checked against Google's public keys. Public values, not secrets. Setup: `Documentation/DEPLOYMENT.md`, "Sign-in". |
 
 ## Run locally
 
-Windows, from the repository root: `api\run_local.cmd` (add `-SvmOnly` to skip torch). It creates `api\.venv` with Python 3.10, installs the pins and serves the page and API at http://127.0.0.1:7860. Elsewhere: create a Python 3.10 venv, `pip install -r api/requirements-encoders.txt` (or `requirements.txt` for SVM only), then `uvicorn api.app:app --port 7860`.
+Windows, from the repository root: `api\run_local.cmd` (add `-SvmOnly` to skip torch). It creates `api\.venv` with Python 3.10, installs the pins and serves the page and API at http://localhost:7860. Elsewhere: create a Python 3.10 venv, `pip install -r api/requirements-encoders.txt` (or `requirements.txt` for SVM only), then `uvicorn api.app:app --port 7860`.
 
 When `web/` exists the API serves it at `/`, so the page and API share one origin. API routes take precedence over static files.
 

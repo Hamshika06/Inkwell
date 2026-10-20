@@ -46,6 +46,7 @@ if ($HasUv) {
 if ($LASTEXITCODE -ne 0) { throw "Package installation failed" }
 
 Write-Host ""
-Write-Host "Inkwell is starting. Open http://127.0.0.1:$Port  (Ctrl+C to stop)" -ForegroundColor Green
+# "localhost" (not 127.0.0.1): Firebase sign-in only allows authorized domains, and localhost is one by default.
+Write-Host "Inkwell is starting. Open http://localhost:$Port  (Ctrl+C to stop)" -ForegroundColor Green
 Set-Location $Root
 & $Python -m uvicorn api.app:app --host 127.0.0.1 --port $Port

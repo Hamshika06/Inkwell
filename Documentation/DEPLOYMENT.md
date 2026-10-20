@@ -26,7 +26,7 @@ api\run_local.cmd            (all three models; first run downloads torch, ~5 mi
 api\run_local.cmd -SvmOnly   (SVM only, faster install)
 ```
 
-Then open **http://127.0.0.1:7860**.
+Then open **http://localhost:7860**.
 
 What the script does:
 - Creates `api\.venv` with **Python 3.10**, using uv, conda or the `py` launcher, whichever exists. The system `python` version does not matter.
@@ -52,17 +52,39 @@ Only the SVM model is in git. DistilBERT and RoBERTa always come from the Huggin
 | Run | Folder in the repo | Verified |
 | --- | --- | --- |
 | `distilbert-opp115-seed42` | `distilbert-opp115-seed42/` | MATCH: validation macro-F1 0.8212 |
-| `roberta-opp115-seed42` | `robertabert-opp115-seed42/` (uploaded under this name; the app accepts it) | MATCH: validation macro-F1 0.8650 |
+| `roberta-c3pa-opp115-seed42` (C3PA + OPP-115) | `roberta-combined-seed42/` (uploaded under this name; the app accepts it) | MATCH: validation macro-F1 0.8117 |
 
 **Token:** put `HF_TOKEN=<read token>` in `.env` at the repository root. The app loads it; `.env` is git-ignored and never copied into images. On hosts, store `HF_TOKEN` as a secret (Option B shows how). The token must have read access to `Hamshika/inkwell-weights`.
 
 **Check a checkpoint** after replacing one in the repo. Each run's thresholds were tuned for one exact checkpoint, so download the run into `runs/<run>/model` and `runs/<run>/tokenizer` temporarily and rescore the validation split (never test):
 
 ```
-api\.venv\Scripts\python -m api.check_weights runs/roberta-opp115-seed42      # expect MATCH (0.8650)
+api\.venv\Scripts\python -m api.check_weights runs/roberta-c3pa-opp115-seed42      # expect MATCH (0.8117)
 ```
 
 Delete the temporary copy afterwards. On Windows, run this from a clone made with `git clone -c core.autocrlf=false <url>`; otherwise Git rewrites `data/` and `configs/` with CRLF line endings and the frozen-benchmark checksum fails. If a checkpoint is lost, retrain with the commands in `EXPERIMENTS.md` and replace the whole run folder. Never pair new weights with the old `thresholds.json`.
+
+## Step 2: Sign-in (Firebase Authentication)
+
+The login page (`/login.html`) offers Google, GitHub, and email + username + password, with password reset. Firebase stores the accounts and passwords; Inkwell never sees a password. Until the settings below are present, sign-in is off and the app is open, as before.
+
+1. **Add Firebase to the Google Cloud project.** At https://console.firebase.google.com choose **Create a project → Add Firebase to an existing Google Cloud project** and pick `inkwell-510813`. Analytics is not needed.
+2. **Register the web app.** Project settings (gear) → General → Your apps → **Web (`</>`)** → name it "Inkwell web" (no Hosting). Keep the `firebaseConfig` it shows: `apiKey`, `authDomain`, `projectId`, `appId`.
+3. **Turn on the sign-in methods.** Build → **Authentication** → Get started → Sign-in method:
+   - **Email/Password**: enable (leave "Email link" off).
+   - **Google**: enable and choose a support email.
+   - **GitHub**: enable. Copy the **callback URL** it shows (`https://inkwell-510813.firebaseapp.com/__/auth/handler`), then on GitHub go to Settings → Developer settings → **OAuth Apps → New OAuth App**. Use homepage `http://localhost:7860` (or the live URL) and paste the callback URL as the **Authorization callback URL**. Register, **Generate a new client secret**, and paste the Client ID and secret back into Firebase.
+4. **Authorized domains.** Authentication → Settings → Authorized domains: `localhost` is there by default. Add your live domain (for example `inkwell-846713605562.us-east1.run.app`). Open the app at `http://localhost:7860`, not `127.0.0.1`, unless you add that too.
+5. **Give the app the settings.** Add to `.env` at the repository root (these are public client values, not secrets):
+   ```
+   FIREBASE_API_KEY=<apiKey>
+   FIREBASE_AUTH_DOMAIN=inkwell-510813.firebaseapp.com
+   FIREBASE_PROJECT_ID=inkwell-510813
+   FIREBASE_APP_ID=<appId>
+   ```
+6. Restart `api\run_local.cmd` and open http://localhost:7860. You are sent to the login page; after signing in you land on the app. The server now rejects analyses without a valid sign-in token (401).
+
+On Cloud Run, pass the same four values with `--set-env-vars FIREBASE_API_KEY=...,FIREBASE_AUTH_DOMAIN=...,FIREBASE_PROJECT_ID=...,FIREBASE_APP_ID=...` (alongside `INKWELL_BACKGROUND_LOAD=0`). Users who sign up with the same email through two methods (for example Google and GitHub) are told to use the method they signed up with; Firebase's default is one account per email.
 
 ## Docker (local)
 
@@ -76,7 +98,7 @@ docker build -f api/Dockerfile -t inkwell .             # all three, ~1.8 GB ima
 docker run --rm -p 7860:7860 --env-file .env inkwell    # reads HF_TOKEN from .env
 ```
 
-Open http://127.0.0.1:7860. Use `-p <host-port>:7860`: the right-hand number must stay 7860. The full image downloads the encoders from Hugging Face at startup (about 40 s) and needs about 430 MB of RAM plus 740 MB of disk. Both images run as a non-root user and listen on `$PORT` (default 7860).
+Open http://localhost:7860. Use `-p <host-port>:7860`: the right-hand number must stay 7860. The full image downloads the encoders from Hugging Face at startup (about 40 s) and needs about 430 MB of RAM plus 740 MB of disk. Both images run as a non-root user and listen on `$PORT` (default 7860).
 
 ---
 
@@ -160,8 +182,11 @@ Every option above already serves the page. If you still want the page on Vercel
 | `pip` tries to compile numpy, or install fails | Wrong Python version. Use `api\run_local.cmd`, which uses 3.10. |
 | "saved with scikit-learn 1.7.2, but X is installed" | The environment isn't the pinned one. Delete `api\.venv` and rerun the script. |
 | "running scripts is disabled on this system" | Use `api\run_local.cmd`, which bypasses the policy for this script only. |
-| Page says "Opened as a file" | Open http://127.0.0.1:7860 instead of the HTML file. |
+| Page says "Opened as a file" | Open http://localhost:7860 instead of the HTML file. |
 | `docker` can't connect to `dockerDesktopLinuxEngine` | Start Docker Desktop and wait for *Engine running*. |
 | A model card says *unavailable* | Its reason is shown on the card and at `/models`: no weights, or encoder packages not installed (`-SvmOnly` setup). |
+| Login page: "This site's address isn't authorized for sign-in" | Add the domain under Firebase → Authentication → Settings → Authorized domains, or open the app at `http://localhost:7860` |
+| Login page: "This sign-in method isn't enabled yet" | Enable that provider in Firebase → Authentication → Sign-in method |
+| Login page: "Sign-in isn't set up on this server yet" | The `FIREBASE_*` settings are missing from `.env` (locally) or the service's environment variables |
 | Render: "Out of memory" | Use `api/Dockerfile.svm`. The full image needs about 2 GB. |
 | 413 on an encoder | More than 200 paragraphs. Use the SVM, or raise `MAX_ENCODER_SEGMENTS`. |

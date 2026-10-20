@@ -26,7 +26,8 @@ class ApiTests(unittest.TestCase):
         models = {m["id"]: m for m in self.client.get("/models").json()["models"]}
         self.assertEqual(set(models), set(MODELS))
         self.assertEqual(models["svm"]["status"], "ready")
-        self.assertAlmostEqual(models["roberta"]["test_macro_f1"], 0.7404, places=4)
+        self.assertEqual(models["roberta"]["run"], "roberta-c3pa-opp115-seed42")
+        self.assertAlmostEqual(models["roberta"]["test_macro_f1"], 0.6688, places=4)
 
     def test_analyze_keeps_demo_contract(self):
         text = "We collect your email address.\n\n  You can request deletion of your data. 🔒"
@@ -71,6 +72,68 @@ class ApiTests(unittest.TestCase):
     def test_unlisted_origin_gets_no_cors_header(self):
         response = self.client.get("/health", headers={"Origin": "https://evil.example"})
         self.assertNotIn("access-control-allow-origin", response.headers)
+
+    def test_sign_in_off_without_firebase_settings(self):
+        self.assertEqual(self.client.get("/auth-config").json(), {"enabled": False, "firebase": None})
+
+
+class AuthTests(unittest.TestCase):
+    """Sign-in on: a throwaway RSA key stands in for Google's Firebase signing keys."""
+    PROJECT = "inkwell-test"
+
+    @classmethod
+    def setUpClass(cls):
+        import api.app as module
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        cls.module, cls.saved = module, (module.AUTH_ENABLED, dict(module.FIREBASE), module._jwks)
+        cls.key, cls.other_key = (rsa.generate_private_key(public_exponent=65537, key_size=2048) for _ in range(2))
+        module.AUTH_ENABLED = True
+        module.FIREBASE.update(api_key="test-key", auth_domain="inkwell-test.firebaseapp.com",
+                               project_id=cls.PROJECT, app_id="1:2:web:3")
+        public = cls.key.public_key()
+        module._jwks = type("Keys", (), {"get_signing_key_from_jwt": lambda self, token: type("K", (), {"key": public})()})()
+        cls.client = TestClient(app).__enter__()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.client.__exit__(None, None, None)
+        cls.module.AUTH_ENABLED, firebase, cls.module._jwks = cls.saved
+        cls.module.FIREBASE.update(firebase)
+
+    def token(self, key=None, **overrides):
+        import jwt
+        now = int(time.time())
+        claims = {"iss": f"https://securetoken.google.com/{self.PROJECT}", "aud": self.PROJECT, "sub": "user-1",
+                  "iat": now, "exp": now + 3600, "auth_time": now, **overrides}
+        return jwt.encode(claims, key or self.key, algorithm="RS256", headers={"kid": "test"})
+
+    def analyze(self, token=None):
+        headers = {"Authorization": f"Bearer {token}"} if token else {}
+        return self.client.post("/analyze", json={"text": "We collect your email address."}, headers=headers)
+
+    def test_config_is_public(self):
+        config = self.client.get("/auth-config").json()
+        self.assertTrue(config["enabled"])
+        self.assertEqual(config["firebase"]["projectId"], self.PROJECT)
+
+    def test_valid_token_is_accepted(self):
+        self.assertEqual(self.analyze(self.token()).status_code, 200)
+
+    def test_rejected_tokens(self):
+        now = int(time.time())
+        cases = {"missing": None, "other project": self.token(aud="someone-else"),
+                 "other issuer": self.token(iss="https://securetoken.google.com/someone-else"),
+                 "expired": self.token(iat=now - 7200, exp=now - 3600), "no user": self.token(sub=""),
+                 "forged signature": self.token(key=self.other_key), "garbage": "not-a-token"}
+        for case, token in cases.items():
+            response = self.analyze(token)
+            self.assertEqual(response.status_code, 401, case)
+            self.assertIn("detail", response.json())
+
+    def test_reading_endpoints_stay_open(self):
+        for path in ["/health", "/schema", "/models", "/auth-config"]:
+            self.assertEqual(self.client.get(path).status_code, 200, path)
+
 
 if __name__ == "__main__":
     unittest.main()
