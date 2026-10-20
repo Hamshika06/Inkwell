@@ -156,6 +156,36 @@ Cloud Run gives 2 GB containers that scale to zero. The monthly free quota (abou
 
 Each cold start downloads the encoders from Hugging Face, so the first visit after idle takes about a minute. RoBERTa takes about 0.25 s per paragraph on CPU, and encoder requests are capped at 200 paragraphs.
 
+## Option B+: Firebase Hosting for the website, Cloud Run for the models
+
+Firebase Hosting serves only static files, so it hosts `web/` at `https://<firebase-project>.web.app` while the Cloud Run service from Option B runs the models. `web/config.js` sends API calls from `*.web.app` / `*.firebaseapp.com` to that Cloud Run URL. Hosting cannot forward to Cloud Run in a different Google Cloud project, so the page calls Cloud Run directly (cross-origin).
+
+1. **Cloud Run settings.** Create `cloudrun-env.yaml` in the repository root (git-ignored) with your Firebase values from `.env`:
+   ```yaml
+   INKWELL_BACKGROUND_LOAD: "0"
+   ALLOWED_ORIGINS: "https://inkwell-4a456.web.app,https://inkwell-4a456.firebaseapp.com"
+   FIREBASE_API_KEY: "<FIREBASE_API_KEY>"
+   FIREBASE_AUTH_DOMAIN: "inkwell-4a456.firebaseapp.com"
+   FIREBASE_PROJECT_ID: "inkwell-4a456"
+   FIREBASE_APP_ID: "<FIREBASE_APP_ID>"
+   ```
+2. **Rebuild and redeploy Cloud Run** with the current code:
+   ```
+   docker build -f api/Dockerfile -t inkwell .
+   docker tag inkwell us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest
+   docker push us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest
+   gcloud run deploy inkwell --image us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest --region us-east1 --memory 2Gi --cpu 2 --min-instances 0 --max-instances 1 --env-vars-file cloudrun-env.yaml --set-secrets HF_TOKEN=hf-token:latest --allow-unauthenticated
+   ```
+3. **Deploy the website** (`firebase.json` publishes `web/`; `.firebaserc` selects `inkwell-4a456`):
+   ```
+   npm install -g firebase-tools
+   firebase login
+   firebase deploy --only hosting
+   ```
+4. Open `https://inkwell-4a456.web.app`. Firebase authorizes its own `web.app` and `firebaseapp.com` domains for sign-in automatically.
+
+Website-only changes need just `firebase deploy --only hosting`; API or model changes need step 2 again.
+
 ## Option C: Hugging Face Docker Space (all three models, PRO required)
 
 Hugging Face now requires PRO ($9/month) to create Docker or Gradio Spaces. If you have PRO:
