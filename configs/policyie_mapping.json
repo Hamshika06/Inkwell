@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "policyie_to_opp115": {
+    "first-party-collection-use": "First Party Collection/Use",
+    "third-party-sharing-disclosure": "Third Party Sharing/Collection",
+    "data-storage-retention-deletion": "Data Retention",
+    "data-security-protection": "Data Security"
+  },
+  "corrections": {
+    "note": "Hand-reviewed rows whose PolicyIE retention-deletion label does not mean Data Retention in OPP-115. Their Data Retention label is ignored (masked). Children's-privacy rows also get International and Specific Audiences, as OPP-115 labels 37 of its 38 similar paragraphs.",
+    "children_to_specific_audiences": [
+      "policyie:codecademy#0010",
+      "policyie:com_apps_go_clean_boost_master#0013",
+      "policyie:com_blackout_word#0012",
+      "policyie:entrepreneur#0005",
+      "policyie:air_com_qublix_solitaireblitz#0016",
+      "policyie:com_forsbit_spideradfree#0025",
+      "policyie:constantcontact#0036",
+      "policyie:cox#0007",
+      "policyie:com_bagelcode_slots1#0023",
+      "policyie:com_box_android#0041",
+      "policyie:discogs#0009",
+      "policyie:discogs#0010"
+    ],
+    "ignore_retention": [
+      "policyie:app_hallow_android#0034",
+      "policyie:blizzard#0010",
+      "policyie:deviantart#0008",
+      "policyie:com_box_android#0038"
+    ]
+  }
+}
