@@ -221,3 +221,8 @@ __marimo__/
 .model-cache/
 runs/**/model/
 runs/**/tokenizer/
+
+# Firebase CLI deploy cache
+.firebase/
+# Local Cloud Run settings file (see Documentation/DEPLOYMENT.md)
+cloudrun-env.yaml
