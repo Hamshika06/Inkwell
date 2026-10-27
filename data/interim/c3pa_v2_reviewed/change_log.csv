@@ -1,0 +1,246 @@
+unit_id,action,labels_before,labels_after,reason
+c3pa:db/1#0030,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/11#0053,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/12#0013,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/12#0015,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/13#0026,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/13#0029,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/135#0006,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/135#0009,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/135#0013,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/135#0017,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/136#0000,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/136#0005,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/138#0000,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/138#0022,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/138#0033,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/138#0052,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/139#0014,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/139#0016,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0018,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/139#0020,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/139#0022,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/139#0023,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/139#0025,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0028,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0030,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0031,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0033,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0034,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/139#0038,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/14#0004,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/14#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/146#0009,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/146#0014,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/147#0009,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/147#0016,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/149#0049,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/15#0005,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/15#0006,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/15#0009,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/15#0010,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/15#0028,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0030,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0031,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/15#0032,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0033,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0035,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0036,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0041,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0048,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/15#0053,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/151#0001,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/151#0004,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/151#0009,DROP,"User Choice/Control|User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/151#0017,DROP,"User Choice/Control|User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/152#0060,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/156#0021,DROP,"User Choice/Control|User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/157#0000,SET,Policy Change,User Choice/Control,Policy Change label wrong; text is about User Choice/Control
+c3pa:db/158#0056,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0019,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/16#0020,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0022,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0023,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0025,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0033,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0037,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/16#0039,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/164#0020,DROP,"User Choice/Control|User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/170#0001,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/18#0024,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0028,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0034,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0035,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0036,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0037,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/18#0045,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0001,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0002,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0006,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0007,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0008,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0010,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0011,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0013,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0015,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0017,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0027,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0028,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0034,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0037,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0039,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0041,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0042,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0043,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0045,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0046,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/181#0050,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0052,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/181#0118,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/182#0000,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0001,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0006,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0008,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0011,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0034,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0035,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0038,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0039,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0040,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0041,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0042,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/182#0043,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/182#0051,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/183#0004,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/183#0005,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/184#0003,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/184#0004,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/184#0007,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/184#0016,SET,"First Party Collection/Use|Third Party Sharing/Collection|User Access, Edit and Deletion",First Party Collection/Use|Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/184#0018,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/184#0020,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/184#0021,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/184#0022,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/185#0001,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/185#0013,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/185#0014,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0005,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0010,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0011,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0013,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/186#0014,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0019,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0020,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0022,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/186#0023,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/186#0024,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0028,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0030,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0034,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0039,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0042,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0043,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0044,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0045,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0046,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0050,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0052,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0056,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0060,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/186#0063,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/186#0064,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/186#0110,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/187#0005,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/188#0014,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/188#0022,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/188#0024,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/188#0028,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/188#0030,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/188#0036,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/188#0042,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0008,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0013,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0014,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0016,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0019,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/189#0020,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0047,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0069,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0070,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0073,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0077,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0079,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0081,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0082,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0083,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0088,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0091,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0094,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0095,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0098,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0099,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0100,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0101,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0103,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0104,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0105,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/19#0109,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0001,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0002,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0013,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0016,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0021,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0022,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/190#0028,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/190#0030,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/190#0031,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/190#0036,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/194#0041,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/194#0043,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/198#0018,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/198#0023,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/199#0023,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/2#0010,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/227#0030,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/32#0005,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/4#0018,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/41#0009,SET,Policy Change,User Choice/Control,Policy Change label wrong; text is about User Choice/Control
+c3pa:db/47#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/47#0012,SET,Policy Change,"User Access, Edit and Deletion","Policy Change label wrong; text is about User Access, Edit and Deletion"
+c3pa:db/5#0018,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/5#0048,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/5#0063,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/5#0076,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/5#0077,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/5#0081,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/55#0036,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/58#0061,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/6#0025,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/61#0012,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/62#0008,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/62#0009,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/66#0015,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/7#0001,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/7#0010,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/7#0011,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/7#0022,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:db/84#0008,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:db/86#0020,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/86#0021,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/86#0022,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:db/9#0014,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/93#0016,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:db/93#0041,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:ws/104#0088,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:ws/107#0049,SET,"First Party Collection/Use|User Access, Edit and Deletion",First Party Collection/Use,Access/Deletion label wrong; other label(s) kept
+c3pa:ws/110#0079,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:ws/111#0020,SET,"Third Party Sharing/Collection|User Access, Edit and Deletion",Third Party Sharing/Collection,Access/Deletion label wrong; other label(s) kept
+c3pa:ws/136#0046,DROP,"User Access, Edit and Deletion",,Access/Deletion label wrong (collection/sharing/ads/cookie/junk text); no valid label left
+c3pa:ws/26#0014,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:ws/32#0017,SET,Policy Change,User Choice/Control,Policy Change label wrong; text is about User Choice/Control
+c3pa:ws/6#0065,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"
+c3pa:ws/64#0007,SET,User Choice/Control|Policy Change,User Choice/Control,Policy Change label wrong; text is about User Choice/Control
+c3pa:ws/84#0076,DROP,Policy Change,,"Policy Change on intro/scope/unrelated text, not a policy-change notice"

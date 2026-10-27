@@ -1,0 +1,8 @@
+source D:\HAMSHIKA\UNIVERSITY OF MARYLAND\SEMESTER 3\Inkwell\data\interim\c3pa_v2
+units before 20390  after 20195  dropped 195  relabeled 50
+label counts before -> after:
+  First Party Collection/Use                 9510 ->   9510
+  Third Party Sharing/Collection             7787 ->   7787
+  User Choice/Control                        1605 ->   1604
+  User Access, Edit and Deletion             2863 ->   2655
+  Policy Change                               666 ->    630

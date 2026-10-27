@@ -1,0 +1,92 @@
+{
+  "kind": "encoder",
+  "model": "distilbert-base-uncased",
+  "seed": 42,
+  "dataset_version": "v2",
+  "dataset_sha256": "3b8cb01b294c2c1e8ca14a2cfc77c70e1f5f511ffce2338ed1e3390e11f8deff",
+  "manifest_sha256": "9194a884a2c63c75f5d5e80073026f201bda5c3c147855682cd7491d129df73b",
+  "selection_split": "validation",
+  "training_seconds": 5796.510634388,
+  "peak_process_rss_platform_units": 2590544,
+  "peak_cuda_bytes": 3564649984,
+  "training_device": "cuda",
+  "torch": "2.11.0+cu130",
+  "config": {
+    "model": "distilbert-base-uncased",
+    "source": "combined",
+    "c3pa_weight": 0.1,
+    "seed": 42,
+    "epochs": 10,
+    "batch_size": 16,
+    "lr": 5e-05,
+    "dataset_version": "v2",
+    "out": "runs/distilbert-c3pa-opp115-v2-seed42"
+  },
+  "positive_class_weights": [
+    1.0,
+    1.0,
+    1.6788461208343506,
+    10.0,
+    10.0,
+    1.2775229215621948,
+    5.083333492279053,
+    10.0,
+    10.0,
+    2.476590633392334
+  ],
+  "score_type": "logit; sigmoid gives probability",
+  "history": [
+    {
+      "epoch": 1,
+      "mean_loss": 0.5188415160372689,
+      "validation_macro_f1_at_0_5": 0.6828912285902798
+    },
+    {
+      "epoch": 2,
+      "mean_loss": 0.24511335257308323,
+      "validation_macro_f1_at_0_5": 0.6402200843171293
+    },
+    {
+      "epoch": 3,
+      "mean_loss": 0.1850588315607748,
+      "validation_macro_f1_at_0_5": 0.7428040040274649
+    },
+    {
+      "epoch": 4,
+      "mean_loss": 0.12806826648544867,
+      "validation_macro_f1_at_0_5": 0.7617274215933502
+    },
+    {
+      "epoch": 5,
+      "mean_loss": 0.08635245171730635,
+      "validation_macro_f1_at_0_5": 0.7510439174704094
+    },
+    {
+      "epoch": 6,
+      "mean_loss": 0.05908378224861694,
+      "validation_macro_f1_at_0_5": 0.7750705471605768
+    },
+    {
+      "epoch": 7,
+      "mean_loss": 0.04150785409334702,
+      "validation_macro_f1_at_0_5": 0.7719009996369939
+    },
+    {
+      "epoch": 8,
+      "mean_loss": 0.01866707652002383,
+      "validation_macro_f1_at_0_5": 0.7976240587600827
+    },
+    {
+      "epoch": 9,
+      "mean_loss": 0.012652037649161951,
+      "validation_macro_f1_at_0_5": 0.7771498657798931
+    },
+    {
+      "epoch": 10,
+      "mean_loss": 0.006469646159096045,
+      "validation_macro_f1_at_0_5": 0.7767603712077398
+    }
+  ],
+  "cpu_ms_per_segment": 105.20962209999942,
+  "model_bytes": 268807722
+}
