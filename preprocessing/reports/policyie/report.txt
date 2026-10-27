@@ -1,0 +1,12 @@
+Read 703 paragraphs from 31 policies
+Dropped 13 paragraphs under 5 words (headings)
+Corrected 12 children's-privacy rows (Data Retention ignored, Specific Audiences added) and ignored Data Retention on 4 more
+All checks passed.
+
+Kept 690 paragraphs: {'test': 130, 'train': 560}
+Covered categories (mask = 1): ['First Party Collection/Use', 'Third Party Sharing/Collection', 'Data Security', 'Data Retention']
+Paragraphs with none of them (real negatives): 226
+Paragraphs with 2 or more: 169
+Paragraphs per category: {'First Party Collection/Use': 316, 'Third Party Sharing/Collection': 172, 'Data Security': 56, 'International and Specific Audiences': 12, 'Data Retention': 125}
+Data Retention rows that read like a user's right to delete: 29 of 125 (see retention_review.csv)
+Paragraphs repeating OPP-115 text: 10 (see opp115_overlap.csv)

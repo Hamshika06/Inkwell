@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Inkwell">
+  <rect width="32" height="32" rx="8" fill="#3340c8"/>
+  <path d="M16 5.5c3.9 5.4 6.8 9 6.8 13a6.8 6.8 0 0 1-13.6 0c0-4 2.9-7.6 6.8-13z" fill="#fff"/>
+  <path d="M12.8 18.6h6.4M12.8 21.4h4.2" stroke="#3340c8" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

@@ -1,5 +1,6 @@
 import re
 from inkwell.common import CATEGORIES
+from inkwell.risk import score_policy
 
 FAQS={"Can I delete or access my data?":"User Access, Edit and Deletion",
       "Do they share my data?":"Third Party Sharing/Collection",
@@ -25,4 +26,4 @@ def analyze(text,predictor):
             s["labels"]=[c for i,c in enumerate(CATEGORIES) if scores[i]>=predictor.thresholds[i]]
             for c in s["labels"]: coverage[c].append(s["id"])
     return {"text":text,"segments":segments,"coverage":coverage,"faqs":FAQS,
-            "empty_message":"No matching clause detected"}
+            "empty_message":"No matching clause detected", "risk":score_policy(segments)}

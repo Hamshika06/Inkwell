@@ -9,3 +9,6 @@ threadpoolctl==3.7.0
 fastapi==0.142.2
 uvicorn==0.54.0
 python-dotenv==1.2.1
+# Checks Firebase sign-in tokens (only when FIREBASE_* settings are set).
+PyJWT==2.15.1
+cryptography==50.0.2

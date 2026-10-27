@@ -16,7 +16,7 @@ COPY --chown=user inkwell/ inkwell/
 COPY --chown=user configs/ configs/
 COPY --chown=user runs/svm-opp115-seed42/ runs/svm-opp115-seed42/
 COPY --chown=user runs/distilbert-opp115-seed42/ runs/distilbert-opp115-seed42/
-COPY --chown=user runs/roberta-opp115-seed42/ runs/roberta-opp115-seed42/
+COPY --chown=user runs/roberta-c3pa-opp115-seed42/ runs/roberta-c3pa-opp115-seed42/
 COPY --chown=user api/ api/
 COPY --chown=user web/ web/
 

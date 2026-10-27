@@ -5,11 +5,11 @@
 
 Paste a privacy policy, with blank lines between paragraphs, or click **Load a sample policy**. Then choose a model:
 
-| Model | Test macro / micro F1 (OPP-115 v1) | Speed on CPU |
+| Model | Trained on | Speed on CPU |
 | --- | --- | --- |
-| TF-IDF + SVM | 0.700 / 0.746 | under 1 ms per paragraph |
-| DistilBERT | 0.703 / 0.769 | ~110 ms per paragraph |
-| RoBERTa-base | 0.740 / 0.800 | ~250 ms per paragraph |
+| TF-IDF + SVM | OPP-115 | under 1 ms per paragraph |
+| DistilBERT | OPP-115 | ~110 ms per paragraph |
+| RoBERTa (C3PA + OPP-115) | OPP-115 and modern C3PA policies | ~230 ms per paragraph |
 
 Pick **All three** to compare them side by side. The results show:
 - every category, with a **SILENT** stamp where no paragraph matched;
