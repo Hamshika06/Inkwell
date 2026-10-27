@@ -8,10 +8,6 @@ Inkwell **identifies and classifies clauses** in a privacy policy against a fixe
 
 **Quick links:** [Weekly reports](reports/) · [Run the classifier and demo](Documentation/EXPERIMENTS.md) 
 
-**Risk screening:** Analysis results also include an experimental 0–100 score
-for five explicit clause practices, with source evidence and separate review
-gaps. See [scoring rules and limitations](Documentation/RISK_SCORING.md).
-
 ---
 
 ## Problem and user

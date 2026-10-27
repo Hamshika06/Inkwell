@@ -38,9 +38,6 @@ class ApiTests(unittest.TestCase):
         self.assertTrue({"text", "segments", "coverage", "faqs", "empty_message"} <= set(result))
         self.assertEqual((result["text"], result["model"]), (text, "svm"))
         self.assertEqual(list(result["coverage"]), CATEGORIES)
-        self.assertEqual(result["risk"]["version"], "1.0.0")
-        self.assertEqual(result["risk"]["score"], 0)
-        self.assertEqual(result["risk"]["band"], "no_matches")
         for s in result["segments"]:
             self.assertEqual(s["text"], text[s["start"]:s["end"]])
             # Reported scores must reproduce the labels analyze() assigned.

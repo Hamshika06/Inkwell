@@ -94,9 +94,6 @@ kbd { padding: 1px 6px; border: 1px solid var(--border-strong); border-bottom-wi
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* Results */
-.risk-summary { padding: 18px; margin-bottom: 20px; }
-.risk-summary h3, .risk-finding h4 { margin: 0 0 8px; }
-.risk-finding { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
 .results { margin-top: 36px; scroll-margin-top: 80px; }
 .results-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
 .results-head h2 { margin: 0; font: 600 24px/1.2 var(--font-display); }
