@@ -1,0 +1,20 @@
+source: D:\HAMSHIKA\UNIVERSITY OF MARYLAND\SEMESTER 3\Inkwell\data\interim\c3pa.jsonl
+settings: min_words=10 max_words=400 min_alpha=0.6 ftfy=no (built-in fallback)
+units before: 22409   after: 20390   dropped: 2019
+units with encoding damage repaired: 310
+
+dropped by reason:
+    1053  fewer than 10 words
+     948  more than 400 words
+      18  mostly non-letters
+
+label counts before -> after:
+  First Party Collection/Use                10516 ->   9510
+  Third Party Sharing/Collection             8629 ->   7787
+  User Choice/Control                        1669 ->   1605
+  User Access, Edit and Deletion             3007 ->   2863
+  Policy Change                               942 ->    666
+
+units with n_annotators=1: 17070 of 20390 (quality_weight 0.5)
+units flagged for label review: 1503 (see label_review.csv; labels were not changed)
+companies (group_id) before: 380  after: 380

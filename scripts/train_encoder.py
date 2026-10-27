@@ -22,6 +22,7 @@ def main():
     ap.add_argument('--epochs', type=int, default=10)
     ap.add_argument('--batch-size', type=int, default=16)
     ap.add_argument('--lr', type=float, default=5e-5)
+    ap.add_argument('--dataset-version', default='v1', help='frozen dataset under data/versions/')
     ap.add_argument('--out', required=True)
     args = ap.parse_args()
     if args.c3pa_weight <= 0 or args.epochs < 1: raise ValueError('Weights and epochs must be positive')
@@ -29,7 +30,7 @@ def main():
     if out.exists(): raise SystemExit('Run exists; use a new directory')
     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    data = verified_dataset(); rows = read_rows(data)
+    data = verified_dataset(args.dataset_version); rows = read_rows(data)
     train = [r for r in rows if r['split']=='train' and (args.source=='combined' or r['source']=='opp115')]
     val = [r for r in rows if r['split']=='validation' and r['source']=='opp115']
     tokenizer = AutoTokenizer.from_pretrained(args.model)
@@ -79,7 +80,7 @@ def main():
             if patience>=2: break
     training=time.perf_counter()-start;model.load_state_dict(best_state);model.to('cpu').eval()
     out.mkdir(parents=True);model.save_pretrained(out/'model');tokenizer.save_pretrained(out/'tokenizer')
-    manifest={'kind':'encoder','model':args.model,'seed':args.seed,'dataset_version':'v1','dataset_sha256':digest(data),
+    manifest={'kind':'encoder','model':args.model,'seed':args.seed,'dataset_version':args.dataset_version,'dataset_sha256':digest(data),
               'manifest_sha256':digest(data.parent/'manifest.json'),'selection_split':'validation','training_seconds':training,
               'peak_process_rss_platform_units':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, 'peak_cuda_bytes':torch.cuda.max_memory_allocated() if device.type=='cuda' else None, 'training_device':str(device),'torch':torch.__version__,'config':vars(args),'positive_class_weights':pos_weight.cpu().tolist(),
               'score_type':'logit; sigmoid gives probability','history':history}
