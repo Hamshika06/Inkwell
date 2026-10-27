@@ -246,8 +246,25 @@ function renderOverview() {
       el("span", { class: "cov-foot" }, n ? [el("span", { class: "cov-count" }, String(n)), el("span", { class: "cov-unit" }, n === 1 ? "clause" : "clauses")]
         : el("span", { class: "missing" }, "Not mentioned")));
   });
-  $("tab-overview").replaceChildren(el("div", { class: "coverage" }, cards),
+  $("tab-overview").replaceChildren(...(d.risk ? [renderRisk(d.risk)] : []), el("div", { class: "coverage" }, cards),
     el("p", { class: "panel-note" }, "Select a topic to read its clauses in the document. “Not mentioned” can be a real gap in the policy, or a miss by the model."));
+}
+
+function renderRisk(risk) {
+  if (!risk) return null;
+  const band = risk.band === "no_matches" ? "No supported wording matched" : `${risk.band} screening score`;
+  return el("section", { class: "card risk-summary", "aria-label": "Privacy risk screening" },
+    el("h3", {}, `Risk screening · ${risk.score} / ${risk.max_score}`),
+    el("p", {}, band),
+    el("p", { class: "note" }, risk.limitation),
+    risk.findings.map((finding) => el("div", { class: "risk-finding" },
+      el("h4", {}, `${finding.title} · +${finding.points}`),
+      finding.evidence.map((evidence) => el("button", { type: "button", class: "quote",
+        title: "Read the full source paragraph", onclick: () => select(evidence.segment_id) }, evidence.text)))),
+    el("p", { class: "note" }, risk.review_gaps.length
+      ? `Topics to review (no classified clause; no score penalty): ${risk.review_gaps.join(", ")}.`
+      : "All four review topics have classified clauses. Their adequacy has not been assessed."),
+    el("p", { class: "note" }, `Scoring rules v${risk.version} · Each practice contributes once.`));
 }
 
 function quoteButton(segment, cat) {
@@ -377,7 +394,18 @@ function markdownReport() {
   const lines = ["# Inkwell evidence report", "",
     `Model: ${modelLabel(d.model)} (\`${d.run}\`) · ${plural(d.segments.length, "paragraph")} · ${new Date().toISOString().slice(0, 10)}`, "",
     "_Research tool, not legal advice. Quotes are exact paragraphs from the submitted policy. A topic marked not mentioned may be a model miss._", "",
-    "## Topics not mentioned", "", ...(silent.length ? silent.map((c) => `- ${c}`) : ["None."]), "", "## Common questions", ""];
+    "## Topics not mentioned", "", ...(silent.length ? silent.map((c) => `- ${c}`) : ["None."]), ""];
+  if (d.risk) {
+    const r = d.risk;
+    lines.push("## Risk screening", "", `Score: ${r.score}/${r.max_score} · Band: ${r.band} · Rules: ${r.version}`, "", r.limitation, "");
+    for (const finding of r.findings) {
+      lines.push(`### ${finding.title} (+${finding.points})`, "");
+      for (const evidence of finding.evidence) lines.push(quote(evidence.text),
+        `Paragraph ${evidence.segment_id + 1}; characters ${evidence.start}–${evidence.end}.`, "");
+    }
+    lines.push(`Review gaps (no score penalty): ${r.review_gaps.join(", ") || "None"}.`, "");
+  }
+  lines.push("## Common questions", "");
   for (const [question, cat] of Object.entries(d.faqs)) {
     lines.push(`### ${question}`, "");
     const ids = d.coverage[cat];
