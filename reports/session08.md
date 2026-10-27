@@ -64,5 +64,5 @@ User-testing feedback is documented in [issue #42](https://github.com/Hamshika06
 1. Aniruddhan: Contributed the frontend and user-testing work in PR [#39](https://github.com/Hamshika06/Inkwell/pull/39).
 2. Swetha: Added PolicyIE preprocessing and its category mapping in PR [#43](https://github.com/Hamshika06/Inkwell/pull/43).
 3. Hamshika: Cleaned and reviewed C3PA v2, froze dataset v2, and added the DistilBERT run in PR [#45](https://github.com/Hamshika06/Inkwell/pull/45).
-4. Gowtham S: Opened PR [#40](https://github.com/Hamshika06/Inkwell/pull/40) for risk scoring; the change was reverted the same day.
-5. Sreya: Generated this weekly report.
+4. Gowtham S: Opened PR [#40](https://github.com/Hamshika06/Inkwell/pull/40) for risk scoring.
+5. Sreya: Drafted this weekly report.
