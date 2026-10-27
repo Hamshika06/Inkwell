@@ -32,7 +32,7 @@ _Week of October 26, 2026. The items below were merged to `main` today._
 - **PolicyIE preprocessing.** PR [#43](https://github.com/Hamshika06/Inkwell/pull/43) adds preprocessing and a mapping for 31 policies. It retains 690 paragraphs (560 train, 130 test), including 226 paragraphs with none of the covered categories; all reported checks passed.
 - **Reviewed C3PA v2 data and frozen dataset v2.** PR [#45](https://github.com/Hamshika06/Inkwell/pull/45) cleans and reviews the C3PA data, freezes the combined dataset, and records the data manifest. The reviewed C3PA set has 20,195 units; after removing 170 OPP-115 text duplicates, the combined classifier set has 23,754 rows.
 - **DistilBERT combined-data run.** PR #45 also adds a DistilBERT run on dataset v2. Its validation results are 0.811 macro-F1 and 0.802 micro-F1. These are validation metrics, not test results.
-- - **Risk scoring.** Worked on a rule-based risk score and supporting documentation in PR [#40](https://github.com/Hamshika06/Inkwell/pull/40).
+- **Risk scoring.** Worked on a rule-based risk score and supporting documentation in PR [#40](https://github.com/Hamshika06/Inkwell/pull/40).
 
 ## User evidence
 
