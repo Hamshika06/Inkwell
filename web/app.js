@@ -1,5 +1,5 @@
 // Inkwell product page. Talks to the API in config.js; renders API data only as text (never as HTML).
-import { API, authHeaders, currentUser, startAuth, toggleTheme } from "./auth.js";
+import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 
 const MAX_BYTES = 1000000; // Mirrors the API limit.
 const COLOR = {
@@ -81,6 +81,7 @@ async function api(path, options = {}, timeoutMs = 120000) {
     const response = await fetch(API + path, { ...options, headers, signal: controller.signal });
     const body = await response.json().catch(() => ({}));
     if (response.status === 401 && state.ctx.enabled) { toLogin(); throw new Error("Please sign in again."); }
+    if (response.status === 403 && state.ctx.enabled) { toLogin(); throw new Error(body.detail); }  // Email not confirmed.
     if (!response.ok) throw new Error(body.detail || `${response.status} ${response.statusText}`);
     return body;
   } catch (error) {
@@ -468,6 +469,8 @@ async function connect() {
   }
   const user = await currentUser(state.ctx);
   if (state.ctx.enabled && !user) return toLogin();
+  // If this check can't reach Firebase, carry on: the API still refuses unconfirmed accounts.
+  if (user && !(await isVerified(user).catch(() => true))) return toLogin();
   renderUser(user);
   if (state.ctx.enabled) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) toLogin(); });
   document.body.dataset.auth = "ready";
