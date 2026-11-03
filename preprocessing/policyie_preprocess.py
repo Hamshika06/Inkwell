@@ -63,6 +63,16 @@ def read_rows(zip_path):
         ))
     return rows
 
+def to_row(r):
+    """Shared classifier row format (same fields as data/versions/*/classifier.jsonl)."""
+    return dict(
+        id=r["unit_id"], source=r["source"], doc_id=r["doc_id"], group_id=r["group_id"],
+        split=r["subset"], text=r["text"], labels=r["labels"],
+        label_vec=[int(c in r["labels"]) for c in CATEGORIES], label_mask=r["label_mask"],
+        label_fractions=None,  # PolicyIE releases adjudicated labels only, not per-annotator votes
+        n_annotators=None,     # not stated per document in the PolicyIE paper
+        weight=1.0,
+    )
 
 def apply_corrections(rows):
     """Ignore Data Retention on the reviewed rows; children's-privacy rows become Specific Audiences."""
@@ -143,7 +153,7 @@ def main():
 
     with (ROOT / "data/interim/policyie.jsonl").open("w", encoding="utf-8") as f:
         for r in rows:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            f.write(json.dumps(to_row(r), ensure_ascii=False) + "\n")
     with (out / "retention_review.csv").open("w", newline="", encoding="utf-8") as f:
         csv.writer(f).writerows([("unit_id", "looks_like_user_deletion", "text"), *retention])
     with (out / "opp115_overlap.csv").open("w", newline="", encoding="utf-8") as f:
