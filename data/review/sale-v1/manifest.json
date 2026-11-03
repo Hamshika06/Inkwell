@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "source_url": "https://usableprivacy.org/static/data/OPP-115_v1_0.zip",
+  "source_sha256": "305ccb1dddaaab5e12f49decf8b132844eb7fd31fce284650d77213e5d3e37e2",
+  "dataset_sha256": "043fd5a9c36515483b0a218051343fe7e1707a64613d60dfdd35fb1ac427ea53",
+  "schema_sha256": "cdef2ea82ad1c8591da8c85199b43a40a3f9d95f4c6d883bd98bc76ff111a892",
+  "candidate_sha256": "f4b8fc984b8f2b49fcdd5fbf9e697d111d759466ed17e69b712c50b8befa3a1e",
+  "files_sha256": {
+    "train.jsonl": "f9540e0325c198416921f2cb60fc90427e50594e366085910925c110e765b26a",
+    "validation.jsonl": "ef2032945bef40a8ce3f1786d96fb4d4536ca6d1581fa52933b1694088e2265e",
+    "test.jsonl": "dd6b2b5c5b640ef716deccbbe5264eb536e185c1baecd0ad4b8c9998c80b0b37"
+  },
+  "eligible_opp115_segments": 3663,
+  "candidate_segments": 182,
+  "candidate_policies": 100,
+  "splits": {
+    "train": 137,
+    "validation": 18,
+    "test": 27
+  },
+  "attribute_span_statuses": {
+    "exact": 5930,
+    "not_selected": 5024,
+    "repaired_unique": 13,
+    "known_errant": 74,
+    "unmatched": 18
+  },
+  "third_party_attribute_schema": {
+    "Third Party Entity": {
+      "default": null,
+      "values": [
+        "Unnamed third party",
+        "Named third party",
+        "Other part of company/affiliate",
+        "Other users",
+        "Public",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Does/Does Not": {
+      "default": "Does",
+      "values": [
+        "Does",
+        "Does Not"
+      ]
+    },
+    "Action Third Party": {
+      "default": null,
+      "values": [
+        "Receive/Shared with",
+        "Collect on first party website/app",
+        "Track on first party website/app",
+        "See",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Identifiability": {
+      "default": "not-selected",
+      "values": [
+        "Identifiable",
+        "Aggregated or anonymized",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Personal Information Type": {
+      "default": null,
+      "values": [
+        "Financial",
+        "Health",
+        "Contact",
+        "Location",
+        "Demographic",
+        "Personal identifier",
+        "User online activities",
+        "User Profile",
+        "IP address and device IDs",
+        "Cookies and tracking elements",
+        "Computer information",
+        "Survey data",
+        "Generic personal information",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Purpose": {
+      "default": null,
+      "values": [
+        "Basic service/feature",
+        "Additional service/feature",
+        "Advertising",
+        "Marketing",
+        "Analytics/Research",
+        "Personalization/Customization",
+        "Service operation and security",
+        "Legal requirement",
+        "Merger/Acquisition",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "User Type": {
+      "default": "not-selected",
+      "values": [
+        "User without account",
+        "User with account",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Choice Type": {
+      "default": "not-selected",
+      "values": [
+        "Dont use service/feature",
+        "Opt-in",
+        "Opt-out link",
+        "Opt-out via contacting company",
+        "First-party privacy controls",
+        "Third-party privacy controls",
+        "Browser/device privacy controls",
+        "Other",
+        "Unspecified"
+      ]
+    },
+    "Choice Scope": {
+      "default": "not-selected",
+      "values": [
+        "Collection",
+        "Use",
+        "Both",
+        "Unspecified"
+      ]
+    }
+  },
+  "selection": "\\b(?:sell(?:s|ing)?|sold|resell(?:s|ing)?|resold|sale|sales)\\b",
+  "contract": "Unreviewed keyword candidates, not gold labels. Retained frozen v1 splits; no category gate; known errant spans unusable; repairs require a unique text match. Does is a source default, not an explicit sale assertion."
+}

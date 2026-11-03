@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "unit": "One scoped proposition about sale of personal information; a segment may contain several propositions.",
+  "labels": {
+    "permitted": "The company states it sells, may sell, or reserves permission to sell personal information, without a stated prerequisite in the evidence.",
+    "denied": "The company explicitly rules out sale for the recorded scope. Retain limitations on audience, data type, purpose, or time in the evidence.",
+    "conditional": "Sale is allowed only under an explicit condition, or an explicit exception qualifies a no-sale statement. Record the condition/exception spans.",
+    "unclear": "The text concerns sale of personal information but does not support a determinate interpretation, even after reading context. Explain why in notes."
+  },
+  "span_format": {"start": "Zero-based Python character index into the review row's cleaned text", "end": "Exclusive character index", "text": "Must equal text[start:end]"},
+  "review": {
+    "sale_related": "Boolean; false for product sales, sales representatives, or business asset transfers that do not establish sale of personal information.",
+    "practices": "List of objects with label, evidence, conditions, exceptions, notes. Each span list uses span_format. Leave empty only when sale_related is false.",
+    "reviewer": "Identifier of the human reviewer",
+    "adjudicator": "Identifier of a different human who checked the annotation",
+    "notes": "Reasons for rejecting a candidate or other review context"
+  },
+  "rules": [
+    "Candidate keyword matches and original OPP attributes are aids, not target labels.",
+    "Does defaults to Does in the original OPP schema; do not interpret it as an explicit positive sale assertion.",
+    "Missing attributes, disagreement, or unreviewed records are not the unclear label.",
+    "Sharing, renting, mergers and product sales do not automatically establish sale of personal information.",
+    "Record opt-outs separately as context; an opt-out does not mean sale requires prior consent.",
+    "A statement of a user's rights is not automatically a statement that this company sells data.",
+    "For conditional, supply at least one condition or exception span.",
+    "Include enough evidence to identify the actor, action, information and qualifications; use multiple spans when needed.",
+    "Do not cancel an adverse proposition with a separate denial. Preserve both scoped propositions and explain conflicts.",
+    "Retain frozen policy/company splits. Do not use test annotations to tune models, label guidelines or score weights."
+  ]
+}

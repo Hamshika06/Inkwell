@@ -1,5 +1,10 @@
 # Reproducible classifier and Stage 1 demo
 
+The next risk-scoring milestone has a
+[sale-practice annotation workflow](SALE_ANNOTATION.md), with recovered original
+OPP-115 attributes and a split-preserving review queue. These are unreviewed
+candidates, not risk or sale ground truth.
+
 Run commands from the repository root. Install `requirements.txt` in a virtual environment. The recorded SVM run uses Python 3.10.11; `requirements.txt` pins the versions used here.
 
 ## Evaluation contract and frozen data
