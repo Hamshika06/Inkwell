@@ -28,6 +28,20 @@ export function currentUser(ctx) {
   });
 }
 
+/**
+ * False for an email/password account whose address isn't confirmed yet; Google and GitHub accounts pass.
+ * Asks Firebase for the latest state, and renews the ID token once confirmed: the old token still says
+ * unverified, and the API would refuse it.
+ */
+export async function isVerified(user) {
+  if (!user.providerData.some((p) => p.providerId === "password")) return true;
+  await user.reload();
+  if (!user.emailVerified) return false;
+  const { claims } = await user.getIdTokenResult();
+  if (!claims.email_verified) await user.getIdToken(true);
+  return true;
+}
+
 /** Authorization header for API calls; empty when sign-in is off. */
 export async function authHeaders(ctx) {
   const user = ctx.enabled && ctx.auth.currentUser;
@@ -55,6 +69,7 @@ export function describeAuthError(error) {
     "auth/network-request-failed": "Network problem. Check your connection and try again.",
     "auth/operation-not-allowed": "This sign-in method isn't enabled yet. Ask the site owner to turn it on in Firebase.",
     "auth/unauthorized-domain": "This site's address isn't authorized for sign-in yet (Firebase → Authentication → Settings → Authorized domains).",
+    "auth/unauthorized-continue-uri": "This site's address isn't authorized for sign-in yet (Firebase → Authentication → Settings → Authorized domains).",
     "auth/invalid-api-key": "Sign-in is misconfigured on the server (Firebase API key).",
     "auth/api-key-not-valid.-please-pass-a-valid-api-key.": "Sign-in is misconfigured on the server (Firebase API key).",
     "auth/popup-closed-by-user": "",

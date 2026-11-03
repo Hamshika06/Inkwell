@@ -1,10 +1,12 @@
-import { applySavedTheme, currentUser, describeAuthError, safeNext, startAuth } from "./auth.js";
+import { applySavedTheme, currentUser, describeAuthError, isVerified, safeNext, startAuth } from "./auth.js";
 
 applySavedTheme();
 const $ = (id) => document.getElementById(id);
 const next = safeNext(new URLSearchParams(location.search).get("next"));
+const RESEND_SECONDS = 60;
 let ctx = null;
 let mode = "signin";
+let cooldown = null;
 
 const TAGLINES = [
   "Read the fine print, without reading all of it.",
@@ -51,6 +53,75 @@ function setMode(next) {
 
 function done() { location.replace(next); }
 
+/* ---------- Email confirmation ---------- */
+
+function startCooldown(seconds) {
+  clearInterval(cooldown);
+  let left = seconds;
+  const tick = () => {
+    $("resend").disabled = left > 0;
+    $("resend").textContent = left > 0 ? `Resend email in ${left}s` : "Resend email";
+    if (left-- <= 0) clearInterval(cooldown);
+  };
+  tick();
+  cooldown = setInterval(tick, 1000);
+}
+
+function showVerify(user) {
+  $("auth-ui").hidden = true;
+  $("verify-ui").hidden = false;
+  $("verify-email").textContent = user.email;
+  $("auth-title").textContent = "Check your inbox";
+  $("auth-sub").textContent = "Confirm your email address to start using Inkwell.";
+  message("");
+  startCooldown(0);
+}
+
+async function sendVerification(user) {
+  // The link's confirmation page offers "Continue", back to this page.
+  await ctx.fb.sendEmailVerification(user, { url: new URL("login.html", location.href).href });
+  startCooldown(RESEND_SECONDS);
+}
+
+async function afterSignIn(user) {
+  if (await isVerified(user)) return done();
+  showVerify(user);
+}
+
+async function checkVerified() {
+  message("");
+  $("verified").disabled = true;
+  try {
+    if (await isVerified(ctx.auth.currentUser)) return done();
+    message("We can't see your confirmation yet. Open the link in the email, then try again.");
+  } catch (error) {
+    message(describeAuthError(error));
+  } finally {
+    $("verified").disabled = false;
+  }
+}
+
+async function resend() {
+  message("");
+  $("resend").disabled = true;
+  try {
+    await sendVerification(ctx.auth.currentUser);
+    message(`A new link is on its way to ${ctx.auth.currentUser.email}.`, true);
+  } catch (error) {
+    message(describeAuthError(error));
+    $("resend").disabled = false;
+  }
+}
+
+async function useDifferentEmail() {
+  await ctx.fb.signOut(ctx.auth);
+  $("verify-ui").hidden = true;
+  $("auth-ui").hidden = false;
+  $("password").value = "";
+  setMode("signup");
+  $("email").focus();
+}
+
 async function withProvider(provider) {
   const { fb, auth } = ctx;
   message(""); busy(true);
@@ -80,11 +151,12 @@ async function submitEmail(event) {
     if (mode === "signup") {
       const { user } = await fb.createUserWithEmailAndPassword(auth, email, password);
       await fb.updateProfile(user, { displayName: name });
-      fb.sendEmailVerification(user).catch(() => {});  // Nice to have; sign-up works without it.
+      showVerify(user);
+      await sendVerification(user);
     } else {
-      await fb.signInWithEmailAndPassword(auth, email, password);
+      const { user } = await fb.signInWithEmailAndPassword(auth, email, password);
+      await afterSignIn(user);
     }
-    done();
   } catch (error) {
     message(describeAuthError(error));
   } finally {
@@ -118,10 +190,9 @@ async function main() {
   }
   $("auth-loading").hidden = true;
   if (!ctx.enabled) { $("auth-off").hidden = false; return; }
-  if (await currentUser(ctx)) return done();  // Already signed in.
-  try { if (await ctx.fb.getRedirectResult(ctx.auth)) return done(); } catch (error) { message(describeAuthError(error)); }
-
-  $("auth-ui").hidden = false;
+  $("verified").addEventListener("click", checkVerified);
+  $("resend").addEventListener("click", resend);
+  $("different").addEventListener("click", useDifferentEmail);
   $("google").addEventListener("click", () => withProvider(new ctx.fb.GoogleAuthProvider()));
   $("github").addEventListener("click", () => withProvider(new ctx.fb.GithubAuthProvider()));
   $("mode-signin").addEventListener("click", () => setMode("signin"));
@@ -135,6 +206,19 @@ async function main() {
     $("reveal").setAttribute("aria-label", show ? "Hide password" : "Show password");
   });
   if (new URLSearchParams(location.search).get("mode") === "signup") setMode("signup");
+
+  const user = await currentUser(ctx);
+  if (user) {  // Already signed in.
+    try {
+      await afterSignIn(user);
+    } catch (error) {
+      showVerify(user);
+      message(describeAuthError(error));
+    }
+    return;
+  }
+  try { if (await ctx.fb.getRedirectResult(ctx.auth)) return done(); } catch (error) { message(describeAuthError(error)); }
+  $("auth-ui").hidden = false;
 }
 
 main();

@@ -60,7 +60,8 @@ _jwks = None
 
 
 def verify_user(request):
-    """Return the signed-in user's token claims, or raise 401. Returns None when sign-in is off."""
+    """Return the signed-in user's token claims, or raise 401 (403 for an unconfirmed email address).
+    Returns None when sign-in is off."""
     global _jwks
     if not AUTH_ENABLED:
         return None
@@ -82,6 +83,9 @@ def verify_user(request):
                             headers={"WWW-Authenticate": "Bearer"})
     if not claims.get("sub"):
         raise HTTPException(401, "Your sign-in is invalid; sign in again", headers={"WWW-Authenticate": "Bearer"})
+    # Email and password only: Google and GitHub vouch for their own accounts, and GitHub tokens can say unverified.
+    if claims.get("firebase", {}).get("sign_in_provider") == "password" and not claims.get("email_verified"):
+        raise HTTPException(403, "Confirm your email address to analyze policies")
     return claims
 
 
