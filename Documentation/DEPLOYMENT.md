@@ -83,6 +83,7 @@ The login page (`/login.html`) offers Google, GitHub, and email + username + pas
    FIREBASE_APP_ID=<appId>
    ```
 6. Restart `api\run_local.cmd` and open http://localhost:7860. You are sent to the login page; after signing in you land on the app. The server now rejects analyses without a valid sign-in token (401).
+7. **Email confirmation.** Email/password accounts must confirm their address before using the app: they see a "Check your inbox" screen, and the API answers 403 until they do. Google and GitHub accounts skip this. Firebase still creates the account before it is confirmed, so an address that doesn't exist appears under Authentication → Users but can't use the app; delete those now and then. To set the sender name, go to Authentication → Templates → **Email address verification** and edit the template.
 
 On Cloud Run, pass the same four values with `--set-env-vars FIREBASE_API_KEY=...,FIREBASE_AUTH_DOMAIN=...,FIREBASE_PROJECT_ID=...,FIREBASE_APP_ID=...` (alongside `INKWELL_BACKGROUND_LOAD=0`). Users who sign up with the same email through two methods (for example Google and GitHub) are told to use the method they signed up with; Firebase's default is one account per email.
 
@@ -218,5 +219,6 @@ Every option above already serves the page. If you still want the page on Vercel
 | Login page: "This site's address isn't authorized for sign-in" | Add the domain under Firebase → Authentication → Settings → Authorized domains, or open the app at `http://localhost:7860` |
 | Login page: "This sign-in method isn't enabled yet" | Enable that provider in Firebase → Authentication → Sign-in method |
 | Login page: "Sign-in isn't set up on this server yet" | The `FIREBASE_*` settings are missing from `.env` (locally) or the service's environment variables |
+| Confirmation email doesn't arrive | Check spam, then use "Resend email". Firebase limits how many it sends, so wait a few minutes if it says too many attempts |
 | Render: "Out of memory" | Use `api/Dockerfile.svm`. The full image needs about 2 GB. |
 | 413 on an encoder | More than 200 paragraphs. Use the SVM, or raise `MAX_ENCODER_SEGMENTS`. |

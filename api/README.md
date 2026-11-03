@@ -52,6 +52,7 @@ A segment carries a label exactly when `scores[i] >= thresholds[i]`. SVM scores 
 Errors return `{"detail": "..."}`:
 - **400**: empty or whitespace-only text, non-string `text`, a body that is not a JSON object, or an unknown `model`.
 - **401**: sign-in is on and the request has no valid Firebase ID token (missing, expired, wrong project or bad signature).
+- **403**: the token is valid, but it belongs to an email and password account whose address isn't confirmed.
 - **413**: body over 1 MB (1,000,000 bytes), or more than `MAX_ENCODER_SEGMENTS` paragraphs for an encoder.
 - **503**: the model is still loading or unavailable (the message says why).
 

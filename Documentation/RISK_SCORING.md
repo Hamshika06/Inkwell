@@ -1,5 +1,8 @@
 # Clause-based risk screening
 
+For the next stage of practice/polarity detection, see the
+[recovered OPP-115 sale annotation batch and review instructions](SALE_ANNOTATION.md).
+
 Every `analyze()` result, including the API's `POST /analyze` response, now includes
 `risk`. The web overview shows the score, contributing findings and clickable
 source evidence. JSON and Markdown exports include the breakdown.

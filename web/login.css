@@ -60,6 +60,10 @@
 .link { border: 0; background: none; padding: 0; color: var(--brand); font-size: 13px; cursor: pointer; }
 .link:hover { text-decoration: underline; }
 
+.verify { display: grid; gap: 10px; justify-items: center; }
+.verify p { margin: 0 0 8px; justify-self: start; overflow-wrap: anywhere; }
+.verify .link { margin-top: 6px; }
+
 .form-msg { margin: 16px 0 0; padding: 10px 12px; border-radius: var(--radius-sm); font-size: 13.5px; background: var(--danger-soft); color: var(--danger); }
 .form-msg.ok { background: var(--success-soft); color: var(--success); }
 .notice { padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); display: grid; gap: 8px; }
