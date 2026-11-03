@@ -6,6 +6,8 @@
 
 Inkwell **identifies and classifies clauses** in a privacy policy against a fixed set of categories (data collection, sharing, retention, deletion rights, and so on). Every category assignment is tied to the exact clause that produced it — never a generated summary or paraphrase — and where a category has no matching clause anywhere in the policy, Inkwell reports that explicitly instead of guessing. There is no generative model and no LLM API anywhere in the pipeline.
 
+**Try it live:** [inkwell-846713605562.us-east1.run.app](https://inkwell-846713605562.us-east1.run.app/)
+
 **Quick links:** [Weekly reports](reports/) · [Run the classifier and demo](Documentation/EXPERIMENTS.md) 
 
 **Risk screening:** Analysis results also include an experimental 0–100 score
@@ -110,14 +112,15 @@ The TF-IDF + SVM classifier and local Stage 1 demo are implemented. See [experim
 
 ## Evaluation
 
-The demo currently uses the saved TF-IDF + SVM run. Its test configuration was frozen using validation thresholds. The DistilBERT results below are measured on the same frozen v1 data, but that model is not in the demo yet. If the evaluated model and the shipped model ever differ, this README will say so.
+The [live web app](https://inkwell-846713605562.us-east1.run.app/) lets users pick between three models: the TF-IDF + SVM run (`svm-opp115-seed42`, the default), DistilBERT trained on OPP-115 only (`distilbert-opp115-seed42`), and RoBERTa-base trained on OPP-115 + C3PA (`roberta-c3pa-opp115-seed42`). Its "Compare models" tab runs them side by side. Every model's test configuration was frozen using validation thresholds, and each test split was evaluated once. The OPP-115-only results below are measured on the frozen v1 data. The OPP-115 + C3PA DistilBERT model is trained on the v2 data, which adds C3PA examples (weighted 0.1) to OPP-115 training. It is scored on the OPP-115 test split and is not served in the app. C3PA recall is not reported here, because false positives on C3PA are unmeasured. If the evaluated models and the shipped models ever differ, this README will say so.
 
 | Model | Task | Metric | Result |
 | --- | --- | --- | --- |
 | TF-IDF + SVM baseline | Segment classification, OPP-115 v1 test | Macro / micro F1 | 0.7004 / 0.7459 |
-| Regex matcher baseline | Segment classification | Macro / micro F1 | TBD |
 | DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 test (seed 42, evaluated once) | Macro / micro F1 | 0.7033 / 0.7694 |
 | DistilBERT, OPP-115 only | Segment classification, OPP-115 v1 validation (mean ± std, 3 seeds) | Macro / micro F1 | 0.835 ± 0.012 / 0.814 ± 0.005 |
+| DistilBERT, OPP-115 + C3PA | Segment classification, OPP-115 v2 test (seed 42, evaluated once) | Macro / micro F1 | 0.6942 / 0.7575 |
+| DistilBERT, OPP-115 + C3PA | Segment classification, OPP-115 v2 validation (seed 42) | Macro / micro F1 | 0.8113 / 0.8022 |
 | RoBERTa-base, OPP-115 only | Segment classification, OPP-115 v1 test (seed 42, evaluated once) | Macro / micro F1 | 0.7404 / 0.8005 |
 | RoBERTa-base, OPP-115 only | Segment classification, OPP-115 v1 validation (mean ± std, 3 seeds) | Macro / micro F1 | 0.862 ± 0.003 / 0.840 ± 0.005 |
 | Best encoder, domain-adapted | Segment classification | Per-category, macro / micro F1 | TBD |
