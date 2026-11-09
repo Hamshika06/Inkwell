@@ -98,6 +98,13 @@
           </form>
         </div>
 
+        <div id="verify-ui" class="verify" hidden>
+          <p>Open the confirmation link we sent to <strong id="verify-email"></strong>. Can't find it? Check your spam folder.</p>
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="verified">I've verified my email</button>
+          <button type="button" class="btn btn-lg btn-block" id="resend">Resend email</button>
+          <button type="button" class="link" id="different">Use a different email</button>
+        </div>
+
         <p id="auth-msg" class="form-msg" role="alert" hidden></p>
         <p class="legal">Inkwell is a research tool, not legal advice. Policies you analyze are classified and never stored.</p>
       </div>

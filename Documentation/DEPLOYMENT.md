@@ -83,6 +83,7 @@ The login page (`/login.html`) offers Google, GitHub, and email + username + pas
    FIREBASE_APP_ID=<appId>
    ```
 6. Restart `api\run_local.cmd` and open http://localhost:7860. You are sent to the login page; after signing in you land on the app. The server now rejects analyses without a valid sign-in token (401).
+7. **Email confirmation.** Email/password accounts must confirm their address before using the app: they see a "Check your inbox" screen, and the API answers 403 until they do. Google and GitHub accounts skip this. Firebase still creates the account before it is confirmed, so an address that doesn't exist appears under Authentication → Users but can't use the app; delete those now and then. To set the sender name, go to Authentication → Templates → **Email address verification** and edit the template.
 
 On Cloud Run, pass the same four values with `--set-env-vars FIREBASE_API_KEY=...,FIREBASE_AUTH_DOMAIN=...,FIREBASE_PROJECT_ID=...,FIREBASE_APP_ID=...` (alongside `INKWELL_BACKGROUND_LOAD=0`). Users who sign up with the same email through two methods (for example Google and GitHub) are told to use the method they signed up with; Firebase's default is one account per email.
 
@@ -156,6 +157,36 @@ Cloud Run gives 2 GB containers that scale to zero. The monthly free quota (abou
 
 Each cold start downloads the encoders from Hugging Face, so the first visit after idle takes about a minute. RoBERTa takes about 0.25 s per paragraph on CPU, and encoder requests are capped at 200 paragraphs.
 
+## Option B+: Firebase Hosting for the website, Cloud Run for the models
+
+Firebase Hosting serves only static files, so it hosts `web/` at `https://<firebase-project>.web.app` while the Cloud Run service from Option B runs the models. `web/config.js` sends API calls from `*.web.app` / `*.firebaseapp.com` to that Cloud Run URL. Hosting cannot forward to Cloud Run in a different Google Cloud project, so the page calls Cloud Run directly (cross-origin).
+
+1. **Cloud Run settings.** Create `cloudrun-env.yaml` in the repository root (git-ignored) with your Firebase values from `.env`:
+   ```yaml
+   INKWELL_BACKGROUND_LOAD: "0"
+   ALLOWED_ORIGINS: "https://inkwell-4a456.web.app,https://inkwell-4a456.firebaseapp.com"
+   FIREBASE_API_KEY: "<FIREBASE_API_KEY>"
+   FIREBASE_AUTH_DOMAIN: "inkwell-4a456.firebaseapp.com"
+   FIREBASE_PROJECT_ID: "inkwell-4a456"
+   FIREBASE_APP_ID: "<FIREBASE_APP_ID>"
+   ```
+2. **Rebuild and redeploy Cloud Run** with the current code:
+   ```
+   docker build -f api/Dockerfile -t inkwell .
+   docker tag inkwell us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest
+   docker push us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest
+   gcloud run deploy inkwell --image us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest --region us-east1 --memory 2Gi --cpu 2 --min-instances 0 --max-instances 1 --env-vars-file cloudrun-env.yaml --set-secrets HF_TOKEN=hf-token:latest --allow-unauthenticated
+   ```
+3. **Deploy the website** (`firebase.json` publishes `web/`; `.firebaserc` selects `inkwell-4a456`):
+   ```
+   npm install -g firebase-tools
+   firebase login
+   firebase deploy --only hosting
+   ```
+4. Open `https://inkwell-4a456.web.app`. Firebase authorizes its own `web.app` and `firebaseapp.com` domains for sign-in automatically.
+
+Website-only changes need just `firebase deploy --only hosting`; API or model changes need step 2 again.
+
 ## Option C: Hugging Face Docker Space (all three models, PRO required)
 
 Hugging Face now requires PRO ($9/month) to create Docker or Gradio Spaces. If you have PRO:
@@ -188,5 +219,6 @@ Every option above already serves the page. If you still want the page on Vercel
 | Login page: "This site's address isn't authorized for sign-in" | Add the domain under Firebase → Authentication → Settings → Authorized domains, or open the app at `http://localhost:7860` |
 | Login page: "This sign-in method isn't enabled yet" | Enable that provider in Firebase → Authentication → Sign-in method |
 | Login page: "Sign-in isn't set up on this server yet" | The `FIREBASE_*` settings are missing from `.env` (locally) or the service's environment variables |
+| Confirmation email doesn't arrive | Check spam, then use "Resend email". Firebase limits how many it sends, so wait a few minutes if it says too many attempts |
 | Render: "Out of memory" | Use `api/Dockerfile.svm`. The full image needs about 2 GB. |
 | 413 on an encoder | More than 200 paragraphs. Use the SVM, or raise `MAX_ENCODER_SEGMENTS`. |

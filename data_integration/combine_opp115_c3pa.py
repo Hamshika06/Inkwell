@@ -303,7 +303,7 @@ def main():
         clf.append(dict(
             id=r["unit_id"], source="c3pa", doc_id=r["doc_id"], group_id=g, split=assign[g],
             text=r["text"], labels=r["labels"], label_vec=multi_hot(r["labels"]), label_mask=mask,
-            label_fractions=None, n_annotators=r["n_annotators"], weight=args.c3pa_weight))
+            label_fractions=None, n_annotators=r["n_annotators"], weight=args.c3pa_weight * r.get("quality_weight", 1.0)))
     for r in opp_ext:
         pid = r["policy_id"]
         ext.append(dict(

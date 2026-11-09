@@ -9,13 +9,14 @@ ROOT = Path(__file__).resolve().parents[1]
 CATEGORIES = json.loads((ROOT / "configs/label_schema.json").read_text())["categories"]
 
 def read_rows(path):
-    return [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
 
 def key(text):
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 def digest(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    # Line endings are normalised so Windows (autocrlf) and Linux checkouts hash identically.
+    return hashlib.sha256(Path(path).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 def tune_thresholds(y, scores):
     # Validation only; conservative tie-breaking toward a larger threshold.
@@ -40,8 +41,8 @@ def positive_recall(rows, scores, thresholds):
                              for i,c in enumerate(CATEGORIES)}}
 
 
-def verified_dataset():
-    path = ROOT / "data/versions/v1/classifier.jsonl"
+def verified_dataset(version="v1"):
+    path = ROOT / f"data/versions/{version}/classifier.jsonl"
     manifest_path = path.parent / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     for file, expected in [(path, manifest["classifier_sha256"]),

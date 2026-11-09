@@ -8,7 +8,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--run",required=True); args=ap.parse_args()
     out=Path(args.run)/"test_metrics.json"
     if out.exists(): raise SystemExit("Test already evaluated for this run")
-    predictor=Predictor(args.run); data=ROOT/"data/versions/v1/classifier.jsonl"
+    predictor=Predictor(args.run); data=ROOT/f"data/versions/{predictor.run.get('dataset_version','v1')}/classifier.jsonl"
     if digest(data)!=predictor.run["dataset_sha256"]: raise ValueError("Dataset changed since training")
     rows=read_rows(data); result={}
     for source in ("opp115","c3pa"):

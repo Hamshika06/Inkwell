@@ -133,6 +133,25 @@ class AuthTests(unittest.TestCase):
             self.assertEqual(response.status_code, 401, case)
             self.assertIn("detail", response.json())
 
+    def test_email_password_accounts_must_be_verified(self):
+        password = {"sign_in_provider": "password"}
+        self.assertEqual(self.analyze(self.token(firebase=password, email_verified=True)).status_code, 200)
+        for case, token in {"unverified": self.token(firebase=password, email_verified=False),
+                            "claim missing": self.token(firebase=password)}.items():
+            response = self.analyze(token)
+            self.assertEqual(response.status_code, 403, case)
+            self.assertIn("Confirm your email", response.json()["detail"])
+
+    def test_google_and_github_accounts_skip_the_email_check(self):
+        for provider in ["google.com", "github.com"]:
+            for verified in [True, False]:
+                token = self.token(firebase={"sign_in_provider": provider}, email_verified=verified)
+                self.assertEqual(self.analyze(token).status_code, 200, (provider, verified))
+
+    def test_unverified_account_with_a_bad_token_is_still_401(self):
+        token = self.token(key=self.other_key, firebase={"sign_in_provider": "password"}, email_verified=False)
+        self.assertEqual(self.analyze(token).status_code, 401)
+
     def test_reading_endpoints_stay_open(self):
         for path in ["/health", "/schema", "/models", "/auth-config"]:
             self.assertEqual(self.client.get(path).status_code, 200, path)

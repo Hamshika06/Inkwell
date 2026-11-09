@@ -4,7 +4,7 @@ Static frontend for the Inkwell API: plain HTML, CSS and JavaScript, with no bui
 
 ## Pages
 
-- **`login.html`**: sign in with Google, GitHub, or email and password (with a username at sign-up, and a password reset link). Uses Firebase Authentication; the settings come from the API's `/auth-config`. When sign-in isn't configured on the server, this page says so and links to the app.
+- **`login.html`**: sign in with Google, GitHub, or email and password (with a username at sign-up, and a password reset link). Uses Firebase Authentication; the settings come from the API's `/auth-config`. New email and password accounts stop at a "Check your inbox" screen until the address is confirmed. When sign-in isn't configured on the server, this page says so and links to the app.
 - **`index.html`**: the product. When sign-in is on, visitors who aren't signed in are sent to the login page, and every analysis carries the user's Firebase ID token, which the API checks.
 
 ## Features
