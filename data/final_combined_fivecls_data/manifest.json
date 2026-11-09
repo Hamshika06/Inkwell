@@ -1,0 +1,146 @@
+{
+  "classes": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "inputs": {
+    "opp115": "D:\\HAMSHIKA\\UNIVERSITY OF MARYLAND\\SEMESTER 3\\Inkwell\\data\\interim\\opp115_five_class.jsonl",
+    "policyie": "D:\\HAMSHIKA\\UNIVERSITY OF MARYLAND\\SEMESTER 3\\Inkwell\\data\\interim\\policyie_five_class.jsonl",
+    "goppc": "D:\\HAMSHIKA\\UNIVERSITY OF MARYLAND\\SEMESTER 3\\Inkwell\\data\\interim\\goppc_five_class.jsonl"
+  },
+  "mappings": {
+    "opp115_and_policyie": "configs/five_class_mapping.json (via configs/policyie_mapping.json for PolicyIE)",
+    "goppc": "configs/goppc_mapping.json"
+  },
+  "rows": 10417,
+  "rows_by_source_and_split": {
+    "opp115": {
+      "train": 2666,
+      "validation": 433,
+      "test": 341
+    },
+    "policyie": {
+      "train": 518,
+      "validation": 102,
+      "test": 157
+    },
+    "goppc": {
+      "train": 4195,
+      "validation": 772,
+      "test": 1233
+    }
+  },
+  "positives_by_class_and_split": {
+    "Data Collection & Use": {
+      "train": 3060,
+      "validation": 601,
+      "test": 705
+    },
+    "Data Sharing": {
+      "train": 1580,
+      "validation": 297,
+      "test": 349
+    },
+    "User Rights & Choices": {
+      "train": 1543,
+      "validation": 326,
+      "test": 432
+    },
+    "Data Security & Retention": {
+      "train": 802,
+      "validation": 132,
+      "test": 214
+    },
+    "Policy Scope & Changes": {
+      "train": 669,
+      "validation": 105,
+      "test": 204
+    }
+  },
+  "known_by_class_and_split": {
+    "Data Collection & Use": {
+      "train": 7353,
+      "validation": 1303,
+      "test": 1727
+    },
+    "Data Sharing": {
+      "train": 7354,
+      "validation": 1304,
+      "test": 1727
+    },
+    "User Rights & Choices": {
+      "train": 6845,
+      "validation": 1203,
+      "test": 1572
+    },
+    "Data Security & Retention": {
+      "train": 7354,
+      "validation": 1304,
+      "test": 1724
+    },
+    "Policy Scope & Changes": {
+      "train": 6853,
+      "validation": 1207,
+      "test": 1577
+    }
+  },
+  "train_positives_by_class_and_source": {
+    "Data Collection & Use": {
+      "opp115": 859,
+      "policyie": 251,
+      "goppc": 1950
+    },
+    "Data Sharing": {
+      "opp115": 675,
+      "policyie": 133,
+      "goppc": 772
+    },
+    "User Rights & Choices": {
+      "opp115": 361,
+      "policyie": 0,
+      "goppc": 1182
+    },
+    "Data Security & Retention": {
+      "opp115": 207,
+      "policyie": 103,
+      "goppc": 492
+    },
+    "Policy Scope & Changes": {
+      "opp115": 277,
+      "policyie": 6,
+      "goppc": 386
+    }
+  },
+  "train_pos_weight": {
+    "Data Collection & Use": 1.403,
+    "Data Sharing": 3.654,
+    "User Rights & Choices": 3.436,
+    "Data Security & Retention": 8.17,
+    "Policy Scope & Changes": 9.244
+  },
+  "steps": {
+    "read:opp115": 3440,
+    "read:policyie": 778,
+    "read:goppc": 6203,
+    "dropped_from_other_rows_to_drop_lists": 1,
+    "same_text_groups_merged": 3,
+    "rows_removed_by_merge": 3
+  },
+  "checks": {
+    "every row has a known split": true,
+    "ids are unique": true,
+    "label vectors and masks have 5 entries": true,
+    "labels match label vectors": true,
+    "no positive label on a masked class": true,
+    "each policy is in one split": true,
+    "every row has text": true,
+    "no near-copies between splits": true
+  },
+  "notes": [
+    "label_mask 0 means the class was not annotated for that row: exclude it from the loss.",
+    "pos_weight counts only rows where the class is known."
+  ]
+}
