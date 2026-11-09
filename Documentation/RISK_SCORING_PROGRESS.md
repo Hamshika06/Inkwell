@@ -1,6 +1,25 @@
 # Risk scoring and sale-practice detection: progress and next steps
 
-Status as of November 2, 2026.
+Status updated November 9, 2026.
+
+## Latest implementation milestone
+
+Schema v2 now defines `practice_type`, `scope` and `opt_outs` alongside the
+existing polarity and evidence fields. The validator checks all five span lists
+and distinguishes scope and opt-outs from actual conditions or exceptions.
+
+A new `audit` command produces a structural draft report with all detected
+issues, counts and schema/source hashes, without changing attribution or
+creating an accepted dataset. A separate `normalize` command recovers complete
+JSON objects split across physical lines and writes a new JSONL copy.
+
+The latest training file contained one wrapped JSON object. The
+[normalized copy](../data/review/sale-v1/train.normalized.jsonl) preserves all
+137 records and annotation values. Its
+[schema-v2 audit](../data/review/sale-v1/train.normalized.audit.json) reports zero
+structural issues across 279 spans. The original draft, frozen candidate batch,
+schema snapshot and held-out split files were preserved. All 23 pipeline and
+annotation-tool tests passed.
 
 ## Objective
 
@@ -138,9 +157,9 @@ validates annotation structure, source integrity, labels and evidence offsets.
 Tests cover span mapping, unique repairs, unusable spans, export, provenance and
 invalid annotation cases.
 
-The draft now uses `practice_type`, `scope` and `opt_outs`, which need formal
-definitions and corresponding validator coverage. Ambiguous cross-references
-also need consistent treatment. For example, a qualified denial followed by
+Schema v2 formalizes `practice_type`, `scope` and `opt_outs`, with corresponding
+validator coverage and a separate draft-audit workflow. Ambiguous cross-references
+still need consistent treatment. For example, a qualified denial followed by
 permission under specified circumstances is not automatically a contradiction.
 
 The contextual practice/polarity model has not yet been trained or integrated.

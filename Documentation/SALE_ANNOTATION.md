@@ -2,8 +2,58 @@
 
 Start with [the training review queue](../data/review/sale-v1/REVIEW.md).
 It shows the original policy text, annotator identifiers, polarity values and
-action spans. All target labels are deliberately blank: recovered OPP labels
-are not equivalent to the four proposed sale labels.
+action spans. The original candidate snapshots have blank target labels;
+the separate training draft contains the developing practice annotations.
+Recovered OPP labels are not equivalent to the four proposed sale labels.
+
+## Schema v2 and draft audit
+
+[Schema v2](../configs/sale_annotation_schema.json) defines five practice types:
+`sale`, `business_transfer`, `aggregate_sale`, `recipient_onward_sale`, and
+`data_broker_relationship`. Polarity applies to the named practice and actor.
+For example, a conditional business transfer does not establish an ordinary
+first-party data sale. `sale_related` indicates relevance to one of these
+practice types, not an affirmative sale accusation.
+
+Every practice has five span lists: nonempty `evidence`, plus `scope`,
+`conditions`, `exceptions` and `opt_outs` (which may be empty). Scope limits the
+meaning of a proposition; it does not turn a scoped denial into permission.
+An opt-out alone also does not make a practice conditional. Practice-level
+`notes` must be a string and explain any `unclear` interpretation.
+
+The frozen sale-v1 batch retains its original schema v1 and manifest. New audits
+use the current schema without rewriting those source artifacts. The command
+checks all records and fields, reports every structural issue with a line and
+field path, and records counts and provenance. It does not accept a dataset or
+certify the interpretation of its labels.
+
+If an object has been split across physical lines, normalize complete JSON
+objects into a new JSONL file:
+
+```sh
+python -m scripts.sale_review normalize \
+  --reviewed data/review/sale-v1/train.reviewed.jsonl \
+  --out data/review/sale-v1/train.normalized.jsonl
+```
+
+Normalization changes serialization only; it preserves values and attribution,
+records input/output hashes, and refuses incomplete JSON or an existing output.
+The current [normalized training copy](../data/review/sale-v1/train.normalized.jsonl)
+contains 137 records. Its [draft audit report](../data/review/sale-v1/train.normalized.audit.json)
+records zero structural issues and 279 verified spans under schema v2.
+
+Audit the draft into a new report filename:
+
+```sh
+python -m scripts.sale_review audit \
+  --batch data/review/sale-v1 \
+  --reviewed data/review/sale-v1/train.normalized.jsonl \
+  --schema configs/sale_annotation_schema.json \
+  --out /tmp/inkwell-sale-draft-audit.json
+```
+
+The command exits with status 1 if issues are found. Existing outputs are never
+overwritten, and the original annotations and frozen splits are preserved.
 
 ## What was recovered
 
@@ -72,8 +122,8 @@ unchanged by this extraction.
    concern sale of personal information, with a reason in `review.notes`.
    Missing annotations do not mean false.
 4. For a sale-related candidate, add one or more scoped propositions to
-   `review.practices`. Each requires `label`, `evidence`, `conditions`,
-   `exceptions` and `notes`. Use the definitions in
+   `review.practices`. Each requires `practice_type`, `label`, `evidence`, `scope`,
+   `conditions`, `exceptions`, `opt_outs` and `notes`. Use the definitions in
    [the annotation schema](../configs/sale_annotation_schema.json).
 5. Record two distinct human identifiers in `reviewer` and `adjudicator` after
    review. An AI suggestion, if used during annotation, needs human checking;
@@ -84,10 +134,13 @@ Practice object example, for the illustrative text
 
 ```json
 {
+  "practice_type": "sale",
   "label": "conditional",
   "evidence": [{"start": 0, "end": 36, "text": "We sell your data only with consent."}],
+  "scope": [],
   "conditions": [{"start": 18, "end": 35, "text": "only with consent"}],
   "exceptions": [],
+  "opt_outs": [],
   "notes": "Sale permission is qualified by consent."
 }
 ```
@@ -109,12 +162,15 @@ Validate a completed subset or the full reviewed file:
 python -m scripts.sale_review validate \
   --batch data/review/sale-v1 \
   --reviewed data/review/sale-v1/train.reviewed.jsonl \
+  --schema configs/sale_annotation_schema.json \
   --out data/review/sale-v1/train.accepted.jsonl
 ```
 
 Validation rejects changed source fields, duplicate/unknown IDs, unreviewed
 records, missing reviewer identifiers, invalid labels, mismatched spans,
 conditional labels without conditions/exceptions and unexplained unclear labels.
+Without `--schema`, acceptance validation uses the frozen batch schema for
+backward compatibility. Pass the current schema explicitly for v2 field checks.
 It does not determine whether a semantic judgment is correct. Output includes a
 provenance manifest; existing outputs are never overwritten. Do not train on
 `candidates.jsonl` or regard the source attributes as final sale labels.

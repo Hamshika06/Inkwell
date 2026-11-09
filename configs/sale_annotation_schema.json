@@ -1,16 +1,30 @@
 {
-  "version": "1.0.0",
-  "unit": "One scoped proposition about sale of personal information; a segment may contain several propositions.",
+  "version": "2.0.0",
+  "unit": "One scoped proposition about the named practice type; a segment may contain several propositions. Contextual practice types do not establish a first-party sale of personal information.",
+  "practice_types": {
+    "sale": "The first party sells, permits sale of, or denies selling personal information. Do not infer sale from sharing alone.",
+    "business_transfer": "Information is transferred during a merger, acquisition, asset transaction or bankruptcy. This is distinct from ordinary first-party data sales.",
+    "aggregate_sale": "Sale of data described by the policy as aggregate or anonymous. Preserve that description without assuming it establishes actual anonymity.",
+    "recipient_onward_sale": "A recipient or service provider may sell, or is restricted from selling, information it receives. Polarity applies to the recipient, not the first party.",
+    "data_broker_relationship": "A relationship with information resellers or brokers. A stated relationship does not by itself establish that the first party sells information."
+  },
+  "span_fields": {
+    "evidence": "Nonempty list supporting the proposition, including actor and action or their resolvable context.",
+    "scope": "Data type, recipient, audience, purpose or time that limits the proposition. A scoped denial remains denied within that scope.",
+    "conditions": "Explicit prerequisites or triggering circumstances for the practice. Scope alone is not a prerequisite.",
+    "exceptions": "Explicit carve-outs to the stated practice or denial. Do not import exceptions from unrelated sharing statements.",
+    "opt_outs": "Mechanisms to stop or decline a practice. An opt-out alone does not imply that prior consent is required."
+  },
   "labels": {
-    "permitted": "The company states it sells, may sell, or reserves permission to sell personal information, without a stated prerequisite in the evidence.",
-    "denied": "The company explicitly rules out sale for the recorded scope. Retain limitations on audience, data type, purpose, or time in the evidence.",
-    "conditional": "Sale is allowed only under an explicit condition, or an explicit exception qualifies a no-sale statement. Record the condition/exception spans.",
-    "unclear": "The text concerns sale of personal information but does not support a determinate interpretation, even after reading context. Explain why in notes."
+    "permitted": "The named practice is stated or allowed within its scope, without an explicit prerequisite or exception. This label implies sale permission only when practice_type is sale.",
+    "denied": "The named practice is explicitly ruled out within the recorded scope. Silence outside that scope is not permission.",
+    "conditional": "The named practice depends on an explicit prerequisite or triggering circumstance, or an exception qualifies a denial. Supply condition or exception spans.",
+    "unclear": "The interpretation of the named practice remains ambiguous after considering available context. Explain the ambiguity in practice-level notes."
   },
   "span_format": {"start": "Zero-based Python character index into the review row's cleaned text", "end": "Exclusive character index", "text": "Must equal text[start:end]"},
   "review": {
-    "sale_related": "Boolean; false for product sales, sales representatives, or business asset transfers that do not establish sale of personal information.",
-    "practices": "List of objects with label, evidence, conditions, exceptions, notes. Each span list uses span_format. Leave empty only when sale_related is false.",
+    "sale_related": "Boolean indicating a relevant sale or contextual practice, including the five practice types. False for unrelated product sales or sales representatives. True does not imply first-party data sale.",
+    "practices": "List of objects with practice_type, label, evidence, scope, conditions, exceptions, opt_outs and notes. Each span list uses span_format. Empty only when sale_related is false.",
     "reviewer": "Identifier of the human reviewer",
     "adjudicator": "Identifier of a different human who checked the annotation",
     "notes": "Reasons for rejecting a candidate or other review context"
@@ -22,6 +36,10 @@
     "Sharing, renting, mergers and product sales do not automatically establish sale of personal information.",
     "Record opt-outs separately as context; an opt-out does not mean sale requires prior consent.",
     "A statement of a user's rights is not automatically a statement that this company sells data.",
+    "Polarity describes the named practice type and actor. Evaluate sale separately from contextual practice types.",
+    "Preserve explicit current denials separately from possible future practices when they describe distinct propositions.",
+    "A qualified denial and permission under its stated exceptions are not automatically contradictory.",
+    "Preserve AI author identifiers as provenance. Structural audit does not certify semantic accuracy or change review attribution.",
     "For conditional, supply at least one condition or exception span.",
     "Include enough evidence to identify the actor, action, information and qualifications; use multiple spans when needed.",
     "Do not cancel an adverse proposition with a separate denial. Preserve both scoped propositions and explain conflicts.",
