@@ -20,7 +20,8 @@
       "policyie:com_bagelcode_slots1#0023",
       "policyie:com_box_android#0041",
       "policyie:discogs#0009",
-      "policyie:discogs#0010"
+      "policyie:discogs#0010",
+      "policyie:blizzard#0015"
     ],
     "ignore_retention": [
       "policyie:app_hallow_android#0034",

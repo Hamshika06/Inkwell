@@ -1,0 +1,41 @@
+CHECKS
+[PASS] every row has a known split
+[PASS] ids are unique
+[PASS] label vectors and masks have 5 entries
+[PASS] labels match label vectors
+[PASS] no positive label on a masked class
+[PASS] each policy is in one split
+[PASS] every row has text
+[PASS] no near-copies between splits
+
+ROWS PER SOURCE AND SPLIT
+  opp115    train= 2666  validation=  433  test=  341  total=3440
+  policyie  train=  518  validation=  102  test=  157  total=777
+  goppc     train= 4195  validation=  772  test= 1233  total=6200
+  all       train= 7379  validation= 1307  test= 1731  total=10417
+
+POSITIVE / KNOWN ROWS PER CLASS AND SPLIT
+  Data Collection & Use       train= 3060/7353   validation=  601/1303   test=  705/1727 
+  Data Sharing                train= 1580/7354   validation=  297/1304   test=  349/1727 
+  User Rights & Choices       train= 1543/6845   validation=  326/1203   test=  432/1572 
+  Data Security & Retention   train=  802/7354   validation=  132/1304   test=  214/1724 
+  Policy Scope & Changes      train=  669/6853   validation=  105/1207   test=  204/1577 
+  (no class)                  train=  947  validation=  154  test=  190
+
+TRAIN POSITIVES PER CLASS BY SOURCE
+  Data Collection & Use       opp115=  859  policyie=  251  goppc= 1950
+  Data Sharing                opp115=  675  policyie=  133  goppc=  772
+  User Rights & Choices       opp115=  361  policyie=    0  goppc= 1182
+  Data Security & Retention   opp115=  207  policyie=  103  goppc=  492
+  Policy Scope & Changes      opp115=  277  policyie=    6  goppc=  386
+
+SUGGESTED pos_weight FOR BCEWithLogitsLoss (train known negatives / positives)
+  {"Data Collection & Use": 1.403, "Data Sharing": 3.654, "User Rights & Choices": 3.436, "Data Security & Retention": 8.17, "Policy Scope & Changes": 9.244}
+
+STEPS
+  dropped_from_other_rows_to_drop_lists: 1
+  read:goppc: 6203
+  read:opp115: 3440
+  read:policyie: 778
+  rows_removed_by_merge: 3
+  same_text_groups_merged: 3
