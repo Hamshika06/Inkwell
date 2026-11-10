@@ -78,6 +78,10 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertIn("<title>Inkwell", page.text)
         self.assertEqual(self.client.get("/config.js").status_code, 200)
+        # Browsers must re-check pages and scripts, or an old app.js can meet a new app.html after a deploy.
+        for path in ["/", "/app.html", "/app.js", "/report.css"]:
+            self.assertEqual(self.client.get(path).headers.get("cache-control"), "no-cache", path)
+        self.assertNotEqual(self.client.get("/health").headers.get("cache-control"), "no-cache")
         self.assertEqual(self.client.get("/health").json()["status"], "ok")
 
     def test_unlisted_origin_gets_no_cors_header(self):

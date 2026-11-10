@@ -186,6 +186,17 @@ async def lifespan(app):
 
 
 app = FastAPI(title="Inkwell API", lifespan=lifespan)
+
+
+@app.middleware("http")
+async def revalidate_pages(request: Request, call_next):
+    """Pages, scripts and styles must be re-checked on every visit (cheap: ETags answer 304). Without this,
+    browsers may reuse an old app.js against a new app.html after a deploy, and the page fails to start."""
+    response = await call_next(request)
+    path = request.url.path
+    if path == "/" or path.endswith((".html", ".js", ".css")):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
 app.add_middleware(CORSMiddleware, allow_origins=ORIGINS, allow_methods=["GET", "POST"],
                    allow_headers=["Content-Type", "Authorization"])
 
