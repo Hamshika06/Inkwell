@@ -7,6 +7,8 @@ from sklearn.metrics import precision_recall_fscore_support, f1_score
 
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORIES = json.loads((ROOT / "configs/label_schema.json").read_text())["categories"]
+# The five classes the product uses (OPP-115, PolicyIE and GoPPC mapped onto them).
+CLASSES = json.loads((ROOT / "configs/five_class_mapping.json").read_text())["classes"]
 
 def read_rows(path):
     return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]

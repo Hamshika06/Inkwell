@@ -1,0 +1,166 @@
+{
+  "macro_f1": 0.7984272197696898,
+  "micro_f1": 0.8041884816753927,
+  "per_class": {
+    "Data Collection & Use": {
+      "precision": 0.8159340659340659,
+      "recall": 0.8425531914893617,
+      "f1": 0.829030006978367,
+      "known": 1727,
+      "support": 705
+    },
+    "Data Sharing": {
+      "precision": 0.8934707903780069,
+      "recall": 0.7449856733524355,
+      "f1": 0.8125,
+      "known": 1727,
+      "support": 349
+    },
+    "User Rights & Choices": {
+      "precision": 0.7383966244725738,
+      "recall": 0.8101851851851852,
+      "f1": 0.7726269315673289,
+      "known": 1572,
+      "support": 432
+    },
+    "Data Security & Retention": {
+      "precision": 0.78,
+      "recall": 0.7289719626168224,
+      "f1": 0.7536231884057971,
+      "known": 1724,
+      "support": 214
+    },
+    "Policy Scope & Changes": {
+      "precision": 0.7892376681614349,
+      "recall": 0.8627450980392157,
+      "f1": 0.8243559718969555,
+      "known": 1577,
+      "support": 204
+    }
+  },
+  "by_source": {
+    "opp115": {
+      "macro_f1": 0.7549212060067364,
+      "micro_f1": 0.7762430939226519,
+      "per_class": {
+        "Data Collection & Use": {
+          "precision": 0.7194244604316546,
+          "recall": 0.9345794392523364,
+          "f1": 0.8130081300813008,
+          "known": 341,
+          "support": 107
+        },
+        "Data Sharing": {
+          "precision": 0.9242424242424242,
+          "recall": 0.7011494252873564,
+          "f1": 0.7973856209150327,
+          "known": 341,
+          "support": 87
+        },
+        "User Rights & Choices": {
+          "precision": 0.5866666666666667,
+          "recall": 0.8,
+          "f1": 0.676923076923077,
+          "known": 341,
+          "support": 55
+        },
+        "Data Security & Retention": {
+          "precision": 0.76,
+          "recall": 0.5757575757575758,
+          "f1": 0.6551724137931034,
+          "known": 341,
+          "support": 33
+        },
+        "Policy Scope & Changes": {
+          "precision": 0.7808219178082192,
+          "recall": 0.890625,
+          "f1": 0.8321167883211679,
+          "known": 341,
+          "support": 64
+        }
+      }
+    },
+    "policyie": {
+      "macro_f1": 0.812030254193832,
+      "micro_f1": 0.7813620071684588,
+      "per_class": {
+        "Data Collection & Use": {
+          "precision": 0.8108108108108109,
+          "recall": 0.8333333333333334,
+          "f1": 0.821917808219178,
+          "known": 156,
+          "support": 72
+        },
+        "Data Sharing": {
+          "precision": 0.95,
+          "recall": 0.5428571428571428,
+          "f1": 0.6909090909090909,
+          "known": 157,
+          "support": 35
+        },
+        "User Rights & Choices": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "known": 0,
+          "support": 0
+        },
+        "Data Security & Retention": {
+          "precision": 0.9615384615384616,
+          "recall": 0.5952380952380952,
+          "f1": 0.7352941176470589,
+          "known": 152,
+          "support": 42
+        },
+        "Policy Scope & Changes": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "known": 5,
+          "support": 5
+        }
+      }
+    },
+    "goppc": {
+      "macro_f1": 0.8095740519882652,
+      "micro_f1": 0.8136315228966986,
+      "per_class": {
+        "Data Collection & Use": {
+          "precision": 0.8427184466019417,
+          "recall": 0.8250950570342205,
+          "f1": 0.8338136407300673,
+          "known": 1230,
+          "support": 526
+        },
+        "Data Sharing": {
+          "precision": 0.8780487804878049,
+          "recall": 0.7929515418502202,
+          "f1": 0.8333333333333334,
+          "known": 1229,
+          "support": 227
+        },
+        "User Rights & Choices": {
+          "precision": 0.7669172932330827,
+          "recall": 0.8116710875331565,
+          "f1": 0.788659793814433,
+          "known": 1231,
+          "support": 377
+        },
+        "Data Security & Retention": {
+          "precision": 0.7516778523489933,
+          "recall": 0.8057553956834532,
+          "f1": 0.7777777777777778,
+          "known": 1231,
+          "support": 139
+        },
+        "Policy Scope & Changes": {
+          "precision": 0.7862068965517242,
+          "recall": 0.8444444444444444,
+          "f1": 0.8142857142857143,
+          "known": 1231,
+          "support": 135
+        }
+      }
+    }
+  }
+}

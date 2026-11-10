@@ -9,10 +9,10 @@ let mode = "signin";
 let cooldown = null;
 
 const TAGLINES = [
-  "Read the fine print, without reading all of it.",
-  "Every answer comes with its receipt: the exact clause.",
-  "Silence is an answer too. We show what a policy never says.",
-  "No summaries. No guesses. Just the clauses.",
+  "Know what you agreed to, before you agree.",
+  "Do they sell your data? Get the answer, and the sentence that proves it.",
+  "No summaries. No guesses. Just receipts.",
+  "Find the opt-out link they buried in paragraph 37.",
   "Privacy policies are long. Your evenings aren't.",
 ];
 
@@ -47,7 +47,7 @@ function setMode(next) {
   $("password").autocomplete = signup ? "new-password" : "current-password";
   $("submit").textContent = signup ? "Create account" : "Sign in";
   $("auth-title").textContent = signup ? "Create your account" : "Welcome back";
-  $("auth-sub").textContent = signup ? "Start checking what privacy policies really say." : "Sign in to analyze privacy policies.";
+  $("auth-sub").textContent = signup ? "It's free. Unlock every receipt and your opt-out links." : "Sign in to see your full privacy report cards.";
   message("");
 }
 

@@ -1,12 +1,13 @@
 import re
 from inkwell.common import CATEGORIES
-from inkwell.risk import score_policy
+from inkwell.report import build_report
 
-FAQS={"Can I delete or access my data?":"User Access, Edit and Deletion",
-      "Do they share my data?":"Third Party Sharing/Collection",
-      "How long do they keep my data?":"Data Retention",
-      "How do they protect my data?":"Data Security",
-      "What choices do I have?":"User Choice/Control"}
+# One common question per class of the five-class model (configs/five_class_mapping.json).
+FAQS={"What do they collect about me?":"Data Collection & Use",
+      "Do they share or sell my data?":"Data Sharing",
+      "Can I delete my data or opt out?":"User Rights & Choices",
+      "How long do they keep it, and how is it protected?":"Data Security & Retention",
+      "Will they tell me when the policy changes?":"Policy Scope & Changes"}
 
 def segment(text):
     # Blank lines delimit paragraphs; trim boundaries without altering evidence text.
@@ -19,11 +20,14 @@ def segment(text):
     return result
 
 def analyze(text,predictor):
+    """Label each paragraph with the predictor's classes and build the report card."""
+    labels=getattr(predictor,"labels",CATEGORIES)  # Research predictors without labels use the ten OPP-115 categories.
     segments=segment(text)
-    coverage={c:[] for c in CATEGORIES}
+    coverage={c:[] for c in labels}
     if segments:
         for s,scores in zip(segments,predictor.scores([s["text"] for s in segments])):
-            s["labels"]=[c for i,c in enumerate(CATEGORIES) if scores[i]>=predictor.thresholds[i]]
+            s["labels"]=[c for i,c in enumerate(labels) if scores[i]>=predictor.thresholds[i]]
             for c in s["labels"]: coverage[c].append(s["id"])
-    return {"text":text,"segments":segments,"coverage":coverage,"faqs":FAQS,
-            "empty_message":"No matching clause detected", "risk":score_policy(segments)}
+    faqs={q:c for q,c in FAQS.items() if c in coverage}
+    return {"text":text,"segments":segments,"coverage":coverage,"faqs":faqs,
+            "empty_message":"No matching clause detected","report":build_report(segments)}

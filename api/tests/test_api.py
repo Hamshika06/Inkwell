@@ -5,29 +5,39 @@ try:
 except ImportError:  # The API is optional for the research pipeline's environment.
     raise unittest.SkipTest("fastapi/httpx not installed; pip install -r api/requirements.txt httpx")
 from api.app import MAX_BYTES, MAX_ENCODER_SEGMENTS, MODELS, app
-from inkwell.common import CATEGORIES
+from inkwell.common import CLASSES
 from inkwell.stage1 import FAQS
+
+
+def wait_for_model(client):
+    # The model loads in a background thread; the first run also downloads ~500 MB of weights.
+    deadline = time.monotonic() + 900
+    while "loading" in client.get("/health").json()["models"].values() and time.monotonic() < deadline:
+        time.sleep(0.5)
+    status = client.get("/models").json()["models"][0]
+    if status["status"] != "ready":
+        raise AssertionError(f"Model did not load: {status.get('error')}")
+
 
 class ApiTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.client = TestClient(app, headers={"Origin": "http://localhost:5173"}).__enter__()
-        deadline = time.monotonic() + 300  # Encoders load in a background thread.
-        while "loading" in cls.client.get("/health").json()["models"].values() and time.monotonic() < deadline:
-            time.sleep(0.5)
+        wait_for_model(cls.client)
     @classmethod
     def tearDownClass(cls):
         cls.client.__exit__(None, None, None)
 
     def test_health_schema_and_models(self):
         health = self.client.get("/health").json()
-        self.assertEqual((health["status"], health["run"], health["models"]["svm"]), ("ok", "svm-opp115-seed42", "ready"))
-        self.assertEqual(self.client.get("/schema").json(), {"categories": CATEGORIES, "faqs": FAQS})
-        models = {m["id"]: m for m in self.client.get("/models").json()["models"]}
-        self.assertEqual(set(models), set(MODELS))
-        self.assertEqual(models["svm"]["status"], "ready")
-        self.assertEqual(models["roberta"]["run"], "roberta-c3pa-opp115-seed42")
-        self.assertAlmostEqual(models["roberta"]["test_macro_f1"], 0.6688, places=4)
+        self.assertEqual(health, {"status": "ok", "run": "roberta-five-class-seed42", "models": {"roberta": "ready"}})
+        self.assertEqual(self.client.get("/schema").json(), {"categories": CLASSES, "faqs": FAQS})
+        self.assertEqual(sorted(FAQS.values()), sorted(CLASSES))  # One common question per topic.
+        listing = self.client.get("/models").json()
+        self.assertEqual((listing["default"], [m["id"] for m in listing["models"]]), ("roberta", list(MODELS)))
+        model = listing["models"][0]
+        self.assertEqual((model["status"], model["classes"]), ("ready", CLASSES))
+        self.assertAlmostEqual(model["test_macro_f1"], 0.7984, places=4)
 
     def test_analyze_keeps_demo_contract(self):
         text = "We collect your email address.\n\n  You can request deletion of your data. 🔒"
@@ -36,26 +46,24 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(response.headers["access-control-allow-origin"], "http://localhost:5173")
         result = response.json()
         self.assertTrue({"text", "segments", "coverage", "faqs", "empty_message"} <= set(result))
-        self.assertEqual((result["text"], result["model"]), (text, "svm"))
-        self.assertEqual(list(result["coverage"]), CATEGORIES)
-        self.assertEqual(result["risk"]["version"], "1.0.0")
-        self.assertEqual(result["risk"]["score"], 0)
-        self.assertEqual(result["risk"]["band"], "no_matches")
+        self.assertEqual((result["text"], result["model"]), (text, "roberta"))
+        self.assertEqual(list(result["coverage"]), CLASSES)
+        self.assertNotIn("risk", result)  # Replaced by the report card.
+        self.assertIn("Data Collection & Use", result["segments"][0]["labels"])
+        self.assertIn("User Rights & Choices", result["segments"][1]["labels"])
         for s in result["segments"]:
             self.assertEqual(s["text"], text[s["start"]:s["end"]])
+            self.assertTrue(all(0 <= x <= 1 for x in s["scores"]))  # Probabilities, like the thresholds.
             # Reported scores must reproduce the labels analyze() assigned.
-            passed = [c for c, score, t in zip(CATEGORIES, s["scores"], result["thresholds"]) if score >= t]
+            passed = [c for c, score, t in zip(CLASSES, s["scores"], result["thresholds"]) if score >= t]
             self.assertEqual(passed, s["labels"])
 
     def test_model_selection(self):
-        self.assertEqual(self.client.post("/analyze", json={"text": "x", "model": "gpt"}).status_code, 400)
-        status = self.client.get("/health").json()["models"]
-        for key in ["distilbert", "roberta"]:
-            response = self.client.post("/analyze", json={"text": "We collect data.", "model": key})
-            self.assertEqual(response.status_code, 200 if status[key] == "ready" else 503, response.text)
-            if status[key] == "ready":
-                many = "\n\n".join(["We collect data."] * (MAX_ENCODER_SEGMENTS + 1))
-                self.assertEqual(self.client.post("/analyze", json={"text": many, "model": key}).status_code, 413)
+        for old in ["gpt", "svm", "distilbert"]:  # The ten-category models are no longer served.
+            self.assertEqual(self.client.post("/analyze", json={"text": "x", "model": old}).status_code, 400, old)
+        self.assertEqual(self.client.post("/analyze", json={"text": "We collect data.", "model": "roberta"}).status_code, 200)
+        many = "\n\n".join(["We collect data."] * (MAX_ENCODER_SEGMENTS + 1))
+        self.assertEqual(self.client.post("/analyze", json={"text": many}).status_code, 413)
 
     def test_rejections(self):
         too_big = self.client.post("/analyze", content=b'{"text":"' + b"a" * MAX_BYTES + b'"}',
@@ -77,7 +85,23 @@ class ApiTests(unittest.TestCase):
         self.assertNotIn("access-control-allow-origin", response.headers)
 
     def test_sign_in_off_without_firebase_settings(self):
-        self.assertEqual(self.client.get("/auth-config").json(), {"enabled": False, "firebase": None})
+        self.assertEqual(self.client.get("/auth-config").json(), {"enabled": False, "guest": False, "firebase": None})
+        self.assertIs(self.client.post("/analyze", json={"text": "We collect data."}).json()["guest"], False)
+
+    def test_report_card(self):
+        text = ("Acme Privacy Policy\n\nWe do not sell your personal information. We share your information with "
+                "advertising partners.\n\nYou can opt out at https://acme.example/choices or email privacy@acme.example.")
+        report = self.client.post("/analyze", json={"text": text}).json()["report"]
+        checks = {c["id"]: c for c in report["checks"]}
+        self.assertEqual(report["title"], "Acme Privacy Policy")
+        self.assertEqual((checks["sale"]["state"], checks["sale"]["tone"]), ("denied", "good"))
+        self.assertEqual((checks["ads"]["state"], checks["ads"]["tone"]), ("found", "bad"))
+        self.assertEqual(checks["retention"]["state"], "missing")
+        for check in report["checks"]:
+            for e in check["evidence"]:
+                self.assertEqual(text[e["start"]:e["end"]], e["text"])
+        targets = {t["value"] for a in report["actions"] for t in a["targets"]}
+        self.assertEqual(targets, {"https://acme.example/choices", "privacy@acme.example"})
 
 
 class AuthTests(unittest.TestCase):
@@ -96,6 +120,10 @@ class AuthTests(unittest.TestCase):
         public = cls.key.public_key()
         module._jwks = type("Keys", (), {"get_signing_key_from_jwt": lambda self, token: type("K", (), {"key": public})()})()
         cls.client = TestClient(app).__enter__()
+        wait_for_model(cls.client)
+
+    def setUp(self):
+        self.module._guest_hits.clear()
 
     @classmethod
     def tearDownClass(cls):
@@ -111,7 +139,7 @@ class AuthTests(unittest.TestCase):
         return jwt.encode(claims, key or self.key, algorithm="RS256", headers={"kid": "test"})
 
     def analyze(self, token=None):
-        headers = {"Authorization": f"Bearer {token}"} if token else {}
+        headers = {} if token is None else {"Authorization": f"Bearer {token}" if token else "Basic abc"}
         return self.client.post("/analyze", json={"text": "We collect your email address."}, headers=headers)
 
     def test_config_is_public(self):
@@ -124,7 +152,7 @@ class AuthTests(unittest.TestCase):
 
     def test_rejected_tokens(self):
         now = int(time.time())
-        cases = {"missing": None, "other project": self.token(aud="someone-else"),
+        cases = {"not bearer": "", "other project": self.token(aud="someone-else"),
                  "other issuer": self.token(iss="https://securetoken.google.com/someone-else"),
                  "expired": self.token(iat=now - 7200, exp=now - 3600), "no user": self.token(sub=""),
                  "forged signature": self.token(key=self.other_key), "garbage": "not-a-token"}
@@ -151,6 +179,23 @@ class AuthTests(unittest.TestCase):
     def test_unverified_account_with_a_bad_token_is_still_401(self):
         token = self.token(key=self.other_key, firebase={"sign_in_provider": "password"}, email_verified=False)
         self.assertEqual(self.analyze(token).status_code, 401)
+
+    def test_guests_get_a_limited_free_check(self):
+        self.assertTrue(self.client.get("/auth-config").json()["guest"])
+        response = self.analyze()
+        self.assertEqual(response.status_code, 200)
+        self.assertIs(response.json()["guest"], True)
+        self.assertIs(self.analyze(self.token()).json()["guest"], False)
+        big = self.client.post("/analyze", json={"text": "a" * (self.module.GUEST_MAX_BYTES + 10)})
+        self.assertEqual(big.status_code, 413)
+
+    def test_guest_hourly_limit(self):
+        for _ in range(self.module.GUEST_PER_HOUR):
+            self.assertEqual(self.analyze().status_code, 200)
+        self.assertEqual(self.analyze().status_code, 429)
+        self.assertEqual(self.analyze(self.token()).status_code, 200)  # Accounts aren't counted.
+        other = self.client.post("/analyze", json={"text": "We collect data."}, headers={"X-Forwarded-For": "203.0.113.9"})
+        self.assertEqual(other.status_code, 200)
 
     def test_reading_endpoints_stay_open(self):
         for path in ["/health", "/schema", "/models", "/auth-config"]:

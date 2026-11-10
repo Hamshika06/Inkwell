@@ -1,0 +1,45 @@
+{
+  "kind": "encoder",
+  "model": "roberta-base",
+  "seed": 42,
+  "classes": 5,
+  "dataset": "data/final_combined_fivecls_data (OPP-115, PolicyIE and GoPPC mapped to five classes)",
+  "weights": "Hamshika/inkwell-weights: Five_Class_Combined_Roberta/seed_42",
+  "max_length": 512,
+  "best_epoch": 4,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss_per_batch": 0.4993929449484978,
+      "validation_macro_f1_at_0.5": 0.8027129233127143
+    },
+    {
+      "epoch": 2,
+      "train_loss_per_batch": 0.2764907218838409,
+      "validation_macro_f1_at_0.5": 0.7921921028783439
+    },
+    {
+      "epoch": 3,
+      "train_loss_per_batch": 0.21903302794669097,
+      "validation_macro_f1_at_0.5": 0.8058662060405769
+    },
+    {
+      "epoch": 4,
+      "train_loss_per_batch": 0.17509412853393977,
+      "validation_macro_f1_at_0.5": 0.8100554264384089
+    },
+    {
+      "epoch": 5,
+      "train_loss_per_batch": 0.1421862483282626,
+      "validation_macro_f1_at_0.5": 0.8009982527465646
+    },
+    {
+      "epoch": 6,
+      "train_loss_per_batch": 0.1202640998060311,
+      "validation_macro_f1_at_0.5": 0.8074936597693154
+    }
+  ],
+  "output": "sigmoid",
+  "score_type": "probability (sigmoid of the logit)",
+  "source": "runs/roberta-five-class-colab/results_seed42.json"
+}

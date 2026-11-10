@@ -68,7 +68,9 @@
 .form-msg.ok { background: var(--success-soft); color: var(--success); }
 .notice { padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); display: grid; gap: 8px; }
 .notice p { margin: 0 0 8px; color: var(--text-3); font-size: 14px; }
-.legal { margin: 28px 0 0; font-size: 12.5px; color: var(--text-3); text-align: center; }
+.legal { margin: 20px 0 0; font-size: 12.5px; color: var(--text-3); text-align: center; }
+.try-free { margin: 24px 0 0; text-align: center; font-size: 14px; }
+.try-free a { font-weight: 500; }
 
 @media (max-width: 880px) {
   .auth-layout { grid-template-columns: 1fr; }

@@ -70,9 +70,9 @@ class RiskTests(unittest.TestCase):
             def scores(self, texts):
                 return np.ones((len(texts), len(CATEGORIES))) * 100
 
-        result = analyze("We sell your personal data.", Fake())
-        self.assertEqual(result["risk"]["score"], 30)
-        self.assertEqual(result["coverage"][RULES[0].category], [0])
+        analysis = analyze("We sell your personal data.", Fake())
+        self.assertEqual(score_policy(analysis["segments"])["score"], 30)
+        self.assertEqual(analysis["coverage"][RULES[0].category], [0])
 
 
 if __name__ == "__main__":

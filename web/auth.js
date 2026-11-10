@@ -6,18 +6,19 @@ export const API = (window.INKWELL_API ?? "").replace(/\/+$/, "");
 
 let context = null;
 
-/** Returns { enabled, auth, fb } once; fb holds the Firebase Auth functions when sign-in is on. */
+/** Returns { enabled, guest, auth, fb } once; fb holds the Firebase Auth functions when sign-in is on, and guest
+ * says whether people without an account may run free checks. */
 export async function startAuth() {
   if (context) return context;
   const response = await fetch(`${API}/auth-config`);
   if (!response.ok) throw new Error(`Can't reach the Inkwell API (${response.status})`);
   const config = await response.json();
-  if (!config.enabled) return (context = { enabled: false });
+  if (!config.enabled) return (context = { enabled: false, guest: false });
   const [{ initializeApp }, fb] = await Promise.all([
     import(`${FIREBASE_SDK}/firebase-app.js`), import(`${FIREBASE_SDK}/firebase-auth.js`)]);
   const auth = fb.getAuth(initializeApp(config.firebase));
   await fb.setPersistence(auth, fb.browserLocalPersistence);
-  return (context = { enabled: true, auth, fb });
+  return (context = { enabled: true, guest: !!config.guest, auth, fb });
 }
 
 /** Resolves with the signed-in user (or null) once Firebase has restored any saved session. */
@@ -50,7 +51,7 @@ export async function authHeaders(ctx) {
 
 /** Only same-site paths are allowed as a post-login destination. */
 export function safeNext(value) {
-  return value && value.startsWith("/") && !value.startsWith("//") && !value.startsWith("/\\") ? value : "/";
+  return value && value.startsWith("/") && !value.startsWith("//") && !value.startsWith("/\\") ? value : "/app.html";
 }
 
 /** Friendly text for Firebase Auth error codes. Returns "" for errors that need no message. */
