@@ -51,7 +51,7 @@ async function savePriorities() {
   state.priorities = state.draftPriorities ?? state.priorities ?? [];
   state.draftPriorities = null; state.editingPriorities = false;
   ui.refresh();
-  try { await state.store.setPriorities(state.priorities); } catch { ui.setStatus("Couldn't save your priorities. They'll apply until you leave this page.", "error"); }
+  try { await (state.storeReady || Promise.resolve()); await state.store.setPriorities(state.priorities); } catch { ui.setStatus("Couldn't save your priorities. They'll apply until you leave this page.", "error"); }
 }
 
 /* ---------- Decision bar ---------- */
@@ -251,6 +251,7 @@ const verdictsOf = (r) => Object.fromEntries(r.checks.map((c) => [c.id, { state:
 /** After each check: fingerprint the text, find a saved copy of this policy and work out what changed. */
 export async function afterAnalysis(text) {
   const { state } = ui;
+  await state.storeReady?.catch(() => {});  // Saved policies may still be loading.
   const r = report();
   const fp = await fingerprint(text).catch(() => null);
   const saved = state.saved || {};
@@ -295,7 +296,8 @@ function renderChanges() {
 
 function renderSaveRow() {
   const { el, state } = ui;
-  if (state.guest || state.store?.mode === "guest") {
+  if (!state.store) return null;  // Storage is still loading.
+  if (state.guest || state.store.mode === "guest") {
     return el("p", { class: "save-row fine" }, el("a", { href: ui.signupUrl() }, "Create a free account"), " to save your checklist and see what changes the next time you check this policy.");
   }
   const cur = state.current || {};

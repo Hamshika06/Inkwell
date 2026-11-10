@@ -506,14 +506,19 @@ async function connect() {
   if (user && !(await isVerified(user).catch(() => true))) return toLogin();
   renderUser(user);
   state.user = user;
-  state.store = await openStore(state.ctx, user);
-  await loadPriorities();
-  await loadSaved();
   $("guest-banner").hidden = !state.guest;
   updateCounts();  // Free checks have a lower size limit.
   if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) location.replace("/"); });
   document.body.dataset.auth = "ready";
   checkApi();
+  // Priorities and saved policies load after the page shows: account storage can take a few seconds,
+  // or time out when Firestore isn't set up. afterAnalysis waits for this before matching saved policies.
+  state.storeReady = (async () => {
+    state.store = await openStore(state.ctx, user);
+    await loadPriorities();
+    await loadSaved();
+    if (state.result) renderReport();
+  })();
 }
 
 initDecide({ state, el, plural, select, signupUrl, lockCta, setStatus, refresh: () => { if (state.result) renderReport(); } });
