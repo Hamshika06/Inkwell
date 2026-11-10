@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sign in · Inkwell</title>
-  <meta name="description" content="Sign in to Inkwell: find out what a privacy policy actually says, and what it never mentions.">
+  <meta name="description" content="Create your free Inkwell account: the full privacy report card, every receipt and your opt-out links.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,36 +25,37 @@
         <path d="M-40 190 C 160 130, 280 230, 420 160 S 560 70, 660 110"/>
       </svg>
       <div class="art-inner">
-        <a class="brand on-dark" href="login.html">
+        <a class="brand on-dark" href="/">
           <img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span>
         </a>
         <div class="art-copy">
-          <p class="eyebrow">Privacy policies, decoded</p>
-          <p class="tagline" id="tagline">Read the fine print, without reading all of it.</p>
+          <p class="eyebrow">Your free account unlocks</p>
+          <p class="tagline" id="tagline">Know what you agreed to, before you agree.</p>
           <ul class="art-points">
-            <li><span>01</span>Every answer is the exact clause, never a summary.</li>
-            <li><span>02</span>Topics a policy never mentions are flagged, not guessed.</li>
-            <li><span>03</span>Three models side by side, so you can see where they disagree.</li>
+            <li><span>01</span>The full report card, with the exact sentence behind every verdict.</li>
+            <li><span>02</span>Your steps: opt-out links and ready-to-send deletion and opt-out emails.</li>
+            <li><span>03</span>Every paragraph sorted into five topics, with a clause-by-clause breakdown.</li>
+            <li><span>04</span>Save policies and see exactly what changed when you check again.</li>
           </ul>
         </div>
-        <p class="art-foot">A research project by Token Economy · DATA/MSML 641, UMD</p>
+        <p class="art-foot">Inkwell by Token Economy · Free, no credit card</p>
       </div>
     </aside>
 
     <main class="auth-panel">
       <div class="auth-card">
-        <a class="brand mobile-only" href="login.html">
+        <a class="brand mobile-only" href="/">
           <img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span>
         </a>
         <h1 id="auth-title">Welcome back</h1>
-        <p class="auth-sub" id="auth-sub">Sign in to analyze privacy policies.</p>
+        <p class="auth-sub" id="auth-sub">Sign in to see your full privacy report cards.</p>
 
         <div id="auth-loading" class="auth-loading" role="status">Checking sign-in…</div>
 
         <div id="auth-off" class="notice" hidden>
           <strong>Sign-in isn't set up on this server yet.</strong>
           <p>Inkwell is open without an account here. Add the Firebase settings to turn sign-in on.</p>
-          <a class="btn btn-primary btn-block" href="/">Continue to Inkwell</a>
+          <a class="btn btn-primary btn-block" href="app.html">Continue to Inkwell</a>
         </div>
 
         <div id="auth-ui" hidden>
@@ -106,7 +107,8 @@
         </div>
 
         <p id="auth-msg" class="form-msg" role="alert" hidden></p>
-        <p class="legal">Inkwell is a research tool, not legal advice. Policies you analyze are classified and never stored.</p>
+        <p class="try-free" id="try-free"><a href="app.html">Just looking? Check a policy without an account →</a></p>
+        <p class="legal">Not legal advice. Policies you check are analyzed and never stored. <a href="/#privacy">Our privacy promise</a></p>
       </div>
     </main>
   </div>

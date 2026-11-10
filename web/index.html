@@ -3,98 +3,263 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Inkwell · Privacy policy analyzer</title>
-  <meta name="description" content="Paste a privacy policy. Inkwell quotes the clauses that answer common questions and flags the topics it never mentions.">
+  <title>Inkwell · Know what you agreed to</title>
+  <meta name="description" content="Paste any privacy policy and find out in seconds if they sell your data, share it with advertisers or let you delete it, with the exact sentence as proof. Free, no sign-up.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="app.css">
-  <script>try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="stylesheet" href="home.css">
+  <script>document.documentElement.classList.add("js"); try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <script src="config.js"></script>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="home.js"></script>
 </head>
-<body data-auth="pending">
-  <header class="topbar">
+<body class="home">
+  <header class="nav">
     <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
-    <div class="topbar-right">
-      <span id="lamp" class="status-pill" data-state="checking" role="status" title="">
-        <span class="dot" aria-hidden="true"></span><span id="lamp-text">Connecting…</span>
-      </span>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#checks">What we check</a>
+      <a href="#free">Free vs account</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
       <button type="button" class="icon-btn" id="theme" aria-label="Switch light or dark theme" title="Switch theme">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
-      <div class="user" id="user"></div>
+      <a class="btn btn-ghost" id="nav-signin" href="login.html">Sign in</a>
+      <a class="btn btn-primary" id="nav-cta" href="app.html">Try it free</a>
     </div>
   </header>
 
   <main>
-    <section class="intro">
-      <h1>Analyze a privacy policy</h1>
-      <p>Paste a policy and pick a model. Inkwell quotes the exact clauses behind every answer, and tells you which topics the policy never mentions.</p>
-    </section>
+    <!-- Hero -->
+    <section class="hero">
+      <svg class="hero-lines" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-50 480 C 200 400, 380 560, 620 450 S 1000 330, 1250 420"/>
+        <path d="M-50 380 C 220 300, 420 450, 660 350 S 1020 230, 1250 300"/>
+        <path d="M-50 270 C 240 210, 440 330, 700 250 S 1040 130, 1250 190"/>
+      </svg>
+      <div class="hero-copy">
+        <p class="pill rise" style="--d:0"><span class="pill-dot"></span>Free · No sign-up needed</p>
+        <h1 class="rise" style="--d:1">Know what you're agreeing to <em>before</em> you click “I&nbsp;agree.”</h1>
+        <p class="hero-sub rise" style="--d:2">
+          Paste any privacy policy. In seconds, find out if they
+          <span class="rotator" aria-live="polite"><span id="rotator-word">sell your data</span></span>,
+          with the exact sentence as proof.
+        </p>
+        <div class="hero-ctas rise" style="--d:3">
+          <a class="btn btn-primary btn-xl" href="app.html" data-cta>Check a policy free <span aria-hidden="true">→</span></a>
+          <a class="btn btn-xl btn-outline" href="app.html?sample=1">See a sample report</a>
+        </div>
+        <ul class="hero-proof rise" style="--d:4">
+          <li>Exact quotes, never AI summaries</li>
+          <li>Nothing you paste is stored</li>
+          <li>Takes under a minute</li>
+        </ul>
+      </div>
 
-    <div class="workspace">
-      <section class="card" aria-labelledby="policy-label">
-        <div class="card-head">
-          <h2 id="policy-label">Policy text</h2>
-          <div class="toolbar">
-            <button type="button" class="btn btn-ghost" id="sample">Load sample</button>
-            <span class="btn btn-ghost filebtn">Upload .txt<input type="file" id="file" accept=".txt,.md,text/plain" aria-label="Upload a .txt or .md file"></span>
-            <button type="button" class="btn btn-ghost" id="split" title="For text copied from a web page, where paragraphs are separated by single line breaks">Fix line breaks</button>
-            <button type="button" class="btn btn-ghost" id="clear">Clear</button>
+      <div class="hero-demo rise" style="--d:2" aria-label="Example report card for a fictional app">
+        <div class="demo-card" id="demo">
+          <div class="demo-head">
+            <div>
+              <p class="eyebrow">Privacy report card</p>
+              <p class="demo-title">Pigeonpost Privacy Policy</p>
+            </div>
+            <span class="demo-badge">Fictional example</span>
           </div>
-        </div>
-        <div class="card-body">
-          <label for="policy" class="sr-only">Policy text</label>
-          <textarea id="policy" spellcheck="false" placeholder="Paste a privacy policy here. Leave a blank line between paragraphs: each paragraph is one clause Inkwell can quote back to you."></textarea>
-          <p id="counts" class="counts"></p>
-          <p id="warn" class="warn" hidden></p>
-        </div>
-      </section>
-
-      <aside class="card" aria-labelledby="model-label">
-        <div class="card-head"><h2 id="model-label">Model</h2></div>
-        <div class="card-body">
-          <div id="models" class="models" role="radiogroup" aria-labelledby="model-label"></div>
-          <div class="run-area">
-            <button type="button" id="run" class="btn btn-primary btn-lg btn-block">Analyze policy</button>
-            <div class="run-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd></div>
-            <p id="status" class="status" role="status"></p>
+          <ul class="demo-rows">
+            <li class="bad"><span class="ic">!</span><span class="t">Shares your data with advertisers</span><span class="v">Yes</span></li>
+            <li class="bad"><span class="ic">!</span><span class="t">Collects your location</span><span class="v">Yes</span></li>
+            <li class="good"><span class="ic">✓</span><span class="t">Lets you delete your data</span><span class="v">Yes</span></li>
+            <li class="good"><span class="ic">✓</span><span class="t">Deletes messages after you leave</span><span class="v">30 days</span></li>
+            <li class="unknown"><span class="ic">?</span><span class="t">Sells your data</span><span class="v">Not mentioned</span></li>
+          </ul>
+          <div class="demo-receipt">
+            <span class="q">“</span>We share your personal information with advertising partners and analytics providers…
+            <span class="src">Paragraph 4 · exact quote</span>
           </div>
-        </div>
-      </aside>
-    </div>
-
-    <section id="results" class="results" hidden>
-      <div class="results-head">
-        <h2>Results</h2>
-        <div id="viewing" class="segmented" aria-label="Model shown"></div>
-        <div class="exports">
-          <button type="button" class="btn" id="dl-md">Download report</button>
-          <button type="button" class="btn btn-ghost" id="dl-json">JSON</button>
+          <div class="demo-action"><span class="ic">⊘</span><span><strong>Opt out of targeted ads</strong><br>Settings › Privacy</span></div>
+          <span class="scan" aria-hidden="true"></span>
         </div>
       </div>
-      <div id="kpis" class="kpis"></div>
-      <nav class="tabs" role="tablist" aria-label="Result views">
-        <button type="button" role="tab" id="tab-btn-overview" aria-controls="tab-overview" data-tab="overview" aria-selected="true">Overview</button>
-        <button type="button" role="tab" id="tab-btn-faqs" aria-controls="tab-faqs" data-tab="faqs" aria-selected="false" tabindex="-1">Common questions</button>
-        <button type="button" role="tab" id="tab-btn-doc" aria-controls="tab-doc" data-tab="doc" aria-selected="false" tabindex="-1">Document</button>
-        <button type="button" role="tab" id="tab-btn-compare" aria-controls="tab-compare" data-tab="compare" aria-selected="false" tabindex="-1" hidden>Compare models</button>
-      </nav>
-      <div id="tab-overview" class="panel" role="tabpanel" aria-labelledby="tab-btn-overview"></div>
-      <div id="tab-faqs" class="panel" role="tabpanel" aria-labelledby="tab-btn-faqs" hidden></div>
-      <div id="tab-doc" class="panel" role="tabpanel" aria-labelledby="tab-btn-doc" hidden></div>
-      <div id="tab-compare" class="panel" role="tabpanel" aria-labelledby="tab-btn-compare" hidden></div>
+    </section>
+
+    <!-- Problem -->
+    <section class="band">
+      <div class="wrap">
+        <h2 class="reveal">Privacy policies are written so you won't read them.<br><span class="accent">So we read them for you.</span></h2>
+        <div class="pain">
+          <article class="reveal" style="--d:0">
+            <span class="pain-ic" aria-hidden="true">📜</span>
+            <h3>Thousands of words of legalese</h3>
+            <p>Written by lawyers, for lawyers, and updated whenever they like.</p>
+          </article>
+          <article class="reveal" style="--d:1">
+            <span class="pain-ic" aria-hidden="true">🔎</span>
+            <h3>The part that matters is in paragraph 37</h3>
+            <p>“We may share your information with trusted partners.” Which partners? What do they get?</p>
+          </article>
+          <article class="reveal" style="--d:2">
+            <span class="pain-ic" aria-hidden="true">✍️</span>
+            <h3>You agree with one click</h3>
+            <p>Sign up, accept, move on. Most people never find out what they said yes to.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="wrap section" id="how">
+      <p class="kicker reveal">How it works</p>
+      <h2 class="reveal">From fine print to plain answers in three steps</h2>
+      <ol class="steps">
+        <li class="reveal" style="--d:0">
+          <span class="step-n">1</span>
+          <h3>Paste the policy</h3>
+          <p>Open the privacy policy link in any site's footer, press <kbd>Ctrl</kbd>+<kbd>A</kbd>, copy and paste. Or upload a .txt file.</p>
+        </li>
+        <li class="reveal" style="--d:1">
+          <span class="step-n">2</span>
+          <h3>We read every sentence</h3>
+          <p>Our AI model, trained on 10,000+ paragraphs from real privacy policies, sorts every paragraph into five topics: collection, sharing, your rights, security and retention, and policy changes. Then we check the wording: sale, ads, location, deletion and more.</p>
+        </li>
+        <li class="reveal" style="--d:2">
+          <span class="step-n">3</span>
+          <h3>Decide, your way</h3>
+          <p>See what the policy allows, which parts you can switch off, and the exact sentence behind each answer. Then take the steps, agree anyway, or walk away. Your call.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- What we check -->
+    <section class="wrap section" id="checks">
+      <p class="kicker reveal">What we check</p>
+      <h2 class="reveal">The eight questions that actually matter</h2>
+      <div class="check-grid">
+        <article class="reveal" style="--d:0"><span class="cg-ic bad">$</span><h3>Do they sell my data?</h3><p>Including the “sharing may count as a sale” wording that state privacy laws require.</p></article>
+        <article class="reveal" style="--d:1"><span class="cg-ic bad">◎</span><h3>Is it used for targeted ads?</h3><p>Interest-based ads, ad partners and tracking across sites.</p></article>
+        <article class="reveal" style="--d:2"><span class="cg-ic bad">⇄</span><h3>Who else gets it?</h3><p>Third parties, affiliates, partners, and the “except” that turns a no into a yes.</p></article>
+        <article class="reveal" style="--d:3"><span class="cg-ic bad">⌖</span><h3>Do they track my location?</h3><p>Precise GPS or rough location from your IP address.</p></article>
+        <article class="reveal" style="--d:0"><span class="cg-ic unknown">⧗</span><h3>How long do they keep it?</h3><p>A real time limit, or “as long as necessary”?</p></article>
+        <article class="reveal" style="--d:1"><span class="cg-ic good">⌫</span><h3>Can I delete it?</h3><p>Your right to erase your data, and how to ask.</p></article>
+        <article class="reveal" style="--d:2"><span class="cg-ic good">⊘</span><h3>Can I opt out?</h3><p>Opt-out links, settings paths and privacy emails, found for you.</p></article>
+        <article class="reveal" style="--d:3"><span class="cg-ic unknown">↻</span><h3>Will they tell me about changes?</h3><p>Or does “continued use” mean you agreed to the new rules?</p></article>
+      </div>
+    </section>
+
+    <!-- Receipts -->
+    <section class="band receipts-band">
+      <div class="wrap receipts">
+        <div class="reveal">
+          <p class="kicker">Why trust it</p>
+          <h2>No summaries. No made-up answers. <span class="accent">Just receipts.</span></h2>
+          <p class="lead">AI summaries can sound confident and still be wrong. Inkwell never puts words in a company's mouth: every verdict points to the exact sentence it's based on, so you can check it yourself in one click.</p>
+          <a class="btn btn-primary btn-xl" href="app.html" data-cta>Try it on a policy you've accepted <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="receipt-demo reveal" style="--d:1">
+          <div class="rd-verdict"><span class="ic">!</span> Sells your data <span class="v">Yes, or it may count as a sale</span></div>
+          <blockquote>“Our disclosure of personal information to third parties who use it for their own purposes may constitute a ‘sale’ under state law.”</blockquote>
+          <figcaption>Example · every verdict links to its exact sentence in the full policy</figcaption>
+          <div class="rd-also">But the policy also says: <em>“We do not directly sell your personal information.”</em></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Free vs account -->
+    <section class="wrap section" id="free">
+      <p class="kicker reveal">Free vs account</p>
+      <h2 class="reveal">Start without an account. Unlock everything for $0.</h2>
+      <div class="plans">
+        <article class="plan reveal" style="--d:0">
+          <h3>Free check</h3>
+          <p class="price">No account</p>
+          <ul>
+            <li>All 8 answers, and which ones you can switch off</li>
+            <li>Highlights for what you say matters to you</li>
+            <li>The proof sentence for the first 2</li>
+            <li>The whole policy sorted into 5 topics</li>
+          </ul>
+          <a class="btn btn-lg btn-block btn-outline" href="app.html">Check a policy now</a>
+        </article>
+        <article class="plan featured reveal" style="--d:1">
+          <span class="ribbon">Recommended</span>
+          <h3>Free account</h3>
+          <p class="price">$0 <small>· sign up in 10 seconds</small></p>
+          <ul>
+            <li><strong>Every receipt</strong> behind every verdict</li>
+            <li><strong>Your steps:</strong> opt-out links from the policy, plus ready-to-send opt-out and deletion emails</li>
+            <li><strong>My policies:</strong> save a check and see exactly what changed next time</li>
+            <li>Straight answers to common questions</li>
+            <li>Clause-by-clause view, with the model's confidence for every paragraph</li>
+            <li>Download your report</li>
+          </ul>
+          <a class="btn btn-primary btn-lg btn-block" href="login.html?mode=signup&amp;next=%2Fapp.html">Create my free account</a>
+        </article>
+        <article class="plan soon reveal" style="--d:2">
+          <h3>Coming soon</h3>
+          <p class="price">On our roadmap</p>
+          <ul>
+            <li><strong>Chrome extension:</strong> check a policy from the sign-up page, before you click “I agree”</li>
+            <li><strong>Email alerts:</strong> hear when a policy you saved changes, without checking it yourself</li>
+            <li>Side-by-side comparison of two companies</li>
+          </ul>
+          <a class="btn btn-lg btn-block btn-outline" href="login.html?mode=signup&amp;next=%2Fapp.html">Sign up to get it first</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- About and privacy -->
+    <section class="wrap section two-col">
+      <article id="about" class="reveal">
+        <p class="kicker">About</p>
+        <h2>Built by Token Economy</h2>
+        <p>Inkwell is made by Token Economy, a student team at the University of Maryland. We think you shouldn't need a law degree to know what happens to your data, so we're building the tool we wanted: honest answers, with proof, before you agree.</p>
+      </article>
+      <article id="privacy" class="reveal" style="--d:1">
+        <p class="kicker">Our privacy promise</p>
+        <h2>We practise what we check</h2>
+        <ul class="promise">
+          <li><strong>We don't store what you paste.</strong> Policies are analyzed in memory and discarded; they're never logged.</li>
+          <li><strong>We don't sell or share your data</strong>, and we don't show ads.</li>
+          <li><strong>Accounts hold your sign-in details</strong> (name and email, through Google Firebase), your priorities, and the policies you choose to save: a name, the 8 answers, your choices and a fingerprint of the text to spot changes. Never the text itself.</li>
+          <li><strong>To stop abuse of free checks</strong>, we count checks per IP address, in memory, for up to an hour.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wrap section" id="faq">
+      <p class="kicker reveal">FAQ</p>
+      <h2 class="reveal">Questions people ask</h2>
+      <div class="faq-list">
+        <details class="reveal"><summary>Is this legal advice?</summary><p>No. Inkwell helps you find and understand what a policy says. For legal decisions, talk to a lawyer.</p></details>
+        <details class="reveal"><summary>Do you use ChatGPT or another AI to write the answers?</summary><p>No. We use our own classification model, a RoBERTa model fine-tuned on privacy policies, that sorts paragraphs into five topics, plus wording checks. Nothing is generated: every quote is copied straight from the policy.</p></details>
+        <details class="reveal"><summary>How accurate is it?</summary><p>On paragraphs it never saw in training, the topic model scores a macro-F1 of 0.80. The checks look for specific wording, so a policy that says something in unusual words can slip past us. That's why every verdict shows its sentence, and why “Not mentioned” means we found no matching wording, not that the company doesn't do it.</p></details>
+        <details class="reveal"><summary>Will Inkwell tell me whether to accept a policy?</summary><p>No. We show what a policy allows, which parts you can switch off and how, with the exact sentence as proof. You tell us what matters to you, and you make the call: take the steps, agree anyway, or walk away.</p></details>
+        <details class="reveal"><summary>Why do I need an account for the full report?</summary><p>It keeps Inkwell free while we grow, and lets us bring you the extension and change alerts first. It costs nothing.</p></details>
+        <details class="reveal"><summary>Which policies work?</summary><p>Any privacy policy in English that you can copy as text: up to 200 paragraphs, and 300 KB on a free check or 1 MB with an account.</p></details>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final">
+      <div class="wrap reveal">
+        <h2>Your data. Your call.</h2>
+        <p>Check your first policy in under a minute. No account needed.</p>
+        <a class="btn btn-xl btn-light" href="app.html" data-cta>Check a policy free <span aria-hidden="true">→</span></a>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>Research tool, not legal advice.</strong> “Not mentioned” means no paragraph was classified into that topic; the policy may still cover it and the model may have missed it.</p>
-    <p>Every quote is an exact paragraph from the text you pasted. Nothing is generated, and your text is not logged or stored. Models trained on OPP-115 and C3PA (research use only).</p>
-    <p>Token Economy · DATA/MSML 641, University of Maryland</p>
+  <footer class="home-footer">
+    <div class="wrap">
+      <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
+      <p>Inkwell by Token Economy · University of Maryland</p>
+      <p class="fine">Not legal advice. Verdicts are based on the wording of the text you submit and may miss things said in other words.</p>
+      <nav aria-label="Footer"><a href="#about">About</a><a href="#privacy">Privacy promise</a><a href="#faq">FAQ</a><a href="app.html">Open Inkwell</a></nav>
+    </div>
   </footer>
-  <script>if (location.protocol === "file:") { document.body.dataset.auth = "ready"; document.getElementById("lamp-text").textContent = "Opened as a file. Start the server and open http://localhost:7860"; }</script>
 </body>
 </html>

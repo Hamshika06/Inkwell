@@ -1,33 +1,23 @@
 // Inkwell product page. Talks to the API in config.js; renders API data only as text (never as HTML).
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
+import { afterAnalysis, initDecide, loadPriorities, loadSaved, renderDecision, renderSteps } from "./decide.js";
+import { openStore } from "./store.js";
 
-const MAX_BYTES = 1000000; // Mirrors the API limit.
+// Mirror the API limits: 1 MB (300 KB for a free check) and at most 200 paragraphs per check.
+const MAX_BYTES = 1000000, GUEST_MAX_BYTES = 300000, MAX_PARAGRAPHS = 200;
+const maxBytes = () => (state.guest ? GUEST_MAX_BYTES : MAX_BYTES);
+// The five topics of the Inkwell model (configs/five_class_mapping.json).
 const COLOR = {
-  "First Party Collection/Use": "#3b6fd8", "Third Party Sharing/Collection": "#d0453a",
-  "User Choice/Control": "#8a4fd1", "Data Security": "#2f8f5b",
-  "International and Specific Audiences": "#c97a1e", "User Access, Edit and Deletion": "#13919a",
-  "Policy Change": "#a88a12", "Data Retention": "#c04b86", "Do Not Track": "#6b7280", "Other": "#9a948a",
+  "Data Collection & Use": "#3b6fd8", "Data Sharing": "#d0453a", "User Rights & Choices": "#13919a",
+  "Data Security & Retention": "#2f8f5b", "Policy Scope & Changes": "#a88a12",
 };
 const DESCRIBE = {
-  "First Party Collection/Use": "What the company itself collects about you, and how it uses it.",
-  "Third Party Sharing/Collection": "When your data is shared with, sold to, or collected by other companies.",
-  "User Choice/Control": "Opt-outs, consent and settings you control.",
-  "Data Security": "How your data is protected.",
-  "International and Specific Audiences": "Rules for children, or for people in particular countries or regions.",
-  "User Access, Edit and Deletion": "Whether you can see, correct or delete your data.",
-  "Policy Change": "How you'll be told when the policy changes.",
-  "Data Retention": "How long your data is kept.",
-  "Do Not Track": "Whether browser Do-Not-Track signals are honored.",
-  "Other": "Introductions, contact details and other general text.",
+  "Data Collection & Use": "What they collect about you, and what they use it for.",
+  "Data Sharing": "Who else gets your data: partners, advertisers, buyers, or the authorities.",
+  "User Rights & Choices": "What you can do: opt out, access, correct or delete your data, and Do Not Track.",
+  "Data Security & Retention": "How your data is protected, and how long they keep it.",
+  "Policy Scope & Changes": "Who the policy covers (children, regions) and how you're told when it changes.",
 };
-const PERSONA = {
-  svm: "Word-pattern classifier. Instant, a solid baseline.",
-  distilbert: "Compact transformer that reads context.",
-  roberta: "Larger transformer, also trained on modern (C3PA) policies. The slowest.",
-};
-const FALLBACK_MODELS = [
-  { id: "svm", label: "TF-IDF + SVM" }, { id: "distilbert", label: "DistilBERT" }, { id: "roberta", label: "RoBERTa (C3PA + OPP-115)" },
-];
 const PROVIDER = { "google.com": "Google", "github.com": "GitHub", "password": "Email and password" };
 const SAMPLE = `Pigeonpost Privacy Policy (fictional sample)
 
@@ -49,8 +39,12 @@ Pigeonpost is not directed to children under 13, and we do not knowingly collect
 
 We may change this policy from time to time. If we make material changes we will notify you by email before they take effect.`;
 
-const state = { ctx: { enabled: false }, models: [], defaultModel: "svm", choice: "svm", results: {}, order: [], view: null,
-  filter: null, selected: null, onlyDisagree: false, lampTimer: null };
+const state = { ctx: { enabled: false }, guest: false, user: null, store: null, model: null, result: null,
+  filter: null, selected: null, lampTimer: null, expanded: {},
+  // Decision layer (decide.js): the reader's priorities, choice, ticked steps and saved policies.
+  priorities: null, decision: null, done: {}, saved: {}, current: null, changes: null };
+// Free checks (no account) show this many report-card checks with their quotes; the rest are previews.
+const FREE_RECEIPTS = 2;
 const $ = (id) => document.getElementById(id);
 
 function el(tag, props = {}, ...kids) {
@@ -65,13 +59,12 @@ function el(tag, props = {}, ...kids) {
   return node;
 }
 const chip = (cat) => el("span", { class: "chip", style: `--c:${COLOR[cat] || "#888"}`, title: DESCRIBE[cat] || cat }, cat);
-const sigmoid = (x) => 1 / (1 + Math.exp(-x));
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
-const modelLabel = (id) => (state.models.find((m) => m.id === id) || FALLBACK_MODELS.find((m) => m.id === id) || { label: id }).label;
 const paragraphs = (text) => text.split(/\n[ \t]*\n/).filter((p) => p.trim()).length; // Same rule as inkwell/stage1.segment.
-const seconds = (ms) => (ms < 1000 ? `${Math.round(ms)} ms` : `${(ms / 1000).toFixed(1)} s`);
+const kb = (bytes) => `${Math.round(bytes / 1000).toLocaleString()} KB`;
 
 function toLogin() { location.replace(`login.html?next=${encodeURIComponent(location.pathname)}`); }
+const signupUrl = () => `login.html?mode=signup&next=${encodeURIComponent(location.pathname)}`;
 
 async function api(path, options = {}, timeoutMs = 120000) {
   const controller = new AbortController();
@@ -80,6 +73,7 @@ async function api(path, options = {}, timeoutMs = 120000) {
     const headers = { ...(options.headers || {}), ...(await authHeaders(state.ctx)) };
     const response = await fetch(API + path, { ...options, headers, signal: controller.signal });
     const body = await response.json().catch(() => ({}));
+    if (response.status === 401 && state.ctx.enabled && state.guest) throw new Error(body.detail || "Create a free account to do that.");
     if (response.status === 401 && state.ctx.enabled) { toLogin(); throw new Error("Please sign in again."); }
     if (response.status === 403 && state.ctx.enabled) { toLogin(); throw new Error(body.detail); }  // Email not confirmed.
     if (!response.ok) throw new Error(body.detail || `${response.status} ${response.statusText}`);
@@ -101,13 +95,19 @@ function renderUser(user) {
     box.replaceChildren(el("span", { class: "guest", title: "Sign-in isn't configured on this server" }, "Open access"));
     return;
   }
+  if (!user) {
+    box.replaceChildren(el("div", { class: "guest-actions" },
+      el("a", { class: "btn btn-ghost", href: `login.html?next=${encodeURIComponent(location.pathname)}` }, "Sign in"),
+      el("a", { class: "btn btn-primary", href: signupUrl() }, "Sign up free")));
+    return;
+  }
   const name = user.displayName || (user.email || "").split("@")[0] || "Account";
   const initials = name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
   const avatar = el("span", { class: "avatar" }, user.photoURL ? el("img", { src: user.photoURL, alt: "", referrerpolicy: "no-referrer" }) : initials);
   const menu = el("div", { class: "menu", role: "menu", hidden: true },
     el("div", { class: "menu-head" }, el("strong", {}, name), el("span", {}, user.email || ""),
       el("small", {}, `Signed in with ${PROVIDER[user.providerData[0]?.providerId] || "your account"}`)),
-    el("button", { type: "button", role: "menuitem", onclick: async () => { await state.ctx.fb.signOut(state.ctx.auth); toLogin(); } }, "Sign out"));
+    el("button", { type: "button", role: "menuitem", onclick: async () => { await state.ctx.fb.signOut(state.ctx.auth); location.replace("/"); } }, "Sign out"));
   const button = el("button", { type: "button", class: "user-btn", "aria-haspopup": "menu", "aria-expanded": "false",
     onclick: (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; button.setAttribute("aria-expanded", String(!menu.hidden)); } },
     avatar, el("span", { class: "user-name" }, name));
@@ -116,7 +116,7 @@ function renderUser(user) {
   box.replaceChildren(button, menu);
 }
 
-/* ---------- Server status and model picker ---------- */
+/* ---------- Server status ---------- */
 
 function setLamp(kind, text) { $("lamp").dataset.state = kind; $("lamp-text").textContent = text; $("lamp").title = text; }
 
@@ -124,43 +124,27 @@ async function checkApi() {
   clearTimeout(state.lampTimer);
   try {
     const data = await api("/models", {}, 15000);
-    state.models = data.models; state.defaultModel = data.default;
-    const ready = state.models.filter((m) => m.status === "ready").length;
-    const loading = state.models.some((m) => m.status === "loading");
-    setLamp(ready === state.models.length ? "ok" : "partial",
-      loading ? `Loading models · ${ready}/${state.models.length} ready` : `Online · ${ready}/${state.models.length} models ready`);
-    if (loading) state.lampTimer = setTimeout(checkApi, 5000);
+    state.model = data.models.find((m) => m.id === data.default) || data.models[0] || null;
+    const status = state.model?.status;
+    setLamp(status === "ready" ? "ok" : status === "loading" ? "partial" : "down",
+      status === "ready" ? "Ready" : status === "loading" ? "Warming up…" : "Unavailable");
+    if (status === "loading") state.lampTimer = setTimeout(checkApi, 5000);
   } catch {
-    state.models = [];
-    setLamp("down", "Server asleep or unreachable · retrying");
+    state.model = null;
+    setLamp("down", "Waking up the server…");
     state.lampTimer = setTimeout(checkApi, 10000);
   }
-  renderModels();
+  renderModelMeta();
+  if (state.autoRun && ready()) { state.autoRun = false; run(); }
 }
 
-function readyIds() { return state.models.filter((m) => m.status === "ready").map((m) => m.id); }
+const ready = () => state.model?.status === "ready";
 
-function renderModels() {
-  const list = state.models.length ? state.models : FALLBACK_MODELS.map((m) => ({ ...m, status: "offline" }));
-  const ready = readyIds();
-  if (state.choice === "all" ? ready.length < 2 : !ready.includes(state.choice)) state.choice = ready.includes(state.defaultModel) ? state.defaultModel : ready[0];
-  const cards = list.map((m) => modelCard(m.id, m.label, PERSONA[m.id] || "", m.status, m));
-  cards.push(modelCard("all", "Compare all models", "Run every ready model on the same text and see where they disagree.",
-    ready.length >= 2 ? "ready" : "needs 2+", null));
-  $("models").replaceChildren(...cards);
-}
-
-function modelCard(id, label, blurb, status, m) {
-  const off = status !== "ready";
-  const speed = m && m.cpu_ms_per_segment !== undefined
-    ? (m.cpu_ms_per_segment < 1 ? "<1 ms per paragraph" : `~${Math.round(m.cpu_ms_per_segment)} ms per paragraph`) : null;
-  return el("label", { class: `model${off ? " off" : ""}`, title: m && m.error ? m.error : null },
-    el("input", { type: "radio", name: "model", value: id, disabled: off, checked: !off && state.choice === id, onchange: () => { state.choice = id; } }),
-    el("span", { class: "model-top" }, el("span", { class: "model-name" }, label),
-      status === "ready" ? null : el("span", { class: `badge ${status === "needs 2+" ? "muted" : status}` }, status)),
-    el("span", { class: "model-blurb" }, blurb),
-    speed ? el("span", { class: "model-meta" }, speed) : null,
-    m && m.error ? el("p", { class: "model-why" }, m.error) : null);
+function renderModelMeta() {
+  const m = state.model;
+  $("model-meta").textContent = !m ? ""
+    : m.status === "unavailable" ? `The model couldn't load on this server: ${m.error || "unknown error"}`
+    : m.test_macro_f1 ? `Macro-F1 ${m.test_macro_f1.toFixed(2)} on held-out test paragraphs.` : "";
 }
 
 /* ---------- Input ---------- */
@@ -171,10 +155,11 @@ function updateCounts() {
   const n = paragraphs(text);
   $("counts").replaceChildren(
     el("span", {}, `${text.length.toLocaleString()} characters`), el("span", {}, plural(n, "paragraph")),
-    el("span", { class: bytes > MAX_BYTES ? "over" : null }, `${(bytes / 1000).toFixed(1)} KB of 1,000 KB`));
+    el("span", { class: bytes > maxBytes() || n > MAX_PARAGRAPHS ? "over" : null }, `${(bytes / 1000).toFixed(1)} KB of ${kb(maxBytes())}`));
   const warn = n === 1 && text.length > 1500
     ? "This reads as one long paragraph, so Inkwell can only quote it back whole. Leave blank lines between paragraphs, or use “Fix line breaks”."
-    : bytes > MAX_BYTES ? "That's over the 1 MB limit. Trim the policy before analyzing it." : "";
+    : bytes > maxBytes() ? `That's over the ${kb(maxBytes())} limit${state.guest ? " for a free check. Create a free account for up to 1,000 KB, or trim the policy" : ". Trim the policy before checking it"}.`
+    : n > MAX_PARAGRAPHS ? `Inkwell reads up to ${MAX_PARAGRAPHS} paragraphs at a time. Split the policy in two and check each half.` : "";
   $("warn").textContent = warn; $("warn").hidden = !warn;
 }
 
@@ -183,57 +168,130 @@ function setStatus(text, kind = "") { $("status").textContent = text; $("status"
 async function run() {
   const text = $("policy").value;
   if (!text.trim()) return setStatus("Paste a policy first, or load the sample.", "error");
-  if (new TextEncoder().encode(text).length > MAX_BYTES) return setStatus("That's over the 1 MB limit.", "error");
-  const keys = state.choice === "all" ? readyIds() : [state.choice].filter(Boolean);
-  if (!keys.length) return setStatus("No model is ready yet. Wait for the status light to turn green.", "error");
+  if (new TextEncoder().encode(text).length > maxBytes()) return setStatus(`That's over the ${kb(maxBytes())} limit.`, "error");
+  const n = paragraphs(text);
+  if (n > MAX_PARAGRAPHS) return setStatus(`That's ${n} paragraphs; Inkwell reads up to ${MAX_PARAGRAPHS} at a time.`, "error");
+  if (!ready()) return setStatus("Inkwell is still warming up. Try again when the status light turns green.", "error");
   $("run").disabled = true;
-  const results = {};
+  let result = null;
   try {
-    for (const [i, key] of keys.entries()) {
-      setStatus(`${modelLabel(key)} is reading ${plural(paragraphs(text), "paragraph")}${keys.length > 1 ? ` (${i + 1} of ${keys.length})` : ""}`, "busy");
-      results[key] = await api("/analyze", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, model: key }),
-      }, 300000);
-    }
-    setStatus("Done. Select a topic, question or paragraph to explore.");
+    setStatus(`Reading ${plural(n, "paragraph")}…${n > 40 ? " Long policies take up to a minute." : ""}`, "busy");
+    result = await api("/analyze", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }),
+    }, 300000);
+    setStatus("Done. Your report card is below.");
   } catch (error) {
     setStatus(error.message, "error");
   } finally {
     $("run").disabled = false;
   }
-  const done = keys.filter((k) => results[k]);
-  if (!done.length) return;
-  Object.assign(state, { results, order: done, view: done[done.length - 1], filter: null, selected: null });
+  if (!result) return;
+  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, saving: false });
+  showBreakdown(false);
   renderResults();
+  await afterAnalysis(text);
   showTab("overview");
   $("results").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 /* ---------- Results ---------- */
 
-const current = () => state.results[state.view];
+const current = () => state.result;
 const categories = () => Object.keys(current().coverage);
 
 function renderResults() {
   $("results").hidden = false;
-  $("tab-btn-compare").hidden = state.order.length < 2;
-  $("viewing").hidden = state.order.length < 2;
-  $("viewing").replaceChildren(...state.order.map((key) => el("button", { type: "button", "aria-pressed": String(key === state.view),
-    onclick: () => { state.view = key; state.selected = null; renderResults(); } }, modelLabel(key))));
-  renderKpis(); renderOverview(); renderFaqs(); renderDoc(); renderCompare();
+  for (const id of ["dl-md", "dl-json"]) $(id).hidden = state.guest;
+  renderReport(); renderKpis(); renderOverview(); renderFaqs(); renderDoc();
 }
+
+function showBreakdown(open) {
+  $("breakdown").hidden = !open;
+  $("toggle-breakdown").setAttribute("aria-expanded", String(open));
+  $("toggle-breakdown").textContent = open ? "Hide full breakdown" : "Show full breakdown";
+}
+
+/* ---------- Report card ---------- */
+
+// Neutral marks: whether the practice applies, not whether it's good or bad. The reader's priorities add emphasis.
+const MARK = { true: { icon: "●", word: "Applies" }, false: { icon: "○", word: "Doesn't apply" }, null: { icon: "?", word: "Not settled by the text" } };
+
+function lockCta(text, button = "Sign up free") {
+  return el("div", { class: "lock-cta" }, el("span", { class: "lock-icon", "aria-hidden": "true" }, "🔒"),
+    el("p", {}, text), el("a", { class: "btn btn-primary", href: signupUrl() }, button));
+}
+
+function receipt(evidence) {
+  return el("button", { type: "button", class: "receipt", title: "Show this sentence in the full policy",
+    onclick: () => select(evidence.segment_id) },
+    el("span", { class: "receipt-mark", "aria-hidden": "true" }, "“"), evidence.text);
+}
+
+function renderCheck(check, i, free, concern) {
+  const locked = state.guest && !free.has(check.id);
+  const mine = state.priorities?.includes(check.id);
+  let proof = null;
+  if (check.evidence.length && locked) {
+    proof = el("div", { class: "receipt-locked" },
+      el("p", { class: "blurred", "aria-hidden": "true" }, check.evidence[0].text),
+      el("a", { class: "unlock-link", href: signupUrl() }, "🔒 Sign up free to read the sentence that proves it"));
+  } else if (check.evidence.length) {
+    const more = check.evidence_count - 1;
+    proof = [receipt(check.evidence[0]),
+      more > 0 ? el("details", { class: "more-receipts" },
+        el("summary", {}, `${more} more ${more === 1 ? "sentence" : "sentences"} like this`),
+        check.evidence.slice(1).map(receipt),
+        more > check.evidence.length - 1 ? el("p", { class: "note" }, "Open the full breakdown to read the rest.") : null) : null,
+      check.counter.length ? el("div", { class: "counter" }, el("span", {}, "But the policy also says:"), receipt(check.counter[0])) : null];
+  }
+  const mark = MARK[check.applies ?? null];
+  return el("li", { class: `check applies-${check.applies ?? "unknown"}${mine ? " mine" : ""}`, id: `check-${check.id}`, style: `--i:${i}` },
+    el("span", { class: "check-icon", role: "img", "aria-label": mark.word, title: mark.word }, mark.icon),
+    el("div", { class: "check-body" },
+      el("div", { class: "check-top" }, el("h3", {}, check.title), el("span", { class: "verdict-pill" }, check.label),
+        mine ? el("span", { class: "tag mine-tag" }, "Matters to you") : null,
+        concern ? el("span", { class: `tag ${concern.fixable ? "fix-tag" : "stay-tag"}` }, concern.fixable ? "You can switch this off" : "Comes with the service") : null),
+      el("p", { class: "check-meaning" }, check.meaning),
+      concern?.note ? el("p", { class: "fine" }, concern.note) : null,
+      proof));
+}
+
+function renderReport() {
+  const r = current().report;
+  if (!r) return $("report").replaceChildren();
+  // Free checks show the quotes for the first checks that have one.
+  const free = new Set(r.checks.filter((c) => c.evidence.length).slice(0, FREE_RECEIPTS).map((c) => c.id));
+  const concerns = Object.fromEntries((r.concerns || []).map((c) => [c.id, c]));
+  // Mine first, in the order the reader sees them in the decision bar; then the rest.
+  const mine = state.priorities || [];
+  const ordered = [...r.checks].sort((a, b) => Number(mine.includes(b.id)) - Number(mine.includes(a.id)));
+  $("report").replaceChildren(el("article", { class: `card report-card${state.animated ? " static" : ""}`, "aria-label": "Privacy report card" },
+    el("header", { class: "rc-head" },
+      el("div", {}, el("p", { class: "eyebrow" }, "Privacy report card"), el("h2", {}, r.title || "This privacy policy"))),
+    renderDecision(),
+    el("h3", { class: "checks-title" }, "What the policy says"),
+    el("ul", { class: "checks" }, ordered.map((c, i) => renderCheck(c, i, free, concerns[c.id]))),
+    state.guest ? lockCta(`You're seeing ${FREE_RECEIPTS} of ${r.checks.length} receipts. Create a free account to read every sentence behind these answers.`,
+      "Unlock the full report") : null,
+    renderSteps(),
+    el("p", { class: "rc-note" }, r.limitation)));
+  state.animated = true;
+}
+
+/* ---------- Breakdown ---------- */
 
 function renderKpis() {
   const d = current();
   const cats = categories();
   const silent = cats.filter((c) => !d.coverage[c].length);
+  const unlabeled = d.segments.filter((s) => !s.labels.length).length;
   const kpi = (label, value, note, alert = false) => el("div", { class: `card kpi${alert ? " alert" : ""}` },
     el("div", { class: "kpi-label" }, label), el("div", { class: "kpi-value" }, value), note ? el("div", { class: "kpi-note", title: note }, note) : null);
   $("kpis").replaceChildren(
-    kpi("Paragraphs read", String(d.segments.length), modelLabel(d.model)),
+    kpi("Paragraphs read", String(d.segments.length), "Each sorted into the 5 topics"),
     kpi("Topics covered", el("span", {}, String(cats.length - silent.length), el("small", {}, ` / ${cats.length}`)), "Topics with at least one clause"),
     kpi("Not mentioned", String(silent.length), silent.length ? silent.join(", ") : "Every topic has a clause", silent.length > 0),
-    kpi("Analysis time", seconds(d.elapsed_ms ?? 0), "On the server's CPU"));
+    kpi("No topic found", String(unlabeled), "Paragraphs the model couldn't place"));
 }
 
 function renderOverview() {
@@ -247,39 +305,43 @@ function renderOverview() {
       el("span", { class: "cov-foot" }, n ? [el("span", { class: "cov-count" }, String(n)), el("span", { class: "cov-unit" }, n === 1 ? "clause" : "clauses")]
         : el("span", { class: "missing" }, "Not mentioned")));
   });
-  $("tab-overview").replaceChildren(...(d.risk ? [renderRisk(d.risk)] : []), el("div", { class: "coverage" }, cards),
-    el("p", { class: "panel-note" }, "Select a topic to read its clauses in the document. “Not mentioned” can be a real gap in the policy, or a miss by the model."));
-}
-
-function renderRisk(risk) {
-  if (!risk) return null;
-  const band = risk.band === "no_matches" ? "No supported wording matched" : `${risk.band} screening score`;
-  return el("section", { class: "card risk-summary", "aria-label": "Privacy risk screening" },
-    el("h3", {}, `Risk screening · ${risk.score} / ${risk.max_score}`),
-    el("p", {}, band),
-    el("p", { class: "note" }, risk.limitation),
-    risk.findings.map((finding) => el("div", { class: "risk-finding" },
-      el("h4", {}, `${finding.title} · +${finding.points}`),
-      finding.evidence.map((evidence) => el("button", { type: "button", class: "quote",
-        title: "Read the full source paragraph", onclick: () => select(evidence.segment_id) }, evidence.text)))),
-    el("p", { class: "note" }, risk.review_gaps.length
-      ? `Topics to review (no classified clause; no score penalty): ${risk.review_gaps.join(", ")}.`
-      : "All four review topics have classified clauses. Their adequacy has not been assessed."),
-    el("p", { class: "note" }, `Scoring rules v${risk.version} · Each practice contributes once.`));
+  $("tab-overview").replaceChildren(el("div", { class: "coverage" }, cards),
+    el("p", { class: "panel-note" }, "Select a topic to read its clauses in the document. A paragraph can belong to more than one topic. “Not mentioned” can be a real gap in the policy, or a miss by the model."));
 }
 
 function quoteButton(segment, cat) {
   return el("button", { type: "button", class: "quote", style: `--c:${COLOR[cat]}`, title: "Show in the document", onclick: () => select(segment.id) }, segment.text);
 }
 
+// Each common question takes its one-line answer from a report-card check.
+const FAQ_CHECK = {
+  "Do they share or sell my data?": "sharing", "Can I delete my data or opt out?": "delete",
+  "How long do they keep it, and how is it protected?": "retention", "Will they tell me when the policy changes?": "changes",
+};
+const TOP_CLAUSES = 3;
+
 function renderFaqs() {
   const d = current();
+  if (state.guest) {
+    $("tab-faqs").replaceChildren(lockCta("Get a straight answer to “Do they share my data?”, “Can I delete it?” and more, each with the strongest clauses as proof. Free with an account."));
+    return;
+  }
+  const checks = Object.fromEntries((d.report?.checks || []).map((c) => [c.id, c]));
+  const margin = (id, i) => (d.segments[id].scores?.[i] ?? 0) - (d.thresholds?.[i] ?? 0);
   const cards = Object.entries(d.faqs).map(([question, cat]) => {
-    const ids = d.coverage[cat];
+    const i = categories().indexOf(cat);
+    const ids = [...d.coverage[cat]].sort((a, b) => margin(b, i) - margin(a, i));  // Most confident first.
+    const check = checks[FAQ_CHECK[question]];
+    const answer = check ? `${check.label}. ${check.meaning}`
+      : ids.length ? `${plural(ids.length, "paragraph")} cover this. The strongest are below.` : "";
+    const open = state.expanded[question];
     return el("article", { class: "card faq" }, el("h3", {}, question),
-      el("p", { class: "answered-by" }, "Answered by clauses about", chip(cat)),
-      ids.length ? ids.map((id) => quoteButton(d.segments[id], cat))
-        : el("p", { class: "nothing" }, "No matching clause found. The policy may not address this, or the model may have missed it."));
+      answer ? el("p", { class: "faq-answer" }, answer) : null,
+      el("p", { class: "answered-by" }, "Best matching clauses about", chip(cat)),
+      ids.length ? (open ? ids : ids.slice(0, TOP_CLAUSES)).map((id) => quoteButton(d.segments[id], cat))
+        : el("p", { class: "nothing" }, "No matching clause found. The policy may not address this, or the model may have missed it."),
+      ids.length > TOP_CLAUSES ? el("button", { type: "button", class: "link show-all",
+        onclick: () => { state.expanded[question] = !open; renderFaqs(); } }, open ? "Show fewer" : `Show all ${ids.length}`) : null);
   });
   $("tab-faqs").replaceChildren(el("div", { class: "faqs" }, cards));
 }
@@ -309,66 +371,33 @@ function renderDetails(d) {
   if (!s) return el("aside", { class: "card details" }, el("h3", {}, "Model confidence"),
     el("p", { class: "note" }, "Select a paragraph to see how close it came to each topic's cutoff."),
     el("p", { class: "note" }, "Paragraphs with a dashed edge matched no topic."));
-  const enc = (d.score_type || "").startsWith("logit");
+  // Scores and cutoffs are probabilities (0 to 1); a bar's length is the distance from the cutoff.
   const rows = s.scores ? categories().map((cat, i) => ({ cat, i, delta: s.scores[i] - d.thresholds[i] }))
     .sort((a, b) => b.delta - a.delta)
     .map(({ cat, i, delta }) => {
       const score = s.scores[i], cutoff = d.thresholds[i], hit = s.labels.includes(cat);
-      const width = Math.min(Math.abs(delta) / 4, 1) * 50;
+      const room = delta >= 0 ? 1 - cutoff : cutoff;
+      const width = Math.min(Math.abs(delta) / Math.max(room, 0.01), 1) * 50;
       return el("div", { class: `meter ${hit ? "hit" : "miss"}`, style: `--c:${COLOR[cat]}` },
         el("span", { class: "meter-name" }, el("span", {}, cat), hit ? el("span", {}, "Matched") : null),
         el("span", { class: "meter-track" }, el("span", { class: "meter-fill", style: `width:${width}%;${delta >= 0 ? "left" : "right"}:50%` })),
-        el("span", { class: "meter-num" }, enc ? `score ${sigmoid(score).toFixed(2)} · cutoff ${sigmoid(cutoff).toFixed(2)}`
-          : `margin ${score.toFixed(2)} · cutoff ${cutoff.toFixed(2)}`));
+        el("span", { class: "meter-num" }, `score ${score.toFixed(2)} · cutoff ${cutoff.toFixed(2)}`));
     }) : el("p", {}, "This server did not return scores.");
   return el("aside", { class: "card details" }, el("h3", {}, `Paragraph ${s.id + 1}`),
     el("div", { class: "seg-meta" }, s.labels.length ? s.labels.map(chip) : "No topic"),
-    el("p", { class: "note" }, "The centre line is each topic's cutoff, tuned on validation data. Bars to the right passed it; bars to the left fell short.",
-      enc ? " Scores are model outputs, not calibrated probabilities." : " SVM margins are distances from a decision boundary, not probabilities."),
+    el("p", { class: "note" }, "The centre line is each topic's cutoff, tuned on validation data. Bars to the right passed it; bars to the left fell short. Scores are model outputs, not calibrated probabilities."),
     rows,
     el("p", { class: "note" }, `Characters ${s.start}–${s.end} of the text you pasted.`));
 }
 
 function select(id, scroll = true) {
   state.selected = id;
+  showBreakdown(true);
   renderDoc(); showTab("doc");
   const node = $(`seg-${id}`);
   if (!node) return;
   if (scroll) node.scrollIntoView({ behavior: "smooth", block: "center" });
   node.classList.add("flash"); node.focus({ preventScroll: true });
-}
-
-function renderCompare() {
-  if (state.order.length < 2) return $("tab-compare").replaceChildren();
-  const runs = state.order.map((k) => state.results[k]);
-  const cats = Object.keys(runs[0].coverage);
-  const catRows = cats.map((cat) => {
-    const counts = runs.map((r) => r.coverage[cat].length);
-    const verdict = counts.every((n) => n > 0) ? "All found" : counts.every((n) => n === 0) ? "None found" : "Models disagree";
-    return el("tr", { class: verdict === "Models disagree" ? "split" : null }, el("td", {}, chip(cat)),
-      counts.map((n) => el("td", { class: `n${n ? "" : " zero"}` }, n ? String(n) : "–")), el("td", { class: "verdict" }, verdict));
-  });
-  const key = (labels) => [...labels].sort().join("|");
-  const segRows = runs[0].segments.map((s, i) => {
-    const sets = runs.map((r) => r.segments[i].labels);
-    return { s, sets, agree: sets.every((l) => key(l) === key(sets[0])) };
-  });
-  const agreed = segRows.filter((r) => r.agree).length;
-  const shown = segRows.filter((r) => !state.onlyDisagree || !r.agree);
-  $("tab-compare").replaceChildren(
-    el("div", { class: "compare-block" }, el("h3", {}, "Clauses found per topic"),
-      el("p", {}, "How many paragraphs each model assigned to each topic."),
-      el("table", {}, el("thead", {}, el("tr", {}, el("th", {}, "Topic"), state.order.map((k) => el("th", {}, modelLabel(k))), el("th", {}, "Verdict"))),
-        el("tbody", {}, catRows))),
-    el("div", { class: "compare-block" }, el("h3", {}, "Paragraph by paragraph"),
-      el("p", {}, `The models gave identical topics to ${agreed} of ${segRows.length} paragraphs (${Math.round(100 * agreed / Math.max(segRows.length, 1))}%).`,
-        el("label", {}, el("input", { type: "checkbox", checked: state.onlyDisagree, onchange: (e) => { state.onlyDisagree = e.target.checked; renderCompare(); } }), " Show only disagreements")),
-      el("table", {}, el("thead", {}, el("tr", {}, el("th", {}, "¶"), el("th", {}, "Paragraph"), state.order.map((k) => el("th", {}, modelLabel(k))))),
-        el("tbody", {}, shown.map(({ s, sets, agree }) => el("tr", { class: agree ? null : "disagree" },
-          el("td", {}, String(s.id + 1)),
-          el("td", {}, el("span", { class: "excerpt", title: "Show in the document", onclick: () => select(s.id) },
-            s.text.length > 160 ? `${s.text.slice(0, 160)}…` : s.text)),
-          sets.map((labels) => el("td", {}, labels.length ? el("div", { class: "chips" }, labels.map(chip)) : "–"))))))));
 }
 
 function showTab(name) {
@@ -393,18 +422,13 @@ function markdownReport() {
   const quote = (text) => `> ${text.replace(/\n/g, "\n> ")}`;
   const silent = categories().filter((c) => !d.coverage[c].length);
   const lines = ["# Inkwell evidence report", "",
-    `Model: ${modelLabel(d.model)} (\`${d.run}\`) · ${plural(d.segments.length, "paragraph")} · ${new Date().toISOString().slice(0, 10)}`, "",
-    "_Research tool, not legal advice. Quotes are exact paragraphs from the submitted policy. A topic marked not mentioned may be a model miss._", "",
+    `Model: Inkwell RoBERTa, 5 topics (\`${d.run}\`) · ${plural(d.segments.length, "paragraph")} · ${new Date().toISOString().slice(0, 10)}`, "",
+    "_Not legal advice. Quotes are exact text from the submitted policy. A topic marked not mentioned may be a model miss._", "",
     "## Topics not mentioned", "", ...(silent.length ? silent.map((c) => `- ${c}`) : ["None."]), ""];
-  if (d.risk) {
-    const r = d.risk;
-    lines.push("## Risk screening", "", `Score: ${r.score}/${r.max_score} · Band: ${r.band} · Rules: ${r.version}`, "", r.limitation, "");
-    for (const finding of r.findings) {
-      lines.push(`### ${finding.title} (+${finding.points})`, "");
-      for (const evidence of finding.evidence) lines.push(quote(evidence.text),
-        `Paragraph ${evidence.segment_id + 1}; characters ${evidence.start}–${evidence.end}.`, "");
-    }
-    lines.push(`Review gaps (no score penalty): ${r.review_gaps.join(", ") || "None"}.`, "");
+  if (d.report) {
+    lines.splice(6, 0, "## Privacy report card", "", ...d.report.checks.flatMap((c) => [
+      `### ${c.title}: ${c.label}`, "", c.meaning, "", ...c.evidence.flatMap((e) => [quote(e.text), ""])]),
+      ...(d.report.steps?.length ? ["## Your steps", "", ...d.report.steps.map((st) => `- [${state.done?.[st.id] ? "x" : " "}] ${st.title}${st.target ? `: ${st.target.value}` : st.to ? `: ${st.to}` : ""}`), ""] : []));
   }
   lines.push("## Common questions", "");
   for (const [question, cat] of Object.entries(d.faqs)) {
@@ -430,6 +454,8 @@ function wire() {
   $("run").addEventListener("click", run);
   $("theme").addEventListener("click", toggleTheme);
   $("sample").addEventListener("click", () => { $("policy").value = SAMPLE; updateCounts(); });
+  // "See a sample report" on the home page: fill in the sample and run it once a model is ready.
+  if (new URLSearchParams(location.search).has("sample")) { $("policy").value = SAMPLE; state.autoRun = true; }
   $("clear").addEventListener("click", () => { $("policy").value = ""; updateCounts(); $("policy").focus(); });
   $("split").addEventListener("click", () => {
     $("policy").value = $("policy").value.replace(/\r\n?/g, "\n").replace(/([^\n])\n(?=[^\n])/g, "$1\n\n");
@@ -438,7 +464,7 @@ function wire() {
   $("file").addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    if (file.size > MAX_BYTES) setStatus("That file is over the 1 MB limit.", "error");
+    if (file.size > maxBytes()) setStatus(`That file is over the ${kb(maxBytes())} limit.`, "error");
     else { $("policy").value = await file.text(); updateCounts(); setStatus(`Loaded ${file.name}.`); }
     e.target.value = "";
   });
@@ -454,8 +480,13 @@ function wire() {
     });
   }
   $("dl-json").addEventListener("click", () => download("inkwell-results.json", "application/json",
-    JSON.stringify({ generated: new Date().toISOString(), results: state.results }, null, 2)));
-  $("dl-md").addEventListener("click", () => download(`inkwell-report-${state.view}.md`, "text/markdown", markdownReport()));
+    JSON.stringify({ generated: new Date().toISOString(), result: state.result }, null, 2)));
+  $("dl-md").addEventListener("click", () => download("inkwell-report.md", "text/markdown", markdownReport()));
+  $("toggle-breakdown").addEventListener("click", () => {
+    const open = $("breakdown").hidden;
+    showBreakdown(open);
+    if (open) $("breakdown").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 async function connect() {
@@ -463,21 +494,34 @@ async function connect() {
     state.ctx = await startAuth();
   } catch {
     document.body.dataset.auth = "ready";
-    setLamp("down", "Server asleep or unreachable · retrying");
+    setLamp("down", "Waking up the server…");
     state.lampTimer = setTimeout(connect, 10000);
     return;
   }
   const user = await currentUser(state.ctx);
-  if (state.ctx.enabled && !user) return toLogin();
+  // No account: a free check when the server allows guests, otherwise the login page.
+  state.guest = state.ctx.enabled && !user;
+  if (state.guest && !state.ctx.guest) return toLogin();
   // If this check can't reach Firebase, carry on: the API still refuses unconfirmed accounts.
   if (user && !(await isVerified(user).catch(() => true))) return toLogin();
   renderUser(user);
-  if (state.ctx.enabled) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) toLogin(); });
+  state.user = user;
+  $("guest-banner").hidden = !state.guest;
+  updateCounts();  // Free checks have a lower size limit.
+  if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) location.replace("/"); });
   document.body.dataset.auth = "ready";
   checkApi();
+  // Priorities and saved policies load after the page shows: account storage can take a few seconds,
+  // or time out when Firestore isn't set up. afterAnalysis waits for this before matching saved policies.
+  state.storeReady = (async () => {
+    state.store = await openStore(state.ctx, user);
+    await loadPriorities();
+    await loadSaved();
+    if (state.result) renderReport();
+  })();
 }
 
+initDecide({ state, el, plural, select, signupUrl, lockCta, setStatus, refresh: () => { if (state.result) renderReport(); } });
 wire();
 updateCounts();
-renderModels();
 connect();
