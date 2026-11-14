@@ -73,9 +73,9 @@ The login page (`/login.html`) offers Google, GitHub, and email + username + pas
 
 On Cloud Run, pass the same four values with `--set-env-vars FIREBASE_API_KEY=...,FIREBASE_AUTH_DOMAIN=...,FIREBASE_PROJECT_ID=...,FIREBASE_APP_ID=...` (alongside `INKWELL_BACKGROUND_LOAD=0`). Users who sign up with the same email through two methods (for example Google and GitHub) are told to use the method they signed up with; Firebase's default is one account per email.
 
-## Step 3: Saved policies (Cloud Firestore)
+## Step 3: The dashboard (Cloud Firestore)
 
-Signed-in users can save their priorities and checked policies. These go to Cloud Firestore in the Firebase project; until it's set up, the page saves in the browser instead and says so. One-time setup:
+Signed-in users' priorities and every check they run are saved for their dashboard. These go to Cloud Firestore in the Firebase project; until it's set up, the page saves in the browser instead and says so. One-time setup:
 
 1. Firebase console → `inkwell-4a456` → **Build → Firestore Database → Create database**. Choose **Production mode** and a location near your users (for example `nam5` or `us-east1`; it can't be changed later).
 2. Deploy the rules from the repository root, so each person can only read and write their own data:
@@ -85,7 +85,7 @@ Signed-in users can save their priorities and checked policies. These go to Clou
    Or paste `firestore.rules` into **Firestore → Rules** and publish.
 3. Nothing changes on Cloud Run or Vercel: the browser talks to Firestore directly with the user's sign-in.
 
-What is stored, per user: `users/{uid}` holds `priorities`; `users/{uid}/policies/{id}` holds the name, optional link, the 8 answers, the choice, ticked steps and a SHA-256 fingerprint of the text. Policy text is never stored. The Spark (free) plan covers a course demo.
+What is stored, per user: `users/{uid}` holds `priorities`; `users/{uid}/policies/{id}` holds the name, the report with its quoted sentences, the choice, ticked steps, up to 24 earlier results and a SHA-256 fingerprint of the text. The full policy text is never stored. Republish the rules whenever `firestore.rules` changes, or saving will be refused. The Spark (free) plan covers a course demo.
 
 ## Docker (local)
 

@@ -1,7 +1,8 @@
 // Inkwell product page. Talks to the API in config.js; renders API data only as text (never as HTML).
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
-import { afterAnalysis, initDecide, loadPriorities, loadSaved, renderDecision, renderSteps } from "./decide.js";
+import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
 import { openStore } from "./store.js";
+import { asLink, el } from "./shared.js";
 
 // Mirror the API limits: 1 MB (300 KB for a free check) and at most 200 paragraphs per check.
 const MAX_BYTES = 1000000, GUEST_MAX_BYTES = 300000, MAX_PARAGRAPHS = 200;
@@ -43,21 +44,8 @@ const state = { ctx: { enabled: false }, guest: false, user: null, store: null, 
   filter: null, selected: null, lampTimer: null, expanded: {},
   // Decision layer (decide.js): the reader's priorities, choice, ticked steps and saved policies.
   priorities: null, decision: null, done: {}, saved: {}, current: null, changes: null };
-// Free checks (no account) show this many report-card checks with their quotes; the rest are previews.
-const FREE_RECEIPTS = 2;
 const $ = (id) => document.getElementById(id);
 
-function el(tag, props = {}, ...kids) {
-  const node = document.createElement(tag);
-  for (const [key, value] of Object.entries(props)) {
-    if (value === undefined || value === null || value === false) continue;
-    if (key === "class") node.className = value;
-    else if (key.startsWith("on")) node.addEventListener(key.slice(2), value);
-    else node.setAttribute(key, value === true ? "" : value);
-  }
-  for (const kid of kids.flat()) if (kid !== null && kid !== undefined && kid !== false) node.append(kid instanceof Node ? kid : String(kid));
-  return node;
-}
 const chip = (cat) => el("span", { class: "chip", style: `--c:${COLOR[cat] || "#888"}`, title: DESCRIBE[cat] || cat }, cat);
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const paragraphs = (text) => text.split(/\n[ \t]*\n/).filter((p) => p.trim()).length; // Same rule as inkwell/stage1.segment.
@@ -151,6 +139,13 @@ function renderModelMeta() {
 
 function updateCounts() {
   const text = $("policy").value;
+  $("link-confirm").hidden = true;
+  renderPasteFocus();
+  if (asLink(text)) {
+    $("counts").replaceChildren(el("span", {}, "Link: press “Check this policy” and we'll read this page."));
+    $("warn").hidden = true;
+    return;
+  }
   const bytes = new TextEncoder().encode(text).length;
   const n = paragraphs(text);
   $("counts").replaceChildren(
@@ -165,13 +160,53 @@ function updateCounts() {
 
 function setStatus(text, kind = "") { $("status").textContent = text; $("status").className = `status ${kind}`; }
 
-async function run() {
+function askAboutLink(page) {
+  const box = $("link-confirm");
+  box.replaceChildren(
+    el("p", {}, el("strong", {}, `We found this policy for ${page.site}:`), " ",
+      el("a", { href: page.url, target: "_blank", rel: "noopener noreferrer nofollow" }, page.url)),
+    el("p", { class: "fine" }, "Is this the right page?"),
+    el("div", { class: "request-actions" },
+      el("button", { type: "button", class: "btn btn-primary", onclick: () => run(page.url, true) }, "Yes, check it"),
+      el("button", { type: "button", class: "btn btn-ghost", onclick: () => {
+        box.hidden = true; setStatus("Paste the link to the policy itself, or its text."); $("policy").focus(); $("policy").select();
+      } }, "No, I'll paste it")));
+  box.hidden = false;
+}
+
+/** Reads the link and fills the box with what it found. False when there's nothing to check yet. */
+async function readLink(url, confirmed) {
+  setStatus(`Reading ${url.replace(/^https?:\/\//i, "").slice(0, 60)}…`, "busy");
+  $("run").disabled = true;
+  try {
+    const page = await api("/fetch-policy", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url, confirmed }) }, 60000);
+    if (page.status === "confirm") {
+      setStatus("");
+      askAboutLink(page);
+      return false;
+    }
+    $("policy").value = page.text;
+    updateCounts();
+    state.source = { url: page.url, site: page.site, text: page.text };
+    return true;
+  } catch (error) {
+    setStatus(error.message, "error");
+    return false;
+  } finally {
+    $("run").disabled = false;
+  }
+}
+
+async function run(linkUrl = null, confirmed = false) {
+  $("link-confirm").hidden = true;
+  if (!$("policy").value.trim() && !linkUrl) return setStatus("Paste a link or a policy first, or load the sample.", "error");
+  if (!ready()) return setStatus("Inkwell is still warming up. Try again when the status light turns green.", "error");
+  const link = linkUrl || asLink($("policy").value);
+  if (link && !(await readLink(link, confirmed))) return;
   const text = $("policy").value;
-  if (!text.trim()) return setStatus("Paste a policy first, or load the sample.", "error");
   if (new TextEncoder().encode(text).length > maxBytes()) return setStatus(`That's over the ${kb(maxBytes())} limit.`, "error");
   const n = paragraphs(text);
   if (n > MAX_PARAGRAPHS) return setStatus(`That's ${n} paragraphs; Inkwell reads up to ${MAX_PARAGRAPHS} at a time.`, "error");
-  if (!ready()) return setStatus("Inkwell is still warming up. Try again when the status light turns green.", "error");
   $("run").disabled = true;
   let result = null;
   try {
@@ -179,15 +214,16 @@ async function run() {
     result = await api("/analyze", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }),
     }, 300000);
-    setStatus("Done. Your report card is below.");
+    const short = state.source?.text === text && text.length < 3000;
+    setStatus(short ? "Done, but that page was short, so it may be only part of the policy. If so, paste the full text." : state.guest ? "Done. The breakdown is below." : "Done. Your report card is below.");
   } catch (error) {
     setStatus(error.message, "error");
   } finally {
     $("run").disabled = false;
   }
   if (!result) return;
-  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, saving: false });
-  showBreakdown(false);
+  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false });
+  showBreakdown(state.guest);  // Free checks open on the breakdown; accounts open on the report card.
   renderResults();
   await afterAnalysis(text);
   showTab("overview");
@@ -201,8 +237,11 @@ const categories = () => Object.keys(current().coverage);
 
 function renderResults() {
   $("results").hidden = false;
-  for (const id of ["dl-md", "dl-json"]) $(id).hidden = state.guest;
-  renderReport(); renderKpis(); renderOverview(); renderFaqs(); renderDoc();
+  for (const id of ["dl-txt", "dl-json"]) $(id).hidden = state.guest;
+  $("breakdown-bar").hidden = state.guest || !!state.savedView;  // Saved work keeps the report, not the full text.
+  renderReport();
+  if (state.savedView) return showBreakdown(false);
+  renderKpis(); renderOverview(); renderFaqs(); renderDoc();
 }
 
 function showBreakdown(open) {
@@ -216,64 +255,62 @@ function showBreakdown(open) {
 // Neutral marks: whether the practice applies, not whether it's good or bad. The reader's priorities add emphasis.
 const MARK = { true: { icon: "●", word: "Applies" }, false: { icon: "○", word: "Doesn't apply" }, null: { icon: "?", word: "Not settled by the text" } };
 
-function lockCta(text, button = "Sign up free") {
-  return el("div", { class: "lock-cta" }, el("span", { class: "lock-icon", "aria-hidden": "true" }, "🔒"),
-    el("p", {}, text), el("a", { class: "btn btn-primary", href: signupUrl() }, button));
-}
-
 function receipt(evidence) {
+  if (state.savedView) return el("blockquote", { class: "receipt plain-receipt" }, el("span", { class: "receipt-mark", "aria-hidden": "true" }, "“"), evidence.text);
   return el("button", { type: "button", class: "receipt", title: "Show this sentence in the full policy",
     onclick: () => select(evidence.segment_id) },
     el("span", { class: "receipt-mark", "aria-hidden": "true" }, "“"), evidence.text);
 }
 
-function renderCheck(check, i, free, concern) {
-  const locked = state.guest && !free.has(check.id);
+function proofFor(check) {
+  if (!check.evidence.length) return null;
+  const more = check.evidence_count - 1;
+  return [receipt(check.evidence[0]),
+    more > 0 ? el("details", { class: "more-receipts" },
+      el("summary", {}, `${more} more ${more === 1 ? "sentence" : "sentences"} like this`),
+      check.evidence.slice(1).map(receipt),
+      more > check.evidence.length - 1 ? el("p", { class: "note" }, "Open the full breakdown to read the rest.") : null) : null,
+    check.counter.length ? el("div", { class: "counter" }, el("span", {}, "But the policy also says:"), receipt(check.counter[0])) : null];
+}
+
+function renderCheck(check, i, concern) {
   const mine = state.priorities?.includes(check.id);
-  let proof = null;
-  if (check.evidence.length && locked) {
-    proof = el("div", { class: "receipt-locked" },
-      el("p", { class: "blurred", "aria-hidden": "true" }, check.evidence[0].text),
-      el("a", { class: "unlock-link", href: signupUrl() }, "🔒 Sign up free to read the sentence that proves it"));
-  } else if (check.evidence.length) {
-    const more = check.evidence_count - 1;
-    proof = [receipt(check.evidence[0]),
-      more > 0 ? el("details", { class: "more-receipts" },
-        el("summary", {}, `${more} more ${more === 1 ? "sentence" : "sentences"} like this`),
-        check.evidence.slice(1).map(receipt),
-        more > check.evidence.length - 1 ? el("p", { class: "note" }, "Open the full breakdown to read the rest.") : null) : null,
-      check.counter.length ? el("div", { class: "counter" }, el("span", {}, "But the policy also says:"), receipt(check.counter[0])) : null];
-  }
   const mark = MARK[check.applies ?? null];
   return el("li", { class: `check applies-${check.applies ?? "unknown"}${mine ? " mine" : ""}`, id: `check-${check.id}`, style: `--i:${i}` },
     el("span", { class: "check-icon", role: "img", "aria-label": mark.word, title: mark.word }, mark.icon),
     el("div", { class: "check-body" },
       el("div", { class: "check-top" }, el("h3", {}, check.title), el("span", { class: "verdict-pill" }, check.label),
         mine ? el("span", { class: "tag mine-tag" }, "Matters to you") : null,
-        concern ? el("span", { class: `tag ${concern.fixable ? "fix-tag" : "stay-tag"}` }, concern.fixable ? "You can switch this off" : "Comes with the service") : null),
+        concern ? el("span", { class: `tag ${concern.fixable ? "fix-tag" : "stay-tag"}` }, concern.fixable ? "You can limit this" : "No way to limit this found") : null),
       el("p", { class: "check-meaning" }, check.meaning),
       concern?.note ? el("p", { class: "fine" }, concern.note) : null,
-      proof));
+      proofFor(check)));
+}
+
+function guestOffer() {
+  return el("aside", { class: "card guest-offer", "aria-label": "Privacy report card" },
+    el("div", {}, el("h2", {}, "Want your privacy report card?"),
+      el("p", {}, "This free check shows what the policy covers, topic by topic. A free account adds:"),
+      el("ul", { class: "you-get" }, ["What you'd be agreeing to, in plain words", "How to limit it, with ready-to-send opt-out and deletion emails", "A dashboard that keeps every check you run"].map((t) => el("li", {}, t)))),
+    el("a", { class: "btn btn-primary btn-lg", href: signupUrl() }, "Get my report card, free"));
 }
 
 function renderReport() {
+  if (state.guest) return $("report").replaceChildren(guestOffer());
   const r = current().report;
   if (!r) return $("report").replaceChildren();
-  // Free checks show the quotes for the first checks that have one.
-  const free = new Set(r.checks.filter((c) => c.evidence.length).slice(0, FREE_RECEIPTS).map((c) => c.id));
   const concerns = Object.fromEntries((r.concerns || []).map((c) => [c.id, c]));
   // Mine first, in the order the reader sees them in the decision bar; then the rest.
   const mine = state.priorities || [];
   const ordered = [...r.checks].sort((a, b) => Number(mine.includes(b.id)) - Number(mine.includes(a.id)));
   $("report").replaceChildren(el("article", { class: `card report-card${state.animated ? " static" : ""}`, "aria-label": "Privacy report card" },
     el("header", { class: "rc-head" },
-      el("div", {}, el("p", { class: "eyebrow" }, "Privacy report card"), el("h2", {}, r.title || "This privacy policy"))),
+      el("div", {}, r.title ? el("p", { class: "eyebrow" }, "Privacy report card") : null, el("h2", {}, r.title || "Your privacy report card"))),
     renderDecision(),
-    el("h3", { class: "checks-title" }, "What the policy says"),
-    el("ul", { class: "checks" }, ordered.map((c, i) => renderCheck(c, i, free, concerns[c.id]))),
-    state.guest ? lockCta(`You're seeing ${FREE_RECEIPTS} of ${r.checks.length} receipts. Create a free account to read every sentence behind these answers.`,
-      "Unlock the full report") : null,
     renderSteps(),
+    el("details", { class: "all-answers", open: state.allOpen, ontoggle: (e) => { state.allOpen = e.target.open; } },
+      el("summary", {}, `See all ${r.checks.length} answers`),
+      el("ul", { class: "checks" }, ordered.map((c, i) => renderCheck(c, i, concerns[c.id])))),
     el("p", { class: "rc-note" }, r.limitation)));
   state.animated = true;
 }
@@ -322,10 +359,6 @@ const TOP_CLAUSES = 3;
 
 function renderFaqs() {
   const d = current();
-  if (state.guest) {
-    $("tab-faqs").replaceChildren(lockCta("Get a straight answer to “Do they share my data?”, “Can I delete it?” and more, each with the strongest clauses as proof. Free with an account."));
-    return;
-  }
   const checks = Object.fromEntries((d.report?.checks || []).map((c) => [c.id, c]));
   const margin = (id, i) => (d.segments[id].scores?.[i] ?? 0) - (d.thresholds?.[i] ?? 0);
   const cards = Object.entries(d.faqs).map(([question, cat]) => {
@@ -333,7 +366,7 @@ function renderFaqs() {
     const ids = [...d.coverage[cat]].sort((a, b) => margin(b, i) - margin(a, i));  // Most confident first.
     const check = checks[FAQ_CHECK[question]];
     const answer = check ? `${check.label}. ${check.meaning}`
-      : ids.length ? `${plural(ids.length, "paragraph")} cover this. The strongest are below.` : "";
+      : ids.length === 1 ? "1 paragraph covers this." : ids.length ? `${ids.length} paragraphs cover this. The strongest are below.` : "";
     const open = state.expanded[question];
     return el("article", { class: "card faq" }, el("h3", {}, question),
       answer ? el("p", { class: "faq-answer" }, answer) : null,
@@ -417,31 +450,33 @@ function download(name, type, content) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function markdownReport() {
+function textReport() {
   const d = current();
-  const quote = (text) => `> ${text.replace(/\n/g, "\n> ")}`;
+  const quote = (text) => `    "${text.replace(/\s*\n\s*/g, " ")}"`;
+  const heading = (text) => [text.toUpperCase(), "=".repeat(text.length), ""];
   const silent = categories().filter((c) => !d.coverage[c].length);
-  const lines = ["# Inkwell evidence report", "",
-    `Model: Inkwell RoBERTa, 5 topics (\`${d.run}\`) · ${plural(d.segments.length, "paragraph")} · ${new Date().toISOString().slice(0, 10)}`, "",
-    "_Not legal advice. Quotes are exact text from the submitted policy. A topic marked not mentioned may be a model miss._", "",
-    "## Topics not mentioned", "", ...(silent.length ? silent.map((c) => `- ${c}`) : ["None."]), ""];
+  const lines = ["INKWELL PRIVACY REPORT", "",
+    `Policy: ${state.current?.name || d.report?.title || "Pasted policy"}`,
+    `Checked: ${new Date().toISOString().slice(0, 10)}, ${plural(d.segments.length, "paragraph")}`,
+    "Not legal advice. Quotes are exact text from the policy. A topic marked not mentioned may be a model miss.", ""];
   if (d.report) {
-    lines.splice(6, 0, "## Privacy report card", "", ...d.report.checks.flatMap((c) => [
-      `### ${c.title}: ${c.label}`, "", c.meaning, "", ...c.evidence.flatMap((e) => [quote(e.text), ""])]),
-      ...(d.report.steps?.length ? ["## Your steps", "", ...d.report.steps.map((st) => `- [${state.done?.[st.id] ? "x" : " "}] ${st.title}${st.target ? `: ${st.target.value}` : st.to ? `: ${st.to}` : ""}`), ""] : []));
+    lines.push(...heading("Privacy report card"));
+    for (const c of d.report.checks) lines.push(`${c.title}: ${c.label}`, `  ${c.meaning}`, ...c.evidence.map((e) => quote(e.text)), "");
+    if (d.report.steps?.length) {
+      lines.push(...heading("Your steps"));
+      for (const st of d.report.steps) lines.push(`[${state.done?.[st.id] ? "x" : " "}] ${st.title}${st.target?.kind === "url" ? `: ${st.target.value}` : st.to ? `: ${st.to}` : ""}`);
+      lines.push("");
+    }
   }
-  lines.push("## Common questions", "");
+  lines.push(...heading("Topics not mentioned"), ...(silent.length ? silent : ["None."]), "");
+  lines.push(...heading("Common questions"));
   for (const [question, cat] of Object.entries(d.faqs)) {
-    lines.push(`### ${question}`, "");
     const ids = d.coverage[cat];
-    if (!ids.length) lines.push(`_${d.empty_message}._`, "");
-    for (const id of ids) lines.push(quote(d.segments[id].text), "");
+    lines.push(question, ...(ids.length ? ids.map((id) => quote(d.segments[id].text)) : [`  ${d.empty_message}.`]), "");
   }
-  lines.push("## Evidence by topic", "");
+  lines.push(...heading("Text by topic"));
   for (const cat of categories()) {
-    if (!d.coverage[cat].length) continue;
-    lines.push(`### ${cat} (${d.coverage[cat].length})`, "");
-    for (const id of d.coverage[cat]) lines.push(quote(d.segments[id].text), "");
+    if (d.coverage[cat].length) lines.push(`${cat} (${d.coverage[cat].length})`, ...d.coverage[cat].map((id) => quote(d.segments[id].text)), "");
   }
   return lines.join("\n");
 }
@@ -451,7 +486,7 @@ function markdownReport() {
 function wire() {
   $("policy").addEventListener("input", updateCounts);
   $("policy").addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) run(); });
-  $("run").addEventListener("click", run);
+  $("run").addEventListener("click", () => run());
   $("theme").addEventListener("click", toggleTheme);
   $("sample").addEventListener("click", () => { $("policy").value = SAMPLE; updateCounts(); });
   // "See a sample report" on the home page: fill in the sample and run it once a model is ready.
@@ -481,7 +516,7 @@ function wire() {
   }
   $("dl-json").addEventListener("click", () => download("inkwell-results.json", "application/json",
     JSON.stringify({ generated: new Date().toISOString(), result: state.result }, null, 2)));
-  $("dl-md").addEventListener("click", () => download("inkwell-report.md", "text/markdown", markdownReport()));
+  $("dl-txt").addEventListener("click", () => download("inkwell-report.txt", "text/plain;charset=utf-8", textReport()));
   $("toggle-breakdown").addEventListener("click", () => {
     const open = $("breakdown").hidden;
     showBreakdown(open);
@@ -507,6 +542,11 @@ async function connect() {
   renderUser(user);
   state.user = user;
   $("guest-banner").hidden = !state.guest;
+  $("app-nav").hidden = state.guest;
+  if (state.guest) {
+    $("run-label").textContent = "Your free check";
+    $("you-get").replaceChildren(...["Every paragraph sorted into 5 topics", "Straight answers to common questions", "The whole policy, readable by topic"].map((t) => el("li", {}, t)));
+  }
   updateCounts();  // Free checks have a lower size limit.
   if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) location.replace("/"); });
   document.body.dataset.auth = "ready";
@@ -517,11 +557,15 @@ async function connect() {
     state.store = await openStore(state.ctx, user);
     await loadPriorities();
     await loadSaved();
-    if (state.result) renderReport();
+    renderPasteFocus();
+    const query = new URLSearchParams(location.search);
+    if (query.get("open")) openSaved(query.get("open"));
+    else if (query.get("recheck")) startRecheck(query.get("recheck"));
+    else if (state.result) renderReport();
   })();
 }
 
-initDecide({ state, el, plural, select, signupUrl, lockCta, setStatus, refresh: () => { if (state.result) renderReport(); } });
+initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, refresh: () => { if (state.result) renderReport(); } });
 wire();
 updateCounts();
 connect();

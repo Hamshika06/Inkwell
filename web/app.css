@@ -3,14 +3,14 @@ body[data-auth="pending"] main, body[data-auth="pending"] .topbar-right { visibi
 
 .topbar {
   position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  height: 64px; padding: 0 max(20px, calc((100vw - 1240px) / 2)); background: color-mix(in srgb, var(--surface) 88%, transparent);
-  border-bottom: 1px solid var(--border); backdrop-filter: saturate(1.4) blur(10px);
+  height: 64px; padding: 0 max(20px, calc((100vw - 1240px) / 2)); background: var(--bar-bg);
+  border-bottom: 1px solid var(--bar-line); backdrop-filter: var(--bar-blur);
 }
 .topbar-right { display: flex; align-items: center; gap: 8px; }
 
 .status-pill {
   display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 999px;
-  border: 1px solid var(--border); background: var(--surface); color: var(--text-2); font-size: 13px; max-width: 420px;
+  border: 1px solid var(--bar-chip-line); background: var(--bar-chip); color: var(--bar-text-2); font-size: 13px; max-width: 420px;
 }
 .status-pill span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-3); flex: none; }
@@ -22,7 +22,8 @@ body[data-auth="pending"] main, body[data-auth="pending"] .topbar-right { visibi
 /* User menu */
 .user { position: relative; }
 .user-btn { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 10px 0 4px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
-.user-btn:hover { background: var(--surface-2); }
+.topbar .user-btn { border-color: var(--bar-chip-line); background: var(--bar-chip); color: var(--bar-text); }
+.topbar .user-btn:hover { background: var(--bar-hover); }
 .avatar { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; overflow: hidden; background: var(--brand-soft); color: var(--brand); font-weight: 600; font-size: 13px; flex: none; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 .user-name { max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 500; }
@@ -36,7 +37,7 @@ body[data-auth="pending"] main, body[data-auth="pending"] .topbar-right { visibi
 .menu-head small { display: inline-block; margin-top: 6px; font-size: 11.5px; color: var(--text-3); }
 .menu button { width: 100%; height: 36px; padding: 0 10px; border: 0; border-radius: 8px; background: none; text-align: left; cursor: pointer; color: var(--text); }
 .menu button:hover { background: var(--surface-2); }
-.guest { height: 32px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: var(--surface-2); color: var(--text-3); font-size: 13px; }
+.guest { height: 32px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: var(--bar-chip); color: var(--bar-text-2); font-size: 13px; }
 
 /* Layout */
 main { max-width: 1240px; margin: 0 auto; padding: 36px 20px 48px; }

@@ -15,8 +15,10 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from api.fetcher import FetchError, read_policy
 from inkwell.common import CLASSES, ROOT
 from inkwell.predict import Predictor
+from inkwell.report import build_report
 from inkwell.stage1 import FAQS, analyze, segment
 
 # Local secrets such as HF_TOKEN; never overrides variables a host already set. .env is git-ignored
@@ -61,6 +63,9 @@ _jwks = None
 GUEST_PER_HOUR = int(os.environ.get("GUEST_ANALYSES_PER_HOUR", 20))
 GUEST_MAX_BYTES = 300_000
 _guest_hits, _guest_lock = {}, threading.Lock()
+# Reading a link makes this server fetch a page, so everyone gets an hourly allowance (per account, or per address).
+FETCHES_PER_HOUR = int(os.environ.get("FETCHES_PER_HOUR", 60))
+_fetch_hits = {}
 
 
 def client_address(request):
@@ -81,6 +86,21 @@ def allow_guest(request):
             _guest_hits[address] = hits
             return False
         _guest_hits[address] = hits + [now]
+        return True
+
+
+def allow_fetch(key):
+    """Count one link read for this account or address; False once it has used its hourly allowance."""
+    now = time.monotonic()
+    with _guest_lock:
+        if len(_fetch_hits) > 10_000:
+            for k in [k for k, v in _fetch_hits.items() if not v or now - v[-1] > 3600]:
+                del _fetch_hits[k]
+        hits = [t for t in _fetch_hits.get(key, []) if now - t < 3600]
+        if len(hits) >= FETCHES_PER_HOUR:
+            _fetch_hits[key] = hits
+            return False
+        _fetch_hits[key] = hits + [now]
         return True
 
 
@@ -236,20 +256,12 @@ def models(request: Request):
             "models": [describe(key, slot) for key, slot in request.app.state.models.items()]}
 
 
-@app.post("/analyze")
-async def analyze_policy(request: Request):
-    # Before reading the body: bad tokens, and guests over their allowance, stop here.
-    claims = await run_in_threadpool(verify_user, request, GUEST_PER_HOUR > 0)
-    guest = AUTH_ENABLED and claims is None
-    if guest and not allow_guest(request):
-        raise HTTPException(429, "You've used this hour's free checks. Create a free account to keep going")
-    limit = GUEST_MAX_BYTES if guest else MAX_BYTES
-    too_big = ("Free checks take policies up to 300 KB; create a free account for up to 1 MB" if guest
-               else "Policy text exceeds the 1 MB limit")
+async def read_policy_body(request, limit, too_big):
+    """The JSON body and its non-empty "text", enforcing the size limit even when Content-Length is absent."""
     if int(request.headers.get("content-length") or 0) > limit:
         raise HTTPException(413, too_big)
     body = bytearray()
-    async for chunk in request.stream():  # Also enforces the limit when Content-Length is absent.
+    async for chunk in request.stream():
         body += chunk
         if len(body) > limit:
             raise HTTPException(413, too_big)
@@ -262,6 +274,52 @@ async def analyze_policy(request: Request):
         raise HTTPException(400, "Body must be JSON: {\"text\": \"...\"}")
     if not text.strip():
         raise HTTPException(400, "Policy text is empty")
+    return payload, text
+
+
+@app.post("/report")
+async def report_card(request: Request):
+    """The report card alone, for accounts: wording rules only, so it doesn't wait for the model. Used by Compare."""
+    await run_in_threadpool(verify_user, request)
+    _, text = await read_policy_body(request, MAX_BYTES, "Policy text exceeds the 1 MB limit")
+    return {"report": await run_in_threadpool(lambda: build_report(segment(text)))}
+
+
+@app.post("/fetch-policy")
+async def fetch_policy(request: Request):
+    """Read a policy from a link. Returns its text, or {"status": "confirm"} when the link was a website and we found
+    what looks like its policy. The text then goes through /analyze as usual. Nothing fetched is logged or stored."""
+    claims = await run_in_threadpool(verify_user, request, GUEST_PER_HOUR > 0)
+    guest = AUTH_ENABLED and claims is None
+    if not allow_fetch(claims["sub"] if claims else client_address(request)):
+        raise HTTPException(429, "You've read a lot of links this hour. Try again later, or paste the policy text.")
+    try:
+        payload = await request.json()
+    except ValueError:
+        payload = None
+    url = payload.get("url") if isinstance(payload, dict) else None
+    if not isinstance(url, str) or not url.strip() or len(url) > 2048:
+        raise HTTPException(400, "Body must be JSON: {\"url\": \"...\"}")
+    try:
+        result = await run_in_threadpool(read_policy, url, payload.get("confirmed") is True)
+    except FetchError as error:
+        raise HTTPException(error.status, error.detail)
+    if result["status"] == "ok" and len(result["text"].encode("utf-8")) > (GUEST_MAX_BYTES if guest else MAX_BYTES):
+        raise HTTPException(413, "That policy is too long for a free check; create a free account for longer ones" if guest else "That policy is over the 1 MB limit")
+    return result
+
+
+@app.post("/analyze")
+async def analyze_policy(request: Request):
+    # Before reading the body: bad tokens, and guests over their allowance, stop here.
+    claims = await run_in_threadpool(verify_user, request, GUEST_PER_HOUR > 0)
+    guest = AUTH_ENABLED and claims is None
+    if guest and not allow_guest(request):
+        raise HTTPException(429, "You've used this hour's free checks. Create a free account to keep going")
+    limit = GUEST_MAX_BYTES if guest else MAX_BYTES
+    too_big = ("Free checks take policies up to 300 KB; create a free account for up to 1 MB" if guest
+               else "Policy text exceeds the 1 MB limit")
+    payload, text = await read_policy_body(request, limit, too_big)
     key = payload.get("model", DEFAULT_MODEL)
     slot = request.app.state.models.get(key)
     if slot is None:
@@ -287,6 +345,8 @@ async def analyze_policy(request: Request):
     result.update(model=key, run=MODELS[key][1], score_type=predictor.run["score_type"], guest=guest,
                   thresholds=[round(float(t), 4) for t in predictor.thresholds],
                   elapsed_ms=round((time.perf_counter() - start) * 1000, 1))
+    if guest:  # The report card is an account feature: free checks never receive it.
+        del result["report"]
     return result
 
 
