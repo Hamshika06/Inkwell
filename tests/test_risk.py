@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 
 from inkwell.common import CATEGORIES
-from inkwell.risk import RULES, score_policy
+from inkwell.risk import COMPILED, RULES, score_policy
 from inkwell.stage1 import analyze, segment
 
 
@@ -34,6 +34,15 @@ class RiskTests(unittest.TestCase):
                 "We retain your data for 30 days. You may delete your account.")
         result = self.score(text)
         self.assertEqual((result["score"], result["band"], result["findings"]), (0, "no_matches", []))
+
+    def test_sale_flag_is_affirmative_not_a_mention_detector(self):
+        pattern = next(p for r, p in COMPILED if r.id == "data_sale")
+        for text in ["We sell your personal information.", "We may sell personal data."]:
+            self.assertIsNotNone(pattern.search(text))
+        for text in ["We do not sell your personal information.",
+                     "We will not sell your personal information.",
+                     'We "rent" our marketing list.', "We ‘rent’ our marketing list."]:
+            self.assertIsNone(pattern.search(text))
 
     def test_category_gate_and_unknown_labels(self):
         for labels in [[], ["Other"], ["Data Security"], ["unknown"]]:

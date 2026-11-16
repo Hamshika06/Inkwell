@@ -1,0 +1,314 @@
+{
+  "rule_id": "data_sale",
+  "pattern": "\\bwe\\s+(?:(?:may|will|do)\\s+)?sell\\s+(?:your\\s+)?(?:personal\\s+)?(?:data|information)\\b",
+  "category": "Third Party Sharing/Collection",
+  "prediction_sha256": "9a0f011f27afcc9e2386bc8f2a57f35ee62ecfaeac5e89967a59766eaa1904f6",
+  "source_sha256": "4551a7a3a0a1a614e38a726b91c6a1413108b4281c20602a4d2087d7aaffcff9",
+  "records": 26,
+  "ungated_matches": 0,
+  "gated_matches": 0,
+  "stored_flag_mismatches": 0,
+  "controls_passed": true,
+  "controls": [
+    {
+      "text": "We sell your personal information.",
+      "expected": true,
+      "actual": true,
+      "reason": "Supported affirmative sale"
+    },
+    {
+      "text": "We may sell your personal data.",
+      "expected": true,
+      "actual": true,
+      "reason": "Supported modal sale"
+    },
+    {
+      "text": "We will sell personal information.",
+      "expected": true,
+      "actual": true,
+      "reason": "Supported future sale"
+    },
+    {
+      "text": "We do not sell your personal information.",
+      "expected": false,
+      "actual": false,
+      "reason": "Denial is not an affirmative risk flag"
+    },
+    {
+      "text": "We will not sell your personal information.",
+      "expected": false,
+      "actual": false,
+      "reason": "Future denial is not an affirmative risk flag"
+    },
+    {
+      "text": "We \"rent\" our marketing list.",
+      "expected": false,
+      "actual": false,
+      "reason": "Rental wording is unsupported by the legacy rule"
+    }
+  ],
+  "records_detail": [
+    {
+      "id": "opp115:105#0010",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:105#0011",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:105#0015",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:105#0025",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": false,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1221#0003",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1224#0001",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1224#0014",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1261#0003",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1261#0004",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1470#0002",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1470#0008",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1539#0008",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:1539#0012",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:627#0011",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:652#0018",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:652#0019",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:652#0040",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:746#0018",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:746#0022",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:907#0005",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0025",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": false,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0028",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0031",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0032",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": true,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0039",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": false,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    },
+    {
+      "id": "opp115:962#0040",
+      "stored_ungated": false,
+      "stored_gated": false,
+      "recomputed_ungated": false,
+      "recomputed_gated": false,
+      "source_category_gate": false,
+      "matched_spans": [],
+      "stored_flags_agree": true
+    }
+  ],
+  "interpretation": "These are legacy affirmative-sale risk flags, not sale-mention or polarity predictions. Denials should not trigger them. Quoted rental, coordinated verbs, passive voice and named company subjects are outside this narrow pattern. Agreement verifies its application, not its adequacy as a competitive regex baseline.",
+  "test_exposure": "Post-test diagnostic only. The regex, TF-IDF model and frozen predictions have not been changed or tuned."
+}

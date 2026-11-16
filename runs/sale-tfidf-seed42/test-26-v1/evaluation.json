@@ -1,0 +1,22 @@
+{
+  "kind": "frozen_sale_test_evaluation",
+  "cohort_version": "test-26-v1",
+  "test_records": 26,
+  "original_source_test_records": 27,
+  "excluded_ids": [
+    "opp115:1618#0021"
+  ],
+  "selection_reason": "User requested changing the sale-test cohort from the original 27 candidates to the 26 annotated records currently in test.jsonl.",
+  "test_sha256": "4551a7a3a0a1a614e38a726b91c6a1413108b4281c20602a4d2087d7aaffcff9",
+  "cohort_sha256": "213497f771c21f67ef02322ddcbdd133850a6d17a6ef3921b9dc4542ec425c1b",
+  "model_sha256": "4e8bc2cdbebb980b3418f4943ab7a84ff1f89b5388bd7b8981204e57079aeccc",
+  "training_run_sha256": "698939eb401bca785e04ae2df55d9de9aaab505b766a755dff1c24ba0fbf0f9b",
+  "schema_sha256": "66406b5c39f54f66a5867cf069cc9caaf8025f04b8749740b140d24392ab2043",
+  "train_sha256": "b313e34f10b496ff07bc142eda057ea236ba1bf79a2d46fd68ef6216566de54d",
+  "validation_sha256": "3ae6a9a6c87b0906ad2142b8bd1e0a38a01011bbb37e55d1f60e30fe2a98828b",
+  "sklearn": "1.7.2",
+  "threshold": 0.0,
+  "retrained": false,
+  "threshold_tuning": false,
+  "contract": "Complete evaluation of the user-declared test cohort. Compare against supplied annotations; do not tune this frozen run on test results."
+}

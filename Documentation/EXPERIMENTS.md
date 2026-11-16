@@ -1,5 +1,9 @@
 # Reproducible classifier and Stage 1 demo
 
+The [TF-IDF sale practice/polarity baseline](SALE_BASELINE.md) now has a saved
+training run, validation metrics and a comparison with the original sale regex.
+It is separate from the topic classifiers described below.
+
 The next risk-scoring milestone has a
 [sale-practice annotation workflow](SALE_ANNOTATION.md), with recovered original
 OPP-115 attributes and a split-preserving review queue. These are unreviewed

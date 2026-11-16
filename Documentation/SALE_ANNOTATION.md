@@ -91,8 +91,17 @@ The batch contains **182 candidate segments from 100 policies**, drawn from the
 | --- | ---: | --- |
 | `data/review/sale-v1/train.jsonl` | 137 | Develop guidelines and training annotations |
 | `data/review/sale-v1/validation.jsonl` | 18 | Evaluate development choices |
-| `data/review/sale-v1/test.jsonl` | 27 | Final evaluation after choices are fixed |
+| `data/review/sale-v1/test.jsonl` | 26 | Current official evaluation cohort |
 | `data/review/sale-v1/candidates.jsonl` | 182 | Read-only source snapshot for validation |
+
+The original source snapshot contains 27 test candidates. The user subsequently
+selected the 26 annotated records as the official test cohort, excluding
+`opp115:1618#0021`. Membership, source hashes and the selection decision are
+recorded in [test_cohort.json](../data/review/sale-v1/test_cohort.json), defined
+before any test model predictions were computed. Training and validation splits
+are unchanged. The resulting
+[frozen test evaluation](../runs/sale-tfidf-seed42/test-26-v1/REPORT.md) uses that
+declared 26-record cohort.
 
 The exporter searched sell/sold/selling/resell/resold/sale/sales wording without
 a category filter. Product sales, sales representatives and asset-sale references
