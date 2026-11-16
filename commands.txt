@@ -1,0 +1,5 @@
+docker version
+
+docker build -f api/Dockerfile -t us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest .
+docker push us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest
+gcloud run deploy inkwell --image us-east1-docker.pkg.dev/inkwell-510813/inkwell-repo/inkwell:latest --region us-east1

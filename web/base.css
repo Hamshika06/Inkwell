@@ -5,30 +5,37 @@
   --font-text: "Source Serif 4", Georgia, serif;
   --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
 
-  --bg: #f6f6f3;
+  /* Light theme: cool paper and navy ink, tuned to the brand blue so the two share an undertone. */
+  --bg: #e8ebf8;
   --surface: #ffffff;
-  --surface-2: #f2f2ee;
-  --surface-3: #e9e8e2;
-  --border: #e3e2db;
-  --border-strong: #cfcdc4;
-  --text: #16181d;
-  --text-2: #464b5a;
-  --text-3: #6a6f7e;
+  --surface-2: #f0f2fc;
+  --surface-3: #e2e6f8;
+  --border: #d3d8ef;
+  --border-strong: #a9b1d8;
+  --text: #11163a;
+  --text-2: #3b4268;
+  --text-3: #575e86;
   --brand: #3340c8;
   --brand-hover: #2833a6;
-  --brand-soft: #eceefd;
+  --brand-soft: #e1e5fc;
   --on-brand: #ffffff;
   --danger: #b8322a;
   --danger-soft: #fcebe9;
-  --success: #1c7444;
-  --success-soft: #e5f3eb;
-  --warn: #8f5200;
-  --warn-soft: #fcf1df;
+  --success: #17683b;
+  --success-soft: #dff2e7;
+  --warn: #8a4e00;
+  --warn-soft: #fbeed8;
+  /* The ink bar along the top of every page, and its controls. Dark mode redefines these to its own look. */
+  --bar-bg: #171d55; --nav-bg: #171d55; --bar-line: #171d55;
+  --bar-text: #ffffff; --bar-text-2: #cfd4fb; --bar-hover: rgba(255, 255, 255, .13); --bar-chip: rgba(255, 255, 255, .08); --bar-chip-line: rgba(255, 255, 255, .24);
+  --bar-cta: #ffffff; --bar-cta-text: #1b2277; --bar-cta-hover: #e1e5fc; --bar-blur: none;
+  --page-dots: radial-gradient(circle, rgba(51, 64, 200, .13) 1px, transparent 1.2px);
+  --btn-edge: 0 2px 0 #1e2788;
 
   --radius: 14px;
   --radius-sm: 9px;
-  --shadow-sm: 0 1px 2px rgba(16, 24, 40, .05);
-  --shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 10px 30px rgba(16, 24, 40, .06);
+  --shadow-sm: 0 1px 2px rgba(23, 29, 85, .10);
+  --shadow: 0 1px 2px rgba(23, 29, 85, .10), 0 14px 32px -14px rgba(23, 29, 85, .24);
   --focus: 0 0 0 3px rgba(51, 64, 200, .28);
   color-scheme: light;
 }
@@ -42,6 +49,10 @@
     --warn: #f3b860; --warn-soft: #3a2a14;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4); --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
     --focus: 0 0 0 3px rgba(141, 151, 255, .35);
+    --bar-bg: color-mix(in srgb, var(--surface) 88%, transparent); --nav-bg: color-mix(in srgb, var(--bg) 82%, transparent); --bar-line: var(--border);
+    --bar-text: var(--text); --bar-text-2: var(--text-2); --bar-hover: var(--surface-2); --bar-chip: var(--surface); --bar-chip-line: var(--border);
+    --bar-cta: var(--brand); --bar-cta-text: var(--on-brand); --bar-cta-hover: var(--brand-hover); --bar-blur: saturate(1.4) blur(10px);
+    --page-dots: none; --btn-edge: none;
     color-scheme: dark;
   }
 }
@@ -54,13 +65,17 @@
   --warn: #f3b860; --warn-soft: #3a2a14;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4); --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
   --focus: 0 0 0 3px rgba(141, 151, 255, .35);
+  --bar-bg: color-mix(in srgb, var(--surface) 88%, transparent); --nav-bg: color-mix(in srgb, var(--bg) 82%, transparent); --bar-line: var(--border);
+  --bar-text: var(--text); --bar-text-2: var(--text-2); --bar-hover: var(--surface-2); --bar-chip: var(--surface); --bar-chip-line: var(--border);
+  --bar-cta: var(--brand); --bar-cta-text: var(--on-brand); --bar-cta-hover: var(--brand-hover); --bar-blur: saturate(1.4) blur(10px);
+  --page-dots: none; --btn-edge: none;
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--bg); }
 body {
-  margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+  margin: 0; min-height: 100vh; background-color: var(--bg); background-image: var(--page-dots); background-size: 22px 22px; color: var(--text);
   font: 15px/1.55 var(--font-ui); -webkit-font-smoothing: antialiased;
 }
 button, input, textarea, select { font: inherit; color: inherit; }
@@ -80,8 +95,16 @@ a:hover { text-decoration: underline; }
 .btn:hover:not(:disabled) { background: var(--surface-2); }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
 .btn svg { width: 16px; height: 16px; flex: none; }
-.btn-primary { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.btn-primary { background: var(--brand); border-color: var(--brand); color: var(--on-brand); box-shadow: var(--btn-edge); }
 .btn-primary:hover:not(:disabled) { background: var(--brand-hover); border-color: var(--brand-hover); }
+
+/* Controls on the top bar */
+.topbar .brand, .nav .brand { color: var(--bar-text); }
+.topbar .btn-ghost, .topbar .icon-btn, .nav .btn-ghost, .nav .icon-btn, .nav-links a { color: var(--bar-text-2); }
+.topbar .btn-ghost:hover:not(:disabled), .topbar .icon-btn:hover, .nav .btn-ghost:hover:not(:disabled), .nav .icon-btn:hover { background: var(--bar-hover); color: var(--bar-text); }
+.topbar .btn-primary, .nav .btn-primary { background: var(--bar-cta); border-color: var(--bar-cta); color: var(--bar-cta-text); box-shadow: none; }
+.topbar .btn-primary:hover:not(:disabled), .nav .btn-primary:hover:not(:disabled) { background: var(--bar-cta-hover); border-color: var(--bar-cta-hover); }
+.topbar .brand-mark, .nav .brand-mark { border-radius: 8px; box-shadow: 0 0 0 1px var(--bar-chip-line); }
 .btn-ghost { background: transparent; border-color: transparent; color: var(--text-2); }
 .btn-ghost:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
 .btn-lg { height: 46px; font-size: 15px; padding: 0 20px; }

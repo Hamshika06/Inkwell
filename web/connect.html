@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Connect the extension · Inkwell</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="app.css">
+  <script>try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="config.js"></script>
+  <script type="module" src="connect.js"></script>
+</head>
+<body>
+  <main class="connect-page">
+    <section class="card connect-card" aria-live="polite">
+      <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
+      <h1 id="title">Connecting the extension…</h1>
+      <p id="message">One moment.</p>
+      <p id="actions" hidden><a class="btn btn-primary" href="/app.html">Open Inkwell</a></p>
+    </section>
+  </main>
+</body>
+</html>

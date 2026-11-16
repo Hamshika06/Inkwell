@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "note": "Maps the ten OPP-115 categories (configs/label_schema.json) to the five broad classes used for GoPPC (configs/goppc_mapping.json). 'Other' maps to no class, so those rows keep an empty label list.",
+  "classes": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "opp115_to_five_class": {
+    "First Party Collection/Use": "Data Collection & Use",
+    "Third Party Sharing/Collection": "Data Sharing",
+    "User Choice/Control": "User Rights & Choices",
+    "User Access, Edit and Deletion": "User Rights & Choices",
+    "Do Not Track": "User Rights & Choices",
+    "Data Security": "Data Security & Retention",
+    "Data Retention": "Data Security & Retention",
+    "Policy Change": "Policy Scope & Changes",
+    "International and Specific Audiences": "Policy Scope & Changes",
+    "Other": null
+  }
+}

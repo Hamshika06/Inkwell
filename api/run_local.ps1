@@ -1,15 +1,14 @@
 <#
 Start Inkwell locally (API + web page) on Windows:
-    powershell -ExecutionPolicy Bypass -File api\run_local.ps1            # all three models
-    powershell -ExecutionPolicy Bypass -File api\run_local.ps1 -SvmOnly   # skip torch (smaller, faster install)
+    powershell -ExecutionPolicy Bypass -File api\run_local.ps1   # the five-class RoBERTa + web page
 Creates api\.venv with Python 3.10 (via uv, conda, or the py launcher), installs the pinned
 packages, and serves everything at http://127.0.0.1:7860. The system Python version does not matter.
 #>
-param([switch]$SvmOnly, [int]$Port = 7860)
+param([int]$Port = 7860)
 $ErrorActionPreference = "Stop"
 $Root = Split-Path $PSScriptRoot -Parent
 $Venv = Join-Path $PSScriptRoot ".venv"
-$Requirements = Join-Path $PSScriptRoot $(if ($SvmOnly) { "requirements.txt" } else { "requirements-encoders.txt" })
+$Requirements = Join-Path $PSScriptRoot "requirements-encoders.txt"
 $HasUv = [bool](Get-Command uv -ErrorAction SilentlyContinue)
 
 function Find-VenvPython {
