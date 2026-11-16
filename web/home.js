@@ -1,5 +1,6 @@
 // Landing page: rotating headline, scroll reveals, the demo report card and a signed-in aware nav.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
+import { mountMenus } from "./menu.js";
 
 const $ = (id) => document.getElementById(id);
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,6 +51,7 @@ function nav() {
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
   $("theme").addEventListener("click", toggleTheme);
+  mountMenus(document.querySelector(".nav-links"));
 }
 
 // Signed-in visitors get "Open Inkwell" instead of the sign-in prompts. Failing quietly keeps the page usable.

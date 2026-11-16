@@ -95,3 +95,16 @@ blockquote { margin: 6px 0 2px; padding: 6px 10px; border-left: 3px solid #a9b1d
 .switch:checked { background: var(--brand); }
 .switch:checked::after { left: 20px; }
 .switch:focus-visible { outline: 3px solid #8f9cff; outline-offset: 2px; }
+
+/* Rate Inkwell */
+.rate { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 10px 0 0; padding: 10px 12px; border: 1px solid #f3dca0; background: #fff8e8; border-radius: 10px; }
+.rate b { display: block; font-size: 13px; }
+.rate small { display: block; font-size: 11.5px; color: var(--ink-3); }
+.rate-stars { display: inline-flex; flex: none; }
+.rate-star { border: 0; background: none; padding: 0 1px; font-size: 21px; line-height: 1; color: #d4d8e6; cursor: pointer; transition: color .1s, transform .1s; }
+.rate-stars:hover .rate-star { color: #f2b01e; }
+.rate-star:hover ~ .rate-star { color: #d4d8e6; }
+.rate-star:hover { transform: scale(1.15); }
+.rate-star:focus-visible { outline: 3px solid #8f9cff; outline-offset: 1px; border-radius: 4px; color: #f2b01e; }
+.btn.ghost.rate-btn { border-color: #f3dca0; background: #fff8e8; }
+.small-link { display: block; margin: 8px auto 0; font-size: 12.5px; }

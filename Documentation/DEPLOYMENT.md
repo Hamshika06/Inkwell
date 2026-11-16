@@ -85,7 +85,7 @@ Signed-in users' priorities and every check they run are saved for their dashboa
    Or paste `firestore.rules` into **Firestore → Rules** and publish.
 3. Nothing changes on Cloud Run or Vercel: the browser talks to Firestore directly with the user's sign-in.
 
-What is stored, per user: `users/{uid}` holds `priorities`; `users/{uid}/policies/{id}` holds the name, the report with its quoted sentences, the choice, ticked steps, up to 24 earlier results and a SHA-256 fingerprint of the text. The full policy text is never stored. Republish the rules whenever `firestore.rules` changes, or saving will be refused. The Spark (free) plan covers a course demo.
+What is stored, per user: `users/{uid}` holds `priorities`; `users/{uid}/policies/{id}` holds the name, the report with its quoted sentences, the choice, ticked steps, up to 24 earlier results and a SHA-256 fingerprint of the text. The full policy text is never stored. Reviews of Inkwell are stored too: `reviews/{uid}` (rating, headline, review, username or anonymous, site checked, dates) and `reviews/{uid}/helpful/{voter}`. These are public to read and only their author can write them. Republish the rules whenever `firestore.rules` changes, or saving will be refused. Until the rules with the `reviews` section are published, the Reviews page says reviews can't be loaded. The Spark (free) plan covers a course demo.
 
 ## Docker (local)
 

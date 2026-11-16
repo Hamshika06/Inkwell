@@ -1,5 +1,5 @@
 rules_version = '2';
-// Inkwell: each person can read and write only their own priorities and saved policies.
+// Inkwell: each person can read and write only their own priorities and saved policies. Reviews are public to read, author-only to write.
 // Email/password accounts must have confirmed their address (Google and GitHub accounts pass).
 // Saved work holds the report (with its quoted sentences), choice, ticked steps and a text fingerprint; never the full policy text.
 service cloud.firestore {
@@ -23,6 +23,37 @@ service cloud.firestore {
                                                     'decision', 'done', 'stepsTotal', 'previous', 'report', 'history'])
           && request.resource.data.name is string && request.resource.data.name.size() <= 80
           && (!('url' in request.resource.data) || (request.resource.data.url is string && request.resource.data.url.size() <= 500));
+      }
+    }
+
+    // Reviews of Inkwell: one per account (the document id is the author's uid). Anyone can read them, so they
+    // stay up after the author signs out; only the author can write or delete theirs. The name shown is the
+    // account's username, or empty for an anonymous review; it can't hold an email address.
+    function optText(d, key, max) {
+      return !(key in d) || (d[key] is string && d[key].size() <= max);
+    }
+    function validReview(d) {
+      return d.keys().hasOnly(['rating', 'headline', 'body', 'name', 'anonymous', 'site', 'createdAt', 'updatedAt'])
+        && d.keys().hasAll(['rating', 'name', 'anonymous', 'createdAt', 'updatedAt'])
+        && d.rating is number && d.rating >= 0.5 && d.rating <= 5 && d.rating * 2 == math.floor(d.rating * 2)
+        && d.anonymous is bool
+        && d.name is string && d.name.size() <= 40 && !d.name.matches('.*@.*')
+        && (d.anonymous || d.name.size() > 0)
+        && optText(d, 'headline', 80) && optText(d, 'body', 1200) && optText(d, 'site', 60)
+        && d.createdAt is string && d.createdAt.size() <= 40 && d.updatedAt is string && d.updatedAt.size() <= 40;
+    }
+
+    match /reviews/{uid} {
+      allow read: if true;
+      allow delete: if owner(uid);
+      allow create, update: if owner(uid) && validReview(request.resource.data);
+
+      // "Helpful" votes: one document per voter, so a count can't be inflated. Not on your own review.
+      match /helpful/{voter} {
+        allow read: if true;
+        allow create: if owner(voter) && voter != uid && request.resource.data.keys().hasOnly(['at'])
+          && exists(/databases/$(database)/documents/reviews/$(uid));
+        allow delete: if owner(voter);
       }
     }
   }

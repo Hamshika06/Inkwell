@@ -286,6 +286,11 @@ function tick(id, on) {
   if (!on) delete state.done[id];
   ui.refresh();
   autosave({ done: state.done });
+  // The last step just got ticked: the app may ask for a review (once).
+  const steps = report()?.steps || [];
+  if (on && steps.length && steps.every((st) => state.done[st.id])) {
+    document.dispatchEvent(new CustomEvent("inkwell:steps-done", { detail: { site: company(), total: steps.length } }));
+  }
 }
 
 /* ---------- Pre-written requests ---------- */
