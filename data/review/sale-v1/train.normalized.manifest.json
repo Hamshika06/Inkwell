@@ -1,0 +1,6 @@
+{
+  "input_sha256": "d8865c505e9de29e08f0fbcd8d09173bb6b3b25bc44c84236ea474e1ed3a3af8",
+  "output_sha256": "b313e34f10b496ff07bc142eda057ea236ba1bf79a2d46fd68ef6216566de54d",
+  "records": 137,
+  "operation": "Whitespace/JSON serialization normalization only; annotation values and provenance preserved."
+}

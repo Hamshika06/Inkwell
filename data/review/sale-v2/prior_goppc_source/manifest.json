@@ -1,0 +1,22 @@
+{
+  "version": "sale-v2-source-1",
+  "role": "Unmodified GoPPC training-source snapshot for risk-engine schema planning",
+  "source_path": "data/interim/goppc_train.jsonl",
+  "copied_path": "data/review/sale-v2/goppc_train.jsonl",
+  "source_sha256": "2c3ab52a5b0e72922ec9ea77b34140187f1e0ad9831e53d95d17099bc1008487",
+  "copy_sha256": "2c3ab52a5b0e72922ec9ea77b34140187f1e0ad9831e53d95d17099bc1008487",
+  "bytes": 16801949,
+  "records": 6250,
+  "schema_profile": "schema_profile.json",
+  "profile_sha256": "580ebfc87b2de83e279402643752fd2d512494e55e3a9bb4920c424e5d0a2a2a",
+  "transforms_applied": [],
+  "upstream_label_mapping": "configs/goppc_mapping.json",
+  "mapping_sha256": "22db85e1dec351d329b5dee3ef76a390c18c52faf6e6945805180c72a912de7a",
+  "analysis_code": {
+    "preprocessing/goppc_to_five_class.py": "ed6760da54d1258123bad7785aa2b9a6339f2af83a65ea31a5d5fac4e47eb8c5",
+    "preprocessing/goppc_preprocess.py": "f390edc2e880811efc7ded5a6670b99771f5f6532d0d0fd0ec85de8bfb199bf0"
+  },
+  "risk_labels_present": false,
+  "model_trained": false,
+  "contract": "The copied text, labels, masks and metadata are byte-identical to the requested source. Profile diagnostics and the proposal do not alter or certify those labels."
+}

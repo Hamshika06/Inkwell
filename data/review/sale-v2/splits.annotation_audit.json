@@ -1,0 +1,198 @@
+{
+  "audit_version": "sale-v2-all-splits-annotation-audit-1",
+  "source_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "review_template_manifest_sha256": "bc7eada4b8ba4e8bf61d3a30bef2b7ba2675008018e274b762688f73e5bbd8f5",
+  "passed": true,
+  "checks": [
+    "JSONL parsing",
+    "Complete source split coverage and unique IDs",
+    "Exact preservation of all source fields",
+    "Source group split separation",
+    "Unannotated defaults and annotated coverage/provenance",
+    "Practice/actor/label membership",
+    "Condition/exception and unclear-note rules",
+    "Evidence, context and optional verb span offsets",
+    "Optional recipient list structure"
+  ],
+  "practice_types": [
+    "advertising_disclosure",
+    "business_transfer",
+    "rental",
+    "sale",
+    "third_party_ad_collection"
+  ],
+  "splits": {
+    "train": {
+      "records": 7379,
+      "sha256": "cb7c81b3c486dd994d8c0cf5183a43d2f9eeae148c03d755b3cb26d635025818",
+      "annotated_records": 278,
+      "unannotated_records": 7101,
+      "checked_negative_records": 39,
+      "practice_propositions": 320,
+      "spans": {
+        "evidence": 338,
+        "scope": 134,
+        "verbs": 269,
+        "conditions": 151,
+        "opt_outs": 23,
+        "exceptions": 73
+      },
+      "total_spans": 988,
+      "practice_label_counts": {
+        "advertising_disclosure": {
+          "conditional": 7,
+          "permitted": 17,
+          "denied": 5
+        },
+        "business_transfer": {
+          "conditional": 123,
+          "permitted": 1
+        },
+        "rental": {
+          "denied": 13,
+          "conditional": 21,
+          "permitted": 4,
+          "unclear": 3
+        },
+        "sale": {
+          "denied": 63,
+          "conditional": 37,
+          "permitted": 11,
+          "unclear": 10
+        },
+        "third_party_ad_collection": {
+          "conditional": 1,
+          "permitted": 4
+        }
+      },
+      "actors": {
+        "first_party": 314,
+        "service_provider": 4,
+        "bankruptcy_court": 1,
+        "data_reseller": 1
+      },
+      "annotation_origins": {
+        "model_assisted": 278
+      },
+      "covered_types": {
+        "sale": 278,
+        "rental": 278,
+        "advertising_disclosure": 278,
+        "third_party_ad_collection": 278,
+        "business_transfer": 278
+      }
+    },
+    "validation": {
+      "records": 1307,
+      "sha256": "c858b02c28c3eac755f1e77665f54039a0f6a65e1fc4276ba3e5f6d78cda0086",
+      "annotated_records": 48,
+      "unannotated_records": 1259,
+      "checked_negative_records": 6,
+      "practice_propositions": 55,
+      "spans": {
+        "evidence": 60,
+        "scope": 42,
+        "exceptions": 14,
+        "verbs": 53,
+        "conditions": 25,
+        "opt_outs": 4
+      },
+      "total_spans": 198,
+      "practice_label_counts": {
+        "advertising_disclosure": {
+          "permitted": 1,
+          "conditional": 1
+        },
+        "business_transfer": {
+          "conditional": 22
+        },
+        "rental": {
+          "denied": 2,
+          "conditional": 3,
+          "permitted": 3
+        },
+        "sale": {
+          "conditional": 8,
+          "denied": 10,
+          "permitted": 4,
+          "unclear": 1
+        },
+        "third_party_ad_collection": {}
+      },
+      "actors": {
+        "first_party": 51,
+        "service_provider": 4
+      },
+      "annotation_origins": {
+        "model_assisted": 48
+      },
+      "covered_types": {
+        "sale": 48,
+        "rental": 48,
+        "advertising_disclosure": 48,
+        "third_party_ad_collection": 48,
+        "business_transfer": 48
+      }
+    },
+    "test": {
+      "records": 1731,
+      "sha256": "ef35d9f642d4b1a5399041b20ada9159d9c42cf1b49d1dd99bdca3c4f94220dc",
+      "annotated_records": 77,
+      "unannotated_records": 1654,
+      "checked_negative_records": 17,
+      "practice_propositions": 79,
+      "spans": {
+        "evidence": 84,
+        "verbs": 67,
+        "scope": 31,
+        "exceptions": 21,
+        "opt_outs": 6,
+        "conditions": 35
+      },
+      "total_spans": 244,
+      "practice_label_counts": {
+        "advertising_disclosure": {
+          "conditional": 2,
+          "permitted": 3,
+          "denied": 1
+        },
+        "business_transfer": {
+          "conditional": 28,
+          "unclear": 1
+        },
+        "rental": {
+          "denied": 4,
+          "conditional": 6,
+          "permitted": 2
+        },
+        "sale": {
+          "unclear": 2,
+          "denied": 13,
+          "conditional": 10,
+          "permitted": 5
+        },
+        "third_party_ad_collection": {
+          "permitted": 2
+        }
+      },
+      "actors": {
+        "first_party": 78,
+        "service_provider": 1
+      },
+      "annotation_origins": {
+        "model_assisted": 77
+      },
+      "covered_types": {
+        "sale": 77,
+        "rental": 77,
+        "advertising_disclosure": 77,
+        "third_party_ad_collection": 77,
+        "business_transfer": 77
+      }
+    }
+  },
+  "issues": [],
+  "model_trained": false,
+  "previously_evaluated_test_clause_count": 26,
+  "contract": "Structural annotation audit only. No labels or source files were changed; no model was trained or evaluated. Coverage applies to annotated rows and named practice types only; unannotated rows remain unknown."
+}

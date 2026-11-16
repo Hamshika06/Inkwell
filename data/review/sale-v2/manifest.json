@@ -1,0 +1,31 @@
+{
+  "version": "sale-v2-source-2",
+  "role": "Active combined five-class source snapshot for risk-engine schema planning",
+  "source_path": "data/final_combined_fivecls_data/combined_classifier.jsonl",
+  "copied_path": "data/review/sale-v2/combined_classifier.jsonl",
+  "source_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "copy_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "bytes": 8594523,
+  "records": 10417,
+  "split_counts": {
+    "train": 7379,
+    "validation": 1307,
+    "test": 1731
+  },
+  "topic_label_order": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "upstream_manifest": "upstream_manifest.json",
+  "upstream_manifest_sha256": "42e89e443f78275b52f2a00da99f4ca62048d4519d400b734c653b8a12e1c294",
+  "schema_profile": "schema_profile.json",
+  "profile_sha256": "9c6799d98103b6327ef46da32bbb5bdb2bda5db2a633b5b8ab75180b02a734dd",
+  "transforms_applied": [],
+  "supersedes": "prior_goppc_source/manifest.json",
+  "risk_labels_present": false,
+  "model_trained": false,
+  "contract": "Use combined_classifier.jsonl as the active sale-v2 source. Preserve existing splits, topic masks, IDs, text and metadata. The earlier GoPPC-only source is archived. Risk annotations require separate fields."
+}

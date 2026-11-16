@@ -1,0 +1,88 @@
+{
+  "kind": "sale_tfidf_linear_svm",
+  "seed": 42,
+  "schema_version": "2.0.0",
+  "train_sha256": "b313e34f10b496ff07bc142eda057ea236ba1bf79a2d46fd68ef6216566de54d",
+  "validation_sha256": "3ae6a9a6c87b0906ad2142b8bd1e0a38a01011bbb37e55d1f60e30fe2a98828b",
+  "schema_sha256": "66406b5c39f54f66a5867cf069cc9caaf8025f04b8749740b140d24392ab2043",
+  "candidate_sha256": "f4b8fc984b8f2b49fcdd5fbf9e697d111d759466ed17e69b712c50b8befa3a1e",
+  "train_records": 137,
+  "validation_records": 18,
+  "train_propositions": 123,
+  "validation_propositions": 16,
+  "train_target_assignments": 122,
+  "validation_target_assignments": 16,
+  "train_positive_support": {
+    "sale/permitted": 6,
+    "sale/denied": 30,
+    "sale/conditional": 21,
+    "sale/unclear": 5,
+    "business_transfer/permitted": 1,
+    "business_transfer/denied": 0,
+    "business_transfer/conditional": 50,
+    "business_transfer/unclear": 0,
+    "aggregate_sale/permitted": 4,
+    "aggregate_sale/denied": 0,
+    "aggregate_sale/conditional": 0,
+    "aggregate_sale/unclear": 0,
+    "recipient_onward_sale/permitted": 0,
+    "recipient_onward_sale/denied": 4,
+    "recipient_onward_sale/conditional": 0,
+    "recipient_onward_sale/unclear": 0,
+    "data_broker_relationship/permitted": 0,
+    "data_broker_relationship/denied": 0,
+    "data_broker_relationship/conditional": 0,
+    "data_broker_relationship/unclear": 1
+  },
+  "training_authors": {
+    "claude-opus-5-5": 137
+  },
+  "validation_authors": {
+    "claude-opus-5-5": 18
+  },
+  "training_seconds": 0.040591917000710964,
+  "python": "3.10.11",
+  "sklearn": "1.7.2",
+  "features": {
+    "analyzer": "word",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 1,
+    "max_features": 20000,
+    "sublinear_tf": true,
+    "fitted_vocabulary_size": 7160
+  },
+  "classifier": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "threshold": 0.0,
+    "threshold_tuning": false
+  },
+  "input": "Full paragraph text only. Annotation labels, evidence offsets, and source topic labels are not model features.",
+  "target": "Multilabel paragraph-level practice/polarity pairs; opposing labels are retained, while repeated identical pairs collapse to one target.",
+  "constant_labels": {
+    "business_transfer/denied": 0,
+    "business_transfer/unclear": 0,
+    "aggregate_sale/denied": 0,
+    "aggregate_sale/conditional": 0,
+    "aggregate_sale/unclear": 0,
+    "recipient_onward_sale/permitted": 0,
+    "recipient_onward_sale/conditional": 0,
+    "recipient_onward_sale/unclear": 0,
+    "data_broker_relationship/permitted": 0,
+    "data_broker_relationship/denied": 0,
+    "data_broker_relationship/conditional": 0
+  },
+  "limitations": [
+    "Small keyword-selected candidate dataset; scores are not representative of all privacy clauses.",
+    "Reference annotations include AI-authored drafts; metrics measure agreement with these annotations.",
+    "No validation unclear examples; unsupported-label recall is undefined.",
+    "Model does not extract scoped propositions, conditions, exceptions or evidence spans; repeated identical pairs collapse to one label.",
+    "Pairs absent from training always predict negative; their -1 score is a constant sentinel, not a learned margin.",
+    "SVM margins are not calibrated probabilities; no deployment or risk-score integration is performed."
+  ],
+  "test_evaluation_performed": false,
+  "model_sha256": "4e8bc2cdbebb980b3418f4943ab7a84ff1f89b5388bd7b8981204e57079aeccc"
+}

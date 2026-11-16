@@ -1,0 +1,2042 @@
+{
+  "joint": {
+    "records": 18,
+    "micro_f1": 0.896551724137931,
+    "macro_f1_supported": 0.7857142857142857,
+    "exact_match": 0.8888888888888888,
+    "per_label": {
+      "sale/permitted": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 17,
+        "support": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "confusion_matrix": [
+          [
+            17,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "sale/denied": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 1,
+        "tn": 14,
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571,
+        "confusion_matrix": [
+          [
+            14,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "sale/conditional": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 1,
+        "tn": 14,
+        "support": 4,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571,
+        "confusion_matrix": [
+          [
+            14,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      "sale/unclear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "business_transfer/permitted": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "business_transfer/denied": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "business_transfer/conditional": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "tn": 13,
+        "support": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            13,
+            0
+          ],
+          [
+            0,
+            5
+          ]
+        ]
+      },
+      "business_transfer/unclear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "aggregate_sale/permitted": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 17,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            17,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "aggregate_sale/denied": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "aggregate_sale/conditional": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "aggregate_sale/unclear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "recipient_onward_sale/permitted": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "recipient_onward_sale/denied": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 17,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            17,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "recipient_onward_sale/conditional": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "recipient_onward_sale/unclear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "data_broker_relationship/permitted": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "data_broker_relationship/denied": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "data_broker_relationship/conditional": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "data_broker_relationship/unclear": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "polarity_by_practice": {
+    "sale": {
+      "records": 18,
+      "micro_f1": 0.8,
+      "macro_f1_supported": 0.5714285714285714,
+      "exact_match": 0.8888888888888888,
+      "per_label": {
+        "permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 17,
+          "support": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "denied": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 14,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              14,
+              0
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "conditional": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 14,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              14,
+              0
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "business_transfer": {
+      "records": 18,
+      "micro_f1": 1.0,
+      "macro_f1_supported": 1.0,
+      "exact_match": 1.0,
+      "per_label": {
+        "permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "conditional": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              13,
+              0
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "aggregate_sale": {
+      "records": 18,
+      "micro_f1": 1.0,
+      "macro_f1_supported": 1.0,
+      "exact_match": 1.0,
+      "per_label": {
+        "permitted": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "recipient_onward_sale": {
+      "records": 18,
+      "micro_f1": 1.0,
+      "macro_f1_supported": 1.0,
+      "exact_match": 1.0,
+      "per_label": {
+        "permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "denied": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "data_broker_relationship": {
+      "records": 18,
+      "micro_f1": null,
+      "macro_f1_supported": null,
+      "exact_match": 1.0,
+      "per_label": {
+        "permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              18,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "practice_type": {
+    "records": 18,
+    "micro_f1": 0.9285714285714286,
+    "macro_f1_supported": 0.9642857142857143,
+    "exact_match": 0.8888888888888888,
+    "per_label": {
+      "sale": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 2,
+        "tn": 10,
+        "support": 8,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571,
+        "confusion_matrix": [
+          [
+            10,
+            0
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      },
+      "business_transfer": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "tn": 13,
+        "support": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            13,
+            0
+          ],
+          [
+            0,
+            5
+          ]
+        ]
+      },
+      "aggregate_sale": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 17,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            17,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "recipient_onward_sale": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 17,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "confusion_matrix": [
+          [
+            17,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "data_broker_relationship": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "confusion_matrix": [
+          [
+            18,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "sale_flag": {
+    "records": 18,
+    "micro_f1": 0.75,
+    "macro_f1_supported": 0.75,
+    "exact_match": 0.8888888888888888,
+    "per_label": {
+      "sale_permitted_or_conditional": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 2,
+        "tn": 13,
+        "support": 5,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.75,
+        "confusion_matrix": [
+          [
+            13,
+            0
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      }
+    },
+    "false_positive_rate": 0.0
+  },
+  "regex_comparison": {
+    "contract": "Same binary sale-permitted-or-conditional target on full paragraphs. Regex does not predict polarity; missing matches are not safety judgments.",
+    "ungated": {
+      "records": 18,
+      "micro_f1": 0.0,
+      "macro_f1_supported": 0.0,
+      "exact_match": 0.7222222222222222,
+      "per_label": {
+        "sale_permitted_or_conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "tn": 13,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              13,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "source_category_gated": {
+      "records": 18,
+      "micro_f1": 0.0,
+      "macro_f1_supported": 0.0,
+      "exact_match": 0.7222222222222222,
+      "per_label": {
+        "sale_permitted_or_conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "tn": 13,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              13,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "template_overlap": {
+    "threshold": 0.9,
+    "validation_records_at_or_above_threshold": 1,
+    "contract": "Train-fitted TF-IDF similarity diagnostic; repeated templates can overstate generalization."
+  },
+  "validation_below_template_threshold": {
+    "joint": {
+      "records": 17,
+      "micro_f1": 0.8888888888888888,
+      "macro_f1_supported": 0.7428571428571429,
+      "exact_match": 0.8823529411764706,
+      "per_label": {
+        "sale/permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 16,
+          "support": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "confusion_matrix": [
+            [
+              16,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "sale/denied": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 13,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              13,
+              0
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "sale/conditional": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 13,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              13,
+              0
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "sale/unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "business_transfer/permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "business_transfer/denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "business_transfer/conditional": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              12,
+              0
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        "business_transfer/unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "aggregate_sale/permitted": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 16,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              16,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "aggregate_sale/denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "aggregate_sale/conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "aggregate_sale/unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "recipient_onward_sale/permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "recipient_onward_sale/denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "recipient_onward_sale/conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "recipient_onward_sale/unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "data_broker_relationship/permitted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "data_broker_relationship/denied": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "data_broker_relationship/conditional": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "data_broker_relationship/unclear": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "polarity_by_practice": {
+      "sale": {
+        "records": 17,
+        "micro_f1": 0.8,
+        "macro_f1_supported": 0.5714285714285714,
+        "exact_match": 0.8823529411764706,
+        "per_label": {
+          "permitted": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 1,
+            "tn": 16,
+            "support": 1,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "confusion_matrix": [
+              [
+                16,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          },
+          "denied": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "tn": 13,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "confusion_matrix": [
+              [
+                13,
+                0
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          },
+          "conditional": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 1,
+            "tn": 13,
+            "support": 4,
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "confusion_matrix": [
+              [
+                13,
+                0
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          },
+          "unclear": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "business_transfer": {
+        "records": 17,
+        "micro_f1": 1.0,
+        "macro_f1_supported": 1.0,
+        "exact_match": 1.0,
+        "per_label": {
+          "permitted": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "denied": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "conditional": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "tn": 12,
+            "support": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion_matrix": [
+              [
+                12,
+                0
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          },
+          "unclear": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "aggregate_sale": {
+        "records": 17,
+        "micro_f1": 1.0,
+        "macro_f1_supported": 1.0,
+        "exact_match": 1.0,
+        "per_label": {
+          "permitted": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "tn": 16,
+            "support": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "confusion_matrix": [
+              [
+                16,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "denied": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "conditional": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "unclear": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "recipient_onward_sale": {
+        "records": 17,
+        "micro_f1": null,
+        "macro_f1_supported": null,
+        "exact_match": 1.0,
+        "per_label": {
+          "permitted": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "denied": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "conditional": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "unclear": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "data_broker_relationship": {
+        "records": 17,
+        "micro_f1": null,
+        "macro_f1_supported": null,
+        "exact_match": 1.0,
+        "per_label": {
+          "permitted": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "denied": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "conditional": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          "unclear": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 17,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "confusion_matrix": [
+              [
+                17,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "practice_type": {
+      "records": 17,
+      "micro_f1": 0.9230769230769231,
+      "macro_f1_supported": 0.9523809523809524,
+      "exact_match": 0.8823529411764706,
+      "per_label": {
+        "sale": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "tn": 9,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "confusion_matrix": [
+            [
+              9,
+              0
+            ],
+            [
+              2,
+              6
+            ]
+          ]
+        },
+        "business_transfer": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "support": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              12,
+              0
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        "aggregate_sale": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 16,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "confusion_matrix": [
+            [
+              16,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "recipient_onward_sale": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "data_broker_relationship": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 17,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "confusion_matrix": [
+            [
+              17,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "sale_flag": {
+      "records": 17,
+      "micro_f1": 0.75,
+      "macro_f1_supported": 0.75,
+      "exact_match": 0.8823529411764706,
+      "per_label": {
+        "sale_permitted_or_conditional": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 2,
+          "tn": 12,
+          "support": 5,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "confusion_matrix": [
+            [
+              12,
+              0
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      },
+      "false_positive_rate": 0.0
+    }
+  }
+}

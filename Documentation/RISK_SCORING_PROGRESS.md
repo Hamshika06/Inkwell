@@ -1,6 +1,105 @@
 # Risk scoring and sale-practice detection: progress and next steps
 
-Status as of November 2, 2026.
+Status updated November 16, 2026.
+
+## Sale-v2 frozen masked test results
+
+The actor-aware model now has a
+[separate frozen test evaluation](../runs/risk-actor-masked-tfidf-seed42/test-masked-v1/REPORT.md).
+It scores 77 annotated paragraphs and excludes 1,654 unknown paragraphs from the
+1,731-record test split. Masked micro F1 is 0.656, supported-target macro F1 is
+0.313, and known-target exact match is 51/77. First-party sale flags detect 6/15
+positives, with one false flag among 61 known negatives; one actor-unknown
+paragraph is excluded from that binary metric. Sale-flag precision is 0.857,
+recall 0.400 and F1 0.545.
+
+Business-transfer micro F1 is 0.964, while sale and rental are 0.468 and 0.471.
+Neither advertising target has a correctly predicted positive on this small
+test subset. The report separates previously evaluated clause IDs from other
+annotated IDs without claiming company independence. No retraining, threshold
+tuning or live score integration was performed. All 56 tests passed, including
+frozen-evaluation, masking and no-test-fitting regression checks.
+
+## Combined-data actor-aware baseline
+
+The [sale-v2 baseline](RISK_BASELINE_V2.md) now predicts practice/actor/polarity
+triples with coverage masking. It uses 278 annotated training paragraphs and
+excludes 7,101 unknown rows, including from vocabulary fitting. Validation uses
+48 annotated paragraphs and excludes 1,259 unknown rows. Missing actor-specific
+supervision remains masked rather than being converted to a negative label.
+
+Validation masked micro F1 is 0.769, supported-target macro F1 is 0.375, and
+known-target exact match is 34/48. First-party sale flags detect 6/12 positives,
+with zero false flags among 33 known negatives; three actor-unknown paragraphs
+are excluded from that binary metric. These numbers use a different annotation
+set and target definition from sale-v1 and should not be treated as a direct
+improvement/regression comparison. The later sale-v2 test evaluation is recorded
+above; training itself did not read test annotations.
+
+The [saved run](../runs/risk-actor-masked-tfidf-seed42/REPORT.md) includes target
+masks, support counts, provenance and individual validation predictions. The
+live scoring engine remains unchanged.
+
+## Frozen test evaluation
+
+The official sale-test cohort is now **26 records**, as requested by the user,
+with membership and the excluded source ID recorded in
+[test_cohort.json](../data/review/sale-v1/test_cohort.json) before test inference.
+The original 27-record source snapshot is retained for provenance.
+
+The saved baseline was evaluated without retraining or threshold tuning. Joint
+practice/polarity micro F1 is **0.737**, supported-label macro F1 is **0.631**,
+and exact label sets match on **20/26** paragraphs. First-party sale flags have
+precision **1.000 (5/5)**, recall **0.625 (5/8)** and F1 **0.769**; there were
+zero false flags among 18 reference negatives. The regex baseline detected none
+of the eight positives. A
+[post-test diagnostic](../runs/sale-tfidf-seed42/test-26-v1/regex-audit/REPORT.md)
+verified that all stored flags match the original text and rule: there is no
+joining discrepancy. However, the comparator is a narrow affirmative-sale rule,
+not a mention detector or a general regex baseline. It intentionally excludes
+denials and does not cover rental/list wording used in some annotated positives.
+The comparison should not be interpreted as superiority over regex approaches
+generally. See the
+[test report](../runs/sale-tfidf-seed42/test-26-v1/REPORT.md).
+
+All 30 tests passed, including checks that test evaluation never fits the model,
+uses the declared cohort and rejects altered frozen inputs. The test results
+are final measurements for this saved baseline, not a new tuning target.
+
+## TF-IDF training milestone
+
+The [first practice/polarity baseline](SALE_BASELINE.md) is now trained on 137
+training paragraphs and evaluated on the 18 completed validation candidates.
+Joint micro F1 is 0.897, with exact label-set matches on 16 of 18 paragraphs.
+For permitted-or-conditional first-party sale flags, precision is 1.000 (3/3),
+recall is 0.600 (3/5), and F1 is 0.750. The existing sale regex finds none of the
+five reference-positive paragraphs. These are preliminary annotation-agreement
+results on a small, selected dataset. Training itself did not use test data;
+the later frozen test measurement is recorded above.
+
+The saved model, configuration, confusion matrices, individual predictions and
+limitations are in [the run report](../runs/sale-tfidf-seed42/REPORT.md). All 28
+pipeline and annotation/model tests passed. Model outputs remain paragraph-level
+labels and are not integrated into risk scoring.
+
+## Latest implementation milestone
+
+Schema v2 now defines `practice_type`, `scope` and `opt_outs` alongside the
+existing polarity and evidence fields. The validator checks all five span lists
+and distinguishes scope and opt-outs from actual conditions or exceptions.
+
+A new `audit` command produces a structural draft report with all detected
+issues, counts and schema/source hashes, without changing attribution or
+creating an accepted dataset. A separate `normalize` command recovers complete
+JSON objects split across physical lines and writes a new JSONL copy.
+
+The latest training file contained one wrapped JSON object. The
+[normalized copy](../data/review/sale-v1/train.normalized.jsonl) preserves all
+137 records and annotation values. Its
+[schema-v2 audit](../data/review/sale-v1/train.normalized.audit.json) reports zero
+structural issues across 279 spans. The original draft, frozen candidate batch,
+schema snapshot and held-out split files were preserved. All 23 pipeline and
+annotation-tool tests passed.
 
 ## Objective
 
@@ -74,11 +173,14 @@ paragraph's topic label. Existing frozen policy/company splits were preserved.
 | --- | ---: | --- |
 | Training | 137 | [train.jsonl](../data/review/sale-v1/train.jsonl) |
 | Validation | 18 | [validation.jsonl](../data/review/sale-v1/validation.jsonl) |
-| Test | 27 | [test.jsonl](../data/review/sale-v1/test.jsonl) |
+| Test (current declared cohort) | 26 | [test.jsonl](../data/review/sale-v1/test.jsonl) |
 
 The [candidate snapshot](../data/review/sale-v1/candidates.jsonl) retains source
 records and attributes. The [training queue](../data/review/sale-v1/REVIEW.md)
 provides a readable view of the clauses and original annotations.
+The original snapshot contains 182 candidates, including 27 source test records;
+the current declared train/validation/test cohorts contain 181 records after the
+requested one-record test exclusion.
 
 Keyword selection also captures product sales, sales staff and corporate asset
 transfers. It can miss implicit sale practices and paraphrases. Consequently,
@@ -138,16 +240,22 @@ validates annotation structure, source integrity, labels and evidence offsets.
 Tests cover span mapping, unique repairs, unusable spans, export, provenance and
 invalid annotation cases.
 
-The draft now uses `practice_type`, `scope` and `opt_outs`, which need formal
-definitions and corresponding validator coverage. Ambiguous cross-references
-also need consistent treatment. For example, a qualified denial followed by
+Schema v2 formalizes `practice_type`, `scope` and `opt_outs`, with corresponding
+validator coverage and a separate draft-audit workflow. Ambiguous cross-references
+still need consistent treatment. For example, a qualified denial followed by
 permission under specified circumstances is not automatically a contradiction.
 
-The contextual practice/polarity model has not yet been trained or integrated.
-The live risk engine continues to use the original deterministic rules. Risk
-weights will need a separate evaluation from practice-detection accuracy.
+The first TF-IDF practice/polarity baseline is trained; contextual span extraction
+and risk-score integration remain future work. The live risk engine continues
+to use the original deterministic rules. Risk weights will need a separate
+evaluation from practice-detection accuracy.
 
 ## 6. Next plan of action
+
+The original development sequence is listed below. The first baseline now has
+both validation and frozen test measurements. Future iterations must retain
+these results and establish a separate final evaluation protocol; integration
+into risk scoring remains outstanding.
 
 1. **Finalize the schema and guidelines.** Resolve ambiguous cases and update the validator.
 2. **Review the remaining training records**, then annotate validation data using the same guidelines. Keep test data sealed.

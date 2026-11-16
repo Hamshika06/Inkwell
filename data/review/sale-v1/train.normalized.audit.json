@@ -1,0 +1,32 @@
+{
+  "mode": "draft_audit",
+  "passed": true,
+  "records": 137,
+  "schema_version": "2.0.0",
+  "schema_sha256": "66406b5c39f54f66a5867cf069cc9caaf8025f04b8749740b140d24392ab2043",
+  "batch_schema_version": "1.0.0",
+  "candidate_sha256": "f4b8fc984b8f2b49fcdd5fbf9e697d111d759466ed17e69b712c50b8befa3a1e",
+  "input_sha256": "b313e34f10b496ff07bc142eda057ea236ba1bf79a2d46fd68ef6216566de54d",
+  "practice_types": {
+    "sale": 63,
+    "business_transfer": 51,
+    "aggregate_sale": 4,
+    "recipient_onward_sale": 4,
+    "data_broker_relationship": 1
+  },
+  "labels": {
+    "denied": 34,
+    "conditional": 72,
+    "permitted": 11,
+    "unclear": 6
+  },
+  "span_counts": {
+    "evidence": 132,
+    "scope": 51,
+    "conditions": 60,
+    "exceptions": 27,
+    "opt_outs": 9
+  },
+  "issues": [],
+  "contract": "Structural draft audit only. Does not certify semantic accuracy, accept training data, or change annotation provenance."
+}

@@ -1,0 +1,42 @@
+{
+  "version": "test-26-v1",
+  "split": "test",
+  "records": 26,
+  "selected_ids": [
+    "opp115:105#0010",
+    "opp115:105#0011",
+    "opp115:105#0015",
+    "opp115:105#0025",
+    "opp115:1221#0003",
+    "opp115:1224#0001",
+    "opp115:1224#0014",
+    "opp115:1261#0003",
+    "opp115:1261#0004",
+    "opp115:1470#0002",
+    "opp115:1470#0008",
+    "opp115:1539#0008",
+    "opp115:1539#0012",
+    "opp115:627#0011",
+    "opp115:652#0018",
+    "opp115:652#0019",
+    "opp115:652#0040",
+    "opp115:746#0018",
+    "opp115:746#0022",
+    "opp115:907#0005",
+    "opp115:962#0025",
+    "opp115:962#0028",
+    "opp115:962#0031",
+    "opp115:962#0032",
+    "opp115:962#0039",
+    "opp115:962#0040"
+  ],
+  "excluded_ids": [
+    "opp115:1618#0021"
+  ],
+  "original_source_records": 27,
+  "source_candidate_sha256": "f4b8fc984b8f2b49fcdd5fbf9e697d111d759466ed17e69b712c50b8befa3a1e",
+  "initial_annotation_sha256": "4551a7a3a0a1a614e38a726b91c6a1413108b4281c20602a4d2087d7aaffcff9",
+  "selection_reason": "User requested changing the sale-test cohort from the original 27 candidates to the 26 annotated records currently in test.jsonl.",
+  "selection_timing": "Defined before any test model predictions or metrics were computed.",
+  "contract": "Official 26-record evaluation cohort. Original candidate snapshot is retained for source provenance; training and validation membership are unchanged."
+}

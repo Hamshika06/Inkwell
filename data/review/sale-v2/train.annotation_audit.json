@@ -1,0 +1,98 @@
+{
+  "audit_version": "sale-v2-training-annotation-audit-1",
+  "input_path": "data/review/sale-v2/train.jsonl",
+  "input_sha256": "3310127c1d571f0a0753af17f6434cdcf248b022ea33548e7bd13cc66ba182bd",
+  "source_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "records": 7379,
+  "source_fields_unchanged": true,
+  "full_training_cohort": true,
+  "annotated_records": 278,
+  "unannotated_records": 7101,
+  "annotated_with_no_practices": 37,
+  "practices": 321,
+  "practice_labels": {
+    "advertising_sharing": {
+      "conditional": 8,
+      "permitted": 23,
+      "denied": 5
+    },
+    "business_transfer": {
+      "conditional": 123,
+      "permitted": 1
+    },
+    "rental": {
+      "denied": 13,
+      "conditional": 20,
+      "permitted": 4,
+      "unclear": 3
+    },
+    "sale": {
+      "denied": 63,
+      "conditional": 37,
+      "permitted": 11,
+      "unclear": 10
+    }
+  },
+  "actors": {
+    "first_party": 309,
+    "service_provider": 4,
+    "bankruptcy_court": 1,
+    "data_reseller": 1,
+    "third_party_ad_network": 5,
+    "third_party_advertiser": 1
+  },
+  "span_counts": {
+    "evidence": 339,
+    "scope": 137,
+    "conditions": 150,
+    "opt_outs": 23,
+    "exceptions": 73
+  },
+  "total_spans": 722,
+  "structural_issues": [],
+  "structural_passed": true,
+  "unannotated_byte_identical_records": 7100,
+  "unannotated_serialization_differences": [
+    {
+      "line": 7379,
+      "id": "goppc:train:991",
+      "only_missing_final_newline": true
+    }
+  ],
+  "advertising_retrieval": {
+    "advertising_or_ad_network": {
+      "pattern": "\\badvertis\\w*|\\bad[ -]networks?\\b",
+      "candidate_count": 728,
+      "by_source": {
+        "opp115": 367,
+        "policyie": 73,
+        "goppc": 288
+      }
+    },
+    "cookies": {
+      "pattern": "\\bcookies?\\b",
+      "candidate_count": 685,
+      "by_source": {
+        "opp115": 335,
+        "policyie": 79,
+        "goppc": 271
+      }
+    },
+    "union": {
+      "pattern": "\\badvertis\\w*|\\bad[ -]networks?\\b|\\bcookies?\\b",
+      "candidate_count": 1147,
+      "by_source": {
+        "opp115": 568,
+        "policyie": 117,
+        "goppc": 462
+      }
+    }
+  },
+  "interpretation_decision_ids": [
+    "goppc:train:1558",
+    "goppc:train:6405",
+    "goppc:train:2945",
+    "goppc:train:283"
+  ],
+  "contract": "Read-only structural audit of the supplied annotations. Actor is retained as the field name. No labels or source files were altered. Unknown rows must not become negatives. Candidate filters are not practice labels; structural checks do not resolve semantic decisions."
+}

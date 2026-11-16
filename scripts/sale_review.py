@@ -205,51 +205,164 @@ def export_batch(root, dataset, out):
     return manifest
 
 
-def validate_review(batch, reviewed, out):
-    if out.exists() or out.with_suffix(".manifest.json").exists():
-        raise FileExistsError("Output exists; choose a new version")
+def load_batch(batch):
     manifest = json.loads((batch / "manifest.json").read_text())
     if digest(batch / "candidates.jsonl") != manifest["candidate_sha256"]:
         raise ValueError("Candidate source changed")
     if digest(batch / "annotation_schema.json") != manifest["schema_sha256"]:
         raise ValueError("Annotation schema changed")
-    labels = set(json.loads((batch / "annotation_schema.json").read_text())["labels"])
-    originals = {r["id"]: r for r in read_rows(batch / "candidates.jsonl")}
-    rows = read_rows(reviewed)
-    if not rows or len({r["id"] for r in rows}) != len(rows):
-        raise ValueError("Review must be nonempty with unique IDs")
-    for row in rows:
+    return manifest, {r["id"]: r for r in read_rows(batch / "candidates.jsonl")}
+
+
+def review_issues(rows, originals, schema, require_adjudication=True):
+    """Check all records; audit mode preserves author provenance without accepting it."""
+    issues, seen = [], set()
+
+    def issue(line, path, message):
+        issues.append({"line": line, "path": path, "message": message})
+
+    if not rows:
+        issue(0, "", "Review must be nonempty")
+    for line, row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+            issue(line, "id", "Record requires a string ID")
+            continue
+        if row["id"] in seen:
+            issue(line, "id", "Repeated ID")
+        seen.add(row["id"])
         original = originals.get(row["id"])
         if original is None or {k: v for k, v in row.items() if k != "review"} != {k: v for k, v in original.items() if k != "review"}:
-            raise ValueError(f"Source metadata changed: {row['id']}")
-        review = row["review"]
+            issue(line, "", "Source metadata changed or ID is unknown")
+            continue
+        review = row.get("review")
+        if not isinstance(review, dict):
+            issue(line, "review", "Review must be an object")
+            continue
         if type(review.get("sale_related")) is not bool:
-            raise ValueError("sale_related requires an explicit boolean")
-        if not all(isinstance(review.get(k), str) and review[k].strip() for k in ("reviewer", "adjudicator")) or review["reviewer"].strip() == review["adjudicator"].strip():
-            raise ValueError("Two distinct human reviewer identifiers required")
+            issue(line, "review.sale_related", "sale_related requires an explicit boolean")
+        if not isinstance(review.get("reviewer"), str) or not review["reviewer"].strip():
+            issue(line, "review.reviewer", "Author identifier required; preserve original attribution")
+        if require_adjudication:
+            if not all(isinstance(review.get(k), str) and review[k].strip() for k in ("reviewer", "adjudicator")) or review["reviewer"].strip() == review["adjudicator"].strip():
+                issue(line, "review.adjudicator", "Two distinct human reviewer identifiers required")
+        elif not isinstance(review.get("adjudicator"), str):
+            issue(line, "review.adjudicator", "Adjudicator must be a string; empty is allowed in a draft")
+        notes = review.get("notes")
+        if not isinstance(notes, str):
+            issue(line, "review.notes", "Notes must be a string")
+        elif review.get("sale_related") is False and not notes.strip():
+            issue(line, "review.notes", "Explain why the candidate is not sale-related")
         practices = review.get("practices")
-        if not isinstance(practices, list) or bool(practices) != review["sale_related"]:
-            raise ValueError("Sale-related records require practices; rejected records must have none")
-        if not review["sale_related"] and not review.get("notes", "").strip():
-            raise ValueError("Explain why the candidate is not sale-related")
-        for practice in practices:
-            if practice.get("label") not in labels:
-                raise ValueError("Unknown practice label")
-            for field in ("evidence", "conditions", "exceptions"):
+        if not isinstance(practices, list):
+            issue(line, "review.practices", "Practices must be a list")
+            continue
+        if bool(practices) != review.get("sale_related"):
+            issue(line, "review.practices", "Sale-related records require practices; rejected records must have none")
+        for index, practice in enumerate(practices):
+            path = f"review.practices[{index}]"
+            if not isinstance(practice, dict):
+                issue(line, path, "Practice must be an object")
+                continue
+            if not isinstance(practice.get("label"), str) or practice["label"] not in schema["labels"]:
+                issue(line, path + ".label", "Unknown practice label")
+            if "practice_types" in schema and (not isinstance(practice.get("practice_type"), str) or practice["practice_type"] not in schema["practice_types"]):
+                issue(line, path + ".practice_type", "Unknown or missing practice type")
+            fields = schema.get("span_fields", {k: "" for k in ("evidence", "conditions", "exceptions")})
+            for field in fields:
                 spans = practice.get(field)
                 if not isinstance(spans, list) or (field == "evidence" and not spans):
-                    raise ValueError(f"{field} must be a span list; evidence cannot be empty")
-                for span in spans:
+                    issue(line, path + "." + field, "Span list required; evidence cannot be empty")
+                    continue
+                for span_index, span in enumerate(spans):
+                    span_path = f"{path}.{field}[{span_index}]"
+                    if not isinstance(span, dict):
+                        issue(line, span_path, "Span must be an object")
+                        continue
                     a, b = span.get("start"), span.get("end")
                     if type(a) is not int or type(b) is not int or not 0 <= a < b <= len(row["text"]) or row["text"][a:b] != span.get("text"):
-                        raise ValueError("Evidence must match source character offsets exactly")
-            if practice["label"] == "conditional" and not (practice["conditions"] or practice["exceptions"]):
-                raise ValueError("Conditional practices require condition/exception evidence")
-            if practice["label"] == "unclear" and not practice.get("notes", "").strip():
-                raise ValueError("Unclear practices require an explanation")
+                        issue(line, span_path, "Evidence must match source character offsets exactly")
+            if practice.get("label") == "conditional" and not (practice.get("conditions") or practice.get("exceptions")):
+                issue(line, path, "Conditional practices require condition/exception evidence; scope or opt-outs alone do not qualify")
+            if not isinstance(practice.get("notes"), str):
+                issue(line, path + ".notes", "Practice notes must be a string")
+            elif practice.get("label") == "unclear" and not practice["notes"].strip():
+                issue(line, path + ".notes", "Unclear practices require an explanation")
+    return issues
+
+
+def normalize_review(reviewed, out):
+    """Reformat complete JSON objects as JSONL; never guess missing content."""
+    if out.exists() or out.with_suffix(".manifest.json").exists():
+        raise FileExistsError("Output exists; choose a new version")
+    text, decoder, cursor, rows = reviewed.read_text(), json.JSONDecoder(), 0, []
+    while cursor < len(text):
+        if text[cursor].isspace():
+            cursor += 1
+            continue
+        row, cursor = decoder.raw_decode(text, cursor)
+        if not isinstance(row, dict):
+            raise ValueError("Every record must be an object")
+        rows.append(row)
+    if not rows:
+        raise ValueError("Input is empty")
     write_rows(out, rows)
     out.with_suffix(".manifest.json").write_text(json.dumps({
-        "schema_version": manifest["schema_version"], "schema_sha256": manifest["schema_sha256"],
+        "input_sha256": digest(reviewed), "output_sha256": digest(out), "records": len(rows),
+        "operation": "Whitespace/JSON serialization normalization only; annotation values and provenance preserved.",
+    }, indent=2) + "\n")
+    return len(rows)
+
+
+def audit_review(batch, reviewed, out, schema_path=SCHEMA):
+    """Write a structural draft report without creating an accepted dataset."""
+    if out.exists():
+        raise FileExistsError("Audit output exists; choose a new version")
+    manifest, originals = load_batch(batch)
+    schema = json.loads(schema_path.read_text())
+    rows, parse_issues = [], []
+    for line, text in enumerate(reviewed.read_text().splitlines(), 1):
+        if not text.strip():
+            continue
+        try:
+            rows.append((line, json.loads(text)))
+        except ValueError as error:
+            parse_issues.append({"line": line, "path": "", "message": f"Invalid JSONL: {error}"})
+    issues = parse_issues + review_issues(rows, originals, schema, require_adjudication=False)
+    practices = [p for _, r in rows if isinstance(r, dict) and isinstance(r.get("review"), dict)
+                 and isinstance(r["review"].get("practices"), list)
+                 for p in r["review"]["practices"] if isinstance(p, dict)]
+    report = {
+        "mode": "draft_audit", "passed": not issues, "records": len(rows),
+        "schema_version": schema["version"], "schema_sha256": digest(schema_path),
+        "batch_schema_version": manifest["schema_version"],
+        "candidate_sha256": manifest["candidate_sha256"], "input_sha256": digest(reviewed),
+        "practice_types": dict(Counter(str(p.get("practice_type", "missing")) for p in practices)),
+        "labels": dict(Counter(str(p.get("label", "missing")) for p in practices)),
+        "span_counts": {field: sum(len(p[field]) for p in practices if isinstance(p.get(field), list))
+                        for field in schema.get("span_fields", {k: "" for k in ("evidence", "conditions", "exceptions")})},
+        "issues": issues,
+        "contract": "Structural draft audit only. Does not certify semantic accuracy, accept training data, or change annotation provenance.",
+    }
+    with out.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps(report, indent=2) + "\n")
+    return report
+
+
+def validate_review(batch, reviewed, out, schema_path=None):
+    if out.exists() or out.with_suffix(".manifest.json").exists():
+        raise FileExistsError("Output exists; choose a new version")
+    manifest, originals = load_batch(batch)
+    schema_path = schema_path or batch / "annotation_schema.json"
+    schema = json.loads(schema_path.read_text())
+    rows = read_rows(reviewed)
+    issues = review_issues(list(enumerate(rows, 1)), originals, schema)
+    if issues:
+        first = issues[0]
+        raise ValueError(f"Line {first['line']} {first['path']}: {first['message']} ({len(issues)} issue(s))")
+    write_rows(out, rows)
+    out.with_suffix(".manifest.json").write_text(json.dumps({
+        "schema_version": schema["version"], "schema_sha256": digest(schema_path),
+        "batch_schema_sha256": manifest["schema_sha256"],
         "candidate_sha256": manifest["candidate_sha256"], "reviewed_input_sha256": digest(reviewed),
         "accepted_sha256": digest(out), "records": len(rows),
         "contract": "Structural validation only; reviewer identifiers do not establish annotation quality or inter-reviewer agreement.",
@@ -268,12 +381,28 @@ def main():
     validate.add_argument("--batch", type=Path, required=True)
     validate.add_argument("--reviewed", type=Path, required=True)
     validate.add_argument("--out", type=Path, required=True)
+    validate.add_argument("--schema", type=Path, help="Use a newer schema without modifying the batch snapshot")
+    audit = sub.add_parser("audit", help="Report all structural errors in a draft without accepting it")
+    audit.add_argument("--batch", type=Path, required=True)
+    audit.add_argument("--reviewed", type=Path, required=True)
+    audit.add_argument("--schema", type=Path, default=SCHEMA)
+    audit.add_argument("--out", type=Path, required=True)
+    normalize = sub.add_parser("normalize", help="Write complete JSON records as one object per line")
+    normalize.add_argument("--reviewed", type=Path, required=True)
+    normalize.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "export":
         result = export_batch(args.root, args.dataset, args.out)
         print(json.dumps({k: result[k] for k in ("candidate_segments", "candidate_policies", "splits", "attribute_span_statuses")}, indent=2))
+    elif args.command == "validate":
+        print(f"Validated {validate_review(args.batch, args.reviewed, args.out, args.schema)} reviewed records")
+    elif args.command == "normalize":
+        print(f"Normalized {normalize_review(args.reviewed, args.out)} records without changing annotation values")
     else:
-        print(f"Validated {validate_review(args.batch, args.reviewed, args.out)} reviewed records")
+        report = audit_review(args.batch, args.reviewed, args.out, args.schema)
+        print(f"Draft audit: {report['records']} records, {len(report['issues'])} issue(s)")
+        if not report["passed"]:
+            raise SystemExit(1)
 
 
 if __name__ == "__main__":

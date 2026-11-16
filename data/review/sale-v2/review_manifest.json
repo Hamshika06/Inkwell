@@ -1,0 +1,92 @@
+{
+  "version": "sale-v2-risk-review-1",
+  "source_path": "data/review/sale-v2/combined_classifier.jsonl",
+  "source_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "source_manifest_sha256": "1733ec0b41986b54ec0e81d881b09d1b1d4e9be3bb2caf12f619f73fb1cb5ad8",
+  "records": 10417,
+  "split_counts": {
+    "train": 7379,
+    "validation": 1307,
+    "test": 1731
+  },
+  "files": {
+    "train": {
+      "path": "data/review/sale-v2/train.jsonl",
+      "records": 7379,
+      "sha256": "9e4bcba08018f1ceb3b829e5a403e780d168fd97eb36ae6ac2d4e7336db7c9d1"
+    },
+    "validation": {
+      "path": "data/review/sale-v2/validation.jsonl",
+      "records": 1307,
+      "sha256": "e7f3fa9ea571ff57c030c376be32ad2badcce1e5e852b1467cc183f7279046ec"
+    },
+    "test": {
+      "path": "data/review/sale-v2/test.jsonl",
+      "records": 1731,
+      "sha256": "1e5ed5c1c9fd03d44aed2cf7f95d6b8e94fd61b4c3faaf90f88b383614181ce7"
+    }
+  },
+  "topic_label_order": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "source_fields_preserved": [
+    "id",
+    "source",
+    "doc_id",
+    "group_id",
+    "split",
+    "text",
+    "labels",
+    "label_vec",
+    "label_mask",
+    "meta"
+  ],
+  "added_field": "risk_review",
+  "default_risk_review": {
+    "status": "unannotated",
+    "covered_practice_types": [],
+    "practices": [],
+    "annotation_origin": null,
+    "author_id": "",
+    "notes": ""
+  },
+  "annotation_counts": {
+    "unannotated": 10417,
+    "annotated": 0
+  },
+  "previously_evaluated_test_ids": [
+    "opp115:105#0010",
+    "opp115:105#0011",
+    "opp115:105#0015",
+    "opp115:105#0025",
+    "opp115:1221#0003",
+    "opp115:1224#0001",
+    "opp115:1224#0014",
+    "opp115:1261#0003",
+    "opp115:1261#0004",
+    "opp115:1470#0002",
+    "opp115:1470#0008",
+    "opp115:1539#0008",
+    "opp115:1539#0012",
+    "opp115:627#0011",
+    "opp115:652#0018",
+    "opp115:652#0019",
+    "opp115:652#0040",
+    "opp115:746#0018",
+    "opp115:746#0022",
+    "opp115:907#0005",
+    "opp115:962#0025",
+    "opp115:962#0028",
+    "opp115:962#0031",
+    "opp115:962#0032",
+    "opp115:962#0039",
+    "opp115:962#0040"
+  ],
+  "seed_annotations_imported": false,
+  "model_trained": false,
+  "contract": "Source split membership and all source field values are unchanged. Empty risk annotations mean unknown, not negative or zero risk. No sale-v1 labels or model predictions were imported. Output hashes describe the initial templates; future annotation edits should retain their own provenance."
+}

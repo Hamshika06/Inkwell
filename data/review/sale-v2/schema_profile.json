@@ -1,0 +1,162 @@
+{
+  "records": 10417,
+  "fields": {
+    "id": {
+      "str": 10417
+    },
+    "source": {
+      "str": 10417
+    },
+    "doc_id": {
+      "str": 10417
+    },
+    "group_id": {
+      "str": 10417
+    },
+    "split": {
+      "str": 10417
+    },
+    "text": {
+      "str": 10417
+    },
+    "labels": {
+      "list": 10417
+    },
+    "label_vec": {
+      "list": 10417
+    },
+    "label_mask": {
+      "list": 10417
+    },
+    "meta": {
+      "dict": 10417
+    }
+  },
+  "topic_label_order": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "source_split_counts": {
+    "opp115": {
+      "train": 2666,
+      "validation": 433,
+      "test": 341
+    },
+    "policyie": {
+      "train": 518,
+      "validation": 102,
+      "test": 157
+    },
+    "goppc": {
+      "train": 4195,
+      "validation": 772,
+      "test": 1233
+    }
+  },
+  "split_counts": {
+    "train": 7379,
+    "validation": 1307,
+    "test": 1731
+  },
+  "policy_counts_by_split": {
+    "train": 213,
+    "validation": 32,
+    "test": 48
+  },
+  "policies": 293,
+  "groups": 293,
+  "topic_label_counts": {
+    "Data Collection & Use": 4366,
+    "Data Security & Retention": 1148,
+    "Policy Scope & Changes": 978,
+    "Data Sharing": 2226,
+    "User Rights & Choices": 2301
+  },
+  "rows_with_unknown_topic_targets": 847,
+  "rows_with_empty_topic_labels": 1291,
+  "mask_patterns": {
+    "[1, 1, 1, 1, 1]": 9570,
+    "[1, 1, 0, 1, 1]": 11,
+    "[0, 1, 1, 1, 1]": 17,
+    "[0, 0, 1, 1, 1]": 6,
+    "[1, 0, 1, 0, 1]": 2,
+    "[1, 0, 1, 1, 1]": 13,
+    "[1, 1, 1, 1, 0]": 3,
+    "[1, 1, 0, 1, 0]": 756,
+    "[1, 0, 0, 1, 0]": 1,
+    "[1, 1, 0, 0, 1]": 13,
+    "[1, 1, 0, 0, 0]": 5,
+    "[0, 0, 1, 0, 0]": 3,
+    "[1, 0, 1, 0, 0]": 3,
+    "[1, 0, 0, 0, 0]": 3,
+    "[0, 1, 0, 1, 1]": 1,
+    "[0, 1, 0, 0, 0]": 3,
+    "[1, 0, 0, 1, 1]": 1,
+    "[1, 1, 1, 0, 1]": 2,
+    "[0, 1, 1, 0, 1]": 1,
+    "[0, 1, 0, 1, 0]": 3
+  },
+  "source_metadata_fields": {
+    "opp115": {
+      "label_fractions": 3440,
+      "orig_labels": 3440,
+      "orig_label_fractions": 3440,
+      "merged_ids": 51,
+      "merged_sources": 3
+    },
+    "policyie": {
+      "label_fractions": 777,
+      "parent_id": 777,
+      "chunk": 777,
+      "orig_labels": 777,
+      "orig_label_mask": 777
+    },
+    "goppc": {
+      "label_fractions": 6200,
+      "orig_label": 6200,
+      "annotator_concepts": 6200,
+      "website": 6200,
+      "merged_ids": 55
+    }
+  },
+  "checks": {
+    "valid_unique_ids": true,
+    "vectors_and_masks_have_five_binary_integers": true,
+    "labels_match_vectors": true,
+    "no_positive_on_masked_class": true,
+    "policy_ids_do_not_cross_splits": true,
+    "group_ids_do_not_cross_splits": true,
+    "no_normalized_duplicate_text": true,
+    "upstream_record_count_matches": true,
+    "upstream_source_split_counts_match": true
+  },
+  "legacy_sale_annotation_overlap": {
+    "train.normalized.jsonl": {
+      "found_train": 131,
+      "exact_text": 130,
+      "not_in_combined": 6,
+      "text_mismatch": 1
+    },
+    "validation.jsonl": {
+      "found_validation": 18,
+      "exact_text": 18
+    },
+    "test.jsonl": {
+      "found_test": 26,
+      "exact_text": 26
+    }
+  },
+  "upstream_near_duplicate_check": {
+    "reported_passed": true,
+    "independently_rerun": false
+  },
+  "limitations": [
+    "Five-class topic supervision is not a risk, polarity or severity target.",
+    "Source-prefixed policy/group IDs do not establish cross-source company independence.",
+    "26 current test clauses were previously evaluated in sale-v1 and are not a fresh independent risk test set.",
+    "Top-level evidence spans are absent. Original source data is needed for any attributes omitted from meta."
+  ]
+}
