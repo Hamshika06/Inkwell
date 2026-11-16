@@ -1,0 +1,18 @@
+{
+  "version": "risk-actor-masked-1.0.0",
+  "practice_types": ["sale", "rental", "advertising_disclosure", "third_party_ad_collection", "business_transfer"],
+  "actors": ["first_party", "service_provider", "third_party_ad_network", "third_party_advertiser", "bankruptcy_court", "data_reseller"],
+  "labels": ["permitted", "denied", "conditional", "unclear"],
+  "span_fields": ["evidence", "scope", "conditions", "exceptions", "opt_outs"],
+  "optional_span_fields": ["verbs"],
+  "target": "Multilabel paragraph-level (practice_type, actor, polarity) triples. Repeated identical triples collapse; opposing scoped triples are retained.",
+  "coverage_contract": [
+    "Unannotated rows and uncovered practice types have zero target masks.",
+    "A covered practice with no annotated propositions is explicitly absent: all actor/polarity triples for that practice are known negatives.",
+    "For a present covered practice, supervise all four polarities only for the explicitly annotated actors. Other actors remain unknown.",
+    "A scoped denial is not a known negative for the same practice in another actor's role.",
+    "Topic label masks never substitute for risk coverage. Annotation unclear is an explicit target, not missing supervision."
+  ],
+  "input": "Full paragraph text only. Actor, recipient, spans, original verbs, coverage, notes, IDs and topic labels are targets/provenance, never inference features.",
+  "limits": "Paragraph-level triples do not extract actors or resolve scopes in source text. Actor roles and action normalization follow the supplied annotation conventions; structural validation does not certify their semantic accuracy."
+}

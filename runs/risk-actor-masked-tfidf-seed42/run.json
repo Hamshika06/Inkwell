@@ -1,0 +1,792 @@
+{
+  "kind": "actor_aware_coverage_masked_tfidf_svm",
+  "seed": 42,
+  "schema_version": "risk-actor-masked-1.0.0",
+  "schema_sha256": "eede6dd658908d01c97962059c7106251dbc5aaf7507ef03b6f7e9c1aaf6e877",
+  "source_sha256": "73f561111f829abf0892921868bb09a872dee6771e87acd61f02c2d82b66340e",
+  "train_sha256": "cb7c81b3c486dd994d8c0cf5183a43d2f9eeae148c03d755b3cb26d635025818",
+  "validation_sha256": "c858b02c28c3eac755f1e77665f54039a0f6a65e1fc4276ba3e5f6d78cda0086",
+  "train_records": 7379,
+  "train_used": 278,
+  "train_excluded_unknown": 7101,
+  "validation_records": 1307,
+  "validation_scored": 48,
+  "validation_excluded_unknown": 1259,
+  "train_known_cells": 27104,
+  "train_unknown_cells": 858376,
+  "train_annotated_propositions": 320,
+  "train_positive_target_assignments": 318,
+  "train_authors": {
+    "claude-opus-5-5": 278
+  },
+  "validation_authors": {
+    "claude-opus-5-5": 48
+  },
+  "target_support": {
+    "sale/first_party/permitted": {
+      "known": 274,
+      "positive": 11,
+      "negative": 263,
+      "state": "learned"
+    },
+    "sale/first_party/denied": {
+      "known": 274,
+      "positive": 59,
+      "negative": 215,
+      "state": "learned"
+    },
+    "sale/first_party/conditional": {
+      "known": 274,
+      "positive": 35,
+      "negative": 239,
+      "state": "learned"
+    },
+    "sale/first_party/unclear": {
+      "known": 274,
+      "positive": 9,
+      "negative": 265,
+      "state": "learned"
+    },
+    "sale/service_provider/permitted": {
+      "known": 165,
+      "positive": 0,
+      "negative": 165,
+      "state": "negative_only"
+    },
+    "sale/service_provider/denied": {
+      "known": 165,
+      "positive": 4,
+      "negative": 161,
+      "state": "learned"
+    },
+    "sale/service_provider/conditional": {
+      "known": 165,
+      "positive": 0,
+      "negative": 165,
+      "state": "negative_only"
+    },
+    "sale/service_provider/unclear": {
+      "known": 165,
+      "positive": 0,
+      "negative": 165,
+      "state": "negative_only"
+    },
+    "sale/third_party_ad_network/permitted": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_ad_network/denied": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_ad_network/conditional": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_ad_network/unclear": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_advertiser/permitted": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_advertiser/denied": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_advertiser/conditional": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/third_party_advertiser/unclear": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/bankruptcy_court/permitted": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/bankruptcy_court/denied": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/bankruptcy_court/conditional": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/bankruptcy_court/unclear": {
+      "known": 161,
+      "positive": 0,
+      "negative": 161,
+      "state": "negative_only"
+    },
+    "sale/data_reseller/permitted": {
+      "known": 162,
+      "positive": 0,
+      "negative": 162,
+      "state": "negative_only"
+    },
+    "sale/data_reseller/denied": {
+      "known": 162,
+      "positive": 0,
+      "negative": 162,
+      "state": "negative_only"
+    },
+    "sale/data_reseller/conditional": {
+      "known": 162,
+      "positive": 0,
+      "negative": 162,
+      "state": "negative_only"
+    },
+    "sale/data_reseller/unclear": {
+      "known": 162,
+      "positive": 1,
+      "negative": 161,
+      "state": "learned"
+    },
+    "rental/first_party/permitted": {
+      "known": 278,
+      "positive": 4,
+      "negative": 274,
+      "state": "learned"
+    },
+    "rental/first_party/denied": {
+      "known": 278,
+      "positive": 13,
+      "negative": 265,
+      "state": "learned"
+    },
+    "rental/first_party/conditional": {
+      "known": 278,
+      "positive": 21,
+      "negative": 257,
+      "state": "learned"
+    },
+    "rental/first_party/unclear": {
+      "known": 278,
+      "positive": 3,
+      "negative": 275,
+      "state": "learned"
+    },
+    "rental/service_provider/permitted": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/service_provider/denied": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/service_provider/conditional": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/service_provider/unclear": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_ad_network/permitted": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_ad_network/denied": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_ad_network/conditional": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_ad_network/unclear": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_advertiser/permitted": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_advertiser/denied": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_advertiser/conditional": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/third_party_advertiser/unclear": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/bankruptcy_court/permitted": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/bankruptcy_court/denied": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/bankruptcy_court/conditional": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/bankruptcy_court/unclear": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/data_reseller/permitted": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/data_reseller/denied": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/data_reseller/conditional": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "rental/data_reseller/unclear": {
+      "known": 238,
+      "positive": 0,
+      "negative": 238,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/first_party/permitted": {
+      "known": 278,
+      "positive": 17,
+      "negative": 261,
+      "state": "learned"
+    },
+    "advertising_disclosure/first_party/denied": {
+      "known": 278,
+      "positive": 5,
+      "negative": 273,
+      "state": "learned"
+    },
+    "advertising_disclosure/first_party/conditional": {
+      "known": 278,
+      "positive": 7,
+      "negative": 271,
+      "state": "learned"
+    },
+    "advertising_disclosure/first_party/unclear": {
+      "known": 278,
+      "positive": 0,
+      "negative": 278,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/service_provider/permitted": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/service_provider/denied": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/service_provider/conditional": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/service_provider/unclear": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_ad_network/permitted": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_ad_network/denied": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_ad_network/conditional": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_ad_network/unclear": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_advertiser/permitted": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_advertiser/denied": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_advertiser/conditional": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/third_party_advertiser/unclear": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/bankruptcy_court/permitted": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/bankruptcy_court/denied": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/bankruptcy_court/conditional": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/bankruptcy_court/unclear": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/data_reseller/permitted": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/data_reseller/denied": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/data_reseller/conditional": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "advertising_disclosure/data_reseller/unclear": {
+      "known": 251,
+      "positive": 0,
+      "negative": 251,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/first_party/permitted": {
+      "known": 278,
+      "positive": 4,
+      "negative": 274,
+      "state": "learned"
+    },
+    "third_party_ad_collection/first_party/denied": {
+      "known": 278,
+      "positive": 0,
+      "negative": 278,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/first_party/conditional": {
+      "known": 278,
+      "positive": 1,
+      "negative": 277,
+      "state": "learned"
+    },
+    "third_party_ad_collection/first_party/unclear": {
+      "known": 278,
+      "positive": 0,
+      "negative": 278,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/service_provider/permitted": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/service_provider/denied": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/service_provider/conditional": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/service_provider/unclear": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_ad_network/permitted": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_ad_network/denied": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_ad_network/conditional": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_ad_network/unclear": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_advertiser/permitted": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_advertiser/denied": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_advertiser/conditional": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/third_party_advertiser/unclear": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/bankruptcy_court/permitted": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/bankruptcy_court/denied": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/bankruptcy_court/conditional": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/bankruptcy_court/unclear": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/data_reseller/permitted": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/data_reseller/denied": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/data_reseller/conditional": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "third_party_ad_collection/data_reseller/unclear": {
+      "known": 273,
+      "positive": 0,
+      "negative": 273,
+      "state": "negative_only"
+    },
+    "business_transfer/first_party/permitted": {
+      "known": 277,
+      "positive": 1,
+      "negative": 276,
+      "state": "learned"
+    },
+    "business_transfer/first_party/denied": {
+      "known": 277,
+      "positive": 0,
+      "negative": 277,
+      "state": "negative_only"
+    },
+    "business_transfer/first_party/conditional": {
+      "known": 277,
+      "positive": 122,
+      "negative": 155,
+      "state": "learned"
+    },
+    "business_transfer/first_party/unclear": {
+      "known": 277,
+      "positive": 0,
+      "negative": 277,
+      "state": "negative_only"
+    },
+    "business_transfer/service_provider/permitted": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/service_provider/denied": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/service_provider/conditional": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/service_provider/unclear": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_ad_network/permitted": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_ad_network/denied": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_ad_network/conditional": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_ad_network/unclear": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_advertiser/permitted": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_advertiser/denied": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_advertiser/conditional": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/third_party_advertiser/unclear": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/bankruptcy_court/permitted": {
+      "known": 155,
+      "positive": 0,
+      "negative": 155,
+      "state": "negative_only"
+    },
+    "business_transfer/bankruptcy_court/denied": {
+      "known": 155,
+      "positive": 0,
+      "negative": 155,
+      "state": "negative_only"
+    },
+    "business_transfer/bankruptcy_court/conditional": {
+      "known": 155,
+      "positive": 1,
+      "negative": 154,
+      "state": "learned"
+    },
+    "business_transfer/bankruptcy_court/unclear": {
+      "known": 155,
+      "positive": 0,
+      "negative": 155,
+      "state": "negative_only"
+    },
+    "business_transfer/data_reseller/permitted": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/data_reseller/denied": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/data_reseller/conditional": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    },
+    "business_transfer/data_reseller/unclear": {
+      "known": 154,
+      "positive": 0,
+      "negative": 154,
+      "state": "negative_only"
+    }
+  },
+  "features": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 1,
+    "max_features": 20000,
+    "sublinear_tf": true,
+    "fitted_on": "Training rows with at least one known risk target only",
+    "vocabulary_size": 12381
+  },
+  "classifier": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "threshold": 0.0,
+    "threshold_tuning": false
+  },
+  "implementation_sha256": {
+    "inkwell/risk_baseline.py": "50e489176e8278c7f4ac2c42173c9d872c5476ab56e7090171bf0efc2dfccbce",
+    "scripts/train_risk_baseline.py": "03d1f8dc9ea5c7ff9381776be7389f6574f3c7798260d2f3dc48d29e1e3066a2"
+  },
+  "training_seconds": 0.06087370798923075,
+  "python": "3.10.11",
+  "sklearn": "1.7.2",
+  "input_contract": "Full paragraph text only. Actor, recipient, spans, original verbs, coverage, notes, IDs and topic labels are targets/provenance, never inference features.",
+  "coverage_contract": [
+    "Unannotated rows and uncovered practice types have zero target masks.",
+    "A covered practice with no annotated propositions is explicitly absent: all actor/polarity triples for that practice are known negatives.",
+    "For a present covered practice, supervise all four polarities only for the explicitly annotated actors. Other actors remain unknown.",
+    "A scoped denial is not a known negative for the same practice in another actor's role.",
+    "Topic label masks never substitute for risk coverage. Annotation unclear is an explicit target, not missing supervision."
+  ],
+  "score_contract": "Learned outputs are uncalibrated margins. Single-class labels use constant +/-1 sentinels. Labels with no known training cells have null scores and no positive prediction; unavailable predictions still count as misses on known validation positives.",
+  "test_annotations_read": false,
+  "test_evaluation_performed": false,
+  "risk_score_integration": false,
+  "limitations": [
+    "Agreement with supplied model-assisted annotations, not calibrated privacy-risk accuracy.",
+    "Small, keyword-selected annotation subset with sparse actor/practice combinations.",
+    "Unannotated rows are excluded; partial actor supervision is conservative and does not assume every unlisted actor is negative.",
+    "Recall cannot be measured for any practice/actor/polarity target with zero known validation positives; see the support counts.",
+    "Predictions are paragraph-level label sets, without extracted scope or evidence spans.",
+    "Source-prefixed group separation is checked, but independent cross-source company/template isolation is not established."
+  ],
+  "model_sha256": "1382e36e7ecc1f7fb5e1d2372c7c9a13e9b9f6ea01ff4de2932c3c88deaf3579"
+}

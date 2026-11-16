@@ -1,0 +1,118 @@
+{
+  "records": 6250,
+  "fields": {
+    "source": {
+      "str": 6250
+    },
+    "doc_id": {
+      "str": 6250
+    },
+    "group_id": {
+      "str": 6250
+    },
+    "unit_id": {
+      "str": 6250
+    },
+    "text": {
+      "str": 6250
+    },
+    "labels": {
+      "list": 6250
+    },
+    "label_mask": {
+      "list": 6250
+    },
+    "spans": {
+      "list": 6250
+    },
+    "split": {
+      "str": 6250
+    },
+    "orig_label": {
+      "str": 6250
+    },
+    "orig_concepts": {
+      "list": 6250
+    },
+    "metadata": {
+      "dict": 6250
+    }
+  },
+  "sources": {
+    "goppc": 6250
+  },
+  "source_splits": {
+    "train": 6250
+  },
+  "policies": 117,
+  "groups": 117,
+  "websites": 117,
+  "missing_doc_ids": 0,
+  "duplicate_unit_ids": 0,
+  "topic_label_order": [
+    "Data Collection & Use",
+    "Data Sharing",
+    "User Rights & Choices",
+    "Data Security & Retention",
+    "Policy Scope & Changes"
+  ],
+  "topic_label_counts": {
+    "Data Collection & Use": 2670,
+    "User Rights & Choices": 1639,
+    "Data Sharing": 1008,
+    "Data Security & Retention": 636,
+    "Policy Scope & Changes": 498
+  },
+  "empty_topic_labels": 969,
+  "mask_patterns": {
+    "[1, 1, 1, 1, 1]": 6250
+  },
+  "rows_with_spans": 0,
+  "normalized_duplicate_groups": 63,
+  "normalized_duplicate_extra_rows": 77,
+  "normalized_duplicate_cross_policy_groups": 46,
+  "rows_under_5_words": 100,
+  "rows_over_300_words": 44,
+  "source_annotator_group_counts": {
+    "2": 6246,
+    "3": 3,
+    "4": 1
+  },
+  "rows_with_unknown_or_non_gdpr_concepts": 1028,
+  "current_mapping_version": 3,
+  "current_mapping_sha256": "22db85e1dec351d329b5dee3ef76a390c18c52faf6e6945805180c72a912de7a",
+  "current_mapping_recompute_differences": {
+    "mask_differs": 1053,
+    "contains_unknown_target": 1053,
+    "labels_differ": 343
+  },
+  "current_mapping_diagnostics": {
+    "disagreement_masked:User Rights & Choices": 107,
+    "disagreement_masked:Data Collection & Use": 176,
+    "disagreement_masked:Data Sharing": 52,
+    "disagreement_masked:Policy Scope & Changes": 21,
+    "tokens_fixed": 6,
+    "tokens_unclear": 3,
+    "disagreement_masked:Data Security & Retention": 20,
+    "unlisted_concept:7.2": 1
+  },
+  "sale_or_rental_keyword_candidates": 217,
+  "existing_five_class_policy_partition": {
+    "train": {
+      "policies": 100,
+      "source_ids_retained_in_cleaned_file": 4255
+    },
+    "validation": {
+      "policies": 17,
+      "source_ids_retained_in_cleaned_file": 772
+    }
+  },
+  "risks": [
+    "Topic labels are not risk severity or polarity targets.",
+    "All source masks are one, including rows where the current mapper identifies unknown targets.",
+    "Numeric columns and label matrices are annotation metadata, not model inputs.",
+    "Existing preprocessing report says all 6250 rows lack doc_id, contrary to this file; do not treat that report as current provenance.",
+    "Policy IDs were reconstructed by the preprocessing workflow; check assignment provenance before freezing evaluation groups.",
+    "Keyword candidates are not gold sale or rental labels."
+  ]
+}

@@ -2,6 +2,44 @@
 
 Status updated November 16, 2026.
 
+## Sale-v2 frozen masked test results
+
+The actor-aware model now has a
+[separate frozen test evaluation](../runs/risk-actor-masked-tfidf-seed42/test-masked-v1/REPORT.md).
+It scores 77 annotated paragraphs and excludes 1,654 unknown paragraphs from the
+1,731-record test split. Masked micro F1 is 0.656, supported-target macro F1 is
+0.313, and known-target exact match is 51/77. First-party sale flags detect 6/15
+positives, with one false flag among 61 known negatives; one actor-unknown
+paragraph is excluded from that binary metric. Sale-flag precision is 0.857,
+recall 0.400 and F1 0.545.
+
+Business-transfer micro F1 is 0.964, while sale and rental are 0.468 and 0.471.
+Neither advertising target has a correctly predicted positive on this small
+test subset. The report separates previously evaluated clause IDs from other
+annotated IDs without claiming company independence. No retraining, threshold
+tuning or live score integration was performed. All 56 tests passed, including
+frozen-evaluation, masking and no-test-fitting regression checks.
+
+## Combined-data actor-aware baseline
+
+The [sale-v2 baseline](RISK_BASELINE_V2.md) now predicts practice/actor/polarity
+triples with coverage masking. It uses 278 annotated training paragraphs and
+excludes 7,101 unknown rows, including from vocabulary fitting. Validation uses
+48 annotated paragraphs and excludes 1,259 unknown rows. Missing actor-specific
+supervision remains masked rather than being converted to a negative label.
+
+Validation masked micro F1 is 0.769, supported-target macro F1 is 0.375, and
+known-target exact match is 34/48. First-party sale flags detect 6/12 positives,
+with zero false flags among 33 known negatives; three actor-unknown paragraphs
+are excluded from that binary metric. These numbers use a different annotation
+set and target definition from sale-v1 and should not be treated as a direct
+improvement/regression comparison. The later sale-v2 test evaluation is recorded
+above; training itself did not read test annotations.
+
+The [saved run](../runs/risk-actor-masked-tfidf-seed42/REPORT.md) includes target
+masks, support counts, provenance and individual validation predictions. The
+live scoring engine remains unchanged.
+
 ## Frozen test evaluation
 
 The official sale-test cohort is now **26 records**, as requested by the user,
