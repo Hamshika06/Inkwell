@@ -12,7 +12,7 @@ Static frontend for the Inkwell API: plain HTML, CSS and JavaScript, with no bui
 
 - **Decision bar** (top of the report card): what the policy allows, how much of it you can switch off with steps from the policy, and three equal choices: take the steps, agree anyway, or not for me. Nothing is pre-selected and nothing is called good or bad; the reader's **priorities** (pick what matters, saved per account or browser) decide what is highlighted.
 - **Your steps:** a checklist of opt-out links from the policy, general advice where marked, and pre-written opt-out, deletion and access emails to the policy's privacy address ("Open in my email app" or "Copy text"; nothing is sent by Inkwell).
-- **My policies:** save a check (name, the 8 answers, choice, ticked steps and a SHA-256 fingerprint of the text, never the text). "Check again" shows which answers changed. Stored in Cloud Firestore for accounts (`store.js`, rules in `firestore.rules`), or in the browser when Firestore isn't set up or sign-in is off. Free checks can't save.
+- **Dashboard (`dashboard.html`):** every check by an account is saved automatically: the report with its quoted sentences, choice, ticked steps, earlier results and a SHA-256 fingerprint, never the full text. "Open" reopens the report and checklist, "Check again" shows which answers changed, and "New check" is always in the header. Stored in Cloud Firestore for accounts (`store.js`, rules in `firestore.rules`), or in the browser when Firestore isn't set up or sign-in is off. Free checks aren't saved and don't include the report card.
 - **Report card** (shown first): eight checks (sells your data, targeted ads, sharing, location, retention, deletion, opt-out, policy changes), each with a verdict, one line on what it means for you, and the exact sentence behind it. Comes from `inkwell/report.py`.
 - **What you can do:** opt-out links, privacy emails and settings paths found in the policy.
 - **Full breakdown** (behind a button): the views below.
@@ -21,7 +21,9 @@ Static frontend for the Inkwell API: plain HTML, CSS and JavaScript, with no bui
 - **Topics:** one card per topic with a plain-language description and its clause count. Topics with no matching paragraph are marked **Not mentioned**.
 - **Common questions:** one question per topic, each with a one-line answer from the report card and its three strongest clauses ("Show all" for the rest).
 - **Document:** every paragraph, colour-coded by topic, with filters. Selecting a paragraph shows how close it came to each topic's cutoff.
-- **Exports:** a Markdown evidence report or the raw JSON.
+- **Exports:** a plain-text (.txt) report or the raw JSON.
+- **Compare (`compare.html`, accounts only):** two boxes, each a link or policy text. The 8 answers side by side, differences first and matches folded, each opening to its exact sentences. It never picks a winner, and "Not found" is explained as not proof. Uses `POST /report`, which skips the model.
+- **Links or text in one box:** a lone web address is read by the server (`/fetch-policy`). A homepage finds its privacy link and asks "Is this the right page?" first; if a site can't be read, the message says to paste the text.
 - **Input helpers:** sample policy, .txt/.md upload, size and paragraph counters, a warning for one-long-paragraph text, "Fix line breaks", and Ctrl+Enter to run.
 - **Account menu, status light, light and dark themes** (follows the system; the moon button switches and remembers it in this browser).
 

@@ -1,8 +1,8 @@
 // Where a person's priorities and saved policies live: their account (Cloud Firestore, one document per
 // user plus one per saved policy) when they're signed in, or this browser otherwise. If Firestore isn't
 // set up or can't be reached, an account falls back to this browser and says so.
-// Saved policies keep a name, verdicts, the chosen decision, ticked steps and a SHA-256 fingerprint of the
-// text, never the text itself.
+// Saved work keeps the report (name, answers and their quoted sentences, steps), the chosen decision, ticked
+// steps, earlier results and a SHA-256 fingerprint of the text; the full policy text is never stored.
 const FIREBASE_SDK = "https://www.gstatic.com/firebasejs/13.0.0";
 const TIMEOUT_MS = 6000;
 

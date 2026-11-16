@@ -1,6 +1,6 @@
 // What to do about a policy: the reader's own priorities, a neutral decision bar, a checklist of steps the
 // policy itself offers (opt-out links, pre-written emails to its privacy address), and saving it all to an
-// account so the next check shows what changed. Inkwell states facts; the reader decides what matters.
+// account (every check, automatically) so the next check shows what changed. Inkwell states facts; the reader decides what matters.
 import { fingerprint, policyId } from "./store.js";
 
 // The things a reader can say matter to them, one per report-card check (same ids).
@@ -10,160 +10,238 @@ export const PRIORITIES = [
   ["optout", "Being able to opt out"], ["changes", "Hearing about policy changes"],
 ];
 const PRIORITY_LABEL = Object.fromEntries(PRIORITIES);
-const DECISIONS = { steps: "Taking the steps", agree: "Agreed", leave: "Not for me" };
 
-let ui;  // { state, el, plural, select, signupUrl, refresh, setStatus }
+let ui;  // { state, el, plural, select, refresh, showResults, setStatus }
 export function initDecide(context) { ui = context; }
 
 const report = () => ui.state.result?.report;
 const company = () => ui.state.current?.name || report()?.company || "the company";
 const dateText = (iso) => (iso ? new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "");
 
-/* ---------- Priorities ---------- */
+/* ---------- What you care about: a filter on the list, applied as you tap ---------- */
 
 export async function loadPriorities() {
   try { ui.state.priorities = await ui.state.store.getPriorities(); } catch { ui.state.priorities = null; }
 }
 
-function prioritiesEditor(inline) {
-  const { el, state } = ui;
-  const picked = new Set(state.draftPriorities ?? state.priorities ?? []);
-  const chips = PRIORITIES.map(([id, label]) => el("button", {
-    type: "button", class: "prio-chip", "aria-pressed": String(picked.has(id)),
-    onclick: (e) => {
-      picked.has(id) ? picked.delete(id) : picked.add(id);
-      state.draftPriorities = [...picked];
-      e.currentTarget.setAttribute("aria-pressed", String(picked.has(id)));
-    },
-  }, label));
-  return el("div", { class: `prio-editor${inline ? " inline" : ""}` },
-    el("p", { class: "prio-q" }, inline ? "What matters to you? Pick any. We'll point these out in every policy you check." : "What matters to you?"),
-    el("div", { class: "prio-chips", role: "group", "aria-label": "Your priorities" }, chips),
-    el("div", { class: "prio-actions" },
-      el("button", { type: "button", class: "btn btn-primary", onclick: savePriorities }, "Save my priorities"),
-      el("button", { type: "button", class: "btn btn-ghost", onclick: () => { state.editingPriorities = false; state.skipPriorities = true; state.draftPriorities = null; ui.refresh(); } },
-        inline ? "Not now" : "Cancel")),
-    el("p", { class: "fine" }, state.store?.mode === "account" ? "Saved to your account." : "Saved in this browser."));
-}
+let saveTimer;
 
-async function savePriorities() {
+async function storePriorities() {
   const { state } = ui;
-  state.priorities = state.draftPriorities ?? state.priorities ?? [];
-  state.draftPriorities = null; state.editingPriorities = false;
-  ui.refresh();
-  try { await (state.storeReady || Promise.resolve()); await state.store.setPriorities(state.priorities); } catch { ui.setStatus("Couldn't save your priorities. They'll apply until you leave this page.", "error"); }
+  try {
+    await state.storeReady;
+    await state.store.setPriorities(state.priorities || []);
+    return true;
+  } catch {
+    ui.setStatus("Couldn't save your picks. They'll apply until you leave this page.", "error");
+    return false;
+  }
 }
 
-/* ---------- Decision bar ---------- */
+function togglePriority(id, scope) {
+  const { state } = ui;
+  const picked = new Set(state.priorities || []);
+  picked.has(id) ? picked.delete(id) : picked.add(id);
+  state.priorities = PRIORITIES.map(([key]) => key).filter((key) => picked.has(key));
+  state.focusSaved = false;
+  ui.refresh();
+  renderPasteFocus();
+  document.querySelector(`${scope} [data-prio="${id}"]`)?.focus();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(storePriorities, 500);
+}
+
+async function finishFocus() {
+  const { state } = ui;
+  clearTimeout(saveTimer);
+  state.editingFocus = false;
+  ui.refresh();
+  state.focusSaved = await storePriorities();
+  ui.refresh();
+}
+
+function chips(scope) {
+  const { el, state } = ui;
+  const mine = state.priorities || [];
+  return el("div", { class: "prio-chips", role: "group", "aria-label": "What you care about" }, PRIORITIES.map(([id, label]) => el("button", {
+    type: "button", class: "prio-chip", "data-prio": id, "aria-pressed": String(mine.includes(id)), onclick: () => togglePriority(id, scope),
+  }, label)));
+}
+
+/** On the paste page: once there's a policy in the box, ask what to focus on before checking it. Accounts only. */
+export function renderPasteFocus() {
+  const { el, state, plural } = ui;
+  const box = document.getElementById("paste-focus"), list = document.getElementById("you-get");
+  if (!box) return;
+  const ask = !!state.store && !state.guest && !!document.getElementById("policy").value.trim();
+  box.hidden = !ask; list.hidden = ask;
+  if (!ask) return box.replaceChildren();
+  const mine = state.priorities || [];
+  box.replaceChildren(
+    el("p", { class: "focus-q" }, "What do you care about most?"),
+    el("p", { class: "fine" }, "Pick any, then check the policy. Your report will focus on these, and we'll remember them."),
+    chips("#paste-focus"),
+    el("p", { class: "paste-picked", role: "status" }, mine.length ? `✓ We'll focus on the ${plural(mine.length, "thing")} you picked.` : "Nothing picked: we'll show everything."));
+}
+
+function renderFocus() {
+  const { el, state } = ui;
+  const mine = state.priorities || [];
+  if (state.editingFocus) {
+    return el("div", { class: "focus editing" },
+      el("p", { class: "focus-q" }, "What do you care about most?"),
+      el("p", { class: "fine" }, "Tap any that matter to you. The list below changes as you tap, and your picks apply to every policy you check."),
+      chips(".focus"),
+      el("button", { type: "button", class: "btn btn-primary focus-done", onclick: finishFocus }, "Done"));
+  }
+  const open = () => { state.editingFocus = true; state.focusSaved = false; ui.refresh(); };
+  if (!mine.length) {
+    return el("div", { class: "focus" }, el("span", {}, "Showing everything we check."),
+      el("button", { type: "button", class: "link", onclick: open }, "Show only what I care about"));
+  }
+  const where = state.store?.mode === "account" ? "your account" : "this browser";
+  return el("div", { class: "focus" },
+    el("span", {}, "Showing only what you care about: ", el("strong", {}, mine.map((id) => PRIORITY_LABEL[id]).join(", ")), "."),
+    el("button", { type: "button", class: "link", onclick: open }, "Change"),
+    state.focusSaved ? el("p", { class: "focus-saved", role: "status" }, `✓ Saved to ${where}. We'll use these picks for every policy you check.`) : null);
+}
+
+/* ---------- The decision: what agreeing means, then the reader's choice ---------- */
 
 export function renderDecision() {
   const { el, state, plural } = ui;
   const r = report();
   if (!r?.concerns) return null;
-  const mine = state.priorities;
-  const relevant = mine?.length ? r.concerns.filter((c) => mine.includes(c.id)) : r.concerns;
-  const fixable = relevant.filter((c) => c.fixable).length;
-  const unclear = r.checks.filter((c) => c.applies == null && (!mine?.length || mine.includes(c.id)));
-  const stepCount = r.steps.length;
-
-  const headline = mine?.length
-    ? relevant.length
-      ? `This policy allows ${relevant.length} of the ${plural(mine.length, "thing")} you said matter to you.`
-      : `None of the ${plural(mine.length, "thing")} you said matter to you came up as allowed in this policy.`
-    : relevant.length
-      ? `This policy allows ${relevant.length} of the 8 practices we check.`
-      : "This policy doesn't allow any of the 8 practices we check, as far as the text says.";
-  const split = relevant.length
-    ? [fixable ? `${fixable} you can switch off with steps from the policy` : "None can be switched off with steps from the policy",
-       relevant.length - fixable ? `${relevant.length - fixable} come${relevant.length - fixable === 1 ? "s" : ""} with using the service` : null].filter(Boolean).join(" · ")
-    : null;
-
-  const others = mine?.length ? r.concerns.filter((c) => !mine.includes(c.id)) : [];
-  const decision = state.decision;
+  const mine = state.priorities?.length ? state.priorities : null;
+  const shown = mine ? r.concerns.filter((c) => mine.includes(c.id)) : r.concerns;
+  const others = mine ? r.concerns.filter((c) => !mine.includes(c.id)) : [];
+  const unclear = r.checks.filter((c) => c.applies == null && (!mine || mine.includes(c.id)));
+  const who = state.current?.name || r.company || "this company";
+  const headline = shown.length ? `If you agree, ${who}:`
+    : mine ? "None of the things you picked came up in this policy." : "We didn't find any of the things we check for in this policy.";
+  const summary = [others.length ? `${others.length} you didn't pick` : null,
+    unclear.length ? `${unclear.length} the policy doesn't clearly answer` : null].filter(Boolean).join(" · ");
   return el("section", { class: "decision", "aria-label": "Your decision" },
     renderChanges(),
-    el("div", { class: "decision-head" },
-      el("p", { class: "eyebrow" }, "Before you agree"),
-      el("button", { type: "button", class: "link edit-prio", onclick: () => { state.editingPriorities = !state.editingPriorities; ui.refresh(); } },
-        mine?.length ? "Edit what matters to me" : "Choose what matters to me")),
-    state.editingPriorities ? prioritiesEditor(false) : null,
+    renderFocus(),
     el("h3", { class: "decision-title" }, headline),
-    split ? el("p", { class: "decision-split" }, split) : null,
-    relevant.length ? el("ul", { class: "concerns" }, relevant.map((c) => el("li", { class: `concern ${c.fixable ? "fixable" : "stays"}` },
-      el("button", { type: "button", class: "concern-name", onclick: () => focusCheck(c.id) }, c.title),
-      el("span", { class: "concern-tag" }, c.fixable ? "You can switch this off" : "Comes with the service")))) : null,
-    unclear.length ? el("p", { class: "fine" }, `${plural(unclear.length, "practice")} ${unclear.length === 1 ? "isn't" : "aren't"} settled by the text: ${unclear.map((c) => (PRIORITY_LABEL[c.id] || c.title).toLowerCase()).join(", ")}.`) : null,
-    others.length ? el("p", { class: "fine" }, `Also allowed, not on your list: ${others.map((c) => c.title.toLowerCase()).join(", ")}.`) : null,
-    mine == null && !state.skipPriorities && !state.editingPriorities ? prioritiesEditor(true) : null,
-    el("div", { class: "decision-actions", role: "group", "aria-label": "What do you want to do?" },
-      stepCount ? choice("steps", fixable ? `Take the ${plural(fixable, "step")}` : `See ${plural(stepCount, "step")} you can take`) : null,
-      choice("agree", "Agree anyway"),
-      choice("leave", "Not for me")),
-    decision ? decisionNote(decision) : null,
+    shown.length ? el("ul", { class: "concerns" }, shown.map(concernRow)) : null,
+    shown.length ? el("p", { class: "fine" }, "Tap a line to see the exact sentence from the policy.") : null,
+    summary ? el("details", { class: "more-info", open: state.moreOpen, ontoggle: (e) => { state.moreOpen = e.target.open; } }, el("summary", {}, `Also: ${summary}`),
+      others.length ? el("p", { class: "fine" }, el("strong", {}, "You didn't pick: "), others.map((c) => c.title.toLowerCase()).join(", "), ".") : null,
+      unclear.length ? el("p", { class: "fine" }, el("strong", {}, "Not clearly answered: "), unclear.map((c) => (PRIORITY_LABEL[c.id] || c.title).toLowerCase()).join(", "), ".") : null) : null,
+    state.decision ? renderDecided(state.decision) : renderChoices(shown),
     renderSaveRow());
 }
 
-function choice(id, label) {
+function concernRow(c) {
   const { el, state } = ui;
-  return el("button", { type: "button", class: "btn btn-lg decision-btn", "aria-pressed": String(state.decision === id),
-    onclick: () => decide(id) }, label);
+  const open = !!state.openConcerns?.[c.id];
+  const check = report().checks.find((k) => k.id === c.id);
+  return el("li", { class: `concern ${c.fixable ? "fixable" : "stays"}${open ? " open" : ""}` },
+    el("button", { type: "button", class: "concern-toggle", "aria-expanded": String(open),
+      onclick: () => { state.openConcerns = { ...(state.openConcerns || {}), [c.id]: !open }; ui.refresh(); document.querySelector(`[data-concern="${c.id}"]`)?.focus(); }, "data-concern": c.id },
+      el("span", { class: "concern-chev", "aria-hidden": "true" }, "▸"),
+      el("span", { class: "concern-name" }, c.title),
+      el("span", { class: "concern-tag" }, c.fixable ? "You can limit this" : "No way to limit this found")),
+    open ? el("div", { class: "concern-detail" }, el("p", { class: "check-meaning" }, check.meaning),
+      c.note ? el("p", { class: "fine" }, c.note) : null, ui.proof(check)) : null);
+}
+
+function renderChoices(shown) {
+  const { el } = ui;
+  const r = report();
+  const fixable = shown.filter((c) => c.fixable).length;
+  const limit = fixable === 1 ? "Show me how to limit this" : fixable > 1 ? "Show me how to limit these" : r.steps.length ? "See what I can do" : null;
+  return el("div", { class: "decision-ask" },
+    el("p", { class: "decision-q" }, "What do you want to do?"),
+    el("div", { class: "decision-actions", role: "group", "aria-label": "What do you want to do?" },
+      limit ? choice("steps", limit) : null, choice("agree", "Accept it as is"), choice("leave", "Don't accept")),
+    el("p", { class: "fine" }, "This is only for your own records. Inkwell never contacts the company."));
+}
+
+function choice(id, label) {
+  return ui.el("button", { type: "button", class: "btn btn-lg decision-btn", onclick: () => decide(id) }, label);
 }
 
 function decide(id) {
   const { state } = ui;
-  state.decision = state.decision === id ? null : id;
+  state.decision = id;
   ui.refresh();
-  autosave({ decision: state.decision });
-  if (state.decision === "steps") document.getElementById("steps")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  autosave({ decision: id });
+  if (id === "steps") document.getElementById("steps")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function decisionNote(decision) {
+function changeAnswer() {
+  const { state } = ui;
+  state.decision = null; state.showSteps = false;
+  ui.refresh();
+  autosave({ decision: null });
+}
+
+// Closure: replaces the buttons with what was chosen and what happens next.
+function renderDecided(decision) {
   const { el, state } = ui;
   const del = report().steps.find((s) => s.id === "request_delete");
-  if (decision === "agree") return el("p", { class: "decision-note" }, "Noted. The steps below stay here if you change your mind.");
-  if (decision === "steps") return el("p", { class: "decision-note" }, "Your steps are below. Tick them off as you go.");
-  return el("div", { class: "decision-note" },
-    el("p", {}, `Already have an account with ${company()}? You can ask them to delete your data.`),
-    del ? el("button", { type: "button", class: "btn", onclick: () => { state.openRequest = "request_delete"; ui.refresh(); document.getElementById("step-request_delete")?.scrollIntoView({ behavior: "smooth", block: "center" }); } },
-      "Write the deletion request") : el("p", { class: "fine" }, "The policy doesn't give a privacy email address. Look for a privacy or account-deletion page on their website."));
-}
-
-function focusCheck(id) {
-  const node = document.getElementById(`check-${id}`);
-  if (!node) return;
-  node.scrollIntoView({ behavior: "smooth", block: "center" });
-  node.classList.remove("flash"); void node.offsetWidth; node.classList.add("flash");
+  const goToSteps = el("button", { type: "button", class: "btn", onclick: () => document.getElementById("steps")?.scrollIntoView({ behavior: "smooth", block: "start" }) }, "Go to my steps");
+  const writeRequest = () => { state.showSteps = true; state.stepAt = report().steps.indexOf(del); state.openRequest = "request_delete"; ui.refresh(); document.getElementById("step-request_delete")?.scrollIntoView({ behavior: "smooth", block: "center" }); };
+  const content = {
+    steps: ["You chose to limit this.", "Your steps are below, one at a time.", goToSteps],
+    agree: ["You chose to accept this policy as it is.", "Nothing else to do.", null],
+    leave: ["You chose not to accept this policy.",
+      del ? `Already have an account with ${company()}? You can ask them to delete your data.` : "If you already have an account, look for a privacy or account-deletion page on their website.",
+      del ? el("button", { type: "button", class: "btn", onclick: writeRequest }, "Write the deletion request") : null],
+  }[decision];
+  return el("div", { class: "decided", role: "status" },
+    el("p", { class: "decided-title" }, `✓ ${content[0]}`),
+    el("p", { class: "decided-next" }, content[1]),
+    el("div", { class: "decided-actions" }, content[2], el("button", { type: "button", class: "link", onclick: changeAnswer }, "Change my answer")));
 }
 
 /* ---------- Steps ---------- */
 
+/** One step at a time, shown once the reader asks to limit what the policy allows. */
 export function renderSteps() {
-  const { el, state, plural } = ui;
+  const { el, state } = ui;
   const r = report();
-  if (!r?.steps) return null;
-  const helps = (stepId) => r.concerns.filter((c) => c.steps.includes(stepId)).map((c) => c.title.toLowerCase());
-  const done = state.done || {};
-  const doneCount = r.steps.filter((s) => done[s.id]).length;
+  if (!r?.steps || !(state.decision === "steps" || state.showSteps)) return null;
+  const list = r.steps, done = state.done || {}, total = list.length;
+  const doneCount = list.filter((st) => done[st.id]).length;
   const head = el("div", { class: "steps-head" }, el("h3", {}, "Your steps"),
-    r.steps.length ? el("span", { class: "steps-progress" }, `${doneCount} of ${r.steps.length} done`) : null);
-  if (!r.steps.length) {
+    total ? el("span", { class: "steps-progress" }, `${doneCount} of ${total} done`) : null);
+  if (!total) {
     return el("section", { class: "steps", id: "steps" }, head,
       el("p", { class: "note" }, "This policy doesn't give opt-out links or a privacy email in the text you pasted. Look for “Your Privacy Choices” or “Do Not Sell” in the footer of their website."));
   }
-  if (state.guest) {
-    return el("section", { class: "steps", id: "steps" }, head,
-      el("ul", { class: "step-list" }, r.steps.map((s) => el("li", { class: "step locked" },
-        el("span", { class: "step-box", "aria-hidden": "true" }, "🔒"),
-        el("div", {}, el("strong", {}, s.title), helps(s.id).length ? el("p", { class: "step-helps" }, `Helps with: ${helps(s.id).join(", ")}`) : null)))),
-      ui.lockCta(`Create a free account to get the ${plural(r.steps.length, "link")} and ready-to-send emails, and to save your checklist.`, "Get my steps"));
-  }
+  const firstOpen = list.findIndex((st) => !done[st.id]);
+  const at = Math.min(state.stepAt ?? (firstOpen < 0 ? total : firstOpen), total);
   return el("section", { class: "steps", id: "steps" }, head,
-    el("ul", { class: "step-list" }, r.steps.map((s) => stepItem(s, helps(s.id), !!done[s.id]))),
-    el("p", { class: "fine" }, "Requests are templates, not legal advice. Nothing is sent unless you send it from your own email."));
+    el("ol", { class: "step-pills", "aria-label": "Steps" }, list.map((st, i) => el("li", {},
+      el("button", { type: "button", class: `step-pill${i === at ? " current" : ""}${done[st.id] ? " done" : ""}`, "aria-current": i === at ? "step" : null,
+        "aria-label": `Step ${i + 1}: ${st.title}${done[st.id] ? " (done)" : ""}`, onclick: () => goToStep(i) }, done[st.id] ? "✓" : String(i + 1))))),
+    at === total ? finishedSteps(firstOpen, total, doneCount) : stepCard(list[at], at, total, !!done[list[at].id]));
 }
 
-function stepItem(step, helps, checked) {
+function goToStep(i) {
+  const { state } = ui;
+  state.stepAt = i; state.openRequest = null;
+  ui.refresh();
+  document.getElementById("guided")?.focus({ preventScroll: true });
+}
+
+function finishedSteps(firstOpen, total, doneCount) {
+  const { el } = ui;
+  const left = total - doneCount;
+  return el("div", { class: "step guided finished", id: "guided", tabindex: "-1", role: "status" },
+    el("strong", {}, left ? "You've been through every step." : `✓ All ${total} steps done.`),
+    el("p", { class: "step-detail" }, left ? `${left} still to do whenever you're ready.` : "Your progress is saved."),
+    left ? el("div", { class: "step-nav" }, el("button", { type: "button", class: "btn", onclick: () => goToStep(firstOpen) }, "Go to the first one left")) : null);
+}
+
+function stepCard(step, i, total, checked) {
   const { el, state } = ui;
+  const r = report();
+  const helps = r.concerns.filter((c) => c.steps.includes(step.id)).map((c) => c.title.toLowerCase());
   const body = [];
   if (step.target?.kind === "url") {
     body.push(el("a", { class: "btn step-go", href: step.target.value, target: "_blank", rel: "noopener noreferrer nofollow" },
@@ -176,15 +254,27 @@ function stepItem(step, helps, checked) {
     const open = state.openRequest === step.id;
     body.push(el("p", { class: "step-detail" }, "To: ", el("span", { class: "mono" }, step.to)));
     body.push(open ? requestEditor(step) : el("button", { type: "button", class: "btn step-go", onclick: () => { state.openRequest = step.id; ui.refresh(); } }, "Write the email"));
+    body.push(el("p", { class: "fine" }, "This is a template, not legal advice. Nothing is sent unless you send it from your own email."));
   }
-  return el("li", { class: `step${checked ? " done" : ""}`, id: `step-${step.id}` },
-    el("input", { type: "checkbox", class: "step-box", checked, "aria-label": `Done: ${step.title}`, onchange: (e) => tick(step.id, e.target.checked) }),
-    el("div", { class: "step-body" },
+  const nextOpen = () => {
+    for (let j = i + 1; j < total; j++) if (!state.done?.[r.steps[j].id]) return j;
+    return total;
+  };
+  return el("div", { class: "step guided", id: `step-${step.id}` },
+    el("div", { id: "guided", tabindex: "-1" },
+      el("p", { class: "step-count" }, `Step ${i + 1} of ${total}`),
       el("div", { class: "step-top" }, el("strong", {}, step.title),
         step.source === "general" ? el("span", { class: "step-src" }, "General advice") : null,
-        step.segment_id != null ? el("button", { type: "button", class: "found-in", onclick: () => ui.select(step.segment_id) }, "Where the policy says this") : null),
+        step.segment_id != null && !state.savedView ? el("button", { type: "button", class: "found-in", onclick: () => ui.select(step.segment_id) }, "Where the policy says this") : null),
       helps.length ? el("p", { class: "step-helps" }, `Helps with: ${helps.join(", ")}`) : null,
-      body));
+      body),
+    el("div", { class: "step-nav" },
+      checked
+        ? [el("span", { class: "step-done-note" }, "✓ You've done this."), el("button", { type: "button", class: "btn btn-primary", onclick: () => goToStep(i + 1) }, i + 1 < total ? "Next step" : "Finish"),
+           el("button", { type: "button", class: "link", onclick: () => tick(step.id, false) }, "Mark as not done")]
+        : [el("button", { type: "button", class: "btn btn-primary", onclick: () => { state.stepAt = nextOpen(); state.openRequest = null; tick(step.id, true); document.getElementById("guided")?.focus({ preventScroll: true }); } }, nextOpen() < total ? "Done, next step" : "Done"),
+           el("button", { type: "button", class: "btn btn-ghost", onclick: () => goToStep(i + 1) }, "Skip for now")],
+      i > 0 ? el("button", { type: "button", class: "link", onclick: () => goToStep(i - 1) }, "Back") : null));
 }
 
 function tick(id, on) {
@@ -244,32 +334,40 @@ function requestEditor(step) {
     el("p", { class: "fine" }, "Some companies ask you to use a web form instead; you can paste this text there."));
 }
 
-/* ---------- Saving, My policies and what changed ---------- */
+/* ---------- Saved work: every check is kept automatically; the dashboard lists it ---------- */
 
 const verdictsOf = (r) => Object.fromEntries(r.checks.map((c) => [c.id, { state: c.state, label: c.label }]));
+const HISTORY_LIMIT = 24;  // Earlier results kept per policy.
 
-/** After each check: fingerprint the text, find a saved copy of this policy and work out what changed. */
+/** After each check: find this policy's saved work (if any), work out what changed, and save. */
 export async function afterAnalysis(text) {
   const { state } = ui;
-  await state.storeReady?.catch(() => {});  // Saved policies may still be loading.
+  await state.storeReady?.catch(() => {});  // Saved work may still be loading.
   const r = report();
+  if (!r) return;  // Free checks have no report card and aren't saved.
   const fp = await fingerprint(text).catch(() => null);
+  const source = state.source?.text === text ? state.source : null;  // Read from a link: name it after the site if needed.
+  if (source) {  // Headings like "Privacy & Terms" make poor names, so use the site; keep its spelling if the title has it.
+    r.company = (r.company || "").split(/\s+/).find((w) => w.toLowerCase() === source.site.toLowerCase()) || source.site;
+  }
   const saved = state.saved || {};
-  const id = state.recheck || (r.company && saved[policyId(r.company)] ? policyId(r.company) : null);
+  const named = r.company && saved[policyId(r.company)] ? policyId(r.company) : null;
+  const same = fp ? Object.keys(saved).find((k) => saved[k].fingerprint === fp) : null;
+  const id = state.recheck || named || same || null;
   const prior = id ? saved[id] : null;
-  state.current = { id: prior ? id : null, name: prior?.name || r.company || "", url: prior?.url || "", fingerprint: fp, saved: false, prior };
-  state.decision = null; state.done = {}; state.openRequest = null;
+  state.current = { id: prior ? id : null, name: prior?.name || r.company || "", url: source?.url || prior?.url || "", fingerprint: fp, saved: false };
+  state.decision = null; state.done = {}; state.openRequest = null; state.focusSaved = false; state.editingFocus = false;
+  state.changes = null; state.openConcerns = {}; state.moreOpen = false; state.stepAt = null; state.showSteps = false;
   if (prior) {
     state.changes = { since: prior.checkedAt, textChanged: prior.fingerprint !== fp, verdicts: diff(prior.verdicts || {}, verdictsOf(r)) };
     // Steps you already took stay ticked; a changed policy needs a fresh decision.
     const stillThere = new Set(r.steps.map((st) => st.id));
     state.done = Object.fromEntries(Object.entries(prior.done || {}).filter(([k, v]) => v && stillThere.has(k)));
     state.decision = prior.fingerprint === fp ? prior.decision || null : null;
-    if (state.recheck) await save();  // Re-checking a saved policy updates it, keeping the previous result.
-  } else {
-    state.changes = null;
   }
   state.recheck = null;
+  await save();
+  if (location.search) history.replaceState(null, "", "app.html");  // A reload now starts fresh.
   ui.refresh();
 }
 
@@ -289,60 +387,42 @@ function renderChanges() {
     el("strong", {}, `${name} changed since you checked it on ${dateText(ch.since)}.`),
     ch.verdicts.length
       ? el("ul", {}, ch.verdicts.map((v) => el("li", {}, `${v.title}: `, el("s", {}, v.from), " → ", el("b", {}, v.to))))
-      : el("p", {}, "The wording changed, but all 8 answers are the same."),
-    !state.current.saved && state.store?.mode !== "guest"
-      ? el("button", { type: "button", class: "btn", onclick: save }, "Update my saved copy") : null);
+      : el("p", {}, "The wording changed, but all 8 answers are the same."));
 }
 
 function renderSaveRow() {
   const { el, state } = ui;
-  if (!state.store) return null;  // Storage is still loading.
-  if (state.guest || state.store.mode === "guest") {
-    return el("p", { class: "save-row fine" }, el("a", { href: ui.signupUrl() }, "Create a free account"), " to save your checklist and see what changes the next time you check this policy.");
-  }
-  const cur = state.current || {};
-  const where = state.store.mode === "account" ? "your account" : "this browser";
-  if (cur.saved) {
-    return el("p", { class: "save-row fine" }, `✓ Saved to ${where} as “${cur.name}”. Your choice and ticked steps save automatically.`,
-      state.store.fallback ? " (Your account storage isn't set up yet, so this stays on this device.)" : null);
-  }
-  if (state.saving) {
-    return el("form", { class: "save-form", onsubmit: (e) => { e.preventDefault(); save(); } },
-      el("label", { class: "request-field" }, "Name", el("input", { class: "input", required: true, maxlength: "80", value: cur.name || "",
-        oninput: (e) => { cur.name = e.target.value; } })),
-      el("label", { class: "request-field" }, "Link to the policy (optional)", el("input", { class: "input", type: "url", placeholder: "https://…", value: cur.url || "",
-        oninput: (e) => { cur.url = e.target.value; } })),
-      el("div", { class: "request-actions" }, el("button", { class: "btn btn-primary", type: "submit" }, "Save"),
-        el("button", { type: "button", class: "btn btn-ghost", onclick: () => { state.saving = false; ui.refresh(); } }, "Cancel")),
-      el("p", { class: "fine" }, "We save the name, the 8 answers, your choice, your ticked steps and a fingerprint of the text to spot changes. Never the policy text."));
-  }
-  return el("div", { class: "save-row" }, el("button", { type: "button", class: "btn", onclick: () => { state.saving = true; ui.refresh(); } }, "Save to My policies"),
-    el("span", { class: "fine" }, "See what changed next time you check it."));
+  const cur = state.current;
+  if (!cur) return null;  // Still saving.
+  if (!cur.saved) return el("p", { class: "save-row fine save-failed", role: "status" }, "This check couldn't be saved to your dashboard. Your earlier work is safe; check this policy again to retry.");
+  return el("p", { class: "save-row fine" }, `✓ Saved to your dashboard${state.store.mode === "account" ? "" : " in this browser"}. Your choice and ticked steps save as you go. `,
+    el("a", { href: "dashboard.html" }, "Open dashboard"));
 }
 
 async function save() {
   const { state } = ui;
   const cur = state.current;
   const r = report();
-  if (!cur || !r) return;
-  cur.name = (cur.name || "").trim() || r.company || "Untitled policy";
-  const id = cur.id || policyId(cur.name);
-  const old = state.saved?.[id];
+  if (!cur || !r || !state.store || state.store.mode === "guest") return;
+  // If saved work couldn't be loaded, writing now could replace it. Leave it alone.
+  if (state.savedLoadFailed) return;
   const now = new Date().toISOString();
+  cur.name = (cur.name || "").trim() || r.company || `Untitled policy, ${dateText(now)}`;
+  const id = cur.id || (r.company ? policyId(r.company) : `untitled-${Date.now()}`);
+  const old = state.saved?.[id];
+  const changed = old && old.fingerprint !== cur.fingerprint;
   const doc = {
     name: cur.name, url: (cur.url || "").trim(), checkedAt: now, savedAt: old?.savedAt || now, fingerprint: cur.fingerprint,
-    verdicts: verdictsOf(r), decision: state.decision || null, done: state.done || {}, stepsTotal: r.steps.length,
-    previous: old && old.fingerprint !== cur.fingerprint ? { checkedAt: old.checkedAt, fingerprint: old.fingerprint, verdicts: old.verdicts } : old?.previous || null,
+    verdicts: verdictsOf(r), decision: state.decision || null, done: state.done || {}, stepsTotal: r.steps.length, report: r,
+    history: changed ? [{ checkedAt: old.checkedAt, fingerprint: old.fingerprint, verdicts: old.verdicts }, ...(old.history || [])].slice(0, HISTORY_LIMIT) : old?.history || [],
   };
   try {
     await state.store.putPolicy(id, doc);
     state.saved = { ...(state.saved || {}), [id]: doc };
     Object.assign(cur, { id, saved: true });
-    state.saving = false;
-  } catch {
-    ui.setStatus("Couldn't save. Check your connection and try again.", "error");
+  } catch (error) {
+    console.warn("Couldn't save this check:", error?.code || error?.message || error);
   }
-  ui.refresh(); renderMyPolicies();
 }
 
 function autosave(patch) {
@@ -350,56 +430,50 @@ function autosave(patch) {
   const cur = state.current;
   if (!cur?.saved || !cur.id) return;
   state.saved[cur.id] = { ...state.saved[cur.id], ...patch };
-  state.store.putPolicy(cur.id, patch).then(renderMyPolicies).catch(() => ui.setStatus("Couldn't save that change.", "error"));
+  state.store.putPolicy(cur.id, patch).catch(() => ui.setStatus("Couldn't save that change.", "error"));
 }
 
 export async function loadSaved() {
   const { state } = ui;
-  if (!state.store || state.store.mode === "guest") { state.saved = {}; return renderMyPolicies(); }
+  state.saved = {};
+  if (!state.store || state.store.mode === "guest") return;
   try {
     const list = await state.store.listPolicies();
     state.saved = Object.fromEntries(list.map(({ id, ...doc }) => [id, doc]));
-  } catch { state.saved = {}; }
-  renderMyPolicies();
+  } catch { state.savedLoadFailed = true; }
 }
 
-export function renderMyPolicies() {
-  const { el, state } = ui;
-  const box = document.getElementById("my-policies");
-  if (!box) return;
-  const items = Object.entries(state.saved || {}).sort((a, b) => (b[1].checkedAt || "").localeCompare(a[1].checkedAt || ""));
-  box.hidden = !items.length;
-  if (!items.length) return box.replaceChildren();
-  box.replaceChildren(el("div", { class: "card-head" }, el("h2", {}, "My policies"),
-    el("span", { class: "fine" }, state.store.mode === "account" ? "Saved to your account" : "Saved in this browser")),
-  el("ul", { class: "saved-list" }, items.map(([id, doc]) => {
-    const done = Object.values(doc.done || {}).filter(Boolean).length;
-    return el("li", { class: "saved" },
-      el("div", { class: "saved-main" }, el("strong", {}, doc.name),
-        el("span", { class: "fine" }, [`Checked ${dateText(doc.checkedAt)}`, doc.decision ? DECISIONS[doc.decision] : null,
-          doc.stepsTotal ? `${done} of ${doc.stepsTotal} steps done` : null].filter(Boolean).join(" · "))),
-      el("div", { class: "saved-actions" },
-        doc.url && /^https?:\/\//i.test(doc.url) ? el("a", { class: "btn btn-ghost", href: doc.url, target: "_blank", rel: "noopener noreferrer nofollow" }, "Open policy ↗") : null,
-        el("button", { type: "button", class: "btn", onclick: () => startRecheck(id, doc) }, "Check again"),
-        el("button", { type: "button", class: "btn btn-ghost", "aria-label": `Remove ${doc.name}`, onclick: () => remove(id, doc) }, "Remove")));
-  })));
-}
-
-function startRecheck(id, doc) {
-  ui.state.recheck = id;
+/** dashboard.html -> app.html?recheck=id: paste the current text and see what changed. */
+export function startRecheck(id) {
+  const { state } = ui;
+  const doc = state.saved?.[id];
+  if (!doc) return ui.setStatus("That saved check isn't in your dashboard any more. You can start a new one here.", "error");
+  state.recheck = id;
   const box = document.getElementById("policy");
-  box.value = ""; box.dispatchEvent(new Event("input"));
-  box.focus(); box.scrollIntoView({ behavior: "smooth", block: "center" });
-  ui.setStatus(`Paste the current ${doc.name} policy and press “Check this policy”. We'll show what changed since ${dateText(doc.checkedAt)}.`);
+  if (doc.url) { box.value = doc.url; box.dispatchEvent(new Event("input")); }
+  box.focus();
+  ui.setStatus(doc.url ? `Press “Check this policy” to read the current ${doc.name} policy. We'll show what changed since ${dateText(doc.checkedAt)}.`
+    : `Paste the current ${doc.name} policy and press “Check this policy”. We'll show what changed since ${dateText(doc.checkedAt)}.`);
 }
 
-async function remove(id, doc) {
-  if (!confirm(`Remove ${doc.name} from My policies?`)) return;
-  try {
-    await ui.state.store.deletePolicy(id);
-    delete ui.state.saved[id];
-    if (ui.state.current?.id === id) Object.assign(ui.state.current, { saved: false, id: null });
-  } catch { ui.setStatus("Couldn't remove it. Try again.", "error"); }
-  renderMyPolicies();
-  if (ui.state.result) ui.refresh();
+/** dashboard.html -> app.html?open=id: the saved report card and checklist, ready to carry on. */
+export function openSaved(id) {
+  const { el, state } = ui;
+  const doc = state.saved?.[id];
+  if (!doc) return ui.setStatus("That saved check isn't in your dashboard any more. You can start a new one here.", "error");
+  if (!doc.report) return startRecheck(id);  // Saved before reports were kept.
+  state.savedView = { id };
+  state.result = { report: doc.report, coverage: {}, segments: [], faqs: {} };
+  state.current = { id, name: doc.name, url: doc.url || "", fingerprint: doc.fingerprint, saved: true };
+  state.decision = doc.decision || null; state.done = { ...(doc.done || {}) }; state.changes = null;
+  document.getElementById("workspace").hidden = true;
+  document.getElementById("intro").hidden = true;
+  const banner = document.getElementById("saved-banner");
+  banner.hidden = false;
+  banner.replaceChildren(
+    el("div", {}, el("strong", {}, doc.name), el("p", { class: "fine" }, `Saved work, last checked ${dateText(doc.checkedAt)}. Your changes here save automatically.`)),
+    el("div", { class: "saved-actions" },
+      el("a", { class: "btn", href: `app.html?recheck=${encodeURIComponent(id)}` }, "Check the latest version"),
+      el("a", { class: "btn btn-primary", href: "app.html" }, "Start a new check")));
+  ui.showResults();
 }

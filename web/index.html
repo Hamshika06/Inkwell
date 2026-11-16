@@ -14,6 +14,8 @@
   <script>document.documentElement.classList.add("js"); try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <script src="config.js"></script>
   <script type="module" src="home.js"></script>
+  <link rel="stylesheet" href="looks.css">
+  <script>try { var l = new URLSearchParams(location.search).get("look"); if (l) localStorage.setItem("inkwell-look", l === "off" ? "" : l); l = localStorage.getItem("inkwell-look"); if (l) document.documentElement.dataset.look = l; } catch (e) {}</script>
 </head>
 <body class="home">
   <header class="nav">
@@ -51,11 +53,11 @@
         </p>
         <div class="hero-ctas rise" style="--d:3">
           <a class="btn btn-primary btn-xl" href="app.html" data-cta>Check a policy free <span aria-hidden="true">→</span></a>
-          <a class="btn btn-xl btn-outline" href="app.html?sample=1">See a sample report</a>
+          <a class="btn btn-xl btn-outline" href="app.html?sample=1">See a sample check</a>
         </div>
         <ul class="hero-proof rise" style="--d:4">
           <li>Exact quotes, never AI summaries</li>
-          <li>Nothing you paste is stored</li>
+          <li>Full policy text is never stored</li>
           <li>Takes under a minute</li>
         </ul>
       </div>
@@ -117,8 +119,8 @@
       <ol class="steps">
         <li class="reveal" style="--d:0">
           <span class="step-n">1</span>
-          <h3>Paste the policy</h3>
-          <p>Open the privacy policy link in any site's footer, press <kbd>Ctrl</kbd>+<kbd>A</kbd>, copy and paste. Or upload a .txt file.</p>
+          <h3>Paste a link or the policy</h3>
+          <p>Drop in a website or its privacy policy link and we'll read it. Or paste the text, or upload a .txt file.</p>
         </li>
         <li class="reveal" style="--d:1">
           <span class="step-n">2</span>
@@ -128,7 +130,7 @@
         <li class="reveal" style="--d:2">
           <span class="step-n">3</span>
           <h3>Decide, your way</h3>
-          <p>See what the policy allows, which parts you can switch off, and the exact sentence behind each answer. Then take the steps, agree anyway, or walk away. Your call.</p>
+          <p>See what the policy allows, which parts you can limit, and the exact sentence behind each answer. Then take the steps, agree anyway, or walk away. Your call.</p>
         </li>
       </ol>
     </section>
@@ -176,10 +178,9 @@
           <h3>Free check</h3>
           <p class="price">No account</p>
           <ul>
-            <li>All 8 answers, and which ones you can switch off</li>
-            <li>Highlights for what you say matters to you</li>
-            <li>The proof sentence for the first 2</li>
             <li>The whole policy sorted into 5 topics</li>
+            <li>Straight answers to common questions</li>
+            <li>Clause-by-clause view of the whole policy</li>
           </ul>
           <a class="btn btn-lg btn-block btn-outline" href="app.html">Check a policy now</a>
         </article>
@@ -188,11 +189,11 @@
           <h3>Free account</h3>
           <p class="price">$0 <small>· sign up in 10 seconds</small></p>
           <ul>
-            <li><strong>Every receipt</strong> behind every verdict</li>
+            <li><strong>Your privacy report card:</strong> what you'd be agreeing to, with the exact sentence behind each answer</li>
             <li><strong>Your steps:</strong> opt-out links from the policy, plus ready-to-send opt-out and deletion emails</li>
-            <li><strong>My policies:</strong> save a check and see exactly what changed next time</li>
-            <li>Straight answers to common questions</li>
-            <li>Clause-by-clause view, with the model's confidence for every paragraph</li>
+            <li><strong>Your dashboard:</strong> every check saved automatically. Pick up old work or start a new one any time</li>
+            <li>See exactly what changed when you check a policy again</li>
+            <li><strong>Compare</strong> two companies side by side, by link or text</li>
             <li>Download your report</li>
           </ul>
           <a class="btn btn-primary btn-lg btn-block" href="login.html?mode=signup&amp;next=%2Fapp.html">Create my free account</a>
@@ -203,7 +204,6 @@
           <ul>
             <li><strong>Chrome extension:</strong> check a policy from the sign-up page, before you click “I agree”</li>
             <li><strong>Email alerts:</strong> hear when a policy you saved changes, without checking it yourself</li>
-            <li>Side-by-side comparison of two companies</li>
           </ul>
           <a class="btn btn-lg btn-block btn-outline" href="login.html?mode=signup&amp;next=%2Fapp.html">Sign up to get it first</a>
         </article>
@@ -221,9 +221,9 @@
         <p class="kicker">Our privacy promise</p>
         <h2>We practise what we check</h2>
         <ul class="promise">
-          <li><strong>We don't store what you paste.</strong> Policies are analyzed in memory and discarded; they're never logged.</li>
+          <li><strong>We don't store the policies you check.</strong> Whether you paste it or give us a link, the full text is analyzed in memory and discarded; it's never logged.</li>
           <li><strong>We don't sell or share your data</strong>, and we don't show ads.</li>
-          <li><strong>Accounts hold your sign-in details</strong> (name and email, through Google Firebase), your priorities, and the policies you choose to save: a name, the 8 answers, your choices and a fingerprint of the text to spot changes. Never the text itself.</li>
+          <li><strong>Accounts hold your sign-in details</strong> (name and email, through Google Firebase), what you care about, and your dashboard: each report (the company name, the 8 answers and their quoted sentences), your choices, and a fingerprint of the text to spot changes. You can remove any of it.</li>
           <li><strong>To stop abuse of free checks</strong>, we count checks per IP address, in memory, for up to an hour.</li>
         </ul>
       </article>
@@ -237,9 +237,9 @@
         <details class="reveal"><summary>Is this legal advice?</summary><p>No. Inkwell helps you find and understand what a policy says. For legal decisions, talk to a lawyer.</p></details>
         <details class="reveal"><summary>Do you use ChatGPT or another AI to write the answers?</summary><p>No. We use our own classification model, a RoBERTa model fine-tuned on privacy policies, that sorts paragraphs into five topics, plus wording checks. Nothing is generated: every quote is copied straight from the policy.</p></details>
         <details class="reveal"><summary>How accurate is it?</summary><p>On paragraphs it never saw in training, the topic model scores a macro-F1 of 0.80. The checks look for specific wording, so a policy that says something in unusual words can slip past us. That's why every verdict shows its sentence, and why “Not mentioned” means we found no matching wording, not that the company doesn't do it.</p></details>
-        <details class="reveal"><summary>Will Inkwell tell me whether to accept a policy?</summary><p>No. We show what a policy allows, which parts you can switch off and how, with the exact sentence as proof. You tell us what matters to you, and you make the call: take the steps, agree anyway, or walk away.</p></details>
+        <details class="reveal"><summary>Will Inkwell tell me whether to accept a policy?</summary><p>No. We show what a policy allows, which parts you can limit and how, with the exact sentence as proof. You tell us what matters to you, and you make the call: take the steps, agree anyway, or walk away.</p></details>
         <details class="reveal"><summary>Why do I need an account for the full report?</summary><p>It keeps Inkwell free while we grow, and lets us bring you the extension and change alerts first. It costs nothing.</p></details>
-        <details class="reveal"><summary>Which policies work?</summary><p>Any privacy policy in English that you can copy as text: up to 200 paragraphs, and 300 KB on a free check or 1 MB with an account.</p></details>
+        <details class="reveal"><summary>Which policies work?</summary><p>Any privacy policy in English that you can link to or copy as text. Some sites block automated readers, so pasting always works as a backup. The limits are up to 200 paragraphs, and 300 KB on a free check or 1 MB with an account.</p></details>
       </div>
     </section>
 

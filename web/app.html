@@ -15,11 +15,18 @@
   <script>try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <script src="config.js"></script>
   <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="looks.css">
+  <script>try { var l = new URLSearchParams(location.search).get("look"); if (l) localStorage.setItem("inkwell-look", l === "off" ? "" : l); l = localStorage.getItem("inkwell-look"); if (l) document.documentElement.dataset.look = l; } catch (e) {}</script>
 </head>
 <body data-auth="pending">
   <header class="topbar">
     <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
     <div class="topbar-right">
+      <nav class="app-nav" id="app-nav" aria-label="Your work" hidden>
+        <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+        <a class="btn btn-ghost" href="compare.html">Compare</a>
+        <a class="btn btn-primary" href="app.html">New check</a>
+      </nav>
       <span id="lamp" class="status-pill" data-state="checking" role="status" title="">
         <span class="dot" aria-hidden="true"></span><span id="lamp-text">Connecting…</span>
       </span>
@@ -31,23 +38,23 @@
   </header>
 
   <main>
-    <section class="intro">
+    <section class="intro" id="intro">
       <h1>What did you really agree to?</h1>
-      <p>Paste any privacy policy. In seconds you'll see whether they sell your data, who they share it with and how to opt out, with the exact sentence as proof.</p>
+      <p>Paste a link or the text of any privacy policy and see what it really says, with the exact sentences as proof.</p>
     </section>
 
     <div id="guest-banner" class="guest-banner" hidden>
       <span class="gb-icon" aria-hidden="true">✦</span>
-      <p><strong>You're on a free check.</strong> Create a free account for every quote, your steps with ready-to-send emails, and saving policies to see what changes.</p>
+      <p><strong>You're on a free check.</strong> Create a free account for your privacy report card, ready-to-send opt-out emails, and a dashboard that keeps your work.</p>
       <a class="btn btn-primary" href="login.html?mode=signup&amp;next=%2Fapp.html" data-signup>Unlock it free</a>
     </div>
 
-    <section id="my-policies" class="card my-policies" aria-label="My policies" hidden></section>
+    <section id="saved-banner" class="saved-banner" aria-label="Saved work" hidden></section>
 
-    <div class="workspace">
+    <div class="workspace" id="workspace">
       <section class="card" aria-labelledby="policy-label">
         <div class="card-head">
-          <h2 id="policy-label">Policy text</h2>
+          <h2 id="policy-label">Privacy policy</h2>
           <div class="toolbar">
             <button type="button" class="btn btn-ghost" id="sample">Try a sample</button>
             <span class="btn btn-ghost filebtn">Upload .txt<input type="file" id="file" accept=".txt,.md,text/plain" aria-label="Upload a .txt or .md file"></span>
@@ -56,22 +63,24 @@
           </div>
         </div>
         <div class="card-body">
-          <label for="policy" class="sr-only">Policy text</label>
-          <textarea id="policy" spellcheck="false" placeholder="Open the site's privacy policy, select all (Ctrl+A), copy, and paste it here."></textarea>
+          <label for="policy" class="sr-only">A link to the policy, or its text</label>
+          <textarea id="policy" spellcheck="false" placeholder="Paste a link to a website or its privacy policy. Or paste the policy text itself."></textarea>
           <p id="counts" class="counts"></p>
           <p id="warn" class="warn" hidden></p>
+          <div id="link-confirm" class="link-confirm" role="status" hidden></div>
         </div>
       </section>
 
       <aside class="card run-card" aria-labelledby="run-label">
         <div class="card-head"><h2 id="run-label">Your report card</h2></div>
         <div class="card-body">
-          <ul class="you-get">
+          <ul class="you-get" id="you-get">
             <li>What the policy allows, with the exact sentence</li>
-            <li>Which of it you can switch off, and how</li>
+            <li>Which of it you can limit, and how</li>
             <li>Ready-to-send opt-out and deletion requests</li>
-            <li>Save it, and see what changed next time</li>
+            <li>Kept in your dashboard, so you can come back to it</li>
           </ul>
+          <div id="paste-focus" class="paste-focus" hidden></div>
           <div class="run-area">
             <button type="button" id="run" class="btn btn-primary btn-lg btn-block">Check this policy</button>
             <div class="run-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd></div>
@@ -92,7 +101,7 @@
     <section id="results" class="results" hidden>
       <div id="report"></div>
 
-      <div class="breakdown-bar">
+      <div class="breakdown-bar" id="breakdown-bar">
         <button type="button" class="btn btn-lg" id="toggle-breakdown" aria-expanded="false" aria-controls="breakdown">Show full breakdown</button>
         <span class="breakdown-hint">All five topics, common questions, and every paragraph the model read.</span>
       </div>
@@ -101,7 +110,7 @@
         <div class="results-head">
           <h2>Full breakdown</h2>
           <div class="exports">
-            <button type="button" class="btn" id="dl-md">Download report</button>
+            <button type="button" class="btn" id="dl-txt">Download report (.txt)</button>
             <button type="button" class="btn btn-ghost" id="dl-json">JSON</button>
           </div>
         </div>
@@ -120,7 +129,7 @@
 
   <footer class="site-footer">
     <p><strong>Not legal advice.</strong> Every quote is an exact sentence from the text you pasted; nothing is generated. “Not mentioned” means we found no matching wording, and the policy may still cover it in other words.</p>
-    <p>Your text is analyzed and discarded: it is never logged or stored. If you save a policy, we keep its name, the 8 answers, your choice and ticked steps, and a fingerprint of the text to spot changes, never the text itself.</p>
+    <p>The full text of a policy, pasted or read from a link, is analyzed and discarded: it is never logged or stored. With an account, your dashboard keeps each report: the company name, the 8 answers with their quoted sentences, your choice and ticked steps.</p>
     <p>Inkwell by Token Economy · <a href="/">Home</a> · <a href="/#about">About</a> · <a href="/#privacy">Our privacy promise</a></p>
   </footer>
   <script>if (location.protocol === "file:") { document.body.dataset.auth = "ready"; document.getElementById("lamp-text").textContent = "Opened as a file. Start the server and open http://localhost:7860"; }</script>

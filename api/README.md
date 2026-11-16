@@ -30,6 +30,8 @@ The older ten-category runs (SVM, DistilBERT, the C3PA + OPP-115 RoBERTa) stay i
 | `GET` | `/schema` | `{"categories": [...5 topics...], "faqs": {question: topic}}` |
 | `GET` | `/models` | The model's `status` (`ready`, `loading`, `unavailable`), `error`, `classes` and test F1 |
 | `GET` | `/auth-config` | `{"enabled": bool, "guest": bool, "firebase": {apiKey, authDomain, projectId, appId}}`: public sign-in settings; `guest` says whether free checks without an account are allowed |
+| `POST` | `/report` | `{"report": ...}` for `{"text": "..."}`: the report card only, from the wording rules, without running the model. Requires an account when sign-in is on. Used by Compare |
+| `POST` | `/fetch-policy` | Reads a policy from `{"url": "...", "confirmed": bool}`: `{"status": "ok", text, url, site}`, or `{"status": "confirm", url, label, site}` when the link was a website and we found what looks like its policy. Only public http(s) addresses on standard ports, re-checked on every redirect (`api/fetcher.py`). Same sign-in rules as `/analyze`; `FETCHES_PER_HOUR` per account or address. Nothing fetched is logged or stored |
 | `POST` | `/analyze` | The analysis below. When sign-in is on, send `Authorization: Bearer <Firebase ID token>`; without the header the request is a **free check** (300 KB, `GUEST_ANALYSES_PER_HOUR` per IP address) |
 
 `POST /analyze` takes `{"text": "<policy text>"}`; separate paragraphs with blank lines. `model` is optional and can only be `roberta`. The response:
@@ -55,7 +57,7 @@ The older ten-category runs (SVM, DistilBERT, the C3PA + OPP-115 RoBERTa) stay i
 - `steps`: opt-out and request links from the policy (`target`), pre-written requests to its privacy address (`template` of `optout`/`delete`/`access`, `to`), and general advice (`source: "general"`).
 - `actions` (raw links, emails and settings paths), `title` when the first paragraph is a heading, and `company` guessed from it.
 
-`guest` is true for a free check.
+`guest` is true for a free check, which leaves out `report`: the report card is for accounts.
 
 A segment carries a label exactly when `scores[i] >= thresholds[i]`. Scores are sigmoid probabilities, because the thresholds were tuned on probabilities. Paragraphs longer than 512 tokens are read in overlapping windows, and each topic takes its highest window. `start`/`end` are Unicode code-point offsets into `text`.
 
@@ -84,6 +86,7 @@ Speed: about 0.2 s per paragraph on a laptop CPU (a 100-paragraph policy in ~20 
 | `INKWELL_WEIGHTS_CACHE` | `~/.cache/inkwell` | Where downloaded weights are kept while the app runs |
 | `HF_TOKEN` | unset | Read token for the weights repo. Locally put it in the git-ignored `.env`; on a host, store it as a **secret**. |
 | `MAX_ENCODER_SEGMENTS` | `200` | Paragraph cap per request |
+| `FETCHES_PER_HOUR` | `60` | Links read per account or IP address per hour. Counted in memory per instance. |
 | `GUEST_ANALYSES_PER_HOUR` | `20` | Free checks (no account) per IP address per hour when sign-in is on. `0` turns free checks off and requires sign-in again. Counted in memory per instance. |
 | `INKWELL_BACKGROUND_LOAD` | `1` | `0` loads the model before accepting traffic (Cloud Run) |
 | `PORT` | `7860` | Listen port inside the Docker images |

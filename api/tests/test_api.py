@@ -1,5 +1,6 @@
 import time
 import unittest
+from unittest import mock
 try:
     from fastapi.testclient import TestClient
 except ImportError:  # The API is optional for the research pipeline's environment.
@@ -91,6 +92,34 @@ class ApiTests(unittest.TestCase):
     def test_sign_in_off_without_firebase_settings(self):
         self.assertEqual(self.client.get("/auth-config").json(), {"enabled": False, "guest": False, "firebase": None})
         self.assertIs(self.client.post("/analyze", json={"text": "We collect data."}).json()["guest"], False)
+
+    def test_report_only(self):
+        result = self.client.post("/report", json={"text": "We do not sell your personal information."}).json()
+        self.assertEqual({c["id"]: c["state"] for c in result["report"]["checks"]}["sale"], "denied")
+        self.assertEqual(set(result), {"report"})
+        self.assertEqual(self.client.post("/report", json={"text": "  "}).status_code, 400)
+        self.assertEqual(self.client.post("/report", content=b'{"text":"' + b"a" * MAX_BYTES + b'"}',
+                                          headers={"Content-Type": "application/json"}).status_code, 413)
+
+    def test_fetch_policy(self):
+        import api.app as module
+        from api.fetcher import FetchError
+        module._fetch_hits.clear()
+        ok = {"status": "ok", "text": "We collect data.", "url": "https://a.example/privacy", "site": "A"}
+        with mock.patch.object(module, "read_policy", return_value=ok) as read:
+            response = self.client.post("/fetch-policy", json={"url": "a.example/privacy", "confirmed": True})
+        self.assertEqual((response.status_code, response.json()), (200, ok))
+        read.assert_called_once_with("a.example/privacy", True)
+        with mock.patch.object(module, "read_policy", side_effect=FetchError(422, "Can't read that")):
+            refused = self.client.post("/fetch-policy", json={"url": "a.example"})
+        self.assertEqual((refused.status_code, refused.json()["detail"]), (422, "Can't read that"))
+        for body in [{}, {"url": 5}, {"url": "  "}, {"url": "x" * 3000}]:
+            self.assertEqual(self.client.post("/fetch-policy", json=body).status_code, 400, body)
+        with mock.patch.object(module, "read_policy", return_value=ok), mock.patch.object(module, "FETCHES_PER_HOUR", 1):
+            module._fetch_hits.clear()
+            self.assertEqual(self.client.post("/fetch-policy", json={"url": "a.example"}).status_code, 200)
+            self.assertEqual(self.client.post("/fetch-policy", json={"url": "a.example"}).status_code, 429)
+        module._fetch_hits.clear()
 
     def test_report_card(self):
         text = ("Acme Privacy Policy\n\nWe do not sell your personal information. We share your information with "
@@ -189,9 +218,24 @@ class AuthTests(unittest.TestCase):
         response = self.analyze()
         self.assertEqual(response.status_code, 200)
         self.assertIs(response.json()["guest"], True)
-        self.assertIs(self.analyze(self.token()).json()["guest"], False)
+        self.assertNotIn("report", response.json())  # The report card is for accounts only.
+        self.assertIn("Data Collection & Use", response.json()["coverage"])  # The breakdown is free.
+        account = self.analyze(self.token()).json()
+        self.assertIs(account["guest"], False)
+        self.assertIn("report", account)
         big = self.client.post("/analyze", json={"text": "a" * (self.module.GUEST_MAX_BYTES + 10)})
         self.assertEqual(big.status_code, 413)
+
+    def test_report_only_is_for_accounts(self):
+        body = {"text": "We sell your personal information."}
+        self.assertEqual(self.client.post("/report", json=body).status_code, 401)
+        for bad in ["not-a-token", self.token(key=self.other_key)]:
+            self.assertEqual(self.client.post("/report", json=body, headers={"Authorization": f"Bearer {bad}"}).status_code, 401)
+        unconfirmed = self.token(firebase={"sign_in_provider": "password"}, email_verified=False)
+        self.assertEqual(self.client.post("/report", json=body, headers={"Authorization": f"Bearer {unconfirmed}"}).status_code, 403)
+        ok = self.client.post("/report", json=body, headers={"Authorization": f"Bearer {self.token()}"})
+        self.assertEqual(ok.status_code, 200)
+        self.assertIn("report", ok.json())
 
     def test_guest_hourly_limit(self):
         for _ in range(self.module.GUEST_PER_HOUR):

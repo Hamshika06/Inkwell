@@ -348,7 +348,7 @@ APPLIES = {
 # How each practice reads when it applies, for the decision summary.
 CONCERN = {
     "sale": "Can sell your data", "ads": "Uses your data for targeted ads", "sharing": "Shares your data with other companies",
-    "location": "Collects your location", "retention": "No end date for keeping your data", "delete": "Limits deleting your data",
+    "location": "Collects your location", "retention": "Sets no end date for keeping your data", "delete": "Limits deleting your data",
     "optout": "Says you can't opt out", "changes": "Can change the policy without telling you",
 }
 # Which kinds of step can switch each practice off. "request" steps are emails to the policy's privacy address.
