@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Inkwell: privacy policy checker",
+  "short_name": "Inkwell",
+  "version": "0.1.0",
+  "description": "Before you agree: what a site's privacy policy says, and the quickest way to limit each thing.",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "Check this site's privacy policy",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["activeTab", "scripting", "storage", "alarms", "notifications", "declarativeNetRequest"],
+  "optional_permissions": ["contentSettings"],
+  "optional_host_permissions": ["<all_urls>"],
+  "host_permissions": [
+    "https://inkwell-846713605562.us-east1.run.app/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://securetoken.googleapis.com/*"
+  ],
+  "content_scripts": [{
+    "matches": ["https://inkwell-846713605562.us-east1.run.app/connect.html*", "http://127.0.0.1/connect.html*", "http://localhost/connect.html*"],
+    "js": ["bridge.js"],
+    "run_at": "document_start"
+  }]
+}

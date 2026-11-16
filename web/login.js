@@ -51,7 +51,13 @@ function setMode(next) {
   message("");
 }
 
-function done() { location.replace(next); }
+/** After signing in: the paste page (never the dashboard), opening with a short welcome. */
+function done() {
+  const target = new URL(next.startsWith("/dashboard.html") ? "/app.html" : next, location.origin);
+  const plain = target.pathname === "/app.html" && !target.searchParams.has("open") && !target.searchParams.has("recheck");
+  if (plain) target.searchParams.set("welcome", mode === "signup" ? "new" : "back");
+  location.replace(target.pathname + target.search + target.hash);
+}
 
 /* ---------- Email confirmation ---------- */
 

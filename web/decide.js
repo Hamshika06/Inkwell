@@ -68,6 +68,9 @@ function chips(scope) {
   }, label)));
 }
 
+/** The priority chips, for other places that ask (the extension arrival card). */
+export const priorityChips = (scope) => chips(scope);
+
 /** On the paste page: once there's a policy in the box, ask what to focus on before checking it. Accounts only. */
 export function renderPasteFocus() {
   const { el, state, plural } = ui;
