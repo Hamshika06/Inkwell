@@ -22,6 +22,7 @@ Static frontend for the Inkwell API: plain HTML, CSS and JavaScript, with no bui
 - **Common questions:** one question per topic, each with a one-line answer from the report card and its three strongest clauses ("Show all" for the rest).
 - **Document:** every paragraph, colour-coded by topic, with filters. Selecting a paragraph shows how close it came to each topic's cutoff.
 - **Exports:** a plain-text (.txt) report or the raw JSON.
+- **Extension handoff (`connect.html`):** the Chrome extension (`extension/`) opens this page to sign in; it hands the sign-in to the extension's `bridge.js`, which closes the tab and returns to the page being checked. `app.html?url=<policy link>` reads and checks that link on load (the extension's "See the full report").
 - **Compare (`compare.html`, accounts only):** two boxes, each a link or policy text. The 8 answers side by side, differences first and matches folded, each opening to its exact sentences. It never picks a winner, and "Not found" is explained as not proof. Uses `POST /report`, which skips the model.
 - **Links or text in one box:** a lone web address is read by the server (`/fetch-policy`). A homepage finds its privacy link and asks "Is this the right page?" first; if a site can't be read, the message says to paste the text.
 - **Input helpers:** sample policy, .txt/.md upload, size and paragraph counters, a warning for one-long-paragraph text, "Fix line breaks", and Ctrl+Enter to run.

@@ -14,6 +14,8 @@ from dataclasses import dataclass, field
 from html.parser import HTMLParser
 from urllib.parse import quote, urljoin, urlsplit
 
+from inkwell.fixes import fix_links
+
 MAX_BYTES = 3_000_000
 MAX_SECONDS = 25
 MAX_REDIRECTS = 5
@@ -402,7 +404,7 @@ def read_policy(url, confirmed=False):
     text = to_text(doc)
     site = site_name(page.url)
     if looks_like_policy(text, page.url) or (confirmed and len(text) >= MIN_CONFIRMED_CHARS):
-        return {"status": "ok", "text": text, "url": page.url, "site": site}
+        return {"status": "ok", "text": text, "url": page.url, "site": site, "fixes": fix_links(doc.links, page.url)}
     if confirmed:
         raise FetchError(422, f"That page loads its text in a way we can't read. {COPY_IT}")
     found = best_link(doc.links, page.url)

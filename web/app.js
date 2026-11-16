@@ -1,6 +1,7 @@
 // Inkwell product page. Talks to the API in config.js; renders API data only as text (never as HTML).
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
-import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
+import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, priorityChips, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
+import { inkLine } from "./progress.js";
 import { openStore } from "./store.js";
 import { asLink, el } from "./shared.js";
 
@@ -51,7 +52,7 @@ const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const paragraphs = (text) => text.split(/\n[ \t]*\n/).filter((p) => p.trim()).length; // Same rule as inkwell/stage1.segment.
 const kb = (bytes) => `${Math.round(bytes / 1000).toLocaleString()} KB`;
 
-function toLogin() { location.replace(`login.html?next=${encodeURIComponent(location.pathname)}`); }
+function toLogin() { location.replace(`login.html?next=${encodeURIComponent(location.pathname + location.search)}`); }
 const signupUrl = () => `login.html?mode=signup&next=${encodeURIComponent(location.pathname)}`;
 
 async function api(path, options = {}, timeoutMs = 120000) {
@@ -175,8 +176,8 @@ function askAboutLink(page) {
 }
 
 /** Reads the link and fills the box with what it found. False when there's nothing to check yet. */
-async function readLink(url, confirmed) {
-  setStatus(`Reading ${url.replace(/^https?:\/\//i, "").slice(0, 60)}…`, "busy");
+async function readLink(url, confirmed, quiet = false) {
+  if (!quiet) setStatus(`Reading ${url.replace(/^https?:\/\//i, "").slice(0, 60)}…`, "busy");
   $("run").disabled = true;
   try {
     const page = await api("/fetch-policy", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url, confirmed }) }, 60000);
@@ -197,34 +198,49 @@ async function readLink(url, confirmed) {
   }
 }
 
+// The stages the ink line walks through. "Questions" because the report card asks 8 of them ("Does it sell your
+// data?"); a free check answers 5 common ones instead.
+const stageNames = () => ["Reading", "Sorting into 5 topics", state.guest ? "Answering 5 common questions" : "Checking 8 key questions", "Done"];
+
 async function run(linkUrl = null, confirmed = false) {
   $("link-confirm").hidden = true;
   if (!$("policy").value.trim() && !linkUrl) return setStatus("Paste a link or a policy first, or load the sample.", "error");
   if (!ready()) return setStatus("Inkwell is still warming up. Try again when the status light turns green.", "error");
   const link = linkUrl || asLink($("policy").value);
-  if (link && !(await readLink(link, confirmed))) return;
-  const text = $("policy").value;
-  if (new TextEncoder().encode(text).length > maxBytes()) return setStatus(`That's over the ${kb(maxBytes())} limit.`, "error");
-  const n = paragraphs(text);
-  if (n > MAX_PARAGRAPHS) return setStatus(`That's ${n} paragraphs; Inkwell reads up to ${MAX_PARAGRAPHS} at a time.`, "error");
+  setStatus("");
   $("run").disabled = true;
+  $("ink").hidden = false;
+  const ink = inkLine($("ink"), stageNames());
+  const stop = (message = "", kind = "") => { ink.fail(); $("ink").hidden = true; $("run").disabled = false; setStatus(message, kind); };
+  if (link) {
+    ink.stage(0, `Step 1 of 3 · Reading ${link.replace(/^https?:\/\//i, "").slice(0, 48)}…`, 4000);
+    if (!(await readLink(link, confirmed, true))) { const message = $("status").textContent; return stop(message, $("status").className.includes("error") ? "error" : ""); }
+    $("run").disabled = true;  // readLink re-enables it.
+  }
+  const text = $("policy").value;
+  if (new TextEncoder().encode(text).length > maxBytes()) return stop(`That's over the ${kb(maxBytes())} limit.`, "error");
+  const n = paragraphs(text);
+  if (n > MAX_PARAGRAPHS) return stop(`That's ${n} paragraphs; Inkwell reads up to ${MAX_PARAGRAPHS} at a time.`, "error");
   let result = null;
   try {
-    setStatus(`Reading ${plural(n, "paragraph")}…${n > 40 ? " Long policies take up to a minute." : ""}`, "busy");
+    if (!link) { ink.stage(0, `Step 1 of 3 · Reading ${plural(n, "paragraph")}…`, 500); await ink.wait(450); }
+    ink.stage(1, `Step 2 of 3 · Sorting each paragraph into 5 topics…${n > 40 ? " Long policies take up to a minute." : ""}`, 1500 + n * 150);
     result = await api("/analyze", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }),
     }, 300000);
-    const short = state.source?.text === text && text.length < 3000;
-    setStatus(short ? "Done, but that page was short, so it may be only part of the policy. If so, paste the full text." : state.guest ? "Done. The breakdown is below." : "Done. Your report card is below.");
+    ink.stage(2, state.guest ? "Step 3 of 3 · Answering 5 common questions…" : "Step 3 of 3 · Checking 8 key questions, like “Does it sell your data?”…", 500);
+    await ink.wait(550);
+    await ink.finish(state.guest ? "The breakdown is below." : "Your report card is below.");
   } catch (error) {
-    setStatus(error.message, "error");
-  } finally {
-    $("run").disabled = false;
+    return stop(error.message, "error");
   }
-  if (!result) return;
+  $("run").disabled = false;
+  const short = state.source?.text === text && text.length < 3000;
+  if (short) setStatus("That page was short, so it may be only part of the policy. If so, paste the full text.");
   Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false });
   showBreakdown(state.guest);  // Free checks open on the breakdown; accounts open on the report card.
   renderResults();
+  $("results").classList.remove("reveal"); void $("results").offsetWidth; $("results").classList.add("reveal");
   await afterAnalysis(text);
   showTab("overview");
   $("results").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -524,6 +540,85 @@ function wire() {
   });
 }
 
+/* ---------- Welcome moments ---------- */
+
+const calm = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** "n. aniruddhan" -> "Aniruddhan"; "ada.lovelace@x.com" -> "Ada". */
+function firstName(user) {
+  const raw = user?.displayName || (user?.email || "").split("@")[0] || "";
+  const word = raw.split(/[\s._-]+/).find((w) => w.length > 2 && /^\p{L}+$/u.test(w)) || "";
+  return word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : "";
+}
+
+/** "https://www.pigeonpost.co.uk/privacy" -> "Pigeonpost" (the same rule as the server). */
+function siteOf(url) {
+  try {
+    const labels = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`).hostname.toLowerCase().replace(/^www\./, "").split(".");
+    const key = labels.length >= 3 && ["co", "com", "org", "net", "ac", "gov", "edu"].includes(labels.at(-2)) ? labels.at(-3) : labels.at(-2) || labels[0];
+    return key.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  } catch { return "this site"; }
+}
+
+/** After signing in: "Welcome back, Aniruddhan" for a moment, then the paste page. Returns { done(savedCount) }. */
+function showWelcome(kind) {
+  const box = $("welcome"), name = firstName(state.user), started = performance.now();
+  const line = el("i"), sub = el("p", {}, kind === "new" ? "Let's check your first privacy policy." : "Setting up a new check…");
+  box.replaceChildren(el("div", { class: "welcome-inner" }, el("img", { class: "welcome-mark", src: "logo.svg", alt: "" }),
+    el("h1", {}, kind === "new" ? `Welcome to Inkwell${name ? `, ${name}` : ""}` : `Welcome back${name ? `, ${name}` : ""}`), sub,
+    el("div", { class: "welcome-line", "aria-hidden": "true" }, line)));
+  box.hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => { line.style.width = "70%"; }));
+  let closing = null;
+  const done = (saved = 0) => closing || (closing = (async () => {
+    if (kind !== "new" && saved) sub.textContent = `Setting up a new check. You have ${saved === 1 ? "1 saved policy" : `${saved} saved policies`} on your dashboard.`;
+    line.style.width = "100%";
+    await new Promise((resolve) => setTimeout(resolve, calm() ? 0 : Math.max(700, 1500 - (performance.now() - started))));
+    box.classList.add("leaving");
+    setTimeout(() => { box.hidden = true; box.classList.remove("leaving"); }, calm() ? 0 : 400);
+  })());
+  setTimeout(() => done(), 5000);  // Never hold the page longer than this, even if saved work is slow to load.
+  return { done };
+}
+
+/** From the extension's "See the full report": say where you came from, and check only when asked. */
+function showArrival(url) {
+  state.arriving = url;
+  $("intro").hidden = true; $("workspace").hidden = true;
+  renderArrival();
+  $("arrive").hidden = false;
+}
+
+function renderArrival() {
+  const url = state.arriving;
+  if (!url) return;
+  const site = siteOf(url);
+  const focus = !state.guest && state.store
+    ? [el("p", { class: "fine" }, "What do you care about most? We'll put these first."), priorityChips("#arrive")] : [];
+  const enter = !state.arriveShown;
+  state.arriveShown = true;
+  $("arrive").replaceChildren(el("div", { class: `card arrive-card${enter ? " enter" : ""}` },
+    el("img", { class: "welcome-mark", src: "logo.svg", alt: "" }),
+    el("h1", {}, "Welcome to Inkwell"),
+    el("p", {}, "You opened this from the Inkwell extension. Here's the policy you were looking at:"),
+    el("div", { class: "arrive-from" }, el("strong", {}, site), "·", el("span", {}, url.replace(/^https?:\/\//i, ""))),
+    ...focus,
+    el("button", { type: "button", class: "btn btn-primary btn-lg btn-block", onclick: () => leaveArrival(true) }, `Check ${site}'s policy`),
+    el("button", { type: "button", class: "arrive-other", onclick: () => leaveArrival(false) }, "Not this one? Paste a different link or text")));
+}
+
+function leaveArrival(check) {
+  const url = state.arriving;
+  state.arriving = null;
+  $("arrive").hidden = true; $("intro").hidden = false; $("workspace").hidden = false;
+  history.replaceState(null, "", location.pathname);
+  $("policy").value = check ? url : "";
+  updateCounts();
+  if (!check) return $("policy").focus();
+  if (ready()) run();
+  else { state.autoRun = true; setStatus("Starting as soon as Inkwell is ready…", "busy"); }
+}
+
 async function connect() {
   try {
     state.ctx = await startAuth();
@@ -541,6 +636,11 @@ async function connect() {
   if (user && !(await isVerified(user).catch(() => true))) return toLogin();
   renderUser(user);
   state.user = user;
+  const params = new URLSearchParams(location.search);
+  const welcome = (user || !state.ctx.enabled) && params.get("welcome") ? showWelcome(params.get("welcome")) : null;
+  if (params.has("welcome")) { params.delete("welcome"); history.replaceState(null, "", location.pathname + (params.size ? `?${params}` : "")); }
+  const arriving = params.get("url");
+  if (arriving && asLink(arriving)) showArrival(asLink(arriving));
   $("guest-banner").hidden = !state.guest;
   $("app-nav").hidden = state.guest;
   if (state.guest) {
@@ -557,7 +657,9 @@ async function connect() {
     state.store = await openStore(state.ctx, user);
     await loadPriorities();
     await loadSaved();
+    welcome?.done(Object.keys(state.saved || {}).length);
     renderPasteFocus();
+    renderArrival();
     const query = new URLSearchParams(location.search);
     if (query.get("open")) openSaved(query.get("open"));
     else if (query.get("recheck")) startRecheck(query.get("recheck"));
@@ -565,7 +667,7 @@ async function connect() {
   })();
 }
 
-initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, refresh: () => { if (state.result) renderReport(); } });
+initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, refresh: () => { if (state.result) renderReport(); renderArrival(); } });
 wire();
 updateCounts();
 connect();

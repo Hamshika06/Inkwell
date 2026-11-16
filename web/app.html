@@ -37,7 +37,9 @@
     </div>
   </header>
 
+  <div id="welcome" class="welcome-screen" hidden></div>
   <main>
+    <section id="arrive" class="arrive" aria-live="polite" hidden></section>
     <section class="intro" id="intro">
       <h1>What did you really agree to?</h1>
       <p>Paste a link or the text of any privacy policy and see what it really says, with the exact sentences as proof.</p>
@@ -84,6 +86,7 @@
           <div class="run-area">
             <button type="button" id="run" class="btn btn-primary btn-lg btn-block">Check this policy</button>
             <div class="run-hint"><kbd>Ctrl</kbd>+<kbd>Enter</kbd></div>
+            <div id="ink" class="ink-box" hidden></div>
             <p id="status" class="status" role="status"></p>
           </div>
           <details class="advanced" id="advanced">
