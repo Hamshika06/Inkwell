@@ -222,9 +222,26 @@ function cardView() {
   nodes.push(
     el("p", { class: "status", id: "status", role: "status" }),
     el("button", { class: "btn", onclick: () => openTab(`${S.api}/app.html?url=${encodeURIComponent(S.result.url)}`) }, "See the full report on Inkwell →"),
+    rateStrip(site),
     el("p", { class: "fine" }, "Colours describe each answer, not the company. Wording checks, not legal advice. ",
       el("button", { class: "linklike", onclick: async () => { await chrome.storage.session.remove(resultKey()); S.result = null; homeView(); } }, "Check a different link")));
   show(el("div", { class: "pad" }, ...nodes));
+}
+
+/* ---------- Rate Inkwell: the stars open the review form on the Inkwell site ---------- */
+
+function rateUrl(stars, site) {
+  const q = new URLSearchParams({ write: "1" });
+  if (stars) q.set("stars", String(stars));
+  if (site) q.set("site", site);
+  return `${S.api}/reviews.html?${q}`;
+}
+
+function rateStrip(site) {
+  const stars = el("span", { class: "rate-stars", role: "group", "aria-label": "Rate Inkwell" },
+    [1, 2, 3, 4, 5].map((n) => el("button", { type: "button", class: "rate-star", title: `${n} star${n > 1 ? "s" : ""}`,
+      "aria-label": `Rate Inkwell ${n} out of 5`, onclick: () => openTab(rateUrl(n, site)) }, "★")));
+  return el("div", { class: "rate" }, el("div", {}, el("b", {}, "Enjoying Inkwell?"), el("small", {}, "Tap a star to rate it on Inkwell.")), stars);
 }
 
 const group = (cls, title, lines) => el("section", { class: `grp ${cls}` }, el("h4", {}, el("i", {}), title, el("em", {}, String(lines.length))), lines);
@@ -373,6 +390,8 @@ function settingsView() {
       "Points out optional fields and pre-ticked boxes on sign-up pages, only when you open Inkwell.")),
     el("label", { class: "field" }, el("b", {}, "Where you live"), el("span", { class: "fine" }, "Sets how long companies have to answer your requests."), region),
     el("button", { class: "btn ghost", onclick: () => openTab(chrome.runtime.getURL("requests.html")) }, "My requests"),
+    el("button", { class: "btn ghost rate-btn", onclick: () => openTab(rateUrl(0, S.result?.site)) }, "★ Rate Inkwell"),
+    el("button", { class: "linklike small-link", onclick: () => openTab(`${S.api}/reviews.html`) }, "Read what others think"),
     el("p", { class: "fine" }, signedIn ? `Signed in as ${S.auth.name || S.auth.email}. ` : "Not signed in. ",
       signedIn ? el("button", { class: "linklike", onclick: async () => { await msg("sign-out"); S.auth = null; signedOutView(); } }, "Sign out") : null),
     el("details", { class: "fold" }, el("summary", {}, "Advanced: Inkwell server"),

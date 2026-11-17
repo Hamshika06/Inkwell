@@ -2,6 +2,7 @@
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, priorityChips, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
 import { inkLine } from "./progress.js";
+import { askAfterSteps, openReviewModal } from "./reviews.js";
 import { openStore } from "./store.js";
 import { asLink, el } from "./shared.js";
 
@@ -96,6 +97,8 @@ function renderUser(user) {
   const menu = el("div", { class: "menu", role: "menu", hidden: true },
     el("div", { class: "menu-head" }, el("strong", {}, name), el("span", {}, user.email || ""),
       el("small", {}, `Signed in with ${PROVIDER[user.providerData[0]?.providerId] || "your account"}`)),
+    el("a", { role: "menuitem", href: "reviews.html" }, "Reviews"),
+    el("button", { type: "button", role: "menuitem", onclick: () => { menu.hidden = true; openReviewModal({ ctx: state.ctx, user }); } }, "★ Rate Inkwell"),
     el("button", { type: "button", role: "menuitem", onclick: async () => { await state.ctx.fb.signOut(state.ctx.auth); location.replace("/"); } }, "Sign out"));
   const button = el("button", { type: "button", class: "user-btn", "aria-haspopup": "menu", "aria-expanded": "false",
     onclick: (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; button.setAttribute("aria-expanded", String(!menu.hidden)); } },
@@ -668,6 +671,7 @@ async function connect() {
 }
 
 initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, refresh: () => { if (state.result) renderReport(); renderArrival(); } });
+document.addEventListener("inkwell:steps-done", (e) => { if (!state.guest) askAfterSteps({ ctx: state.ctx, user: state.user, ...e.detail }); });
 wire();
 updateCounts();
 connect();

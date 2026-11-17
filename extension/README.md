@@ -23,6 +23,8 @@ It does nothing until you click it, and reads the policy only when you press **C
 5. **See the full report on Inkwell** opens `app.html?url=…`, which checks the policy on the website.
 6. **My requests** (`requests.html`) lists every request and its deadline. It reminds you a week before the deadline and
    again when a company is late, and offers a pre-written reminder email.
+7. **Rate Inkwell.** A strip under the card (and an item in Settings): tapping a star opens the review form on the
+   Inkwell site (`reviews.html?write=1&stars=N&site=…`) with that rating filled in; halves can be picked there.
 
 ## Try it (unpacked)
 
