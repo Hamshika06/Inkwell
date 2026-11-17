@@ -15,11 +15,11 @@ Classifier margins/logits are not used as risk probabilities or weights.
 
 | Rule ID | Required category | Points | Example matching wording |
 | --- | --- | ---: | --- |
-| `data_sale` | Third Party Sharing/Collection | 30 | We may sell your personal information |
-| `advertising_sharing` | Third Party Sharing/Collection | 20 | We share your data with advertising partners |
-| `indefinite_retention` | Data Retention | 20 | We retain personal data indefinitely |
-| `dnt_not_honored` | Do Not Track | 15 | We do not respond to Do Not Track signals |
-| `changes_without_notice` | Policy Change | 15 | We may change this policy without notice |
+| `data_sale` | Third Party Sharing/Collection | 50 | We may sell your personal information |
+| `advertising_sharing` | Third Party Sharing/Collection | 15 | We share your data with advertising partners |
+| `indefinite_retention` | Data Retention | 15 | We retain personal data indefinitely |
+| `dnt_not_honored` | Do Not Track | 10 | We do not respond to Do Not Track signals |
+| `changes_without_notice` | Policy Change | 10 | We may change this policy without notice |
 
 `score = sum(points for distinct matched rules)`, with a fixed maximum of 100.
 Repeated matches add evidence, not points. One paragraph can support multiple
@@ -42,15 +42,15 @@ Example additive response field:
 ```json
 {
   "risk": {
-    "version": "1.0.0",
-    "score": 30,
+    "version": "1.1.0",
+    "score": 50,
     "max_score": 100,
-    "band": "moderate",
+    "band": "high",
     "findings": [{
       "rule_id": "data_sale",
       "category": "Third Party Sharing/Collection",
       "title": "Sale of personal data",
-      "points": 30,
+      "points": 50,
       "evidence": [{
         "segment_id": 0,
         "start": 0,
