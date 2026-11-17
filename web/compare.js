@@ -1,5 +1,6 @@
 // Compare two privacy policies: the same 8 answers side by side, differences first. It states what each policy
 // says and never picks a winner. Each side takes a link or the policy text.
+import { renderAccountMenu } from "./account.js";
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { asLink, el } from "./shared.js";
 
@@ -173,10 +174,7 @@ async function connect() {
     return;
   }
   if (user && !(await isVerified(user).catch(() => true))) return toLogin();
-  if (page.ctx.enabled) {
-    $("sign-out").hidden = false;
-    $("sign-out").addEventListener("click", async () => { await page.ctx.fb.signOut(page.ctx.auth); location.replace("/"); });
-  }
+  if (page.ctx.enabled && user) renderAccountMenu($("user"), page.ctx, user);
   $("compare").addEventListener("click", compare);
   for (const side of sides) $(`box-${side.key}`).addEventListener("input", () => { $(`confirm-${side.key}`).hidden = true; side.waiting = false; setSide(side, ""); });
 }
