@@ -47,19 +47,20 @@ class RiskTests(unittest.TestCase):
     def test_category_gate_and_unknown_labels(self):
         for labels in [[], ["Other"], ["Data Security"], ["unknown"]]:
             self.assertEqual(self.score("We sell your personal data.", labels)["score"], 0)
-        self.assertEqual(self.score("We sell your personal data.", [RULES[0].category])["score"], 30)
+        self.assertEqual(self.score("We sell your personal data.", [RULES[0].category])["score"], 50)
 
     def test_repetition_cannot_inflate_score(self):
         result = self.score("\n\n".join(["We sell your personal data."] * 20))
-        self.assertEqual(result["score"], 30)
+        self.assertEqual(result["score"], 50)
         self.assertEqual(len(result["findings"][0]["evidence"]), 20)
 
     def test_screening_bands(self):
         sale = "We sell your personal data."
         ads = "We share your data with advertisers."
+        retention = "We retain your data indefinitely."
         self.assertEqual(self.score(ads)["band"], "low")
-        self.assertEqual(self.score(sale)["band"], "moderate")
-        self.assertEqual(self.score(sale + " " + ads)["band"], "high")
+        self.assertEqual(self.score(ads + " " + retention)["band"], "moderate")
+        self.assertEqual(self.score(sale)["band"], "high")  # Selling alone is high risk.
 
     def test_empty_and_unclassified_text_are_not_safe(self):
         for result in [score_policy([]), self.score("Unrelated text", [])]:
@@ -69,7 +70,7 @@ class RiskTests(unittest.TestCase):
 
     def test_mixed_protective_and_adverse_statements_keep_evidence(self):
         result = self.score("We do not sell your data. However, we sell personal data. We honor DNT signals.")
-        self.assertEqual(result["score"], 30)
+        self.assertEqual(result["score"], 50)
         self.assertEqual(result["findings"][0]["evidence"][0]["text"], "we sell personal data")
 
     def test_analysis_integration_does_not_use_model_margins_as_risk(self):
@@ -80,7 +81,7 @@ class RiskTests(unittest.TestCase):
                 return np.ones((len(texts), len(CATEGORIES))) * 100
 
         analysis = analyze("We sell your personal data.", Fake())
-        self.assertEqual(score_policy(analysis["segments"])["score"], 30)
+        self.assertEqual(score_policy(analysis["segments"])["score"], 50)
         self.assertEqual(analysis["coverage"][RULES[0].category], [0])
 
 
