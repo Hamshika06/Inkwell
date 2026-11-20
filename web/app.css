@@ -93,6 +93,9 @@ textarea#policy::placeholder { color: var(--text-3); }
 kbd { padding: 1px 6px; border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 5px; background: var(--surface-2); font: 11px var(--font-mono); }
 .status { min-height: 1.4em; margin: 0; font-size: 13.5px; color: var(--text-2); text-align: center; }
 .status.error { color: var(--danger); }
+.status.ask { display: grid; gap: 10px; justify-items: center; max-width: 620px; margin: 0 auto; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: var(--warn-soft); color: var(--text); line-height: 1.5; }
+.ask-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .status.busy::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px; border: 2px solid var(--border-strong); border-top-color: var(--brand); border-radius: 50%; animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 

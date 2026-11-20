@@ -1,6 +1,7 @@
 // The dashboard: all saved work, with "start a new check" always available. Opening old work never replaces
 // anything, and if saved work can't be loaded the page says so instead of looking empty.
 import { currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
+import { initTour } from "./tour.js";
 import { openStore } from "./store.js";
 import { el } from "./shared.js";
 
@@ -80,7 +81,8 @@ async function connect() {
   $("dash-list").replaceChildren(el("p", { class: "fine" }, "Loading your saved work…"));
   store = await openStore(ctx, user);
   if (store.mode !== "account") { $("dash-where").hidden = false; $("dash-where").textContent = "Saved in this browser only."; }
-  load();
+  await load();
+  initTour({ signedIn: true });
 }
 
 connect();

@@ -3,6 +3,7 @@
 // or after signing in to review), it opens the review form straight away.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
 import { mountMenus } from "./menu.js";
+import { initTour } from "./tour.js";
 import { fmt, openReviewModal, openReviews, reviewCard, signInToReview, starsView } from "./reviews.js";
 import { el } from "./shared.js";
 
@@ -108,6 +109,7 @@ async function start() {
   $("rvp-signin-link").href = signInToReview();
   document.addEventListener("inkwell:review-changed", load);
   await load();
+  initTour({ signedIn: !page.ctx.enabled || !!page.user });
   const q = new URLSearchParams(location.search);
   if (q.get("write")) {
     history.replaceState(null, "", location.pathname);

@@ -1,6 +1,7 @@
 // Landing page: rotating headline, scroll reveals, the demo report card and a signed-in aware nav.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
 import { mountMenus } from "./menu.js";
+import { initTour } from "./tour.js";
 
 const $ = (id) => document.getElementById(id);
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -56,12 +57,13 @@ function nav() {
 
 // Signed-in visitors get "Open Inkwell" instead of the sign-in prompts. Failing quietly keeps the page usable.
 async function account() {
+  let signedIn = false;
   try {
     const ctx = await startAuth();
-    if (!ctx.enabled || !(await currentUser(ctx))) return;
-    $("nav-signin").hidden = true;
-    $("nav-cta").textContent = "Open Inkwell";
+    signedIn = !ctx.enabled || !!(await currentUser(ctx));  // Sign-in off (local testing) works like an account.
+    if (ctx.enabled && signedIn) { $("nav-signin").hidden = true; $("nav-cta").textContent = "Open Inkwell"; }
   } catch { /* server asleep: the links still work */ }
+  initTour({ signedIn });
 }
 
 nav(); rotate(); reveal(); demo(); account();
