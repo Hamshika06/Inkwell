@@ -1,5 +1,6 @@
 // The dashboard: all saved work, with "start a new check" always available. Opening old work never replaces
 // anything, and if saved work can't be loaded the page says so instead of looking empty.
+import { renderAccountMenu } from "./account.js";
 import { currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { initTour } from "./tour.js";
 import { openStore } from "./store.js";
@@ -73,10 +74,7 @@ async function connect() {
   const login = () => location.replace("login.html?next=%2Fdashboard.html");
   if (ctx.enabled && !user) return login();
   if (user && !(await isVerified(user).catch(() => true))) return login();
-  if (ctx.enabled) {
-    $("sign-out").hidden = false;
-    $("sign-out").addEventListener("click", async () => { await ctx.fb.signOut(ctx.auth); location.replace("/"); });
-  }
+  if (ctx.enabled && user) renderAccountMenu($("user"), ctx, user);
   document.body.dataset.auth = "ready";
   $("dash-list").replaceChildren(el("p", { class: "fine" }, "Loading your saved work…"));
   store = await openStore(ctx, user);

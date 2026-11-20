@@ -19,16 +19,16 @@ class Rule:
 DATA = r"(?:your\s+)?(?:personal\s+)?(?:data|information)"
 ACTOR = r"\bwe\s+(?:(?:may|will|do)\s+)?"
 RULES = (
-    Rule("data_sale", "Third Party Sharing/Collection", "Sale of personal data", 30,
+    Rule("data_sale", "Third Party Sharing/Collection", "Sale of personal data", 50,
          ACTOR + r"sell\s+" + DATA + r"\b"),
-    Rule("advertising_sharing", "Third Party Sharing/Collection", "Sharing with advertisers", 20,
+    Rule("advertising_sharing", "Third Party Sharing/Collection", "Sharing with advertisers", 15,
          ACTOR + r"share\s+" + DATA + r"\s+with\s+(?:our\s+)?(?:advertisers|advertising partners)\b"),
-    Rule("indefinite_retention", "Data Retention", "Indefinite data retention", 20,
+    Rule("indefinite_retention", "Data Retention", "Indefinite data retention", 15,
          ACTOR + r"(?:retain|keep|store)\s+" + DATA + r"\s+(?:indefinitely|forever|without\s+(?:a\s+)?time\s+limit)\b"),
-    Rule("dnt_not_honored", "Do Not Track", "Do Not Track signals not honored", 15,
+    Rule("dnt_not_honored", "Do Not Track", "Do Not Track signals not honored", 10,
          r"\bwe\s+(?:do\s+not|don't|don’t)\s+(?:currently\s+)?(?:honou?r|respond\s+to|recognize)\s+"
          r"(?:browser\s+)?(?:do[ -]not[ -]track|dnt)(?:\s+(?:signals|requests))?\b"),
-    Rule("changes_without_notice", "Policy Change", "Policy changes without notice", 15,
+    Rule("changes_without_notice", "Policy Change", "Policy changes without notice", 10,
          ACTOR + r"(?:change|update|modify)\s+(?:this|our|the)\s+(?:privacy\s+)?policy\s+"
          r"(?:at\s+any\s+time\s+)?without\s+(?:prior\s+)?(?:notice|notifying\s+you)\b"),
 )
@@ -70,7 +70,7 @@ def score_policy(segments):
     score = sum(finding["points"] for finding in findings)
     # Zero is deliberately not labelled "low risk".
     band = "no_matches" if score == 0 else "low" if score < 25 else "moderate" if score < 50 else "high"
-    return {"version": "1.0.0", "score": score, "max_score": sum(rule.points for rule in RULES),
+    return {"version": "1.1.0", "score": score, "max_score": sum(rule.points for rule in RULES),
             "band": band, "findings": findings,
             "review_gaps": [category for category in REVIEW_CATEGORIES if category not in covered],
             "limitation": LIMITATION}

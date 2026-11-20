@@ -1,4 +1,5 @@
 // Inkwell product page. Talks to the API in config.js; renders API data only as text (never as HTML).
+import { isLeaving, renderAccountMenu } from "./account.js";
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, priorityChips, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
 import { inkLine } from "./progress.js";
@@ -23,7 +24,6 @@ const DESCRIBE = {
   "Data Security & Retention": "How your data is protected, and how long they keep it.",
   "Policy Scope & Changes": "Who the policy covers (children, regions) and how you're told when it changes.",
 };
-const PROVIDER = { "google.com": "Google", "github.com": "GitHub", "password": "Email and password" };
 const SAMPLE = `Pigeonpost Privacy Policy (fictional sample)
 
 We collect the name, email address and phone number you give us when you create an account, and we automatically collect your device type, IP address and approximate location when you use the app.
@@ -93,21 +93,9 @@ function renderUser(user) {
       el("a", { class: "btn btn-primary", href: signupUrl() }, "Sign up free")));
     return;
   }
-  const name = user.displayName || (user.email || "").split("@")[0] || "Account";
-  const initials = name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
-  const avatar = el("span", { class: "avatar" }, user.photoURL ? el("img", { src: user.photoURL, alt: "", referrerpolicy: "no-referrer" }) : initials);
-  const menu = el("div", { class: "menu", role: "menu", hidden: true },
-    el("div", { class: "menu-head" }, el("strong", {}, name), el("span", {}, user.email || ""),
-      el("small", {}, `Signed in with ${PROVIDER[user.providerData[0]?.providerId] || "your account"}`)),
+  renderAccountMenu(box, state.ctx, user, [
     el("a", { role: "menuitem", href: "reviews.html" }, "Reviews"),
-    el("button", { type: "button", role: "menuitem", onclick: () => { menu.hidden = true; openReviewModal({ ctx: state.ctx, user }); } }, "★ Rate Inkwell"),
-    el("button", { type: "button", role: "menuitem", onclick: async () => { await state.ctx.fb.signOut(state.ctx.auth); location.replace("/"); } }, "Sign out"));
-  const button = el("button", { type: "button", class: "user-btn", "aria-haspopup": "menu", "aria-expanded": "false",
-    onclick: (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; button.setAttribute("aria-expanded", String(!menu.hidden)); } },
-    avatar, el("span", { class: "user-name" }, name));
-  document.addEventListener("click", (e) => { if (!box.contains(e.target)) { menu.hidden = true; button.setAttribute("aria-expanded", "false"); } });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") menu.hidden = true; });
-  box.replaceChildren(button, menu);
+    el("button", { type: "button", role: "menuitem", onclick: () => openReviewModal({ ctx: state.ctx, user }) }, "★ Rate Inkwell")]);
 }
 
 /* ---------- Server status ---------- */
@@ -730,7 +718,7 @@ async function connect() {
     $("you-get").replaceChildren(...["Every paragraph sorted into 5 topics", "Straight answers to common questions", "The whole policy, readable by topic"].map((t) => el("li", {}, t)));
   }
   updateCounts();  // Free checks have a lower size limit.
-  if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u) location.replace("/"); });
+  if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u && !isLeaving()) location.replace("/"); });
   document.body.dataset.auth = "ready";
   initTour({ signedIn: !state.guest });
   checkApi();
