@@ -213,7 +213,7 @@ function cardView() {
   if (handled.length) {
     nodes.push(el("div", { class: "ok" }, el("i", {}, "✓"), el("span", {},
       el("b", {}, handled.length > 1 ? "Selling and sharing your data: " : handled[0].id === "sale" ? "Selling your data: " : "Sharing your data: "),
-      `your browser is already telling ${site} not to (Global Privacy Control is on). Companies must follow it in California and several other US states; elsewhere it may be ignored.`,
+      `your browser is already telling ${site} not to (Global Privacy Control). Companies must follow it in California and several other US states; elsewhere it may be ignored.`,
       S.result.gpcMentioned ? ` ${site}'s policy mentions this signal.` : "")));
   }
   if (red.length) nodes.push(group("red", "Worth knowing", red.map((c) => redLine(c, concern[c.id] || c.title))));
@@ -281,8 +281,9 @@ function fixFor(c) {
     case "sale":
     case "sharing": {
       const own = find("sale");
-      return { tier: "now", effort: "1 switch", button: "Turn on", run: turnOnGpc, note: [
-        "Turns on Global Privacy Control: every site you visit is told not to sell or share your data. Companies must follow it in California and several other US states; elsewhere it may be ignored. Chrome will ask to let Inkwell add the signal on all sites.",
+      // The button says what the person gets (the selling stops), not what we flip (the signal goes on).
+      return { tier: "now", effort: "1 click", button: c.id === "sale" ? "Stop selling" : "Stop sharing", run: turnOnGpc, note: [
+        "Tells every site you visit: don't sell or share my data (a browser signal called Global Privacy Control). Companies must follow it in California and several other US states; elsewhere it may be ignored. Chrome will ask to let Inkwell send it on all sites.",
         c.id === "sharing" ? " Companies that run the service for them still get your data." : "",
         own ? [" Or use ", link(own.text || "their own page", own.url), "."] : ""] };
     }
