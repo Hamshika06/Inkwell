@@ -40,7 +40,7 @@ function resourcesPanel() {
   const featured = el("div", { class: "mm-feature quiet" }, el("p", { class: "mm-muted" }, "Loading the latest review…"));
   const panel = el("div", { class: "mm-panel", id: "mm-resources", role: "menu", "aria-label": "Resources", hidden: true },
     el("div", {}, el("h5", {}, "Learn"),
-      item("❖", "Guides", "Plain-English guides to your privacy rights.", "guides.html", { pill: ["soon", "Coming soon"] }),
+      item("❖", "Guides", "What really happens to your data when you click “I agree”.", "guides.html"),
       item("?", "What we check", "The 8 key questions, and how we find the answers.", home("#checks"))),
     el("div", {}, el("h5", {}, "Community"),
       item("★", "Reviews", "Read what people think of Inkwell, and how they rated it.", "reviews.html", { hl: true }),

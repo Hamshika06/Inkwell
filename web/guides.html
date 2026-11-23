@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Inkwell · Guides</title>
-  <meta name="description" content="Plain-English guides to your privacy rights, coming soon from Inkwell.">
+  <title>Inkwell · Behind “I agree”</title>
+  <meta name="description" content="See what really happens to your data when you click “I agree”: selling, sharing, your rights and deletion, and how Inkwell shows it to you.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +12,12 @@
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="community.css">
+  <link rel="stylesheet" href="guides.css">
   <script>document.documentElement.classList.add("js"); try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <script src="config.js"></script>
   <script type="module" src="guides.js"></script>
 </head>
-<body class="home">
+<body class="home guides">
   <header class="nav scrolled">
     <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
     <nav class="nav-links" aria-label="Sections">
@@ -34,37 +35,103 @@
     </div>
   </header>
 
-  <main class="wrap gp">
-    <section class="gp-hero">
-      <span class="mm-pill soon">Coming soon</span>
-      <h1>Guides, in plain English</h1>
-      <p class="lead">Short reads that explain your privacy rights and how to use them. Each one ends with something you can do in two minutes.</p>
+  <main class="wrap gd">
+    <section class="gd-top">
+      <span class="gd-eyebrow">Behind the “I agree” button</span>
+      <h1>See what really happens to your data when you click <em>“I agree”</em>.</h1>
+      <p>Privacy policies hide the important parts in plain sight. Pick a topic to lift the cloak, and see how Inkwell shows you what's going on.</p>
     </section>
-    <section class="gp-grid" aria-label="Guides being written">
-      <article class="gp-card"><span class="mm-pill soon">Writing</span><p class="gp-n">01</p><h3>Read a privacy policy in 5 minutes</h3><p>The 8 questions that matter, and where to find each one.</p><i class="gp-lines" aria-hidden="true"></i></article>
-      <article class="gp-card"><span class="mm-pill plan">Planned</span><p class="gp-n">02</p><h3>“We may share with partners”: who is that?</h3><p>What the vague phrases usually mean, in plain words.</p><i class="gp-lines" aria-hidden="true"></i></article>
-      <article class="gp-card"><span class="mm-pill plan">Planned</span><p class="gp-n">03</p><h3>Stop the sale of your data, in the US</h3><p>Do Not Sell links, Global Privacy Control and your state's law.</p><i class="gp-lines" aria-hidden="true"></i></article>
-      <article class="gp-card"><span class="mm-pill plan">Planned</span><p class="gp-n">04</p><h3>Your rights under GDPR, without the legalese</h3><p>Access, delete, correct and object. One page.</p><i class="gp-lines" aria-hidden="true"></i></article>
-      <article class="gp-card"><span class="mm-pill plan">Planned</span><p class="gp-n">05</p><h3>Deleting your data: what really happens</h3><p>What companies must delete, what they may keep, and for how long.</p><i class="gp-lines" aria-hidden="true"></i></article>
-      <article class="gp-card gp-ask"><div><p class="gp-plus" aria-hidden="true">＋</p><h3>What should we write next?</h3><p>Tell us in a review: <button type="button" class="link" id="gp-rate">rate Inkwell</button> and say which guide you'd like.</p></div></article>
+
+    <div class="gd-goals" id="gd-goals" role="group" aria-label="I want to">
+      <span class="lbl">I want to:</span>
+    </div>
+
+    <section class="gd-map" aria-label="Topics">
+      <svg viewBox="0 0 1120 262" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="gd-contour" d="M0 40 C 200 10, 380 90, 600 50 S 960 0, 1120 40"/>
+        <path class="gd-contour" d="M0 70 C 200 40, 380 120, 600 80 S 960 30, 1120 70"/>
+        <path class="gd-contour" d="M0 210 C 220 180, 420 250, 640 210 S 980 170, 1120 220"/>
+        <path class="gd-contour" d="M0 238 C 220 208, 420 278, 640 238 S 980 198, 1120 248"/>
+        <path class="gd-trail-base" id="gd-trail" d="M112 172 C 230 172, 230 92, 336 92 S 450 172, 560 172 S 680 92, 784 92 S 900 172, 1008 172"/>
+      </svg>
+      <!-- The coloured wave, revealed left to right behind the dot by two opposite slides (cheap for the browser). -->
+      <div class="gd-reveal" id="gd-reveal" aria-hidden="true"><div class="gd-reveal-in" id="gd-reveal-in">
+        <svg viewBox="0 0 1120 262" preserveAspectRatio="none" focusable="false">
+          <defs><linearGradient id="gd-grad" x1="0" x2="1"><stop offset="0" style="stop-color: var(--g-trail-a)"/><stop offset="1" style="stop-color: var(--g-trail-b)"/></linearGradient></defs>
+          <path class="gd-trail" d="M112 172 C 230 172, 230 92, 336 92 S 450 172, 560 172 S 680 92, 784 92 S 900 172, 1008 172"/>
+        </svg>
+      </div></div>
+      <span class="gd-dot" id="gd-dot" aria-hidden="true"></span>
+      <span class="gd-hint" aria-hidden="true">Tap a circle to explore</span>
+      <div class="gd-stops" id="gd-stops"></div>
     </section>
-    <section class="gp-ext" id="extension">
-      <span class="mm-pill new">New</span>
-      <h2>The Inkwell extension for Chrome</h2>
-      <p class="lead">Check a site's privacy policy before you sign up, without leaving the page.</p>
-      <ul class="gp-list">
-        <li><b>Shows nothing until you click it.</b> Then one button checks the policy of the site you're on.</li>
-        <li><b>A small card:</b> what's worth knowing, what isn't clearly answered, and what's in your favour.</li>
-        <li><b>Fix it:</b> one switch tells every site not to sell or share your data (Global Privacy Control), plus the right settings links and ready-to-send requests with reminders.</li>
-      </ul>
-      <p class="fine">It isn't in the Chrome Web Store yet. Until it is, ask the Inkwell team for the install file.</p>
+
+    <section class="gd-detail" id="gd-detail" aria-live="polite"></section>
+
+    <section class="gd-row3" aria-label="Try Inkwell">
+      <a class="gd-short" href="app.html"><span class="gd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span><b>Try it on a real policy</b><span>Paste any link. Free.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="gd-short" href="#extension"><span class="gd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"/></svg></span><span><b>Get the Chrome extension</b><span>Check a site before you sign up.</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="gd-short" href="compare.html"><span class="gd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3v18M16 3v18M3 8h5M16 8h5M3 16h5M16 16h5"/></svg></span><span><b>Compare two policies</b><span>Side by side, differences first.</span></span><span class="go" aria-hidden="true">→</span></a>
     </section>
+
   </main>
+
+  <!-- The extension, as a pop-up: opened by the "Get the Chrome extension" card and by links to guides.html#extension. -->
+  <dialog class="gd-modal" id="extension" aria-labelledby="gd-ext-title">
+    <button type="button" class="gd-modal-x" id="gd-ext-close" aria-label="Close">×</button>
+    <div class="gd-modal-head">
+      <span class="gd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"/></svg></span>
+      <div>
+        <span class="mm-pill new">New</span>
+        <h2 id="gd-ext-title">The Inkwell extension for Chrome</h2>
+      </div>
+    </div>
+    <p class="gd-tagline">Check the policy right on the sign-up page, <em>before</em> you click “I agree”. No copying links, no switching tabs.</p>
+    <ul class="gd-perks">
+      <li><b>One click</b> checks the site you're on</li>
+      <li><b>A small card</b> of what's worth knowing</li>
+      <li><b>One switch</b> says “don't sell my data” to every site</li>
+    </ul>
+
+    <!-- Until it's in the Chrome Web Store: install it by hand. guides.js swaps this for "Add to Chrome" once EXTENSION_URL is set. -->
+    <section class="gd-install" id="gd-install" aria-labelledby="gd-install-title">
+      <h3 id="gd-install-title">Add it to your browser <span>· about 2 minutes</span></h3>
+      <ol class="gd-steps">
+        <li>
+          <b>Download the extension</b>
+          <span>A small zip file (about 30 KB). Unzip it: you'll get a folder called <code>inkwell-extension</code>.</span>
+          <a class="btn btn-primary gd-step-btn" href="inkwell-extension.zip" download>Download the zip</a>
+        </li>
+        <li>
+          <b>Open your extensions page</b>
+          <span>Paste this into your address bar and press Enter. Browsers don't let websites open it for you.</span>
+          <span class="gd-copy"><code id="gd-ext-addr">chrome://extensions</code><button type="button" class="btn btn-ghost gd-step-btn" id="gd-ext-copy">Copy</button></span>
+        </li>
+        <li>
+          <b>Turn on Developer mode</b>
+          <span>The switch is in the top-right corner of that page.</span>
+        </li>
+        <li>
+          <b>Click “Load unpacked”</b>
+          <span>Choose the <code>inkwell-extension</code> folder you unzipped.</span>
+        </li>
+        <li>
+          <b>Pin it</b>
+          <span>Click the puzzle-piece icon in the toolbar, then the pin next to Inkwell. You're done: visit any site and click the Inkwell icon.</span>
+        </li>
+      </ol>
+      <p class="gd-note">Works in Chrome, and in Edge and Brave too (use <code>edge://extensions</code> or <code>brave://extensions</code>).</p>
+    </section>
+
+    <div class="gd-modal-row">
+      <a class="btn btn-primary" id="gd-ext-install" target="_blank" rel="noopener" hidden>Add to Chrome</a>
+      <button type="button" class="btn btn-ghost" id="gd-ext-done">Close</button>
+    </div>
+  </dialog>
 
   <footer class="home-footer">
     <div class="wrap">
       <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
-      <p>Inkwell by Token Economy · University of Maryland</p>
       <p class="fine">Not legal advice. Verdicts are based on the wording of the text you submit and may miss things said in other words.</p>
       <nav aria-label="Footer"><a href="/">Home</a><a href="reviews.html">Reviews</a><a href="guides.html">Guides</a><a href="/#faq">FAQ</a><a href="app.html">Open Inkwell</a></nav>
     </div>
