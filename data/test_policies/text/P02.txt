@@ -1,0 +1,339 @@
+SHEIN PRIVACY NOTICE
+
+Learn more about Interest-based Advertising and your Ad Choices here ​
+
+Effective Date: November 12, 2026 Last Updated: November 12, 2026
+Introduction and Overview
+For SHEIN customers, this Privacy Policy ( "Policy" ) explains how your personal information is collected, used, shared, processed, and protected when you access this website, located at us.SHEIN.com (the "Site" ), our mobile application (the "App" ), or use other services provided by SHEIN, including any written, electronic, and oral communications, online or offline, and purchases performed (collectively, the "Services" ) as well as the rights and choices you have associated with that information. The Policy also describes your rights regarding your personal data and explains how you can contact us to learn more about our data practices or to exercise your rights.
+
+In the United States, the Site and the App are provided by SHEIN US Services, LLC. who is responsible for collecting, processing, and protecting your personal data. In this Policy, the terms “SHEIN,” “Company,” “we,” “us,” and “our” refer to SHEIN US Services, LLC.
+
+Please read our Terms and Conditions​ and this Policy before accessing or using our Services. If you cannot agree with this Policy or the Terms and Conditions, please do not access or use our Services.
+
+Policy Modification: SHEIN may change this Policy from time to time, to reflect how we process your data, and if we make changes, we will revise the effective date or last modified date at the top of this Policy. If we make changes that materially affect your privacy rights, we will attempt to provide advanced notice (including via real- or near real-time disclosures) or otherwise via the Site, or by some other means of contact so that you have a reasonable opportunity to review the changes before you continue to use the Site or the Services.
+
+If you do not agree with the modified Policy, please stop using the Services.
+
+CONTENTS
+Click on the links below to go to a specific section of this Policy.
+
+1. What Personal information Do We Collect? >​
+2. How Do We Use Personal Information? >​
+3. When Do We Share Personal Information? >​
+4. How Do We Use Cookies, Interest-Based Advertising, and Ad Choices? >​
+5. How Does SHEIN Secure Your Personal Information? >​
+6. What Are Your Privacy Rights and How to Exercise Them? >​
+7. Additional Privacy Matters >​
+8. Additional State-Specific Privacy Rights and Notices >​
+9. Contact Us >​
+
+1. What Personal Information Do We Collect?
+Personal information is any information that is relatable to an identifiable person. The definition of personal information (used interchangeably in this Privacy Policy with the term "personal data") depends on where you are located. Personal information does not include data that has been effectively anonymized or aggregated so that it can no longer enable us or others, whether in combination with other information or otherwise, to identify an individual.
+
+We collect personal information from various places including online, in-person, and from third parties, such as when shopping on our Site/App, engaging with us at a pop-up or promotional event, or interacting with us on a third-party site such as a social media platform. We may obtain and combine personal information from different sources, types of technology, and devices. Not all categories of personal information will be collected or received about every individual, depending on how you use or engage with the Services.
+
+We generally collect the following categories of personal information from you when you use our Services:
+
+Categories of Personal Information
+
+Basic Personal Identifiers, such as a name, address, government-issued identifier (e.g., national identification numbers, driver’s license numbers), email, and phone number
+
+Source(s) of information: Manually received directly from you; Basic Personal Identifiers can also be received from third parties, such as people who order products or services on your behalf or for you.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Identifiers that are associated with an account will be retained for the life of the account, plus a reasonable period thereafter to satisfy legal obligations (ex: financial reporting, warranty, etc.).
+
+Device/Online Identifiers, such as account login information, MAC address, IP address, cookie IDs, mobile ad IDs, social media information, and device security configuration status (a 0/1 indicator of whether biometric authentication, such as fingerprint or facial recognition, is enrolled on your device); no biometric data itself is collected)
+
+Confirmation of your phone number and area code.
+
+Source(s) of information: Automatically received from you when you interact with the Services.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: Yes
+Retention Criteria: Short term retention; routinely disposed when no longer reasonably necessary for a business purpose.
+
+Commercial Information, such as records of products or services purchased, obtained, or considered by you
+
+Source(s) of information: Manually received directly from you
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below
+Used for Targeted Advertising: Yes
+Retention Criteria: Commercial Information associated with an account will be retained for the life of the account, plus a reasonable period thereafter to satisfy legal obligations (ex: financial reporting, warranty, etc.).
+
+Network Activity, such as information regarding your browsing activity (such as length of visit, number of page views, and keystroke patterns to identify potential bot activity), click-stream data, locale preferences, your mobile carrier, date and time stamps associated with transactions, and system configuration information
+
+Source(s) of information: Automatically received from you when you interact with the Services.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Short term retention; routinely disposed when no longer reasonably necessary for a business purpose.
+
+Communications, such as emails, virtual chat logs, text messages, or other exchanges, where SHEIN is a party to the communications, including audio recordings where permitted by applicable law
+
+Source(s) of information: Manually received directly from you.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Communications that are associated with an account will be retained for the life of the account, plus a reasonable period thereafter to satisfy legal obligations (ex: financial reporting, warranty, etc.).
+
+Content you choose to upload to the Services, such as text, images, audio, and video, along with the metadata associated with the files you upload
+
+Source(s) of information: Manually received directly from you.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Communications that are associated with an account will be retained for the life of the account, plus a reasonable period thereafter to satisfy legal obligations (ex: financial reporting, warranty, etc.).
+
+Payment Card and Financial Information, such as credit or debit card numbers, financial account numbers, or other financial data to process payments, refunds, or other financial transactions
+
+Source(s) of information: Manually received directly from you.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Payment Card and Financial Information is collected and processed by third party payment processors and therefore not retained by SHEIN. This information may be stored by payment processors for a period to satisfy legal obligations (ex: financial reporting, warranty, etc.).
+
+Preferences, Behavior Data, and Inferences, such as your indicated body shape, height, chest/waist/hip circumference, and weight, as well as your preferences for clothing sizes or styles, personalization
+
+Source(s) of information: Preferences are manually received directly from you, though inferences may be collected automatically based on your interaction with the Services and subsequently created by us.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: Yes
+Retention Criteria: Preferences, Behavior Data, and Inferences associated with an account will be retained for the life of the account, plus a reasonable period thereafter to satisfy legal obligations (ex: financial reporting, warranty, etc.). However, this data may also be anonymized or aggregated and such resulting data may be retained for analytic purposes.
+
+Content Posted Online. For influencers and similar persons that SHEIN considers for partnerships, SHEIN may collect or use any information posted or disclosed on publicly accessible third-party message boards, chat, profile pages, blogs, and other services, including through social media outlets, to assess such opportunities.
+
+Source(s) of information: Content Posted Online may be obtained by SHEIN or third parties on our behalf.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Content Posted Online collected for the purpose of assessing potential partnerships will be retained for the period necessarily to evaluate the opportunity or potential future opportunities.
+
+Profiles or Enrichment Data from Commercial Data Brokers, such as profiling information regarding influencers and similar persons obtained from commercial data brokers and aggregators to supplement the information we collect, in order to assess partnership opportunities, inform marketing strategies, as well as information that assists us in preventing fraud or other illegal activities.
+
+Source(s) of information: Profiles or Enrichment Data from Commercial Data Brokers may be obtained from third parties on our behalf.
+Purpose(s) of collection/use: All purposes listed in “How Do We Use Your Personal Information?” section below.
+Used for Targeted Advertising: No
+Retention Criteria: Profiles or Enrichment Data from Commercial Data Brokers will be retained for the period necessarily to evaluate the opportunity or potential future opportunities and prevent fraudulent/illegal activities.
+
+We do not knowingly collect protected classifications about our users, biometric information, or education-related information. For clarity, the device security configuration status indicator described above reflects only whether biometric authentication is enabled on your device as a device security setting - it does not constitute biometric information and no biometric data, templates, or identifiers are collected. When communicating with us by email or through forms on our Services, or when you publicly share content through our Services, we ask that you please do not send us any sensitive information pertaining to yourself or to others.
+
+2. How Do We Use Personal Information?
+We use your personal information for the purposes described in this Privacy Policy or otherwise disclosed to you, primarily relating to providing products and services to you and improving our Services. The purposes and types of information we process are listed in the chart below and should be understood to include uses of your personal data that are compatible with the purposes listed.
+
+Purpose
+
+Personal Information We Process
+
+To create an account with us, to manage your account, and to provide you with our Services
+
+Account Creation – Basic Personal Identifiers and contact information (such as email address and password) to register with our Site or App;
+Profile data, including your style preference, if you voluntarily choose to provide it for personalization purposes.
+
+To fulfill or process orders
+
+Basic Personal Identifiers and contact information such as name, phone number, and shipping address, as well as financial information or payment account information, for delivery, returns, refund, sales tax determinations, and payment operations.
+Commercial Information, such as return and refund details, gift card number, and order history, in our Services, in order to fulfill basic functions, including processing your payment and return requests, and keeping you informed of the order status and shipping logistics.
+Location data (inferred from your IP address) to tailor your experience in terms of displaying the appropriate local website, language, or user experience, and to estimate delivery time.
+Additional identity information that you provide if you take part in our "college campus ambassador program," such as your school, name, email address, PayPal account, and city, for identity authentication purposes.
+
+To provide customer service and support
+
+Your communication history with us via various channels, such as email, phone, social media, mail, instant chat, and our customer service platform, to respond to your requests; to monitor, review, and analyze communications to improve the quality of our customer service; to evaluate and train our customer service staff; to improve and develop our AI-powered virtual assistant; and to keep you updated about your account and the Services.
+
+To provide product and seller feedback
+
+Photographs, customer reviews, and other feedback you upload to our Services in accordance with our Terms and Conditions, to provide product advice and to allow you to voluntarily show other potential customers what items may look like when worn or to relate experiences with sellers on our Services.
+
+To undertake marketing, advertising or other promotional activities
+
+Basic Personal Identifiers and contact information, such as phone number and email address, for telemarketing and email marketing purposes.
+Non-directly identifiable device identifiers, operating system information, and cookie information, to direct and measure the effectiveness of the advertising we offer.
+Data about how you engage with our Services, such as browsing, adding to your shopping cart, saving items, placing an order, and returns) for market research, statistical analysis, and the display of personalized advertising based on your activity on our site and inferred interests.
+Basic Personal Identifiers and contact information, such as name, email address, and phone number, when you voluntarily enter a competition, market survey, event, or other marketing campaigns organized by us.
+Basic Personal Identifiers and contact information for third-party service providers to advertise our Services and/or products on our Site (see “Disclosure of Personal Information” below).
+
+To improve our product or service, or for personalization
+
+Device/Online Identifiers and Network Activity for fault analysis, troubleshooting, and system maintenance, as well as setting default options for you, such as language and currency.
+Preferences, Behavior Data, and Inferences, including collection of your "like" records and votes when prompted as to your preference between two items, used by us to recommend clothing sizes or styles, personalization, or to provide fit prediction services for you.
+Commercial Information to share within and across our corporate organization for our business administration and improvement needs.
+
+To prevent and investigate fraud and other illegal activities
+
+Device/Online Identifiers and Network Activity, such as browser type, device information, operating system, and account setting information are processed for fraud prevention and detection and credit risk reduction.
+Basic Personal Identifiers (ex: log-in data) are used for risk control and fraud reporting.
+Billing address is processed to verify payment information.
+
+To comply with legal or compliance requirements
+
+Identity information, such as ID- or passport-related information, for customs clearance purposes.
+Commercial Information and certain identifying information to handle and resolve legal disputes, for regulatory investigations purposes, and to comply with lawful requests from a competent law enforcement agency or court.
+
+To administer our partner Programs (e.g., Refer-A-Friend)
+
+Basic Personal Identifiers and contact information (such as email address and password), for profile creation, program onboarding, program promotions and incentives, and communication with program participants about rights, benefits, and services offered by SHEIN.
+Location data, for profile creation and program onboarding.
+Commercial Information (Order information of Referral, including transaction details and records) and Payment Card and Financial Information, including Tax ID (e.g., SSN), of Referrer for commission accounting and payment, tax reporting and compliance, and internal audit purposes.
+Referral link and content.
+Program Operation and Administration Information, including Referrer’s nickname, SHEIN account information, program performance (i.e., Referral link/Code usage, Referred order information), Commission Fee details, for program operation management and system maintenance purposes. Aggregated and anonymized data may be used to conduct business analysis for Program improvement.
+
+SHEIN account and profile information, for compliance monitoring, content moderation (e.g., Prohibited Behaviors under TOS) and reporting under applicable laws, risk management, and fraud prevention.
+
+Other Consent-Based Purposes
+
+We may use your personal information for a new or secondary purpose if disclosed to you prior to you providing us your personal information or which is reasonably necessary to provide the Services or other related products and/or services requested, with your consent or upon your direction.
+
+3. When Do We Share Personal Data?
+We may disclose and share your personal information with the parties as described below.
+
+A. Within Our Corporate Organization. SHEIN is a corporate organization that has a network of legal entities, business processes, management structures, and technical systems. Where permitted by applicable law, we may share your personal information with our related group companies and, in some cases, other affiliates of our corporate group to provide you with Services, administer our business, provide you with a personalized user experience, or to take actions based on your orders, requests, or preferences.
+B. Third Party Sellers. When you order products from a third-party seller on our Services and the seller will ship the products to you directly, we may share your Basic Personal Identifiers (name, address, and telephone number) with them so that they may fulfill your order and provide your personal data to a shipping logistics provider in order to perform the contract and ship the products to you.
+
+C. Service Providers. We may provide access to or share your personal information with the following types of third-party service providers as set out in the table below:
+
+Supplier/Service
+
+Provider/Processor
+
+Services Offered
+
+IT system and software service provider
+
+Website hosting services (including cloud storage), mobile app or software optimization services, customer relationship management software, email service providers, or system maintenance services.
+
+Payment service provider
+
+Third-party payment processing services.
+
+Marketing and advertising services
+
+Assistance in reaching potential new customers across multiple communications channels or sharing with affiliated companies that promote our products on their websites
+
+Order fulfillment service provider
+
+Provision of logistics, warehousing, and distribution services, return and exchange services, and order status notification services for your purchased items.
+
+Customer service provider
+
+Assistance with customer services and support.
+
+Fraud prevention and information security service provider
+
+Identity verification, fraud prevention, or credit risk reduction services to protect our Site/App and our business.
+
+Other Service providers selected by you
+
+Other third parties, such as size recommendations and fit prediction services providers if you have chosen to help us provide you with product recommendations.
+All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties, excluding aggregators and providers of the text message services.
+We strive to ensure that our third-party service providers can only use your data for the purposes for which it was provided to them and to the extent necessary for such purposes, in accordance with our written instructions. For this purpose, third-party service providers are required to execute data protection agreements, limiting the purposes for which they can process SHEIN’s customer data and requiring them to implement reasonable and appropriate security measures to protect data.
+
+D. To Maintain Legal and Regulatory Compliance. We have the right to disclose your personal information as required by law, or when we believe that disclosure is necessary to protect our rights and/or comply with a judicial proceeding, court order, request from a regulator or any other legal process served on us. We also may disclose your information where we reasonably believe that the disclosure is necessary to enforce our agreements or policies, or if we believe that disclosure will help us protect the rights, property, or safety of SHEIN or our customers.
+
+E. Co-Branded Services and Features.Portions of our Services may be offered as part of co-branded services and features. We will share your personal information with our co-branded partners based on your voluntary use of or participation in a co-branded service or feature. The co-branded partners will be identified on the co-branded feature or service, along with an applicable co-branded partner's privacy policy. Use of your personal information by a co-branded partner will be subject to a co-branded partner’s privacy policy. If you wish to opt-out of a co-branded partner’s future use of your personal information, you will need to contact the co-branded partner directly.
+F. Consent. We may disclose your personal information for any purpose with your consent.
+
+G. Corporate Transactions. We may disclose personal information—including account information, Wallet balance or points information—to a buyer, prospective buyer, corporate affiliate, or other successors in the event of a merger, divestiture, restructuring, reorganization, dissolution, or sale or transfer of some or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding in which personal information held by us about our Services users is among the assets transferred. You acknowledge and agree to our assignment or transfer of rights to your personal information.
+
+Please note that we may disclose, without restriction, aggregated or anonymized information about the users of our Services, which is information that does not identify any specific individual.
+
+4. How Do We Use Cookies, Interest-Based Advertising, and Ad Choices?
+We may use cookies, tags, web pixels, and similar technologies to automatically collect information through our Services. Cookies or tags are bits of code that allow our technology partners to collect information that usually does not directly identify you. Information within this section describes our use of cookies and your ability to control the use of cookies for advertising-related purposes..
+
+A. Cookies. Cookies are small web files that a site or its provider transfers to your device’s hard drive through your web browser that enables the Site’s or provider’s system to recognize your browser and remember certain information. In many cases, cookies are necessary for your web browser to interact with the Services, such as maintaining your logged-in session, storing items in your shopping cart, and providing fraud detection and security tools to protect your data. Our Site uses cookies to help keep track of items you put into your shopping cart, including when you have abandoned your cart. If you have opted in to receive cart reminder messages via SMS, we use this information to determine when to send you those messages. Generally, we use first-party and third-party cookies for the following purposes: to make our Services function properly; to provide a secure browsing experience during your use of our Services; to collect passive information about your use of our Services; to measure how you interact with our marketing campaigns; to help us improve our Services; and to remember your preferences for your convenience.
+
+"First-party cookies" are cookies set by us on the Site. "Third-party cookies" are cookies set by other companies whose functionality is embedded into our site (For example, those set by Google).
+
+We use the following types of cookies on our Services:
+Strictly Necessary Cookies. These cookies are essential because they enable you to use our Services. For example, strictly necessary cookies allow you to access secure areas on our Services. Without these cookies, some services cannot be provided. These cookies do not gather information about you for marketing purposes. This category of cookies is essential for our Services to work, and they cannot be disabled.
+Functional Cookies. We use functional cookies to remember your choices so we can tailor our Services to provide you with enhanced features and personalized content. For example, these cookies can be used to remember your name or preferences on our Services. We do not use functional cookies to target you with online marketing. While these cookies can be disabled, this may result in less functionality during your use of our Services.
+
+Performance or Analytics Cookies. These cookies collect passive information about how you use our Services, including webpages you visit and links you click. We use the information collected by such cookies to improve and optimize our Services. We do not use these cookies to target you with online marketing. You can disable these cookies as described below.
+Advertising or Targeting Cookies. These cookies are used to make advertising messages more relevant to you. They perform functions like preventing the same ad from continuously reappearing, ensuring that ads are properly displayed for advertisers, and in some cases selecting advertisements that are based on your interests. Our third-party advertising partners may use these cookies to identify your interests and deliver relevant advertising on other sites. You may disable the use of these cookies as set forth below.
+
+B. Your Choices. Your browser may provide you with the option to refuse some or all browser cookies. You may also be able to delete cookies from your browser. You can exercise your preferences in relation to cookies on our Services by taking the steps outlined below.
+
+First-Party Cookies. You can use your browser to enable, disable or delete cookies. To do this, follow the instructions provided by your browser (usually located within the "Help", "Tools" or "Edit" settings). Please note, if you set your browser to disable cookies, you may not be able to access secure areas of the Services. Also, if you disable cookies, other parts of the Services may not work properly. You can find more information about how to change your browser cookie settings at https://www.allaboutcookies.org ​.
+Third-Party Cookies. If you wish to opt-in or opt-out of third-party advertising networks and similar entities that use advertising cookies, please click the Do Not Sell or Share My Personal Information”/"Manage Cookies" link in our Site footer or visit https://www.aboutads.info/choices . For more information about third-party advertising networks and similar entities that use these technologies, please see https://www.aboutads.info/consumers . You may withdraw your consent or update your preferences at any time by clicking the “Do Not Sell or Share My Personal Information”/"Manage Cookies" link within the Site footer or within the App menu.
+
+Mobile Applications. To opt-out of data collection for interest-based advertising across mobile applications by participating companies, download the Digital Advertising Alliance’s AppChoices mobile application opt-out offering here: https://youradchoices.com/appchoices ​.
+
+We do not control third parties’ collection or use of your information to serve interest-based advertising. However, these third parties may provide you with ways to choose not to have your information collected or used in this way. In addition, most web browsers provide help pages relating to setting cookie preferences.
+
+SHEIN adheres to the Digital Advertising Alliance's Self-Regulatory Principles(https://digitaladvertisingalliance.org/principles​).
+
+C. Web Pixels. To see how successful our marketing campaigns or other features of the Services are performing we sometimes use conversion pixels, which fire a short line of code to tell us when you have clicked on a particular button or reached a particular page (ex: a thank you page once you have completed the procedure for subscribing to one of our services or have completed one of our forms). We also use web pixels to analyze usage patterns on our Services. The use of a pixel allows us to record that a particular device, browser, or application has visited a particular webpage.
+
+D. Analytics and Social Media Advertisements. We may use third-party service providers to analyze the use of our Services or serve interest-based advertisements on their platforms. Google Analytics Opt-out Browser Add-on provides visitors with the ability to prevent their data from being collected and used by Google Analytics, available at: https://tools.google.com/dlpage/gaoptout ​. To modify your preferences or turn off personalization for ads served by Facebook, you can visit Facebook's Ad Preferences (https://www.facebook.com/help/109378269482053)​. in addition to the Your Choices section below. We may also show ads to audiences that share similar characteristics as you. To do so, a list of email addresses is irreversibly encrypted through hashing and uploaded or transmitted from our site, and the hashed data is compared against the third party’s own users, generating a “lookalike audience” of matching addresses and deleting the uploaded list. We do not have access to the identity of any person in the "lookalike" audience unless they choose to click on one of our advertisements.
+
+E. Java Script. Pages of our Site may also use Java scripts, which are code snippets embedded in various parts of websites and applications that facilitate a variety of operations including accelerating the refresh speed of certain functionality or monitoring usage of various online components; entity tags, which are HTTP code mechanisms that allow portions of websites to be stored or “cached” within your browser to accelerate website performance; and HTML5 local storage, which allows data from websites to be stored or "cached" within your browser to store and retrieve data in HTML5 pages when the website is revisited.
+F. Other Tracking Technologies. We may also use Tracking Technologies to collect "clickstream" data, such as the domain name of the service providing you with Internet access, your device type, IP address used to connect your computer to the Internet, your browser type and version, operating system and platform, the average time spent on our Site, webpages viewed, content searched for, access times and other relevant statistics, and assign unique identifiers to the device or other credentials you use to access the Site for the same purposes.
+
+G. Do Not Track. Some Internet browsers, such as Internet Explorer, Firefox, and Safari, include the ability to transmit "Do Not Track" or "DNT" signals. To the extent that uniform standards for "DNT" signals have not been adopted, our Services does not currently process or respond to "DNT" signals.
+H. Location Information. You may be able to adjust the settings of your device so that information about your physical location is not sent to us or third parties by (a) disabling location services within the device settings; or (b) denying certain websites or mobile applications permission to access location information by changing the relevant preferences and permissions in your mobile device or browser settings.
+
+5.How Does SHEIN Secure Your Personal Information?
+We maintain reasonable physical, electronic, and procedural safeguards designed to guard your personal data from unauthorized processing, use or disclosure. Our security measures include industry-standard physical, technical, and administrative measures to prevent unauthorized access to or disclosure of your information. We also require our service providers to provide privacy and security controls to protect data shared with them in order to perform services.
+
+The Internet is not an absolutely secure environment, and we cannot guarantee that your personal data will be secure. We therefore strongly recommend that you use a unique, complex password to help us ensure the security of your account. We also strongly recommend that you do not share your password with others or re-use passwords on our Services that you use on other sites or apps, as doing so increases the likelihood of your being the victim of a credential stuffing attack or other malicious cyber behavior. If you feel that the security of your account or personal data has been compromised, please immediately contact us at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html) or as otherwise described in the "Contact Us" section below
+
+6. What Are Your Privacy Rights and How to Exercise Them?
+Depending on where you live, residents of certain states (including but not limited to California, Colorado, Connecticut, Delaware, Iowa, Montana, Nevada, New Hampshire, New Jersey, Nebraska, Oregon, Texas, Utah, Virginia, and Washington) may have privacy rights relating to their personal information which are described below. In addition to these covered individuals, SHEIN has chosen to extend these same privacy options to all US customers, so that any SHEIN customer in the US can exercise the privacy choices described in this Section.
+
+6.1 Access, Correction, and Deletion of your Personal Information - Depending on where you live, you may have the right to access, correct, or delete the personal information that we collect. However, your rights are subject to certain exceptions according to the applicable law. For instance, we cannot disclose specific pieces of personal information if the disclosure would create a substantial, articulable, and unreasonable risk to the security of the personal information, your account with us or the security of our network systems.
+
+Right to Know/Access/Portability - If you want to access the information we collected or disclosed about you, the business purposes involved and the sources of such information, you can request to receive a copy of your personal data in a structured and machine-readable format. You can submit an access request by either completing the request form at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html) (either by logging in or through Visitor Mode) or by sending us an email at [email protected] (provide your full name, email address (linked to your account or for verification), and the nature of your request).
+Right to Correction/Rectification - If you believe that we have incorrect or incomplete information about you, you can submit a correction request by either completing the request form at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html) (either by logging in or through Visitor Mode) or by sending us an email at [email protected] (provide your full name, email address linked to your account, and the nature of your request).
+
+Right to be Forgotten/Deletion - You can request that we permanently erase your personal information from our records by either completing the request form at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html) (either by logging in or through Visitor Mode) or by sending us an email at [email protected]​. If you request that your personal data be deleted, you will not be able to login again and any associated information will be deleted. This will include any SHEIN Wallet Credits, coupon codes, points, VIP status, address book entries, and other information associated with your customer profile. However, please note that per SHEIN Privacy Policy, some data may be retained to the extent it is permitted by applicable law and/or is necessary to comply with our legal obligations (for example, we may retain your order history information to satisfy legally required financial reporting obligations), resolve disputes, or enforce our legal agreements and policies.In addition, deletion of your data may limit our ability to confirm your purchases and thereby prevent us from providing customer support. Also, if you have currently pending orders, fulfillment of your deletion request may be delayed until all pending orders are delivered. If you want to shop at SHEIN in the future, you’ll need to set up a new account.
+
+6.2 Right to Opt Out of “Sale”/Sharing/Targeted Advertising -We do not sell our users’ information to third parties as that term is generally understood. However, making certain identifiers available to third parties may be considered a “sale” or “sharing” under certain laws. When you visit our website, we may share some personal identifiers such as cookies and other tracking technologies for analytics and to personalize your experience with targeted ads as described herein. In the previous 12 months, we may have shared identifiers and inferences about you with our partners, third parties, and affiliates in such a way that, under such privacy laws, may be interpreted as “selling” or “sharing”. Please see the "Cookies and Other Tracking Technologies" section above for a description of opting out of cookies and controlling browser settings. If you would like to opt-out of the “sale”/”sharing” of such personal information, targeted advertising, or marketing profiles, you can control such access to your data by clicking the “Do Not Sell or Share My Personal Information”/ “Manage Cookies” link on the bottom of the webpage, or in the Settings menu in your mobile app.
+
+6.3 Unsubscribe from Our Marketing Communications -If you do not want us to use your email account to send you marketing emails or non-transactional promotional materials, please directly click on the unsubscribe link at the bottom of any of our marketing email messages to you or contact us at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html)​. If you previously consented to receive text messages (SMS) and mobile notifications, you can reply “STOP” to any SMS (text) message to cancel or contact us at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html)​. If you wish to stop push notifications or alerts to your mobile device through our app, you can stop these notifications by changing the settings on your mobile device.
+
+6.4 Objection to Processing/Unauthorized Account Creation (Unbind) -If someone has created a SHEIN account using your email address without your authorization, you can "unbind" the account from your email address. To process this request, please submit a request in the Privacy Center under the "Object to Processing" option and enter "unbind" in the "Additional Comments"/”Detailed Description” field.
+
+6.5 Requests from Authorized Agents/Third Parties-For the protection of your account and the security of your data, only you or a person you formally authorize to act on your behalf may make a privacy request related to your personal information. If you use an authorized agent to submit such a request, we will require written proof that the authorized agent has been authorized to act on your behalf, which we obtain in the request verification process. Third parties may submit requests on a data subject's behalf; however, requests will still need to be directed to the data subject themselves for verification and authorization to proceed.
+
+6.6 Right Against Discrimination -You have the right not to be discriminated against for exercising any of the rights described in this section. We will not discriminate against you for exercising any of the rights described herein.
+
+6.7 Account Verification -SHEIN is legally obligated to verify the identity of a requester to ensure that personal information from your account can only be accessed and released to duly authorized parties. To verify your request, we will send a verification email to the e-mail address you provide. Once you click the verification link, we will be able to proceed with processing the request based on the verified email address. However, if your account is associated with an email address other than the one provided for verification, we will be unable to fulfill your request and will require you to resubmit your request using your email address associated with your account. We may not accommodate a data subject request if we believe the change would violate any legal requirement or pose an unacceptable risk to the privacy or security of our customers.
+
+6.8 Lodging Complaints - If you believe we have infringed or violated your privacy rights, please contact us at [email protected] so that we may attempt to resolve any issues to your satisfaction.
+
+6.9 Appeal - If you would like to appeal any decision made by the company relative to your privacy rights, please directly reply to the correspondence received from the company relating to the decision.
+
+6.10 Automated Decision-Making - Some states grant rights to request that businesses not engage in certain types of automated decision making about you. Because SHEIN does not use automated decision making that is subject to this right, we do not accept requests to opt out of automated decision making.
+
+6.11 Self-Service Tools -In addition to the SHEIN Privacy Rights Request Center options described above, SHEIN voluntarily offers a variety of self-service tools, where you can learn more about the data in your record, export your profile information, make corrections, change your password, and request to have your account deleted. Because the self-service tools are accessible through a customer’s “My Profile” feature, they are only accessible to current account holders; all other persons should submit a DSR through the “SHEIN Privacy Rights Request Center” link in the Privacy Center. You can find more information about the self-service tools available to account holders here [Additional Self-Service Tools​].
+
+7. Additional Privacy Matters
+7.1 Third Party Websites - Our Services may contain links to third-party sites. This Policy does not apply to those third-party sites. We recommend that you read the privacy statements of any other sites that you visit as we are not responsible for the privacy practices of those sites.
+
+7.2 Children’s Data - In order to use this site, you must be at least 18 years old. SHEIN doesn’t sell products for purchase by children. We may sell children's products for purchase by adults. If you're under 18, you may use SHEIN only with the involvement of a parent or guardian.
+
+If you are under 18. SHEIN may process some of your personal data:
+
+Product reviews: A parent or other adult who buys an item for you may take a photo of you and post it as part of a review of that product. Parents are advised not to post photos where the child’s face is identifiable.
+
+Children’s Profiles: A parent or other adult may add a profile for you to their own personal profile. This allows them to tell us what kinds of products they like to buy for you. We use this information to recommend other products to them which we think they might like to buy for you.
+
+To create this profile, we need to know the approximate age of the child (i.e., what month and year the child was born in) and whether the child is a girl or a boy. We also ask the parent to affirm that they have the legal authority to post the information being provided. The parent or guardian will also be asked to create a nickname for the profile. To best protect the privacy interests of the child, you should not use the child’s name.
+
+This profile will only be visible to the person who creates it.
+
+If a minor has provided us with personal information without parental or guardian consent, the parent or guardian should contact us immediately to remove the relevant personal information and unsubscribe the minor. As described further in our Terms and Conditions​, please do not upload photographs showing other people, in particular if they are minors.
+
+7.3 Transfers of Your Personal Data Outside the US - This Privacy Policy only applies to residents of the United States. If you are a resident of another country, please see the applicable SHEIN Privacy Policy and Terms of Use that is specific to your jurisdiction, which is generally available on the local version of the App or Site or through the Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html)​. Please note as well that when you use our Services, your personal data may be accessed or transferred outside of the United States, such as when you order products from a seller located China and your Basic Personal Identifiers are sent to them in order to fulfill your order. For some sellers located in the US, they may also maintain business operations outside the US and need to transfer data to other countries in order to fulfill orders. We may also share your personal data with our worldwide affiliates, including those in Canada, Mexico, and the European Union, under the terms of our Global Intra Group Data Transfer Agreement. Such countries may have data protection laws that are less protective than the laws of the jurisdiction in which you reside. For these transfers, we rely on appropriate safeguards as permitted under applicable law and standards. If you do not want your information transferred to, processed, accessed, or maintained outside of the United States, please understand that you may not be able to order products from the Services..
+
+8. Additional State-Specific Privacy Rights and Notices
+In addition to the rights described in “What Are Your Privacy Rights and How to Exercise Them?” above, the following rights and notices apply to residents of the states listed below.
+
+8.1 California - California's Shine The Light law permits customers who are residents of California to request information regarding our disclosure of certain personal information to third parties for their own direct marketing purposes (see California Civil Code section 1798.83 (e)(7) for a list of personal data categories). You can submit a disclosure request using the contact information provided below once a year and free of charge. However, we do not share any personal information protected under the Shine The Light law with third parties, other corporate family entities, or affiliate businesses for their direct marketing purposes.
+
+8.2 Nevada - Although we do not "sell" "covered information" of Nevada "consumers" as those terms are defined by Chapter 603A of the Nevada Revised Statutes, if you are a Nevada consumer, please go to our Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html) and inform us that you would like us to provide you notice in the event we should do so in the future, at which point you will have an opportunity to be verified and exercise your opt-out rights under that law. You may contact us as described below. It is your responsibility to keep your notice contact information current.
+
+8.3 Oregon - Upon reasonable request by email to [email protected] and verification that you are a resident of the State of Oregon, we will provide you with a list of specific “third parties” (as such term is defined per ORS 646A.570(20)), other than natural persons, to whom SHEIN has disclosed personal information relating to Oregon consumers, excluding consumers, controllers, processors, or affiliates of SHEIN or its processors and except where such disclosure would require disclosure of SHEIN’s trade secrets, as defined in ORS 646.461.
+
+9. Contact Us
+If you have questions or concerns regarding any information in this Privacy Policy, please contact us at our dedicated Privacy Center (https://us.shein.com/Privacy-Center-a-1045.html)​or via email to [email protected].
+
+Our Privacy Office can also be contacted via our postal address:
+
+SHEIN Privacy Office
+
+777 S. Alameda St., Suite 400
+
+Los Angeles, CA 90021

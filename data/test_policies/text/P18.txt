@@ -1,0 +1,457 @@
+PELOTON PRIVACY POLICY
+
+Last Updated: October 1, 2025
+
+Welcome to the Peloton Privacy Policy
+
+Welcome to Peloton Interactive, Inc. (together with our affiliates, "Peloton", "we", or "us"). This Privacy Policy is meant to help you understand how we collect, use and share information to operate, improve, develop and help protect our services, or as otherwise outlined in the Policy. This includes how we collect and process your personal information such as when you visit Peloton sites, use any Peloton products or services including Peloton applications (the "Apps") or fitness equipment (such as the Peloton Bike, Bike+, Tread, Tread+, Guide, or Peloton Row), or when you interact with us via our call centers, support service including live chats and e-mail communications, social media channels, experiences and recommendations supported by artificial intelligence (“AI”) , studios or retail shops including our showrooms or concession stores, as well as other online and offline services we provide (together, the "Services''). This Privacy Policy applies to our Services except where otherwise noted (see also U.S. States Privacy Notice).
+
+Why This Matters
+
+Peloton uses technology and design to connect the world through fitness and empowers our members to be the best version of themselves. Our goal with this Privacy Policy is in line with our mission as a Member-first company and is intended to empower our members with the knowledge and understanding of what information Peloton collects, uses and shares transparently.
+
+Please be sure to read this entire Privacy Policy before using or submitting information through the Services. By using or submitting information through the Services, you are acknowledging the collection, transfer, manipulation, processing, storage, disclosure and other uses of your personal information/data as described in this Privacy Policy.
+
+Contents
+
+WHAT PERSONAL INFORMATION WE COLLECT
+WHY WE USE PERSONAL INFORMATION
+WHO WE SHARE YOUR PERSONAL INFORMATION WITH
+COOKIES, ANALYTICS AND SIMILAR TRACKING TECHNOLOGIES
+FITNESS DATA
+INTERNATIONAL DATA TRANSFERS
+YOUR PRIVACY RIGHTS AND PREFERENCES
+DATA RETENTION
+SECURITY OF YOUR INFORMATION
+LEGAL BASIS FOR PROCESSING
+CHILDREN’S PRIVACY
+U.S. STATES PRIVACY NOTICE
+HOW TO CONTACT US
+UPDATES TO OUR PRIVACY POLICY
+
+1. WHAT PERSONAL INFORMATION WE COLLECT
+
+Depending on how you interact with Peloton and our Services, we may collect your personal information. The sources from which we collect this personal information fall into three categories: Information you provide, Information we collect automatically, Information we collect from other sources. See below for more information on the types of personal information in each category.
+
+1.1 Information you provide
+
+When you interact with Peloton you may volunteer personal information, or you may be asked to provide personal information in order for us to provide the Services as described. Examples of interacting with us: accessing our Services, choosing to receive marketing communications, completing and/or using one of our registration forms, reviewing our content, contacting us with inquiries, responding to one of our surveys; and purchasing or using our Services.
+
+Standard Identifying Information. Name, mailing address (including zip/post code), billing address (including zip/post code), email, date of birth and phone number. These may be collected when you register for Services, subscribe to Peloton marketing, communicate with us, or register for a test ride. Please note, if you provide a name in your Profile, it will be Public and Members can search for you by name, unless you have toggled on “Hide me from search” in Preferences. If you add your phone number to your Profile, it can be used to suggest you to Members who have your phone number in their mobile device, unless you have toggled on “Hide me from contacts syncing” in Preferences.
+
+Purchase Information. Details related to Services you order, and delivery information (including billing, shipping and delivery address) that you provide when you purchase any Services. Please note, we do not directly store or capture any credit card information. This information is collected directly by our payment processing partners, but we would like to inform you about its collection since this information is collected through our site and from you, our customer.
+
+Profile Information. Information that you provide in connection with your Peloton Profile, such as username, and any additional information you choose to provide to enhance your use of the Services, including your weight, height, gender, general location, photo, picture, tags, image, avatar and the Standard Identifying Information listed above. Please note the information you provide in the name section of your profile, username, tags, location (if you add it) and profile image (if you add one) will always be Public.
+
+Contact Information. If you choose to sync your Contacts from your mobile device Peloton will access, import and store the name, email and phone number of your Contacts in order to show Contacts which are currently on Peloton, suggest others we think you may know to build the Peloton community, and make it easy for you to invite your Contacts to join Peloton. Learn more about how we collect and use Contact information, and the preference controls available to you in this article.
+
+Geolocation Data. Depending on how you use the Services, your device type, settings and connectivity, and Paired Application(s) settings, we may collect location-based information including your IP address, GPS location, city, county, zip code and region and your smart device’s proximity to “beacons”, Bluetooth networks and/or other proximity systems. Paired Applications are third party applications such as Garmin®, Fitbit®, Apple®, Strava®, Facebook® and Spotify® and similar applications that you connect your Peloton account with.
+
+You will have the ability to opt-in or out of our collection of precise location information using the location and Bluetooth settings on your device, but this may affect your ability to use certain location dependent Services (such as our Outdoor Route Tracking functionality). We will only have your precise location if you choose to allow your mobile device to send us precise location information. Geolocation data from Paired Application(s) can be managed through your settings in the Paired Application(s).
+
+Running Route. We will have this information only if you allow Peloton to track and display your running routes. Please see “Outdoor Route Tracking” below for more information.
+
+Physical Characteristics. Some physical characteristics are collected in connection with our Services; for example, some Services record your physical movement to provide feedback on your exercise form. Physical characteristics are not used to identify you. Depending on the privacy regulations in your jurisdiction, some of these physical characteristics may fall under the definition of biometric information (see Biometric Privacy Policy).
+
+Your Image or Likeness. Your visual image or likeness (e.g., photographs, video and/or CCTV) if you visit our studios and/or showrooms or participate in live studio classes. Additionally, Peloton fitness equipment and Apps may contain a camera, microphone and Voice Control features. These features are not used for identification purposes. These features are in use only when activated by you, for example, to use the Peloton Guide and the Cross-Training Series, to take a Peloton user profile photo, for usage of the Apps, in accordance with your settings on your device.
+
+Voice. We may use a person’s voice to activate the Services and follow workout commands where Voice Control is available. If a person opts in, voice data may be used to improve our abilities to understand voice commands in general when you are using the Peloton Guide and the Cross Training Series. This data is not used for identification purposes nor is it stored by Peloton.
+
+Workout Characteristics. Information you provide in order to track your performance and chart your progress while using our Services, e.g. gender, height, weight, heart rate (if a provided by a Paired Application or a compatible heart rate monitor is connected), workout repetitions, exercises, weights and equipment used.
+
+User Generated Content. Any content or material you publish or post such as posts, messages, images, audio, hashtags/tags, photos or videos on our Services for example, in Teams’ feeds or on the Leaderboard, as described in the sections relating to User Generated Content in our Terms and our Community Guidelines.
+
+Paired Applications: Third Party Apps and Accounts that you Link to your Peloton account and Other Applications. We enable you to connect your Peloton account with third parties (i.e. devices, apps, APIs, or websites that integrate with the Services). Where you choose to connect another company's device or account to your Peloton account, or engage in Services that feature a partnership with a third party, we may, with your consent, collect information from your use of the connected device(s) to facilitate interaction with our Services. Activity trackers are an example of a connected device, and music streaming is an example of a connected account. Information collected by these third parties is subject to their terms and policies and governed by your privacy choices recorded with these third parties.
+
+Feedback and Support Communications. Any details of your communications/interactions with us, including when you call, email, live chatbot, video call or text with our support teams or communicate with us via social media channels or community forums. We may record, on our own and/or with the assistance of a Service Provider, support calls for training, analytics and monitoring purposes and to help resolve issues. We will tell you before recording and, where required by applicable laws, obtain your consent for the collection of these recordings. Our live chat Service Provider records information you submit in the chatbot, as well as any dialogue with member support, and may also use chat data to improve chat services for us. We collect, retain, and use Feedback and Support Communications based upon our business need to receive and act upon your feedback or issues, and for training purposes.
+
+Quizzes, Testing, Surveys and Review Information. Any information you voluntarily provide to us or our Service Providers (or otherwise publish) in connection with setting fitness goals, testing a new Service, survey you complete or review / testimonial you provide about Peloton goods and/or Services. We may collect this information to understand your opinions, better market our services, collect relevant information about our business, and develop new Services.
+
+Promotions, Sweepstakes and Competition Information. Any information that you provide in connection with any promotions, sweepstakes and/or competitions we run, including for example, responses to competition questions.
+
+Job Applicant Information. Please review the privacy-related information attached to the postings on careers.onepeloton.com.
+
+Sensitive Personal Information. We process Sensitive Personal Information for the purposes of providing Services, carrying out our legal obligations or exercising specific rights as permitted by law. The definition of Sensitive Personal Information depends on jurisdiction and where you are located, but health information, biometric data, precise geolocation data, information relating to race, sexuality, and religion are examples of what may be considered sensitive in some locations. Please also review the YOUR PRIVACY RIGHTS AND PREFERENCES section below.
+
+By choosing to use our Services, you acknowledge that you will not disclose Sensitive Personal Information to us through, or in connection, with our Services unless we have explicitly requested such disclosure from you.
+
+Other Information. Any other information that you may provide to us in connection with your use of our Services and / or other contact that you have with Peloton.
+
+1.2 Information that we collect automatically
+
+Contact Information. If you choose to sync your Contacts via your mobile device, as described above, we will continue to automatically sync them on a periodic basis until you turn off “Contacts syncing” in the Privacy section of Preferences on your mobile device, which will stop synching and delete your Contacts information from our system.
+
+Information generated through use of the Services. This includes activities such as classes registered for and participated in, Peloton members you are following and who are following you, hashtags that you are following, Teams and Challenges in which you participate, workouts you stream, details of workout performances such as leaderboard rank, total workout output in classes or our gaming inspired experiences workout speed, distance, calories burned, Power Zone training and information, including results of your FTP fitness test, accuracy of metrics/pace compliance, including Form Assist, class level and difficulty, in-studio attendance history, exercise form, rep counting and, if you have chosen to connect a heart rate monitor to your Peloton account or a Paired Application, your workout heart rate.
+
+Fitness Data. Information relating to your fitness performance and/or workouts, for more information see the FITNESS DATA section below. We do not collect health or medical information, however, some privacy-related regulation may classify some of our data collection and our workouts or accessibility offerings as health-related information. Some examples: heart rate, if you connect a monitor, pregnancy-related workouts, some meditation workouts, workouts related to your mood. Please note that the workouts you stream will be seen if your profile is public, and seen by any follower you allow to view your workout activity.
+
+Inferences based on activity. We collect data related to your activity and interactions with our Services, including responses to Quizzes, and make Inferences based on the data, to personalize and enhance your experience, e.g. suggesting workouts or classes you may enjoy and communications which may be of interest.
+
+Information from your device.
+
+Device Data. Information from and about the device you use when you use our Services, including IP address, unique digital identifiers (e.g. browser/mobile type), mobile carrier, time zone, state, language, operating system, and precise location if you have chosen to share it (see “Geolocation Data” above).
+
+Usage Data. We may also collect information about how your device interacts with our Services, such as the content you access and view, your streaming history, pages and sites visited before and after you reach the Services, the date and time of your use, the amount of time spent on the Services, and other actions taken through use of the Services such as preferences. We use data analytics with this Usage Data to better understand your use of the Services in order to improve the Services offered. For more information see COOKIES, ANALYTICS AND SIMILAR TRACKING TECHNOLOGY below.
+
+Internet or Other Network Activity. Information including browsing or search history, including interactions with our websites, including search, mobile applications, marketing and advertising. For more information see the COOKIES, ANALYTICS AND SIMILAR TRACKING TECHNOLOGY section below.
+
+Our retail locations, studios and/or offices may offer you access to wireless internet (WiFi). If you choose to access our WiFi, we may collect:
+MAC address of the access device used;
+IP address of the device used to connect to WiFi;
+Technical characteristics of connection setup/termination;
+Name of the area assigned to the input access point used; and
+Hardware type of the access device.
+
+Location Information. We may collect location-based information including your IP address, GPS location, city, county, zip/post code and region and your smart device’s proximity to “beacons”, Bluetooth networks and/or other proximity systems. You will have the ability to opt-in or out of our collection of location information by selecting the location and Bluetooth settings in your device, but this may affect your ability to use certain location dependent Services (such as Outdoor Route Tracking). Some of this information may be collected using cookies, analytics tools and similar technologies as described below.
+
+1.3 Information we collect from other sources
+
+To provide the Services, we collect information from various sources.
+
+Other Applications. If you access our Services through a third party application, such as the Apple App Store or Google Play App Store (together with any similar applications, "App Stores"), we may collect information about you from that third-party application that you have made public via your privacy settings of the Other Application(s). This may include: your name, your user ID, your App Store user name, location, sex, birth date, email, profile picture and your contacts on the Other Application(s).
+
+Paired Applications: Third Party Apps and Accounts you Link to your Peloton account. As part of the functionality of our Services, we enable you to connect your Peloton account with Paired Applications such as Garmin®, Fitbit®, Apple®, Strava®, Facebook® and Spotify® and similar applications. If you choose to connect your Peloton account, we may collect certain personal information from the Paired Application depending on what information you choose to share with Peloton or have otherwise configured in your device settings and in the Paired Application. This may include: information generated through your use of the Paired Application (i.e. workout information, heart rate), your name, your user ID, location, sex, birth date, email, profile picture and your contacts on the Paired Application(s).
+
+Security and Safety Partners. We may collect certain information from third parties in order to protect and verify your information, provide our Services, and ensure your safety and the security of your account. This may include: device IP, general location, and other identifiers.
+
+Other Sources. We may receive information about you from other sources to supplement information provided by you. The supplemental information allows us to enhance our ability to provide Services, provide information about our Services, and send marketing communications you have chosen to receive. This may include: information about how you interact with our Services, such as through activity trackers, third party information to supplement our research and marketing efforts, and credit-related information if you choose to participate in our Rental program.
+
+This information may be collected from:
+Marketing campaigns, including joint marketing campaigns with selected partners, and partners that offer co-branded services, sell or distribute our Services;
+Data resellers;
+Publicly available sources;
+Partners collecting information about your use of other devices you choose to link and interact with our Services, such as third party activity trackers; and
+Financial resources such as credit bureaus and certain generalized credit ratings, with your consent, in order to provide rental or other Services to you.
+
+Please see “Credit Referencing/Reporting Agencies” and YOUR PRIVACY RIGHTS AND PREFERENCES below for more information.
+
+2. WHY WE USE PERSONAL INFORMATION
+
+This list summarizes why we use your personal information and the legal bases upon which we rely for using the data. We provide more information about each bullet point below the list.
+
+To provide you with the Services
+To build community
+To protect vital interests of your or other persons
+To communicate with you
+To send you marketing and/or promotions
+For analytics, research and product and Service improvement purposes
+For quality assurance, security monitoring and training purposes
+For personalization and advertising
+For personalization and analytics
+To ensure the security and integrity of our Services
+To comply with any applicable law and/or regulations
+For safeguarding and defending our legitimate interests, exercising any rights, asserting any claims, and any other lawful business purpose
+
+To provide you with the Services. Peloton uses information to operate, improve, maintain and personalize our Services. We use data to:
+Verify your identity, set up and maintain your account;
+Process payments, enter into rental agreements and fulfill orders for Services;
+Provide access to classes, workout tracking performance and statistics;
+Communicate, visualize and track your workouts, performance and metrics to help you meet your goals;
+Create community for Peloton Members; and
+Maintain our Services and operations.
+
+To provide you with the Services, we use the following information: Standard Identifying Information, Purchase Information, Profile Information, Contact Information, Geolocation Data, Running Route, Physical Characteristics, User Generated Content, Connected Devices/Accounts, Feedback and Support Communications, Quizzes, Testing, Surveys and Review Information, Promotions, Sweepstakes and Competition Information, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: To perform our contract with you.
+
+To build community. Information is vital to making Peloton a robust community. For example we use information provided by Members to:
+Make it easy for Members to connect with people they know and to invite others to the Peloton community;
+Help Members create teams of people they want to work out with;
+Allow members to socialize with other Members; and
+Ensure our Community Guidelines are respected.
+
+To build community, we use the following information: Standard Identifying Information, Profile Information, Contact Information, User Generated Content, Feedback and Support Communications, Quizzes, Testing, Location Information, Surveys and Review Information, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: To perform our contract with you. Consent, where required for the specific context.
+
+To communicate with you. Supporting and communicating with you when you require it, including for:
+Administrative matters (such as account management, updates to terms, or system maintenance);
+Providing with information about our Services (such as product delivery and logistics, servicing and technical support); and
+Responding to questions, comments or requests you have about our Services.
+
+To communicate with you, we use the following information: Standard Identifying Information, Location Information, Purchase Information, Feedback and Support Communications, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: To perform our contract with you. Legitimate business interest, namely it is in our interests and your interests to ensure we have an accurate record of all of our End Users so that we can communicate with them.
+
+To send you marketing and/or promotions. Peloton uses data, including Usage Data, to market its Services, which may include:
+Contacting you by phone, email, postal mail, push notifications, in-App messages or SMS with information about news, offers, products, promotions, events, contests and/or Services that might be personalized and/or of interest to you, as permitted by applicable law. Please see the YOUR PRIVACY RIGHTS AND PREFERENCES section below for how to unsubscribe from marketing.
+
+To send you marketing and/or promotions, we use the following information: Standard Identifying Information, Purchase Information, Profile Information, User Generated Content, Quizzes, Testing, Surveys and Review Information, Promotions, Sweepstakes and Competition Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Legitimate business interest, namely it is in our interests and your interests to manage and maintain the provision of the Services to you. Consent (where required by law).
+
+For analytics, research, and product and Service improvement. Peloton works everyday to improve your experience by using data to:
+Monitor and measure your use of the Services;
+Conduct research/surveys to understand how the Services are used to determine how they can be improved;
+In some cases, results from research may be deidentified, compiled and analyzed on an aggregate basis; we may share this data with our affiliates, agents, service providers and other third parties with whom we do business. This includes, but is not limited to for example usage, performance, product, and music. This aggregate information does not identify you personally and we do not to attempt to reidentify the information.
+Perform financial analysis and analytics to understand billing, pricing and other financial matters that can be improved.
+
+For analytics, research, and product and Service improvement, we use the following information: Standard Identifying Information, Purchase Information, Profile Information, Contact Information, Geolocation Data, Running Route, Physical Characteristics, User Generated Content, Connected Devices/Accounts, Feedback and Support Communications, Quizzes, Testing, Surveys and Review Information, Promotions, Sweepstakes and Competition Information, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Legitimate business interest, namely it is in our interests and your interests to manage and maintain our provision of the Services to you.
+
+For quality assurance, security monitoring, and training purposes. Peloton puts members first and we use data to further that value by:
+Monitoring communications and interactions with you to ensure the quality of our support services, appropriate training of our people and to resolve your complaints. We will provide notice and consent options for monitoring of communications as required by applicable law.
+
+For quality assurance, security monitoring and training purposes, we use the following information: Feedback and Support Communications and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Legitimate business interests, namely to ensure that your access to the Services is continuous and satisfactory. Consent (where required by applicable law).
+
+For personalization and advertising. Peloton uses data for personalization and advertising that may include:
+Providing you with a personalized and tailored Service, to serve you with Peloton advertising on third party properties;
+Using cookies and other tracking technologies, including SDKs and other mobile analytics to inform targeted advertising and serve you with relevant advertising and content about, or on, our Services;
+Managing our use of tracking technologies such as cookies to improve our Site, and to develop new products and services. This includes website analytics and identifying browsing/purchasing trends and patterns;
+Using analytics services, to help us understand how users access and use our services. In addition, we work with agencies, advertisers, ad networks, and other technology services to place ads about our products and services on other websites and services. Understanding and assessing the effectiveness of our ads displayed and email campaigns;
+
+Contracting with third-party agencies, advertising companies, ad networks, social media companies and other technology services to place ads about our products and services on other websites and services. For example, we may place ads through Google and Facebook that you may view on their platforms as well as on other websites and services. These third parties may use cookies and similar technologies to track your activity, the information collected by these third parties in this manner is subject to that third party’s own privacy policies; and
+Using aggregated information from third parties for creating similar audiences in order to better target advertisements on their networks to potential consumers who appear to have shared characteristics.
+
+For more information, see our Cookies Policy and the YOUR PRIVACY RIGHTS AND PREFERENCES section below.
+
+For personalization and advertising, we use the following information: Standard Identifying Information, Profile Information, Promotions, Sweepstakes and Competition Information, Information generated through use of the Services, Inferences based on activity, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Consent, where required under applicable law for the specific context. Legitimate business interest, namely it is in our interests and your interests to increase the relevance of the content that you see when using our Services and when we communicate with you.
+
+For personalization and analytics
+
+To provide recommendations to you based on our Inferences based on your activity about your preferences and practices, for example recommendations about certain muscle group exercises based on your previous exercises, or classes you may enjoy.
+To improve our Services and product offerings;
+To understand how you interact with our websites, products, Apps, advertisements, and communications with you;
+To determine which of our products or Services are the most popular;
+To improve our products and Services, and marketing campaigns;
+To personalize your experience; to understand how you use our products and Services;
+To create a more personalized experience;
+To provide Services;
+To better understand our Member needs and provide efficient Member Support;
+To provide personalized recommendations about our products and Services; and
+To help us understand how users access and use our Services and to safeguard your experience.
+
+Some of these Inferences based on activity and recommendations utilize internal machine learning models and may be supported by AI Service Providers. We use this data to build, train, analyze and improve the accuracy of our models. We manually review the recommendations and Inferences based on activity produced by the models against the underlying data from which the recommendations and/or personalizations were made.
+
+Much of our AI use happens behind the scenes to enhance your experience and secure our Services. For example, we use data to build, train, analyze and improve the accuracy of our Services, improve our products and increase operational efficiency. While we may use third-party AI Service Providers, any personal data processed by these technologies is strictly for the enhancement of our Services. The data we share with third-party AI Service Providers is deidentified before it's shared and is not linked to you. Crucially, this data is not used by or shared with these third-party AI Service Providers to train their general AI models, for their own independent personalization purposes, or to improve products not associated with Peloton. We have strict contracts with these Service Providers to ensure your data is protected. They are required to follow all global data protection laws, our specific instructions, and our privacy policies.
+
+We also use AI to help make our Services more reliable, accurate, and better overall for things like security monitoring, content generation and workout recommendations , Member support, and quality assurance. In some instances, we may develop AI powered features within our Products where you interact directly with AI which leverages your fitness and health goals in order to recommend plans and provide tips for improving performance (e.g. Peloton IQ).
+
+You always have control and can opt out by toggling off “Personalized Experiences” in the Privacy section of Preferences in your Profile. See our complete approach to using AI and our commitment to responsible AI practices here.
+
+See also our Cookies Policy and the YOUR PRIVACY RIGHTS AND PREFERENCES section below for more details on how you can control personalization.
+
+For personalization and analytics, we use the following information: Standard Identifying Information, Profile Information, Contact Information, Geolocation Data, Physical Characteristics, Connected Devices/Accounts, Feedback and Support Communications, Quizzes, Testing, Surveys and Review Information, Sensitive Personal Information, Information generated through use of the Services, workout activity, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Consent, where required under applicable law for the specific context. Legitimate business interest, namely it is in our interests to improve and develop our offering (including by improving our machine learning models) by considering your usage and developing our Services where we deem necessary.
+
+To ensure the security and integrity of our Services. Providing a safe and secure environment is key to providing a responsible platform and we do this by using data to:
+Detect and combat any abuse or any harmful activity, fraud, spam, and illegal activity affecting our Services such as using personal identifiers, user profile, data usage, images, text and other types of data to detect fraud, authentication or other harmful activity;
+Monitor CCTV images, the prevention & detection of crime and for the health and safety of individuals on Peloton premises; and
+Undertake checks with fraud prevention agencies and/or credit referencing/reporting agencies for the purposes of preventing fraud and to verify your identity. We are required to process personal data about you to do these checks. The personal data collected, you have either provided or we have received from third parties.
+
+To ensure the security and integrity of our Services, we use the following information: Standard Identifying Information, Purchase Information, Profile Information, User Generated Content, Connected Devices/Accounts, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: To comply with legal obligations. Legitimate business interest, namely it is in our interests to ensure the security and integrity of our Services, provide uninterrupted Services secure from cyber-attacks, and it is in our interests to detect, prevent and address fraud, security and technical issues to ensure that we are in compliance with applicable laws and regulations.
+
+To comply with any applicable law and/or regulations, legal proceedings. We use data to investigate disputes or claims related to our Services. In certain circumstances, we may be obligated to use your information to respond to legal, government or regulatory requests. We may use the IP address associated with your log in to the Services to determine your general location in order to comply with global privacy regulations and serve you necessary notifications and/or consent mechanisms.
+
+To comply with any applicable law and/or regulations, legal proceedings, we use the following information: Standard Identifying Information, Purchase Information, Profile Information, Contact Information, Geolocation Data, Running Route, Physical Characteristics, User Generated Content, Connected Devices/Accounts, Feedback and Support Communications, Quizzes, Testing, Surveys and Review Information, Promotions, Sweepstakes and Competition Information, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: To comply with legal obligations. Our legitimate business interest.
+
+For safeguarding and defending our legitimate interests, exercising any rights, asserting any claims and any other lawful business purpose. This includes any incidental business purpose related to or in connection with any of the above, or for any other purpose disclosed to you at the point at which we collect your personal information.
+
+For safeguarding and defending our legitimate interests, exercising any rights, asserting any claims and any other lawful business purposes. we use the following information: Standard Identifying Information, Purchase Information, Profile Information, Contact Information, Geolocation Data, Running Route, Physical Characteristics, User Generated Content, Connected Devices/Accounts, Feedback and Support Communications, Quizzes, Testing, Surveys and Review Information, Promotions, Sweepstakes and Competition Information, Sensitive Personal Information, Information generated through use of the Services, Inferences based on activity, Location Information, Information from other Sources and Other information. Please see the WHAT PERSONAL INFORMATION WE COLLECT section for more details.
+
+LEGAL BASIS: Legitimate business interest.
+
+3. WHO WE SHARE YOUR PERSONAL INFORMATION WITH
+
+We may disclose your personal information to the following categories of recipients:
+
+Group Companies. We may share your personal information with other Peloton related companies and our group for purposes consistent with this Privacy Policy. Peloton has in place an intra-group data transfer agreement which covers the transfer of personal data on an intra-group basis in accordance with European Union, UK and Australian data protection laws.
+
+Service Providers and Partners. We may share your personal information with our third party service providers (such as those who provide chat features and/or search engines, member support agents and technology, wifi, IT, AI, analytics, payment processing, credit bureaus and sales, cloud storage providers, technical support or delivery, email services and analytics, assistance with the functionality of video and streaming technology, support our efforts to ensure our Community Guidelines are respected), third party partners who otherwise process personal information for purposes that are described in this Privacy Policy (such as advertising and marketing partners, research partners, consultants) or who are otherwise disclosed to you when we collect your personal information (such as financing partners if you select this option during the checkout process). We may provide information about your viewing, streaming and chat behavior to Service Providers and Partners. We may also disclose aggregated and/or anonymous information to Service Providers and Partners. Amongst other reasons, this information may be disclosed for analytics purposes and to provide you with a personalized experience.
+
+Credit Referencing/Reporting Agencies (UK Only). If you apply for certain products or services we offer such as Peloton Rental, we supply your personal information to credit reference agencies (CRAs) in order for them to provide information about you, such as about your financial situation and financial history. We do this to assess affordability, creditworthiness and product suitability, check your identity, manage your account, trace and recover debts and prevent fraud and criminal activity. We will continue to exchange information about you with CRAs while you have a relationship with us, including about your settled accounts and any debts not fully repaid on time. Where you are a Member with a rental agreement in place with us we may also make further periodic checks with CRAs to manage your account. CRAs will share your information with other organizations. Your data will also be linked to the data of your spouse, any joint applicants or other financial associates. The CRAs will have to place a search footprint on your credit file when we make a search and this may be seen by lenders. We rely on the legal basis that it is your consent to do this when you apply through the Peloton Rental program. We process your personal data on the basis that we have a legitimate interest in preventing fraud and to verify identity, in order to protect our business and to comply with laws. The identities of the CRAs, and the ways in which they use and share personal information, are explained in more detail within the links detailed below:
+
+For the United Kingdom (all links take you to the same document):
+
+Trans Union (formally Call Credit): www.transunion.co.uk/crain
+
+Equifax: www.equifax.co.uk/crain
+
+Experian: www.experian.co.uk/crain
+
+Paired Applications: Third Party Apps and Accounts you link to your Peloton account. As part of the functionality of our Services, we enable you to connect your Peloton account with third party applications such as Garmin®, Fitbit®, Apple®, Strava®, Facebook® and Spotify® and similar applications (“Paired Application”). If you choose to connect your Peloton account, we may share certain personal information with the Paired Application depending on your device and Paired Application settings . This may include information generated through your use of the Services (i.e. workout information) and other contact and profile information. We may also share certain information with other Peloton members who have accounts with the same Paired Application. For example, if you connect your Peloton account to Facebook, your mutual Facebook friends may be alerted through our Services that you are also a Peloton member. We may also track certain things you “like” on Peloton in order to help you get the most out of your Peloton experience. For example when you “like” a song while you are in a class, it will be added to your Peloton Playlist if you have a Paired Application that streams music.
+
+The processing of your personal information by Paired Applications is governed by the privacy policies of those Paired Applications.
+
+Third Party Entertainment Partners you Access Via Peloton. As part of the functionality of our Services, we enable you to connect to third party streaming partners such as Netflix®, Kindle®, Disney+® and similar third parties (“Entertainment Partners”). If you choose to access your account with the Entertainment Partners via our Services, the Entertainment Partner will receive technical data they require in order for you to stream their content. You can control your sharing with Entertainment Partners at any time in the “Entertainment Data Collection and Sharing” section of the Privacy tab in Settings.
+
+The processing of your personal information by Entertainment Partners is governed by how you configure your privacy settings with the Entertainment Partners, as well as the terms of service and privacy policies of those Entertainment Partners. These third parties may use this information for their own purposes by connecting information about your use of our Services with any of your personal information that they may have.
+
+Advertising Affiliates/Networks. These advertising partners may receive information related to you based on your use of our Services in order to provide us with analytics to help us measure the effectiveness of our content and advertisements on these networks (e.g., impressions and clicks) and to allow us to suppress you from campaigns that are not relevant.
+
+Targeted Advertising: We may use your information for targeted advertising if:
+Your cookie preferences (captured through our cookie management provider via the Cookies Settings link in our website) allow us to.
+You've opted in to receive marketing communications from us.
+
+You can opt out of targeted advertising at any time. To do so, simply click the "Do Not Sell/Share My Personal Information" link located in the footer of our website or see the YOUR PRIVACY RIGHTS AND PREFERENCES section.
+
+Other Users of our Services. Depending on your Profile settings and how you interact with our Services, some of your personal information may be available for other Peloton Members to see. Profiles are set to Public by default and Members can search for other Members by username and name (if you include name in your Profile). Some fields in your Peloton profile -- name, gender, location, height, and weight -- are optional. Any information you provide in the First Name and/or Last Name fields, will always be Public and searchable by other Members to find you. Anything you put in the location field is also always Public.
+
+Photos uploaded to appear in a profile picture will show regardless of your profile status. In other words, if you have a Private profile people will be able to see the content of your profile picture in various places, but not other account details. For example, your profile picture will appear on the leaderboard, “count me in” section if you schedule a live class, and other areas.
+
+Profile Visibility and Settings:
+
+NOTE: Regardless of profile settings, the following are always Public: Name, username/leaderboard name, profile picture/avatar, location (e.g. city, state), tags and badges, and metrics associated with your workout, e.g. output and calories will be visible on the Leaderboard during class and classes on demand.
+
+Public Profile: If your profile is not set to Private, other registered Peloton users will be able to view the information associated with your User Profile, including your workout streaming history, activity feed Profile picture, tags and Outdoor Route Tracking (if you choose to share it).
+Private Profile: If your profile is Private, the image you choose for your profile picture will be visible to all users, but only Members you approve can see your non-Public profile details and fitness performance history. Followers you approve are able to see your workout streaming history. Please note, if you change your profile from Private to Public, all of your historical workout streaming activity will become visible.
+What’s visible if you have a Private Profile and join a Team:
+If you join a Team, in addition to your Profile information, teammates that are not approved followers will see some of your aggregate workout information, such as time spent working out, total active days, total number of workouts taken. Other information like distance and fitness discipline, can be seen if you join a team challenge.
+
+Members you’ve blocked are able to join a team you are in, but your profile, performance on weekly stats and challenges will not be visible to them. Note: Team Admins can see profile details of, and remove, Members who’ve blocked them.
+Other Profile Settings:
+Hide me from search: This preference controls whether or not a Member may search for you by name or username. When turned on, you will not be searchable.
+Hide me from contacts syncing: This preference controls whether or not Peloton will suggest you to Members who have any of your Contact information (name, email and/or phone number) in their mobile device. When turned on you will not be shown to other Members when they sync their mobile device Contacts.
+Hide my Club Peloton Level: If turned on, your level won't be visible to others. Only you will see it on your profile.
+
+Outdoor Route Tracking: You have the ability to allow Peloton to track and display your running routes. Your running routes are set to private by default, which means that only you can see them in your workout history. For more information, review the Private Running Routes section in our Privacy Settings article for information about how to change this preference and this GPS article on your mobile device settings.
+
+Click here for information about how to manage your profile settings, and see here for additional information on how to manage your privacy settings.
+
+People who access a Peloton History Summary. Peloton’s History Summary may also be shared with individuals who look up a bike serial number. No personal information tied to a Members name, address or other identifying features are provided in the Peloton History Summary. The Peloton History Summary is intended to be used as a reference guide only. Information provided in the report includes information such as model of bike, activation dates, approximate number of rides, hours ridden and certain service history.
+
+Competent Law Enforcement Bodies, Regulators, Government Agencies, Courts or other Third Parties. We may share your personal information, including CCTV images, with competent law enforcement bodies, regulators, our insurers, external legal advisors, government agencies, courts or other third parties where we believe disclosure is necessary: (i) to comply with applicable law; (ii) to exercise, establish or defend our legal rights (including to collect amounts owed to Peloton); (iii) to protect your rights or vital interests or those or any other person; or (iv) to detect, prevent or otherwise address security, fraud or technical issues.
+
+Parties to a corporate transaction (and their agents and advisors). We may share your personal information with parties to a corporate transaction, including actual or potential buyers (and their agents and advisors), in connection with any actual or proposed purchase, merger, acquisition, financing, reorganization, bankruptcy, receivership, sale of company assets or transition of service to another provider, provided that we inform the buyer or transferee that it must use your personal information only for the purposes disclosed in this Privacy Policy.
+
+4. COOKIES, ANALYTICS AND SIMILAR TRACKING TECHNOLOGIES
+
+We use cookies and similar tracking technologies such as pixels, tags/web beacons, scripts, and social media widgets (collectively "Cookies") to collect and use personal information about you from your browser, device and our correspondence (e.g. emails), including for analytics purposes and to serve you interest-based advertising. For example, cookies are used to help us understand how you browse our content and help keep track of items you put into your shopping cart including when you have abandoned your cart and this information is used to determine when to send cart reminder messages via SMS (see also “SMS Messaging” below). For further information about the types of Cookies we use, why, and how you can control Cookies, please see our Cookies Policy.
+
+We may also use device identifiers, web storage, third-party-provided analytics services, such as session replay services, and other similar technologies and services, to collect information about your interactions with our content and Services. Session replay services consist of an analytics application that allows us to capture and analyze your interaction with our Services to better identify and repair any technical errors and optimize our Services. Such technologies and third-party-provided services may observe or record your activities when using our Services, including streaming history and behavior, Peloton email interactions and behavior, certain movements, scrolling, visit duration, clicks, and other interactions. Please also note that you may opt out and we honor certain technologies broadcasting an Opt-Out Preference Signal, such as the Global Privacy Control (GPC). This occurs on the browsers and/or browser extensions that support such a signal. This request will be linked to your browser identifier only.
+
+You can control sharing of data by the App, including location technology information,by uninstalling the App or withdrawing your consent through your device settings. Please visit Preferences under your Profile to control sharing of your location. You can also reset your device Ad Id at any time through your device operations systems settings.
+
+5. FITNESS DATA
+
+"Fitness Data" means any information relating to your fitness performance and/or workouts, including things like, Power Zone information, strive score, calories burned, distance covered, length of workout, and heart rate if you consent to connecting a heart monitor. Fitness data also includes data that you give us permission to receive (“Read”) from and send to (“Write”) Paired Applications. We do not use or process your Fitness Data for identification purposes.
+
+Why do we process your information?
+
+Analyze your performance: As part of our core offering, we use Fitness Data to compare your past and current performance and to provide you with analytics about your progress over time.
+Provide you with insights and recommendations.
+
+Peloton will not disclose, redisclose, or otherwise disseminate Fitness Data unless:
+Authorized by you or your authorized representative; if you connect your Peloton account to a Paired Application you are authorizing Peloton to use the data from the Paired Application the same way we use Peloton data;
+Required pursuant to a valid warrant or subpoena issued by a court of competent jurisdiction; or
+As required under applicable law, necessary for the establishment, exercise or defense of legal claims of wherever courts are acting in their judicial capacity.
+
+6. INTERNATIONAL DATA TRANSFERS
+
+Your personal information may be transferred to, processed and stored in countries other than the country in which you are resident, including the United States, Australia, Canada, the European Union and the UK. The recipients of such information may be located in any country where Peloton has a place of business and additional territories where our suppliers and partners may transfer data, details of which can be provided upon request.
+
+We take appropriate safeguards to protect your personal information in accordance with this Privacy Policy specifically in relation to any international transfer. This includes implementing an intra-group data sharing agreement that includes safeguards and protections for any use of your personal information by our group entities and incorporates the European Commission's Standard Contractual Clauses, which require all group companies to protect relevant information in accordance with European Union and UK data protection laws.
+
+We have implemented similar appropriate safeguards and comply with applicable legal requirements when transferring Personal Information to countries such as utilizing Binding Corporate Rules, Standard Contractual Clauses, and other data transfer mechanisms and/or rely on the European Commission adequacy decisions for certain countries outside of the European Economic Area should it be applicable with our third party service providers and partners. Further details can be provided upon request.
+
+7. YOUR PRIVACY RIGHTS AND PREFERENCES
+
+At Peloton, we put Members first and respect your ability to exercise your privacy rights and choices. Where possible, we give you control over the personal data we collect about you, to ensure it is accurate and reflects your preferences. Depending on the country or U.S. state in which you are located, we respect your ability to know, access, correct, transfer, restrict the processing of, and delete your personal data. Please note that those rights do not always apply and there are certain exceptions to them.
+
+Please also be advised that we continue to maintain some of your personal data where permitted by law, and that such information may not be deleted from Peloton systems when we fulfill deletion requests. Some examples of where we may retain your personal information:
+Complete the transaction for which the personal information was collected, fulfill the terms of a written warranty or product recall conducted in accordance with laws, provide a good or service that you have requested, or reasonably anticipated within the context of our ongoing business relationship, or otherwise perform a contract between you and Peloton;
+Detect security incidents, protect against malicious, deceptive, fraudulent, or illegal activity; or prosecute those responsible for that activity;
+Debug to identify and repair errors that impair existing intended functionality; and/or
+Comply with a legal obligation, existing warrant, litigation hold.
+
+We will also confirm your identity before acting on your requests. We may not be able to respond to your request or provide you with personal data if we cannot verify your identity, or the authority to make the request on someone else’s behalf.
+
+Please note that if you Delete your account associated with any of our Services this will result in the deletion of all Peloton accounts associated with the same email and all associated information, including workouts, achievements and Club Peloton information.
+
+7.1 Consent
+
+If we collect and process your personal information with your consent then you can withdraw your consent at any time in the Preferences section under your Profile or by contacting us using the details provided under HOW TO CONTACT US below. Please note, such withdrawal will not affect the lawfulness of the processing prior to your withdrawal.
+
+7.2 Direct Marketing, Advertising & Digital Media
+
+We may send marketing communications for purposes disclosed to you (including the reasons described above in WHY WE USE PERSONAL INFORMATION) and, where required by applicable law, with your consent. You can unsubscribe from direct marketing at any time by following the instructions below or by contacting us using the details provided in the HOW TO CONTACT US section. We will process your request within a reasonable time after receipt, in accordance with applicable laws. Unsubscribe options are provided in electronic marketing communications as required by applicable law.
+
+Email. You can unsubscribe from email communications at any time. To stop receiving our promotional emails, follow the unsubscribe instructions in the email messages you receive from us or submit an “Object to Marketing” request via our Privacy Request Form. For other options, review the HOW TO CONTACT US section below. We will process your request as soon as practicable after receipt, in accordance with applicable laws. Note that you will continue to receive transaction-related emails regarding products or services you have requested. We may also send you certain non-promotional communications regarding Peloton and our Services and, to the extent permitted by law, you will not be able to opt-out of those communications (e.g., communications regarding updates to our Terms or this Privacy Policy).
+
+SMS Messaging.
+
+Account Related Texts. By providing your phone number you may receive text messages from Peloton. “Peloton Account” text messages are non-promotional messages from Peloton alerting you to important information, like the details of your delivery, failed subscription payments and other alerts related to your Peloton subscription or purchases. To opt-out of receiving “Peloton Account” text messages, text STOP to the number from which you received the message (73586 in the US). We will send you one final message to confirm that you have been unsubscribed, and will process your request within a reasonable time after receipt, in accordance with applicable laws. If you experience any issues with text messages from Peloton, text HELP to the relevant number referenced above or contact our member support by telephone, US & CA: 1.866.679.9129 or visit onepeloton.com and use our live chat feature. Carriers are not liable for delayed or undelivered messages. Message frequency varies. Message and data rates may apply.
+
+Marketing Related Texts. If you opt in to marketing text messages, you will receive text messages from Peloton Marketing. Marketing text messages are recurring automated promotional and personalized marketing text messages (e.g. welcome messages, abandoned cart/cart reminders) from Peloton at the cell number used when signing up. Consent is not a condition of any purchase. To opt-out of receiving “Peloton” text messages, text STOP to the number from which you received the message (75865 in the US). We will send you one final message to confirm that you have been unsubscribed, and will process your request within a reasonable time after receipt, in accordance with applicable laws. If you experience any issues with text messages from Peloton, text HELP to the relevant number referenced above or contact our member support by telephone, US: 1.866.679.9129 UK: +44 808 169 6469, or visit onepeloton.com and use our live chat feature . Carriers are not liable for delayed or undelivered messages. Message frequency varies. Message and data rates may apply.
+
+Data related to your opt-in and consent to SMS messaging is only shared with our messaging technology partners and your phone carrier, this information is not provided to other third parties.
+
+We maintain “do-not-mail” lists as mandated by law. We process requests to be placed on do-not-mail and do-not-contact lists within the timescales required by law.
+
+Push Notifications. If you opt-in to receiving Push Notifications, Peloton may send you push notifications through our Apps with updates, achievements and other notices that may be of interest to you. You may at any time opt-out from receiving these types of communications by changing the settings on your device.
+
+7.3 "Do Not Track" / Global Privacy Control Do Not Track ("DNT") is a privacy preference that users can set in certain web browsers. DNT is a way for users to inform websites and services that they do not want certain information about their webpage visits collected over time and across websites or online services. Please note that, because there has been no agreed industry standard, we do not respond to or honor DNT signals or similar “do not track” mechanisms transmitted by web browsers.
+
+Please note you may opt out, and we honor, certain technologies broadcasting an Opt-Out Preference Signal, such as the Global Privacy Control (GPC). This occurs on the browsers and/or browser extensions that support such a signal. This request will be linked to your browser identifier only. If an opt-out a signal is sent by a web browser on your behalf that will communicate your choice to opt-out of sharing for targeted advertisements. If you have enabled GPC on your browser, you will automatically be opted out of any “sharing” when you interact with our site. You can learn more about how to use opt-out preference signals by visiting the Global Privacy Control website
+
+7.4 Your rights to access and manage personal information
+
+We recognize the importance of your personal information and provide simple ways for you to exercise the following rights: access (right to know), portability, rectification (correction or update), deletion (erasure), object to and restrict (withdraw) processing. Depending on where you live, you may have additional rights under other applicable laws, subject to conditions and restrictions provided in those laws. You can exercise these rights via the following ways:
+Submit a request via our Privacy Request Form (https://preferences.onepeloton.com/).
+You may opt out of being given recommendations and personalized content based on activity by visiting the Preferences section in your Profile and toggling off “Personalized experience”.
+You may opt out of being given personalized communications and ads based on activity by visiting the Preferences section in your Profile and toggling off “Marketing & ads based on activity”.
+Update your profile and account settings in the Preferences section of your Profile - please see our Privacy Settings article (https://support.onepeloton.com/hc/en-us/articles/360060811751-Your-Privacy-Settings) for details.
+
+Contact us if you have any questions, see the HOW TO CONTACT US section below.
+
+NOTE: If you are a U.S. resident and would like to exercise one of your rights, you can also contact us at 1-844-559-0051.
+
+8. DATA RETENTION
+
+Peloton retains the personal information we receive as described in this Privacy Policy for as long as you use our Services or as necessary to fulfill the purpose(s) for which it was collected, provide our Services, resolve disputes, establish legal defenses, conduct audits, pursue legitimate business purposes, enforce our agreements and comply with applicable laws. Legal requirements, however, may require us to retain some or all of the personal information we hold for a period of time that is longer than that for which we might otherwise hold it. The specific retention periods depend on the nature of the information and why it is collected and processed and the nature of the legal requirement.
+
+CCTV images are retained for 14 days in Germany and 30 days elsewhere. When we are no longer required to retain the personal information as described above, we will destroy, erase, or de-identify it.
+
+9. SECURITY OF YOUR INFORMATION
+
+We take steps to ensure that your information is treated securely and in accordance with this Privacy Policy. We maintain commercially reasonable administrative, technical and physical safeguards (which vary depending on the sensitivity of the personal information) designed to protect against unauthorized use, disclosure or access of personal information.
+
+10. LEGAL BASIS FOR PROCESSING Our legal basis for collecting and using the personal information described above will depend on the personal information concerned, applicable laws and the specific context in which we collect it.
+
+However, we will normally collect personal information from you only (i) where we need the personal information to perform a contract with you (such as to provide our Services), (ii) where the processing is in our legitimate business interest and not overridden by your rights, or (iii) where we have your consent to do so. In some cases, we may also have a legal obligation to collect personal information from you or may otherwise need the personal information to protect your vital interests or those of another person.
+
+If we ask you to provide personal information to comply with a legal requirement or to perform a contract with you, we will make this clear at the relevant time and advise you whether the provision of your personal information is mandatory or not (as well as of the possible consequences if you do not provide your personal information).
+
+If we collect and use your personal information in reliance on our legitimate business interest (or those of any third party), this interest will normally be to operate our Services, to communicate with you as necessary to provide our Services to you, and for our legitimate commercial interests such as responding to your queries, improving our products and Services, undertaking marketing, or detecting and preventing illegal activities. We may have other legitimate interests and we will make clear to you at the relevant time what those legitimate interests are.
+
+If you have questions about or need further information concerning the legal basis on which we collect and use your personal information, you can contact us using the details provided under the HOW TO CONTACT US section below.
+
+11. CHILDREN’S PRIVACY
+
+Peloton Services are not directed to, or intended for, children. We do not knowingly collect personal information directly from children who do not meet the minimum age requirement applicable in your jurisdiction, and if you do not meet the age requirements as specified in our Terms of Service.
+
+If we become aware that we have collected personal data from a child under the minimum age, we promptly delete the personal data.
+
+12. U.S. STATES PRIVACY NOTICE
+
+For additional information and rights available to consumers in certain states, see the U.S. States Privacy Notice. If you live in a state with a privacy law governing Consumer Health Data please review our Consumer Health Data Policy. If you live in a state with a biometric data policy please see our Biometric Data Policy.
+
+13. HOW TO CONTACT US
+
+If you have any questions about our privacy practices, this Privacy Policy or would like to contact us or our Data Protection Officer, you can do so by email at privacy@onepeloton.com or at the addresses below.
+
+U.S. and Canadian Residents Peloton Interactive, Inc. 441 Ninth Avenue, Sixth Floor New York, NY 10001 USA Attn: Legal Department
+
+United Kingdom Residents Peloton Interactive UK Ltd. 1 Langley Street London WC2H 9JG United Kingdom Attn: Legal Department
+
+EEA Residents Peloton Interactive Deutschland GmbH Karl-Liebknecht-Straße 29A 10178 Berlin Germany Attn: Legal Department
+
+Australian Residents The Commons Mezzanine 388 George Street Sydney NSW 2000 Attn: Legal Department
+
+You can also complain to a data protection authority about our collection and use of your personal information if you feel that Peloton has not acted in accordance with applicable laws. For more information, please contact your local data protection authority.
+
+14. UPDATES TO OUR PRIVACY POLICY
+
+We may update our Privacy Policy from time to time. When we do, we will take appropriate measures to inform you, consistent with the significance of the changes we make. We will obtain your consent to any material Privacy Policy changes if and where this is required by applicable data protection laws. You can see when this Privacy Policy was last updated by checking the "last updated" date displayed at the top of this notice.
+
+Download

@@ -1,0 +1,666 @@
+Riot Games® Privacy Notice
+
+Last Modified: April 28, 2026
+
+Welcome to Riot Games! We are a global gaming company headquartered in Los Angeles with offices and operations around the world. Riot Games, Inc. and its subsidiaries take your privacy and the protection of your personal info seriously. This Privacy Notice explains what personal info Riot Games collects when you visit or use the Riot Services, and ways we use or disclose it. By “personal info,” we mean any information from or about an identified or identifiable person, including information that Riot Games can associate with an individual person. We’re only describing our own practices—this Notice doesn’t cover the practices of third parties we don’t control (see Third-Party Services).
+
+California Residents – Our Notice at Collection is as follows:
+Lists of the categories of personal info, and the purposes for which they are collected and used are in I. PERSONAL INFO WE COLLECT AND USE.
+We do not sell or share personal info for cross-context behavioral advertising. We do not collect sensitive personal info. See II.C. Analytics & Advertising.
+Our retention period explanation is in III. HOW LONG WE RETAIN PERSONAL INFO.
+When we say “Riot Games” (or similar things like “we” or “us”), we’re referring to the Riot Games entity or entities that are responsible for your personal info (see Contact Us to see who that is).
+
+When we say “Riot Services,” we mean our games, websites, applications, entertainment content, partnerships, events, activities, and services that link to this Notice, regardless of how you access or use them or engage with us, including through mobile devices or offline such as by phone. Your use of the Riot Services is also subject to the Terms of Service in your region (including its provisions regarding limitations on damages, resolution of disputes, and application of governing law). Please read this entire Notice to make sure you understand it. You should also read the Terms of Service carefully, and make sure you understand and agree to them before using the Riot Services.
+
+We’ve written summaries to identify the key issues discussed in many sections at a glance. However, these summaries are intended solely to simplify things, and the full Notice should be read as it takes priority in the event of any ambiguity or conflicts.
+If you don’t understand any parts of the Notice, Contact Us with questions.
+Please follow the applicable link for additional important info if you live in the Russian Federation or Türkiye.
+
+Table of Contents
+I. Personal Info We Collect and Use
+A. Players
+B. Website Visitors
+C. Attendees
+D. Communication & Player Behavior
+E. Anti-Cheat
+II. Personal Info We Disclose
+A. Players
+B. Website Visitors
+C. Analytics & Advertising
+III. How Long We Retain Personal Info
+IV. Third-Party Services
+V. International Personal Info Processing
+A. Operating the Riot Services
+B. Cross-Border Transfers and Storage
+C. Our Data Privacy Framework Certification
+VI. Your Rights, Choices, And Controls
+A. Exercising Your Rights
+B. Communications Choices
+C. Cookies, Browser Controls, and Device Controls
+VII. Security
+VIII. Updates And Revisions
+IX. Contact Us
+
+I. PERSONAL INFO WE COLLECT AND USE
+Summary: We collect and use personal info from three main types of Riot Services users:
+You play our games.
+You visit our websites.
+You attend in-person events.
+
+We collect personal info you choose to provide, either directly, automatically (like with cookies or scripts), or via third parties. If you decline, where we need your personal info to perform a contract with you (including taking steps prior to entering into a contract), to comply with our legal obligations, or to achieve the purposes set out in this Notice, failure to provide that info may prevent you from accessing certain Riot Services or taking advantage of their full functionality. If you disclose any personal info relating to other people in connection with the Riot Services, you represent that you have the authority to do so and to permit us to use the personal info in accordance with this Notice. We do not collect sensitive personal info, as defined under comprehensive state privacy laws, including the California Consumer Privacy Act and the European Union’s GDPR.
+
+We may process the personal info of individuals under the age of 18 where we have obtained parental or legal guardian consent (where legally required) and in accordance with applicable laws.
+Depending on your use of the Riot Services, the following categories of personal info may have been collected, processed, and disclosed for a business purpose in the preceding 12 months:
+Identifiers, including name, in-game name, username, email address, billing address, telephone number, IP address, unique device IDs, and online identifiers
+Characteristics or demographics, including age and gender
+
+Commercial info, including interaction with the Riot Services, customer support info, preferences, interests, hobbies, favorite games, purchase history, and payment method
+
+Internet or other electronic network activity info, including the use of the Riot Services (timestamps, clicks, scrolling, browsing times, browsing heatmaps, searches, referral/exit pages, and activity and interactions on our websites and in our game clients, including chat logs), computer or device (processing capabilities, manufacturer and model, language and other regional settings, screen resolution and similar settings), IP address (which may be used to infer general location at a city or country level), connection to the Riot Services (browser type and version, operating system name and version, ISP, and your preference settings), how the Riot Services perform (loading errors and response times), third-party platform and usage data, and advertising and analytics info
+
+Audio, electronic, visual, or similar info, including audio and text chat, images and videos, recorded gameplay, and related info (build order, and in-game actions)
+Account and payment credentials,including passwords, card numbers, and security codes
+Inferences drawn from any of the above in this section
+Info that is de-identified, aggregated, or anonymized so that it cannot be used to identify an individual is not personal info. If we de-identify, aggregate, or anonymize your personal info (for example, by deleting your email address, Riot ID, and other identifiers), we commit to maintain and use it in such form without attempting to re-identify it.
+
+Our processing of personal info for these purposes includes algorithms, artificial intelligence (AI), machine learning, or other automated technologies, and manual (human) methods of processing. Our automated methods often are related to and supported by our manual methods. For example, to build, train, and improve the accuracy of our automated voice and text chat analysis and evaluation, we manually review and verify some of the output produced by the automated methods against the underlying data.
+
+We use advanced tools to automatically scan certain types of content such as communications through social features like voice and text chat, and to monitor activity, such as patterns of behavior. Such advanced automated tools are used for the purposes of detecting and preventing violations of our policies or terms, unauthorized activity or other security risks, and illegal, fraudulent, offensive, inappropriate, or other harmful behavior.
+
+A. Players
+The table below sets out:
+Particular collection and processing activities of player personal info that may apply
+Categories of personal info which we use for each activity
+For players in the EEA, UK, or another jurisdiction with data protection laws requiring disclosure of our legal justifications for processing personal info (each called a “legal basis”), our legal basis for each activity
+Activity
+Categories of Personal Info
+Legal Basis
+Create and manage your Riot Account
+We process your info so you can register, update, and delete your account.
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+– Internet or other electronic network activity info
+
+– Audio, electronic, visual, or similar info
+– Account and payment credentials
+– Inferences drawn
+Contract for the creation, management, and deletion of your Riot Account.
+Log in securely to Riot Services
+We provide authentication methods to access your account and Riot Services.
+– Identifiers
+– Internet or other electronic network activity info
+– Account and payment credentials
+Contract to provide secure login methods and account access for the Riot Services.
+Protect your account from unauthorized access
+We use security measures to secure your account from unauthorized access.
+– Identifiers
+– Internet or other electronic network activity info
+– Account and payment credentials
+
+Legitimate Interest to protect accounts from unauthorized access and ensure account security as part of our commitment to a safe and reliable service.
+Get help from Player Support
+We process your info to answer questions and resolve issues you raise with Riot Player Support.
+– Identifiers
+– Internet or other electronic network activity info
+– Characteristics or demographics
+– Commercial info
+– Audio, electronic, visual, or similar info
+– Account and payment credentials
+Contract with you to respond to inquiries, resolve issues, and provide customer support for the Riot Services.
+Use our automated support tools
+
+We use chatbots and automated support tools to provide regionalized support and route your support requests.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Audio, electronic, visual, or similar info
+Contract to provide customer support and processing player inquiries under Riot’s Terms of Service.
+Access and use Riot Services
+We process your info to deliver the core experiences you expect from Riot Games, and to operate and expand our business.
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+– Account and payment credentials
+
+– Inferences drawn
+Contract to fulfill our agreement to provide the Riot Services to you.
+Legitimate Interest in operating and expanding our business.
+Play Riot Services on your device according to your interests
+We tailor your experience to fit your system setup, and personalize your experience with the Riot Services, including by presenting content or features better tailored to your interests.
+– Identifiers
+– Commercial info
+– Internet or other electronic network activity info
+Legitimate Interest to optimize and tailor the Riot Services based on your device and system capabilities, and your interests.
+Enjoy updated and stable game and platform services
+
+We monitor game platform health to maintain uptime and service reliability, provide updates to improve or patch the Riot Services, and release new features.
+– Identifiers
+– Internet or other electronic network activity info
+Legitimate Interest to maintain the stability, availability, and performance of the Riot Services.
+Play on a responsive and optimized platform
+We analyze the reliability of Riot Services to improve game performance and user experience.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+Legitimate Interest to improve the stability, responsiveness, and overall performance of the Riot Services.
+View match history, replays, and game results
+
+We store game outcomes and in-game media to enable match replays, match history, and end-of-game screens.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Audio, electronic, visual, or similar info
+Legitimate Interest to enhance player experience by enabling access to match replays, history, and post-game insights for review and improvement.
+Play fair and follow in-game rules
+We detect cheating and monitor for unauthorized behavior or modifications.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Audio, electronic, visual, or similar info
+
+Legitimate Interest to maintain fair play by preventing cheating, exploitation, and other policy violations.
+Report bugs and experience
+We monitor, investigate, and fix technical problems to improve game performance.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+Legitimate Interest to identify, diagnose, and resolve bugs or performance issues for a stable gaming experience.
+Play in a safe and respectful environment
+We analyze behavior and process reports to reduce disruptive or harmful behavior.
+– Identifiers
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+– Commercial info
+
+Legitimate Interest to promote a safe and fair gaming environment.
+Participate in Riot surveys
+We provide surveys and review their responses to enhance our products and services.
+– Identifiers
+– Characteristics or demographics
+– Internet or other electronic network activity info
+– Commercial info
+Legitimate Interest to gather player insights and improve the Riot Services based on feedback and survey responses.
+Customize your Riot settings
+We store and allow customization of various settings and preferences to allow you to manage account info, such as preferred game settings, key bindings, friends list, and rune pages.
+– Identifiers
+– Internet or other electronic network activity info
+
+Legitimate Interest to enable customization and management of account settings.
+Chat with other players
+We store in-game voice and text communication to provide these features in the Riot Services.
+When you use these features, the personal info you disclose may be seen or overheard by others. We may collect and use the personal info you provide, including to enforce our Terms of Service (such as described in Anti-Cheat and Communication & Player Behavior below).
+– Identifiers
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+Legitimate Interest to facilitate player communication and social interaction within the Riot Services.
+Make purchases
+
+We process payment info to enable purchases in the Riot Services.
+Purchases may grant a license to virtual content.
+– Identifiers
+– Internet or other electronic network activity info
+– Account and payment credentials
+– Commercial info
+Legal Obligation to process transactions, fulfill purchases, and comply with financial and regulatory requirements.
+Contract to fulfill transactions and provide purchased goods in accordance with our contract with you.
+Participate in Riot marketing
+We deliver ads and other promotional content to market Riot Services.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial Info
+
+Consent to deliver personalized marketing and promotional content about Riot Services.
+Join contests, promotions, and competitive events
+We collect your info to manage entries.
+– Identifiers
+– Characteristics or demographics
+– Internet or other electronic network activity info
+– Commercial Info
+Contract to fulfill our contractual obligations to participants.
+Legitimate Interest to fulfill promotion participation agreements and enhance player engagement.
+Use Riot Services to help us improve
+When you use Riot Services, we analyze your activity to understand usage, improve services, develop new features, and measure their impact.
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+– Account and payment credentials
+– Inferences drawn
+Legitimate Interest in understanding how the Riot Services are used to better improve them, develop new products, and understand their impact and reach.
+Participate as a community partner or influencer
+We collect info from community partners and influencers to manage communications, track participation, and promote community-driven initiatives.
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+
+Legitimate Interest to operate Riot’s community programs, facilitate mutually beneficial influencer relationships, and promote community-driven initiatives.
+Contract where individuals request to join and participate under agreed terms.
+Send to top
+B. Website Visitors
+The table below sets out:
+Particular collection and processing activities of website visitor personal info that may apply
+Categories of personal info which we use for each activity
+For website visitors in the EEA, UK, or another jurisdiction with data protection laws requiring disclosure of our legal justifications for processing personal info, our legal basis for each activity
+Activity
+Categories of Personal Info
+Legal Basis
+
+Navigate and interact with Riot’s websites
+We use analytics and heatmaps to understand how you engage with Riot’s websites (e.g., mouse movement, clicks, and dark spots).
+– Identifiers
+– Internet or other electronic network activity info
+Consent (EU) to analyze website interactions and enhance user experience.
+Legitimate Interest (non-EU) to evaluate website performance and optimize functionality for a better user experience.
+Use core or optional website features
+We use cookies to enable required functionality and optional personalizations on our websites.
+– Identifiers
+– Internet or other electronic network activity info
+
+Contract to provide core website functionality and ensure proper operation of the Riot Services in accordance with our Terms of Service.
+Consent to provide optional website features, including personalized content.
+Get a tailored website experience
+We adjust content based on your device or browser settings.
+– Identifiers
+– Internet or other electronic network activity info
+Legitimate Interest to optimize website functionality and personalize content based on system capabilities.
+Enter a contest, promotion, complete a survey, or use interactive features like image generation tools on our website
+We administer surveys, contact participants, and fulfill related actions.
+– Identifiers
+
+– Characteristics or demographics
+– Internet or other electronic network activity info
+– Commercial Info
+– Audio, electronic, visual, or similar info
+Consent to participate in promotions, surveys, or use interactive features.
+Send to top
+C. Attendees
+The table below sets out:
+Particular collection and processing activities of event attendees and other in-person visitor personal info that may apply
+Categories of personal info which we use for each activity
+For attendees in the EEA, UK, or another jurisdiction with data protection laws requiring disclosure of our legal justifications for processing personal info, our legal basis for each activity
+Activity
+Categories of Personal Info
+
+Legal Basis
+Visit a Riot office or event
+We use CCTV and conduct screening to ensure physical security.
+– Identifiers
+– Audio, electronic, visual, or similar info
+Legitimate Interest to ensure the safety and security of visitors.
+Provide feedback to Riot
+We collect survey responses to improve events and Riot Services.
+– Identifiers
+– Characteristics or demographics
+– Internet or other electronic network activity info
+– Commercial info
+Legitimate Interest to evaluate visitor feedback and improve the Riot Services.
+Consent to provide feedback and demographic info to improve the Riot Services.
+Make purchases
+We process your transactions for event tickets, merchandise, or refreshments.
+
+– Identifiers
+– Internet or other electronic network activity info
+– Account and payment credentials
+– Commercial info
+Legal Obligation to process transactions, fulfill purchases, and comply with financial and regulatory requirements.
+Contract to fulfill transactions and provide purchased goods in accordance with our contract with you.
+Appear in event recordings or promotional content
+We capture and store photos and video at events to promote Riot activities and community engagement.
+– Audio, electronic, visual, or similar info
+Legitimate Interest to document and promote Riot events, enhance community engagement, and create promotional content.
+Send to top
+
+D. Communication & Player Behavior
+We’ve empowered our players to help enforce our policies (e.g., the acceptable use and behavioral policies that we publish from time to time on the Riot Services) related to certain in-game behavior. For example, players may report each other and submit info about their in-game activity and actions to help us determine if the reported behavior constitutes a violation of rules and policies that apply to player conduct, as well as any potential repercussions (such as temporary or permanent account suspensions or chat restrictions).
+
+We also record and store, and reserve the right (but have no obligation and where legally permissible) to monitor voice and text chat and similar details about optional interactions for a period we determine is appropriate to help us, among other things, address disruptive behavior, enforce our rules and policies and Terms of Service, and foster a safer and more positive gaming community for our players.
+
+We use both manual (like enabling you to report such behavior through Player Support tickets) and advanced automated (such as machine learning, transcription, and analysis) tools and techniques to support these efforts. Where possible, we also use anonymized data to develop and improve this process. For example, as part of our voice and text chat evaluation, we leverage artificial intelligence labeling tools to analyze anonymized chat logs and improve accuracy.
+
+To enable us to monitor compliance with our policies and terms, we develop template patterns of inappropriate behavior (e.g., abuse, hate speech, cheating, threats, offensive or inappropriate names), which we consider indicative of prohibited behaviors. We do this based upon an analysis of social features like voice and text chat, including files uploaded or exchanged through chat, and actual behaviors when you use the Riot Services. We grade these patterns of inappropriate behavior based upon their severity with different consequences (e.g., temporary or permanent account restrictions or communications restrictions) for players based upon how serious their conduct is. If another player makes a complaint about your behavior, our advanced automated tools use these patterns of inappropriate behavior and grading system to compare your behavior over time with these patterns of inappropriate behavior and, if it is determined that you have engaged in inappropriate behavior, make a decision as to the consequences for you of your behavior. This helps us enforce our policies and terms, secure the Riot Services, detect and prevent unauthorized activity, maintain the competitive integrity of the Riot Services, and prevent illegal, fraudulent, offensive, inappropriate, or other harmful behavior.
+
+Our complaints procedure may allow you to appeal a decision. In this case, we may provide you with info that illustrates our rationale and factors that contributed to our decision, along with some tips on how to avoid repeating such behavior in the future. If you still wish to appeal, you may request one of our agents to review your case who will make a final manual determination as to the correct outcome based on the available evidence.
+Please be kind to other players, observe our policies related to player behavior (including our Terms of Service), and always be thoughtful about how you communicate with others!
+Send to top
+
+E. Anti-Cheat
+We always seek to offer players a fair, fun, and competitive gaming experience on the Riot Services. Our Terms of Service strictly prohibit use of unauthorized third-party programs that interact with the Riot Services, including mods, hacks, cheats, scripts, bots, trainers, and automation programs. As described in Communication & Player Behavior, we may use anti-cheat and fraud prevention technologies (such as anti-cheat software that may run in the background of your device) that may make automated decisions (such as temporary or permanent account suspensions, communications restrictions, removal of content, or limited access to game content) based on our monitoring of social features like voice and text chat and actual behaviors when you use the Riot Services.
+
+Our complaints procedure may allow you to appeal a decision. You may be able to request one of our agents to review your case, who will make a final manual determination as to the correct outcome based on the available evidence.
+Send to top
+
+II. PERSONAL INFO WE DISCLOSE
+Summary: We disclose your personal info for the purposes set out in this Notice, including to provide the Riot Services, for advertising purposes, to enforce the Terms of Service, secure the Riot Services, or if we’re required to do so by law or respond to legal process. In certain jurisdictions, we may use advertising services that obtain info from cookies or other trackers or use your email address, including for the purpose of delivering advertising to you based on your activities across third-party, nonaffiliated websites and platforms. In states with comprehensive privacy laws where this sort of advertising may be subject to an opt out, we do not do this. In other words, we do not “sell,” “share,” or use personal info for “targeted advertising” purposes in those U.S. states that require these defined activities to be subject to an opt-out.
+
+We disclose your personal info to Riot Games-controlled subsidiaries and affiliates that provide services to us so we can more seamlessly operate, support, and improve the Riot Services (such as to facilitate account transfers and provide Player Support in your local language). Since we’re a global company, this means your personal info may be transferred to or stored in locations outside your country of residence (see International Personal Info Processing). To provide the Riot Services to you, we may outsource the processing of your personal info to third parties. To learn more about the Riot Games entity or, where applicable, entities that control and are responsible for your personal info, see Contact Us below.
+
+We disclose personal info from two main types of Riot Services users:
+You play our games.
+You visit our websites.
+A. Players
+The table below sets out:
+Particular disclosure activities of player personal info that may apply
+Categories of personal info disclosed for each activity
+Categories of recipients of the personal info disclosed for each activity
+For players in the EEA, UK, or another jurisdiction with data protection laws requiring disclosure of our legal justifications for processing personal info, our legal basis for each activity
+Activity
+Categories of Personal Info
+Categories of Recipients
+Legal Basis
+Get help from Player Support
+
+We disclose your info with agents so they can assist with service requests.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+Player Support service providers
+Contract by enabling customer support agents to address player inquiries and service tickets.
+Make purchases
+We disclose your info to process payments and prevent fraud.
+– Identifiers
+– Account and payment credentials
+– Commercial info
+Financial service providers
+Legal Obligation to process transactions, fulfill purchases, and comply with financial and regulatory requirements.
+Contract to fulfill transactions and provide purchased goods in accordance with our contract with you.
+
+Participate as a community partner or influencer
+We engage with community partners and influencers and store related data.
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+Third-party partners
+Legitimate Interest to operate Riot’s community programs, facilitate mutually beneficial influencer relationships, and promote community-driven initiatives.
+Contract where individuals request to join and participate under agreed terms.
+Provide personal info that has been lawfully requested from authorities
+We process and disclose personal info when required by law or regulation.
+
+– Identifiers
+– Characteristics or demographics
+– Commercial info
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+– Account and payment credentials
+– Inferences drawn
+Public or government entities
+Legal Obligation to comply with legal requirements.
+Play in a safe online environment
+We report potential exploitation or harmful activity to authorities. For example, applicable laws relating to child sexual exploitation may require us to report personal info to public or government authorities.
+– Identifiers
+– Characteristics or demographics
+– Internet or other electronic network activity info
+– Audio, electronic, visual, or similar info
+
+– Commercial info
+– Account and payment credentials
+Public or government entities
+Legal Obligation to detect, investigate, and report cases of exploitation or harmful activities to law enforcement and regulatory authorities.
+Use our services during a business change like a merger or acquisition
+We may disclose info as part of a merger, acquisition, or similar transaction.
+– Identifiers
+– Commercial info
+– Potential acquirers
+– Professional advisers
+Legitimate Interest to facilitate mergers, acquisitions, or corporate transactions that may involve the transfer of personal info.
+Contract, where applicable, to fulfill our obligations related to business transactions.
+
+Use community websites that show your in-game stats
+We provide access to in-game stats through approved Riot API partners.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+Approved developers and the public via Riot API
+Legitimate Interest to provide community features such as in-game statistics through approved Riot API partners in accordance with Riot’s Terms of Service.
+Use Riot Services securely
+We disclose data to detect and stop cyber threats, fraud, or unauthorized access.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Security and integrity services
+– Public or government entities
+
+Legitimate Interest to detect, prevent, and mitigate security threats, including fraud, cyberattacks, and unauthorized access.
+Use Riot Services in accordance with our Terms of Service
+To enforce Riot’s Terms of Service, we disclose data to investigate violations, pursue legal claims, defend against disputes, and limit potential damages.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Professional advisers
+– Public or government entities
+Legitimate Interest to enforce Riot’s Terms of Service, investigate violations, pursue legal claims, and defend against disputes.
+
+Legal Obligation to comply with legal requirements when taking legal action or responding to regulatory obligations.
+Link your Riot account with partners
+We disclose data with third-party platforms (e.g., Discord, Twitch, and Xbox) when you use social integration features.
+– Identifiers
+– Internet or other electronic network activity info
+Console and platform partners
+Contract to provide partnership benefits where users have consented to participate in integrations with third-party services.
+Join contests, promotions, and competitive events
+We use and disclose your info to manage entries.
+– Identifiers
+– Characteristics or demographics
+– Internet or other electronic network activity info
+
+– Commercial Info
+– Promotional service providers
+– Third-party partners, including Tournament Organizers
+Contract to fulfill our contractual obligations to participants.
+Legitimate Interest to fulfill promotion participation agreements and enhance player engagement.
+Send to top
+
+B. Website Visitors
+The table below sets out:
+Particular disclosure activities of website visitor personal info that may apply
+Categories of personal info disclosed for each activity
+Categories of recipients of the personal info disclosed for each activity
+For website visitors in the EEA, UK, or another jurisdiction with data protection laws requiring disclosure of our legal justifications for processing personal info, our legal basis for each activity
+Processing Activity
+Categories of Personal Info
+Categories of Recipients
+Legal Basis
+Navigate and interact with our website
+
+We use analytics and heatmaps to understand how you engage with Riot’s website (e.g., mouse movement, clicks, dark spots).
+– Identifiers
+– Internet or other electronic network activity info
+– Inferences drawn
+Website performance and analytics service providers
+Legitimate Interest to analyze user interactions and improve website functionality and user experience.
+Consent to collect insights on website interactions for optimization purposes.
+Log in to Riot Services
+We disclose login credentials with partners to authenticate users and enable secure access.
+– Identifiers
+– Internet or other electronic network activity info
+Console and platform partners
+
+Contract to authenticate users and provide secure access to Riot Services.
+Receive Riot marketing emails
+We disclose your info to email partners to send you updates about Riot Services.
+– Identifiers
+– Internet or other electronic network activity info
+Marketing, advertising, and analytics partners
+Consent to send marketing communications and updates about Riot Services.
+Click on third-party links
+We may facilitate connections to third-party services, who handle your data under their own policies, and whose practices we do not endorse.
+– Identifiers
+– Internet or other electronic network activity info
+Third-party partners
+
+Legitimate Interest to facilitate user interactions with third-party websites and services.
+Engage with cookies, pixels, or ad tracking tools
+We use tracking technologies to analyze interactions with Riot’s websites, measure ad performance, and optimize marketing campaigns, including the use of cookies, tracking pixels (e.g., Meta Pixel), and similar technologies.
+– Identifiers
+– Internet or other electronic network activity info
+– Commercial info
+– Website performance and analytics service providers
+– Marketing, advertising, and analytics partners
+Consent for non-essential cookies and ad tracking.
+Legitimate Interest for essential website functionality and performance monitoring.
+
+Send to top
+
+C. Analytics & Advertising
+Some of the personal info we collect is used and disclosed for analytics and advertising purposes. This personal info may be collected through cookies and other technologies incorporated into the Riot Services as described in Cookies, Browser Controls, and Device Controls. In addition to the technologies we operate, we incorporate technologies offered by service providers. For example, we use technologies from analytics providers (like Google Analytics) to help evaluate and report on the use of Riot Services and technologies from ad partners (like Meta) to support our marketing and advertising efforts. Some of these technologies are able to track your activities across non-affiliated services and obtain or infer personal info about you for purposes of showing you relevant advertising based on your preferences and interests.
+
+We have chosen not to use advertising services that constitute a “sale,” “share” or use of personal info of consumers for “targeted advertising” purposes in those U.S. states that require these defined activities to be subject to an opt-out. For those U.S. states that require an opt-out, we require the ad partners we work with to process the personal info they receive only as permitted by a service provider or processor under state privacy law, and only to provide the services. We accomplish this through contractual restrictions with our ad partners and technical controls, including by enabling settings (where offered by an ad partner) limiting their processing of personal info (such as the “Limited Data Use” setting within Meta). We are therefore not required to provide an opt-out of the “sale” or “sharing” or use of personal info for “targeted advertising,” as those are defined under applicable laws.
+
+Some analytics providers and ad partners offer you choices about how they collect and use your personal info directly on their websites, which you can learn more about in YOUR RIGHTS, CHOICES, AND CONTROLS. Please note that opting out through these industry tools won’t necessarily prevent personal info from being collected automatically on the Riot Services, and it doesn’t mean you’ll receive fewer ads or stop them from being displayed. Instead, the ads you do receive might be less relevant to your interests.
+Send to top
+
+III. HOW LONG WE RETAIN PERSONAL INFO
+You can use many parts of the Riot Services without ever creating an account, purchasing our products or services, or otherwise submitting personal info like your name or email address to us. If you do choose to visit or use the Riot Services, we generally retain the related personal info as long as your account is active or as is otherwise necessary to provide the Riot Services, operate our business (including for legitimate purposes like complying with our legal obligations, managing internal books and records, preventing fraud, resolving disputes, and enforcing our contracts and terms, such as this Notice and the Terms of Service), or to achieve the purposes set out in this Notice, unless a longer retention period is permitted or required by law.
+
+The precise periods for which we keep your personal info vary depending on the nature of the personal info, why we need it, and relevant regional legal or operational retention needs. Factors we consider in determining these periods include the minimum required retention period prescribed by law or recommended as best practice, the period during which a claim can be made with respect to a contract or other matter, whether the personal info has been aggregated or pseudonymized, and other relevant criteria.
+
+The retention period applicable for your personal info needed to provide the Riot Services to you (such as accessing the games) is limited to how long you maintain an account. As another example, voice chat info is retained for 24 hours to allow any reports after a match. If a report is made, but no action is taken on the reported account, the communications would be retained for 7 days. If a report is made, and action is taken, the communications would be retained for up to 2 years. This is to enable Riot Games to properly investigate infringements of our rules and policies such as fraud, cheating, and disruptive behavior.
+
+When your account is deleted, we will delete the relevant personal info for that purpose (providing the service to you) but will keep some account-related personal info (your match history, for instance) for other defined purposes such as security and fraud detection.
+Send to top
+IV. THIRD-PARTY SERVICES
+Summary: We allow interactions with third parties to make your experience better, but our Notice doesn’t and can’t apply to third parties. We’re unable to guarantee that independent third parties adhere to the same practices as us, so please be sure to read their terms and understand your privacy settings before disclosing personal info.
+
+There are several ways you might disclose personal info to third parties, or have third parties disclose personal info to Riot, in connection with your visit, including:
+External links. If you click on links to external websites or services that are operated by third parties, they may collect, use, and disclose your personal info pursuant to their own policies (not ours).
+Account integrations. The Riot Services use interfaces that allow you to interact with third-party websites, applications, or similar services during your visit, including on or through your Riot Games account or an account you’ve created with such third parties. For example, we partner with social media and gaming companies to provide features that facilitate social sharing and connections. These features may collect and disclose personal info about your interactions with them and the Riot Services.
+
+Gaming platforms. We obtain personal info from and disclose personal info to gaming platforms like Microsoft and Sony in connection with your use of the Riot Services. For example, when you link an Xbox profile with an active Game Pass membership, Riot Games will disclose gameplay info to Microsoft for accounting, internal reporting, business planning, and product improvement efforts.
+Mobile platforms. If you download the Riot Services (such as the Riot Mobile app) on your mobile device, platforms like the Apple App Store or Google Play may collect and disclose your personal info. This might include, for example, technical details (like device IDs) and the fact that you’ve downloaded one of our apps.
+Community partners. We obtain personal info that developers, partners, and other players provide to us.
+Public sources. We obtain personal info from public sources, such as personal info in the public domain.
+
+You can limit the personal info you disclose to third parties through integrations, such as by choosing not to link your Riot Games account with third-party services or disabling such links through your account. Please contact third parties directly if you have questions or concerns about their practices.
+Send to top
+
+V. INTERNATIONAL PERSONAL INFO PROCESSING
+Summary: We’re a global gaming company with operations around the world. When you use the Riot Services, your personal info may be processed anywhere we, our partners, or service providers do business, including the United States, provided that adequate technical and organizational measures are in place to ensure the security of your personal info.
+
+A. Operating the Riot Services
+Depending on the Riot Games entity responsible for providing the Riot Services in your region, the Riot Services are operated by or on behalf of Riot Games from:
+in the case of Riot Games, Inc. and Riot Games Merchandise, Inc. (“Riot Games U.S.”), the United States;
+in the case of Riot Games, LLC, Japan;
+in the case of Riot Games Services PTE. LTD., Singapore; and
+in the case of Riot Games Ltd. and Riot Games Ireland Merchandise Ltd., Ireland.
+
+For important details regarding which laws apply to your use of the Riot Services and any disputes with Riot Games, be sure to check out the Terms of Service. Please Contact Us to see who is the Riot Games entity or entities which control and are responsible for your personal info.
+
+B. Cross-Border Transfers and Storage
+To facilitate our operations, we may transfer, process and store your personal info in jurisdictions other than where you live, including the U.S, Türkiye, Romania, Russia, Southeast Asia, and South America. Laws in these countries may differ from the laws applicable to your country of residence. We ensure appropriate safeguards as required by applicable law are continuously in place to protect the transfer of your personal info to these countries. For instance, if you are an EEA or UK data subject and your personal info is disclosed to our affiliates, partners, or service providers acting on our behalf outside of the EEA or UK, then it is done so pursuant to necessary means to ensure an adequate level of protection. In certain circumstances, courts, law enforcement agencies, regulatory agencies or security authorities in those other countries may be entitled to access your personal info.
+
+We’ve implemented and maintain a framework consistent with applicable law and this Notice for transfers of personal info outside the country of collection, including, for example, through the use of Standard Contractual Clauses when we transfer personal info outside of the EEA and the UK. You can learn more about EU Standard Contractual Clauses on the European Commission website [ec.europa.eu/info/law/law-topic/data-protection/] and Contact Us to request a copy. We may also need to transfer your personal info to provide the Riot Services to you in accordance with the Terms of Service. By using the Riot Services, you acknowledge that we may transfer your personal info to (and process it in) countries outside of your country of residence, each of which may have different privacy rules than your country.
+
+C. Our Data Privacy Framework Certification
+Riot Games U.S. participates in and has certified its compliance with the EU-U.S. Data Privacy Framework, the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework as set forth by the U.S. Department of Commerce. Riot Games U.S. has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of personal data received from the European Union and the United Kingdom (and Gibraltar) in reliance on the EU-U.S. DPF and the UK Extension, and from Switzerland in reliance on the Swiss-U.S. DPF.
+
+Riot Games U.S. is committed to subjecting all personal info received from the EEA, UK, and Switzerland, respectively, in reliance on each Data Privacy Framework, to the Frameworks’ applicable Principles. To learn more about the Data Privacy Framework (DPF) program, and to view our certification, please visit the Data Privacy Framework website [www.dataprivacyframework.gov].
+
+Riot Games U.S. is responsible for the processing of personal info it receives, under the Data Privacy Framework, and subsequent transfers to a third party acting as an agent on its behalf. Riot Games U.S. complies with the Data Privacy Framework Principles for all onward transfers of personal info from the EEA, UK, and Switzerland including the onward transfer liability provisions.
+
+With respect to personal info received or transferred pursuant to the Data Privacy Framework, Riot Games U.S. is subject to the regulatory enforcement powers of the U.S. Federal Trade Commission. In certain situations, Riot Games may be required to disclose personal info in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. If personal info is to be used for a new purpose that is materially different from that for which the personal data was originally collected or subsequently authorized, or is to be disclosed to a non-agent third party in a manner not specified in this Notice, Riot Games U.S. will provide you with an opportunity to choose whether to have your personal info so used or disclosed. Requests to opt out of such uses or disclosures should be sent to us as specified in the Contact Us section below. Riot Games U.S. does not collect sensitive personal info.
+
+In compliance with the EU-U.S. DPF, the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. DPF, Riot Games U.S. commits to resolve DPF Principles-related complaints about our collection and use of your personal info. EEA, UK, and Swiss individuals with inquiries or complaints regarding our handling of personal data received in reliance on these frameworks should first contact us at dpo@riotgames.com or via the mailing addresses in this section. If you have an unresolved privacy or data use concern that we have not addressed satisfactorily, please contact TRUSTe, our U.S.-based third party dispute resolution provider [feedback-form.truste.com/watchdog/request] (free of charge).
+
+Under certain conditions, more fully described on the Data Privacy Framework website [www.dataprivacyframework.gov], you may be entitled to invoke binding arbitration when other dispute resolution procedures have been exhausted.
+Send to top
+VI. YOUR RIGHTS, CHOICES, AND CONTROLS
+Summary: You have rights and choices regarding your use of the Riot Services and the ways we process your personal info. Since you can interact with us in different ways, the controls available to you depend on the nature of our relationship.
+
+A. Exercising Your Rights
+Some U.S. states (like California) and non-U.S. regions (like the EEA and UK) provide additional rights by law. Based on your jurisdiction, you may have some or all the rights listed below and/or any other rights available to you in accordance with applicable laws:
+
+● Access: The right to obtain confirmation as to whether your personal info is being processed, to know what personal info we have about you, including the categories of personal info, the categories of sources from which the personal info is collected, the business or commercial purpose for collecting, selling, or sharing the personal info, the categories of personal info sold, shared, or disclosed for a business purpose, the categories of third parties and vendors to whom we disclose the personal info, and obtain a copy of the specific pieces of personal info we have collected about you. Submit a request for access with Player Support.
+
+● Correction: The right to have rectified or supplemented inaccurate or incomplete personal info concerning you. Correct your personal info in Account Management.
+● Deletion: The right to delete, destroy, or de-identify personal info that we have collected from you, subject to certain exceptions. Submit a request for deletion with Player Support.
+● Restriction: The right to restrict the processing of your personal info in certain cases. Contact Us to exercise this right.
+
+● Data portability: The right to receive the personal info concerning you, including those that we transmitted to another data controller, in a structured, commonly used and machine-readable format and/or transmit that personal info to another data controller. Contact Us to exercise this right.
+● Objection: In some cases required by law, the right to ask us to stop processing your personal info. Your right to object includes where we process your personal info for performing a task in the public interest or pursuing our legitimate interests or those of a third party. Contact Us to exercise this right.
+
+● Right to withdraw consent: Where your consent is required, you may at any time withdraw such consent (though this will not affect the lawfulness of any processing of your personal info prior to that). Contact Us to exercise this right.
+● Right related to cross-border transfers: The right to request info on the security measures, including training and education of our employees, that we implement to safeguard and properly handle your personal info. Contact Us to exercise this right.
+
+We do not “sell,” “share,” or use personal info of consumers for “targeted advertising” purposes in those U.S. states that require these defined activities to be subject to an opt-out. We are therefore not required to provide an opt-out. In all other jurisdictions, you may be able to opt-out of having info about your activity on the Riot Services (such as use of the website and app) disclosed to partners for personalized advertising purposes on third-party platforms by following the instructions in the Analytics & Advertising section.
+
+We will confirm receipt of and respond to your request consistent with applicable law. Before we process such requests, we may ask you to verify your identity (like by logging-in to your account or providing us with certain personal info to help us confirm ownership) and we may request payment where allowed by law.
+
+You may also make a rights request using an authorized agent. Authorized agents can Contact Us in the same manner as you to initiate the rights request on your behalf. An authorized agent request must include (a) the name and email address of both you and the agent, and (b) the written permission, signed by you, granting authority to the agent, such as a power of attorney. If we receive a rights request from an authorized agent who does not provide a valid power of attorney, we may ask the authorized agent to provide proof that you gave the agent signed permission to submit the request to exercise rights on your behalf. In the absence of a valid power of attorney, we may require you to verify your own identity directly with us, confirm with us that you provided the authorized agent permission to submit the request, or deny the request.
+
+Note that asking us to delete personal info or refrain from processing it may result in us being unable to make certain Riot Services available to you, in which case you’ll no longer be able to access those Riot Services. If you withdraw your consent (including for marketing purposes), it does not affect the lawfulness of what we did up until that point. We may retain certain personal info associated with your account for purposes like complying with our legal obligations, managing internal books and records, preventing fraud, resolving disputes, and enforcing our contracts and terms, such as this Notice and the Terms of Service.
+
+You also have the right not to be discriminated or retaliated against for exercising any of these rights.
+
+If we don’t take action on your request, or you’re not satisfied with a decision, you may appeal the decision by submitting an appeal request through Contact Us. If you appeal the decision, a Player Support representative will review your request independently, and inform you of any action taken or not taken in response to the appeal, along with a written explanation of the reasons in support of the response within 45 days (unless a further extension is needed, which we will inform you about in advance). If the appeal is denied, we will provide you with a method through which you may submit a complaint. Please note that this is without prejudice to your right to lodge a complaint with your data protection authority.
+
+If you’re in the EEA or UK, you may lodge a complaint with an EEA or UK data protection authority for your country or region where an alleged infringement of applicable data protection law occurs. Riot Games' lead supervisory authority under the GDPR is the Irish Data Protection Commission [dataprotection.ie].
+If you’re in Australia, please note that you generally have the right to deal with us anonymously or using a pseudonym (unless it’s not practicable for us to deal with you on this basis). Also, please Contact Us if you would like to complain that we have breached the Australian Privacy Principles or any applicable code.
+Send to top
+
+B. Communications Choices
+We offer players choices about the types of communications they receive from Riot Games. Account holders who have requested to receive our marketing communications may opt out by logging in and visiting your Account Management and unchecking the box in Communication Preferences. This will opt you out of communications regarding new releases, game updates, events, or other Riot-related content.
+
+If you choose to receive marketing and promotional emails from us but later change your mind, simply “unsubscribe” by following the instructions in the relevant email. These choices don’t apply to mandatory communications that are part of the Riot Services, like important account-related notices.
+The Riot Services also have many built-in tools to help players exercise control over their personal info directly. For example, you can generally mute or disable voice or text communication functionality and change other preferences from your account settings. If you need help with any of these options, be sure to Contact Us.
+Send to top
+
+C. Cookies, Browser Controls, and Device Controls
+The Riot Services use cookies, web beacons, and similar technologies to automatically collect, store, and read files on your device. They may be delivered in a first-party (i.e., by Riot Games) or third-party (i.e., by other companies) context. These tools help the Riot Services work and operate more efficiently, as well as collect info about how you interact with us.
+
+We also use our servers in connection with these technologies to collect info about the ways you interact with the Riot Services and store it in log files. This may include, for example, info that your device, browser, or operating system sends to us when you access the Riot Services (like device IDs, IP addresses, and hardware or software specifications) and details about how you use your Riot Games account (like the particular features you use, your in-game interactions and statistics, and other similar personal info).
+
+Many Internet browsers allow you to reject, manage, and delete cookies. You may also be able to manage other similar technologies, like HTML5, by changing your browser settings. You can learn more about cookies and similar technologies, including details of how to manage or disable them by visiting AboutCookies.org or consulting your browser’s privacy features. Website visitors who are using a browser that sends a Do Not Track signal or a browser that is Global Privacy Control compliant will have their signals automatically applied to their consent settings on Riot Games websites.
+
+If you don’t want to take advantage of the services that third-party analytics and advertising companies provide on the Riot Services, you may be able to opt out (or opt in if you are in the EEA or UK) of some of them by visiting YourAdChoices.com (https://youradchoices.com/) or Optout.NetworkAdvertising.org (http://optout.networkadvertising.org/?c=1), or if you’re located in the EEA, UK, or Canada, YourOnlineChoices.eu or YourAdChoices.ca (http://youradchoices.ca/) respectively.
+Please note that disabling technologies like cookies may prevent you from using the full functionality of the Riot Services and the Riot Services may not work as we intended.
+Send to top
+
+VII. SECURITY
+We use appropriate physical, technical, and organizational security safeguards to help protect your personal info from unauthorized access, destruction, use, modification, or disclosure both during transmission and in storage. For example, we use computer systems with limited access in controlled facilities to store personal info. We also use technologies like encryption and hashing to protect some of the personal info we collect. The details of these safeguards can be obtained on request through Contact Us.
+
+However, please note that no server, communications network, or data transmission over the Internet is 100% secure. The Riot Services are no exception. We can’t guarantee the security of any personal info transmitted through the Riot Services and make no assurances about our ability to prevent any such loss or misuse.
+It’s up to you whether you’d like to disclose personal info to us; if you do, you’re acknowledging that you’re doing so with this risk.
+Send to top
+
+VIII. UPDATES AND REVISIONS
+We’ll update this Notice from time to time to reflect changes in technology, law, our business operations, or any other reason we determine is necessary or appropriate. When we do make changes, we’ll update the “Last Modified” date at the top of this Notice and post it to the Riot Services. If we make material changes to this Notice or the ways we process personal info, we’ll provide you additional notice as well (such as by prominently posting a notice of the changes on the Riot Services before they take effect or sending you a notification directly).
+
+We encourage you to check back periodically to review this Notice for any changes since your last visit. This will help ensure you better understand your relationship with Riot Games, including the ways we process your personal info.
+Send to top
+IX. CONTACT US
+For game-related requests or concerns (e.g., trouble accessing your account, billing matters, skins or content availability, reporting bugs or similar technical issues, discussing a ban, deleting an account, reporting a player, etc.), please contact our Player Support team.
+
+If you have any questions or concerns about this Notice or our privacy practices, please send them to our Data Protection Officer via email at dpo@riotgames.com or via postal mail at the appropriate address listed below.
+FOR OUR PUBLISHING OPERATIONS:
+If you live anywhere in the Americas (except Brazil):
+If you live in Japan:
+If you live in SEA:
+If you live in the EEA, UK or Switzerland, your personal info is jointly controlled by:
+If you live anywhere else, including Brazil:
+Riot Games, Inc. Attn: Legal Department 12333 West Olympic Blvd. Los Angeles, CA 90064 United States
+Riot Games, LLC Attn: Legal Department
+Roppongi Hills Mori Tower 34F 6-10-1, Roppongi, Minato-ku, Tokyo 106-6134 Japan
+
+Riot Games Services PTE. LTD. Attn: Legal Department 9 Straits View, #16-07, Marina One West Tower Singapore 018937
+Riot Games Ltd. Attn: Legal Department PO Box 11989 Dublin 2 Ireland
+Riot Games, Inc Attn: Legal Department 12333 West Olympic Blvd. Los Angeles, CA 90064 United States
+Riot Games Ltd. Attn: Legal Department PO Box 11989 Dublin 2 Ireland
+FOR OUR MERCH STORE OPERATIONS:
+If you live in the United States, Canada, Brazil, Hong Kong, Singapore, Taiwan, Australia, or New Zealand:
+If you live in Türkiye or Russia:
+If you live in the EEA, UK or Switzerland your personal info is jointly controlled by:
+Riot Games Merchandise, Inc.
+
+Attn: Legal Department 12333 West Olympic Blvd. Los Angeles, CA 90064 United States
+Riot Games Ireland Merchandise Ltd. Attn: Legal Department PO Box 11989 Dublin 2 Ireland
+Riot Games Ireland Merchandise Ltd. Attn: Legal Department PO Box 11989 Dublin 2 Ireland
+Riot Games Merchandise, Inc. Attn: Legal Department 12333 West Olympic Blvd. Los Angeles, CA 90064 United States
+Send to top

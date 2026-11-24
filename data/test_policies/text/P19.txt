@@ -1,0 +1,367 @@
+Privacy
+
+For information about interest-based advertising and your choices, click here.
+
+Privacy Policy Summary
+It is important to review our Privacy Policy in full, but below is a summary of the main points:
+We collect various types of information about users, including personal diet data entered by users into our products (such as height and weight, gender, and details about food and drinks), genetic data (where provided by a user), and information about your use of our products (like contact and device information). Users must specifically consent to the sharing of genetic data with us.
+We use the information we collect to make our products better and improve your experience. We share data that personally identifies you in three important ways:
+With third parties such as advertisers and business partners.
+With third parties that support our communication with you via email or messages or that provide analytics that permit us to better understand how our products are used.
+In other limited circumstances, such as when we are required by law or if our company is acquired or merges with another company.
+
+You have choices regarding your personal information and the way that we communicate with you. All users can confirm, change, or update personal information, as well as opt-out of communications (https://help.loseit.com/hc/en-us/articles/115006198948-Managing-Your-Emails) from us.
+Additionally, users may request copies of personal information, to delete certain information, and to cease processing of personal information that pertains to you through our Privacy Portal.
+Our servers are based in the United States, and so data about users is transferred from around the world to be processed in the United States, where it is subject to local, state, and federal laws of the United States. In some instances, we use third-party service providers with servers outside of the United States, and data about users may be transferred to be processed in the jurisdictions of our third-party service providers' servers.
+If you have a question about our Privacy Policy, please contact us.
+
+Privacy Policy
+This Privacy Policy informs users of the Lose It! Website, AscendApp.com, and other Lose It! controlled or operated websites (“Websites”) and other Lose It! mobile applications (“Apps”) about how FitNow, Inc., doing business as Lose It! (“Lose It!” or “we”) gathers and uses (i) personal information submitted to Lose It! and (ii) aggregated information collected from the Websites, Apps and Lose It! Services (as defined below). This Privacy Policy applies to the Websites and Apps and other Lose It! owned websites, domains, services, applications and products (“Lose It! Services”).
+
+This Policy may be amended or updated from time to time to reflect changes in our practices with respect to the processing of your information, or changes in applicable law. We encourage you to read this Policy carefully, and to regularly check this page to review any changes we might make.
+
+Scope of this Privacy Statement
+Collection of Personal Information
+Use of Personal Information
+How We Collect or Create Information
+Sharing Information with Friends and in User Forums
+Control of Personal Information and Opt-Out Options
+Security of Information We Collect
+Protection of Children's Privacy
+Use of Cookies and Tracking Technology
+Enforcement of This Statement
+Links to Other Websites
+Users from Outside the United States
+DO NOT TRACK DISCLOSURE
+
+Collection of Personal Information
+Lose It! collects and uses your personal information, including information that could personally identify you or is deemed to personally identify you by applicable law (“Personally Identifiable Information”) to manage and enhance your use and experience of the Websites and Apps and Lose It! Services.
+
+We may also use and allow third parties to track your browsing history profile. Such tracking will allow Lose It! to offer you specifically tailored services and products with appropriate user consent, where necessary (both of Lose It! and its third party partners).
+
+Types of Information Collected
+User Information. We collect Personal Information and other information about Lose It! users such as:
+Personal data: including, your name, birthdate, height and weight, sex, and specific details of the foods and drinks that you consume, including photographs, your exercise, and genetic results.
+Test results generated from a user's genetic data.
+Email address and Lose It! password.
+IP addresses, browser type and your operating system.
+Pages visited on the Websites referring and exit pages, and the dates and times of the visits.
+Consent records: records of any consents you may have given, together with the date and time, means of consent and any related information (e.g., the subject matter of the consent).
+Financial information, such as your credit/debit card number or other billing information for purchases and product upgrades.
+Any additional information relating to you and your use of the Websites, Apps or Lose It! Services.
+“Advertising ID”, which is a unique, user-resettable identification number for advertising associated with a device (e.g., iOS uses the Identifier for Advertising (or “IDFA”) and Android uses Google Advertising ID)
+
+Location data and other information about devices used to access and interact with the Websites or App.
+Information that you make publicly available or publicly post using tools made available on the Websites or via the App.
+Information you may provide in user-to-user messages.
+Information collected from promotions with third party companies.
+A unique identifier we assign to your account and/or your instance of the Lose It! app based on any of the above types of information.
+
+We also collect other kinds of information from you or other sources, which we refer to as “Other Information” in this Policy, which may include but is not limited to:
+Information about your use of the Services, such as usage data and statistical information, which may be aggregated
+Browsing history including the websites or other services you visited before and after interacting with the Services.
+Searches for and interactions with e-commerce opportunities, such as merchants and offers contained in the Services.
+Non-precise information about the approximate physical location (for example, at the city or zip code level) of a user's computer or device derived from the IP address of such computer or device (“GeoIP Data”).
+Device identification (“ID”), which is a distinctive number associated with a smartphone or similar handheld device, but is different than a hardware serial number.
+Internet Protocol (“IP”) address, which is a unique string of numbers automatically assigned to your device whenever you access the Internet.
+
+Information collected through the use of cookies, eTags, Javascript, pixel tags, device ID tracking, anonymous identifiers and other technologies, including information collected using such methods and technologies about (i) your visits to, and interaction and engagement with, the Services, content and ads on third party websites, applications, platforms and other media channels (“Channels”), and (ii) your interaction with emails including the content and ads therein (collectively, “Online Data”).
+Device type, settings and software used.
+Log files, which may include IP addresses, browser type, ISP referring/exit pages, operating system, date/time stamps and/or clickstream data, including any clicks on customized links.
+Web Beacons, which are electronic files that allow a website to count users who have visited that page or to access certain cookies.
+Pixel Tags, also known as clear GIFs, beacons, spotlight tags or web bugs, which are a method for passing information from the user's computer to a third party website.
+Local Shared Objects, such as Flash cookies, and Local Storage, such as HTML5.
+
+Mobile analytics to understand the functionality of our mobile applications and software on your phone.
+
+Under certain circumstances and depending on applicable law, some of this Other Information may constitute Personal Information. Personal Information together with Other Information is hereinafter referred to as “User Information”.
+
+Additionally, you may choose to provide a biological sample to one of our partners to allow Genetic Information to be generated for you and incorporated into the Lose It! app. Genetic Information will not be shared with us unless you consent to such sharing.
+
+Coaches. If you are a Coach participating in the Ascend for Lose It! coaching program you will be asked to provide your email address and to select a password. You may also provide personal information such as your name, the name of your company and your photo.
+
+Supplemental Information
+Your information may also be supplemented with additional information from other sources, including publicly available sources and our third-party partners.
+
+Use of Personal Information
+We may share Personally Identifiable Information and/or data that does not identify an individual user:
+To fulfill the services and products you request from us.
+To operate and improve the Websites, App, and Services, including developing new features and products and training artificial intelligence and machine learning tools.
+To communicate with you, respond to your requests and manage our relationship
+To personalize the products and services provided to you.
+To measure performance of the products and Lose It! Services
+Identification: using information from third parties to verify information about you in order to provide the Services (e.g. verify your mailing address to send you requested products or services.)
+To allow you to participate in Challenges, contests and surveys. Lose It! may co-sponsor promotions with other companies, in which case any information collected is likely to be shared with other participating sponsors.
+
+Communications: communicating with you via any means (including via email, telephone, text message, social media, post or in person) regarding content and other information in which you may be interested, subject to ensuring that such communications are provided to you in compliance with applicable law; maintaining and updating your contact information where appropriate; and obtaining your prior, opt-in consent where required. We may also send marketing notices including promotions of our products and services. You can opt-out of communications from Lose It! at any time (see control of personal information below).
+With our product and marketing analytics partners: Iterable, Amplitude, Singular, and/or Google. These partners help us to analyze information about the use of Lose It! Services for marketing purposes or in order to improve the Lose It! Services.
+For internal purposes, which may require the transfer of such information to other Lose It! affiliates for administrative purposes, for technical maintenance purposes, the marketing and promotion of products and services that might be of interest to you.
+
+Advertising: providing advertising based on your interests and interactions with the Services and Channels, including using User Information to serve you advertisements on the Services and Channels, as well as licensing segments of User Information to third parties. For the avoidance of doubt, the foregoing excludes data that originates from Google Fit. For further information, please see “Use of Cookies and Tracking Technology” below.
+Audience Engagement: identification and development of audience engagement, advertising and promotional strategies on various platforms and channels, both within the Service and on Channels.
+User Engagement and Purchases: tracking purchase traffic and activity across the Service and on Channels, including review of your browsing history (if available); provision of analytics and measurement of cost of traffic against money being made.
+Commerce Offerings: using cookies to track your browsing history and the amount of money spent at a particular third party merchant's site to offer coupons and other offers that are relevant to your shopping experience.
+
+Lead Generation: producing customer leads that are shared with third party advertisers through marketing campaigns, including but not limited to email marketing and site placements.
+
+We may disclose your Personally Identifiable Information (including Genetic Information) when we reasonably believe that it is required by law, a duly authorized court order, or legal process and to protect and defend the rights and interests of Lose It!, its affiliates, suppliers, or users. If we are required to disclose your information, we will attempt to provide you with advance notice, unless we are prohibited from doing so by law.
+
+In some circumstances we may use third party contractors to perform these services on our behalf. In such circumstances, we will only provide the contractor with the information needed to perform the services (for example, name and address if a contractor is delivering a product to you), and all contractors will be required to agree to confidentiality obligations with respect to your personal information.
+
+How We Collect or Create Information
+We may collect or obtain User Information about you: directly from you (e.g., where you contact us); in the course of our relationship with you (e.g., if you make a purchase); when you make your Personal Information public (e.g., if you make a public post about us on social media); when you download, install, or use any of our Services; when you visit our Services; when you register to use any part of the Services; or when you interact with any third party content or advertising on the Services. We may also receive User Information about you from third parties (e.g., social network sites). We may also create User Information about you, such as records of your interactions with us. Lose It! is not responsible for Personal Information you volunteer about yourself in public areas of the Services. This Policy does not cover the practices of third parties who may provide information about you to Lose It!
+
+Collection of User Information: We may collect User Information about you from the following sources:
+Data you provide: We may obtain your Personal Information when you provide it to us across our Services (e.g., where you sign up for emails, newsletters or SMS messages; register for site membership or create a profile or account on any part of the Services; enter a sweepstakes, contest, competition or prize draw; participate in surveys and quizzes; perform search queries through the Services; contact us via email, telephone or by any other means; make a purchase; etc.).
+Relationship data: We may collect or obtain your Personal Information in the ordinary course of our relationship with you (e.g., if you purchase a service from us).
+Data you make public: We may collect or obtain your Personal Information that you clearly choose to make public, including via social media (e.g., we may collect information from your social media profile(s) if you make a public post about us) or through our chats, forums or communities on the Services.
+Service data: We may collect or obtain your Personal Information when you visit, download, use or register to use any part of our Service.
+
+Content and advertising information: If you choose to interact with any third party content or advertising on the Services or Channels, we may receive User Information about you from the relevant third party.
+Third party information: We may collect or obtain your Personal Information from third parties who provide it to us. This may include offline channels such as through telephone or direct mail efforts; from customers, vendors, suppliers, third parties, commercially available or publicly-available sources (e.g., data brokers, data aggregators, public databases, etc.); third party affiliate network operators; referral sources; and social network sites or services (e.g., Facebook, Twitter, LinkedIn, etc.). If you use a third party connection or log-in (e.g., Facebook Connect, Twitter, or Google+) to access the Services, create a membership or profile on any part of the Services, access our content or forward our content to another person, platform or service, we may also receive your username or email address for those third party services or other information available about you or collected from you on those services.
+
+Please note that Lose It! is not responsible for the information you volunteer about yourself in the discussions in certain public areas of the Services, such as forums, blogs, wikis, chat rooms, private messages, message boards or other publicly accessible interaction, or information that you choose to make public in your member profile or other areas of the Services that allow users to upload or post content. We discourage users from posting such Personal Information in this fashion. You can change your publicly available information at any time via your profile page. To request removal of your Personal Information from these areas, please contact us using our Privacy Portal. In some cases, we may not be able to remove your Personal Information, in which case we will let you know we are unable to do so and why.
+
+This Privacy Policy does not cover the practices of third parties, including those that may disclose information to Lose It!.
+
+Creation of User Information. We may also create User Information about you, such as records of your interactions with us and details of your purchase history, for internal administrative purposes and analysis. We may also use User Information you have provided to us with data obtained from third parties to enhance our records or enhance our ability to provide products and services, such as appending additional information to your profile.
+
+Apple HealthKit
+Notwithstanding the foregoing, Lose It! will not use or disclose to third parties user data gathered from the Apple, Inc. Healthkit framework or Healthkit API for advertising or other use-based data mining purposes other than improving health, or for the purpose of health research. In no event will any information be collected from Healthkit users for use by third parties in compliance with this section without obtaining user consent.
+
+Sharing Information with Friends and in User Forums
+The Lose It! Services allow you to share your diet and exercise goals and information with friends that you select. In addition, if you accept an invitation from a Coach as a part of our Ascend for Lose It! coaching service, you will enable the sharing of your Personal Diet Data information and potentially personally identifiable information with the Coach.
+
+Please bear in mind that Lose It! cannot control what your friends or Coaches do with the information you share with them, so you should only share with friends and Coaches you trust.
+
+The Genetic Information Nondiscrimination Act of 2008
+The Genetic Information Nondiscrimination Act of 2008 (GINA) provides, as to users that are residents of the United States, that you do not need to share your genetic Information with your employer or your health insurer. Even so, you may be asked to share your Genetic Information with other insurers. These others could include life, long-term care, and disability insurance firms. You should always take care with whom you choose to share your Genetic Information.
+
+Control of Personal information and Opt-Out Options
+Lose It! values the accuracy of the information you provide. All users can confirm, change, or update personal information you have provided to us. If you want to opt-out of communications from Lose It!, you can do so here (https://help.loseit.com/hc/en-us/articles/115006198948-Unsubscribing-from-Emails#Unsubscribe). If you change your mind, you can opt-in again here. When you opt-out of promotional communications from us, you may still receive service messages (such as an order confirmation) and legally mandated notices. Users that are residents of the United Kingdom, European Union, California or any jurisdictions that have additional rights with respect to personal information, as explained below may contact us using our Privacy Portal.
+
+Security of the Information We Collect
+We take commercially reasonable precautions in an effort to protect your information against security breaches. For example, we store personal information and Personal Diet Information in a secure, limited access facility, and we use industry-standard firewalls and security software designed to protect the security and integrity of your Personal Diet Information. However, this is not a guarantee that your information may not be accessed, disclosed, altered, or destroyed. By using the Websites, Apps and Lose It! Services, you acknowledge that you understand and agree to assume these risks.
+
+Protection of Children's Privacy
+LoseIt.com is a general interest website, and we do not knowingly collect any personal information from children. If you are under 18, you are not permitted to use the Websites or App. Consistent with the Children's Online Privacy Protection Act (“COPPA”) and the General Data Protection Regulation, the Websites and App are not intended for use by anyone under the age of 18 (COPPA's minimum protections are for minors 13 years of age or under). Lose It! does not knowingly collect personal information from children through this Web Site.
+
+If you are a parent with concerns about children's privacy issues in conjunction with the use of this Web Site, please contact our Customer Care team. Lose It! encourages parents to discuss this Privacy Policy and the dangers of providing Personal Information on-line.
+
+Use of Cookies and Tracking Technology
+Cookies. Lose It! and/or certain third parties may collect information about you for online behavioral advertising purposes in order for you to receive relevant interest-based advertising on the Services and on other websites, platforms and media channels. We use Online Data as well as other User Information to send you online behavioral ads. Online Data is aggregated with the Other Information and data we collect and/or similar data collected by partners to create groups of users and certain general-interest categories or segments that we have inferred. We use this information to get a more accurate picture of audience interests in order to serve ads we believe are more relevant to your interests.
+
+Lose It! and its partners may use cookies and other tracking technologies to analyze trends, administer Services, track users' movements around the Services and on third party sites, devices and applications, and to gather demographic information about our user base. You can control the use of cookies at the individual browser level, but if you choose to disable cookies, it may limit your use of certain features or functions on the Services. To manage Flash cookies, please click here. Please see our Cookie Policy for more information, including a more in-depth explanation of what cookies are, the different types of cookies used on the Services, and how to change or delete them.
+
+Tracking technologies on the Services may be deployed by Lose It! and/or by our service providers or partners. Certain tracking technologies enable us to assign a unique identifier to you, and relate information about your use of the Services to other information about you, including your User Information. We may match information collected from you through different means or at different times and use such information along with offline and online information obtained from other sources (including from third parties), including, but not limited to, demographic information and updated contact information, for the purposes of learning more about you so we can provide you with relevant content and advertising.
+
+When you receive email messages or newsletters from us, we may use web beacons, customized links, clear GIFs or similar technologies to determine whether the email has been opened and which links you click in order to provide you with more focused email communications or other information, and/or to aggregate that information with other data we collect to use for some or all of the purposes outlined in this Privacy Policy.
+
+We and our partners (including but not limited to e-commerce partners, affiliates, and analytics providers) also may use technologies such as pixel tags, e-tags, IP addresses, Local Shared Objects, Local Storage, Flash cookies and HTML5 to analyze trends; administer the Services; collect and store information such as user settings, anonymous browser identifiers and video viewing history; supplement our server logs and other methods of traffic and response measurement; track users' location and movements around the Services; gather demographic information about our user base; and to improve our understanding of traffic on the Services, visitor behavior, and responses to promotional campaigns. We may receive reports based on the use of these technologies by these third party companies on an individual and aggregated basis. For example, we may connect information about your IP address to known corporate or User Information and use the associated information related to aggregate content preferences to assist in our efforts to market services to you or the originating corporation(s). Various browsers may offer their own management tools for removing Local Storage. To manage Flash Local Shared Objects please click here.
+
+We may use mobile analytics software to collect data and to better understand the functionality of our mobile software, devices and applications on your phone and other devices. This software may record information such as how often you use the application, the events that occur within the application, aggregated usage, performance data, and where the application was downloaded from. We may link this information to User Information.
+
+Lose It! and/or certain third parties may collect information about you for online behavioral advertising (“OBA”) purposes in order for you to receive relevant interest-based advertising on the Services and on other websites, platforms and media channels. OBA is also referred to as interest-based advertising.
+
+Lose It! may display ads on both the Services and on the Channels. We may use Online Data as well as other User Information to send you OBA. For example, if you read an article about a particular subject on the Services, we may use cookies from a vendor to later serve you an advertisement for a particular product or service related to the viewed article. These third party vendors may connect information about pages you visit on the Services with information about pages you visit on other Channels and show you advertising based on this combined information. These advertisements may appear when you are visiting a different section of the Services or on another Channel. Likewise, third party vendors may serve you advertisements when you visit the Services based on your interaction with the Services and other Channels.
+
+The specific providers we use for OBA are subject to change. For a list of some of the applicable providers, contact us at privacy@everydayhealth.com. For more details about how to opt out of tracking methods for these entities and others, click here (https://optout.aboutads.info/?c=2&lang=EN). For more details about OBA and opting out, see Interest Based Advertising below.
+
+Online Data is aggregated with the Other Information and data we collect as described in this Privacy Policy and/or similar data collected by partners to create groups of users and certain general-interest categories or segments that we have inferred based on (a) demographic or interest data and GeoIP Data, (b) the pages you view and links you click when viewing an email or using the Services and those of our partners, and/or (c) the search terms you enter when using certain search services. We use this information to get a more accurate picture of audience interests in order to serve ads we believe are more relevant to your interests. We store page views, clicks, and search terms used for ad personalization, targeting separately from your Personal Information. We may share de-identified data segments with third parties, and where we do, we implement technical measures and contractual requirements to prevent identification.
+
+Web Beacons. We may also use web beacons, clear gif technology, or action tags as mechanisms to collect aggregate site visitation data by tracking how users navigate to and through our Websites. We may also use this technology to track the delivery of HTML email messages. Data collected through this mechanism is not linked to personal information. A web beacon is an electronic image and string of code that is embedded in a web page or email which allows us to track web page views/hits or the opening of an email containing a beacon. We may use web beacon in conjunction with cookies to track web-site activity on www.loseit.com. Web beacon tracking by Lose It! does not identify the name or email address of the web user or mail recipient.
+
+What Information We Disclose to Third Parties
+
+We may disclose your User Information to other entities within the Lose It! affiliates for legitimate business purposes (including operating the Services, and providing services to you), in accordance with applicable law. In addition, we may disclose your User Information to:
+legal and regulatory authorities, upon request, or for the purposes of reporting any actual or suspected breach of applicable law or regulation;
+outside professional advisors (such as accountants, auditors, or lawyers), subject to binding contractual obligations of confidentiality;
+third party Processors (such as analytic providers, data centers; etc.), located anywhere in the world, subject to the requirements noted below in this Privacy Policy;
+any relevant party, law enforcement agency, or court, to the extent necessary for the establishment, exercise, or defense of legal rights;
+any relevant party for the purposes of prevention, investigation, detection, or prosecution of criminal offenses or the execution of criminal penalties, including safeguarding against and the prevention of threats to public security;
+
+any relevant third-party acquirer(s), in the event that we sell or transfer all or any relevant portion of our business or assets (including in the event of a reorganization, dissolution or liquidation);
+any relevant third-party provider, where our Services use third party advertising, plugins or content. If you choose to interact with any such advertising, plugins or content, information about your activities on the Services and Channels to provide you targeted advertising based upon your interests may be shared with the relevant third party provider. If you click or tap on or otherwise interact with an advertisement, the advertiser may assume that you meet its target criteria;
+
+any sponsors of contests, competitions, sweepstakes and prize draws, or content offerings, the registration data for such events is to be used by us as part of User Information, and may be shared with the sponsor and others, subject to this Policy and the sponsor's privacy policy. We may also share your information with third party vendors involved in the administration of such events. For contests, competitions, sweepstakes and prize draws, please read the official rules or terms and conditions carefully before you submit your information; and
+to third parties whose practices are not covered by this Privacy Policy (e.g., third party providers of goods and services, marketing and advertising companies and agencies, content publishers and retailers). Under applicable law, we may share Other Information with other parties who already possess your Personal Information in order to enhance their records about you or enhance their ability to provide products and services.
+
+For some of our Services, we may make some information, such as the name of our users, their mailing address, phone number, email address—and in certain circumstances their employer's name, company size and other industry data—available on a rental or other basis (e.g., sale) to third party providers of goods and services, for example, when such information is provided in connection with certain content available on our websites. Depending on where you reside, when you register for certain Services, we may share the Personal Information you provide with certain advertisers and sponsors.
+
+Some of the Services may include websites that Lose It! operates on behalf of third parties (“Licensors”). Where applicable, we may share some or all of your Personal Information with the Licensor; however this privacy policy does not cover the user of your Personal Information by a Licensor. The privacy practices of Lose It!'s Licensors may differ from this policy and we encourage you to contact those third parties directly if you have questions regarding their use of your Personal Information. When you use a co-branded service (a service operated with a partner of Lose It!), or register or otherwise provide information on a co-branded site, where applicable, we may pass the collected information back to that partner, which may include third party service providers whose services are embedded into and/or appear within the Services.
+
+With respect to surveys and quizzes, in the event that responses are publicly disclosed, users will be notified at the time they take the survey or quiz. Otherwise we will disclose only aggregate information regarding its users' responses in surveys or quizzes to other participants in the survey. Where surveys or quizzes allow users to submit written comments, and where Lose It! advises users of the possibility of such disclosure at the time they take the survey or quiz, Lose It! reserves the right to disclose any information provided by users, provided that no User Information identifying a specific user is disclosed.
+
+Lose It! and some of our advertisers may use third party advertising service companies to serve advertisements, for OBA or otherwise, and perform related services when you interact with the Services. Often, these third party advertising companies employ cookies and other technologies to measure the effectiveness of website, app and email advertisements and to create a record of interaction with our content that they use in conjunction with their advertising which appears on other sites or applications, or for reporting website traffic, app use, statistics, advertisement data and/or other activities on the Services. We also engage third party providers to assist with the segmentation of this data.
+
+We may also sell or transfer Online Data to certain third parties such as advertisers who will use this data to serve ads that they believe are relevant to your interests, and who agree to maintain the confidentiality of this information. Some of these third parties may combine the Online Data with their own data about you to form a more detailed picture.
+
+We may engage third party providers to assist with the collection, storage and segmentation of Online Data and the providers are required to maintain the confidentiality of this information. These third party providers may collect User Information from our Services for their own purposes, including but not limited to monitoring fraud around the web.
+
+We may also engage third parties for the purpose of recognizing our users and delivering interest-based content and advertisements to them. We may share your User Information with our partners such as your name, postal address, email, or other identifier. Our partners may also: (i) collect information directly from your device, such as your IP address, device ID, advertising ID, and information about your browser or operating system; (ii) combine User Information about you received from Lose It! with information about you from other sites or services; and (iii) place or recognize a unique cookie on your browser.
+
+If we engage a third-party Processor to Process your User Information, the Processor will be subject to binding contractual obligations to: (i) only Process the User Information in accordance with our prior written instructions; and (ii) use measures to protect the confidentiality and security of the User Information; together with any additional requirements under applicable law.
+
+The Services contain links to other sites or partners whose information practices may be different from ours. You should consult the privacy policy of these third parties to learn how your privacy is protected.
+
+Your Rights Regarding Your Personal Data
+Many privacy regulations afford consumers a number of specific rights. If you are a resident of the EU (under GDPR), UK (under the UK GDPR), Brazil (under the LGPD), several U.S. States, including California (CCPA), Virginia (under VCDPA), Colorado (under the CPA), and Connecticut (under the CTDPA), or another jurisdiction with similar privacy requirements, you have certain rights which may include those listed below.
+
+Your rights:
+Right to Withdraw Consent: Where you are requested to consent to the processing of your personal information, you have the right to withdraw your consent at any time.
+Right to Know: You have a right to know what personal information we collect, process, and share or sell. This policy is meant to provide transparency with regard to your data. If you have additional questions, you can email us at privacy@everydayhealth.com.
+Right of Access: You can request a copy of the personal information we have collected about you from us.
+Right to Delete/Erase: You can request us to delete all the information we have collected about you. It is important to note that by exercising your right to deletion you may lose access to your account and any purchases, points or features associated with it. If you wish to cancel your account or request that we no longer use some or all of your information to provide you services, you can email us at privacy@everydayhealth.com.
+
+Right to Request Rectification: If you find that any of your information that we are processing is inaccurate, you can contact us to have your information corrected. In response, we will cancel or remove your information but may retain and use copies of your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements. For certain requests, we may require additional information.
+(California) Right to Opt-out of the Sale or Sharing for Targeted Ads: Under some circumstances, we may sell or share the personal data you provide to us (excluding data that originates from Google Fit and Health Connect) to provide ads to you that align with your interests. If you would prefer not to have your data sold or shared, you can opt-out of selling or sharing by submitting a request via privacy portal or by emailing privacy@everydayhealth.com. We may ask for additional information to verify your request.
+
+Right to Object to the Processing: You can object to our processing of your personal information via our privacy portal, under certain circumstances. By objecting to processing, you may not be able to access some or all of our services. This right is limited to personal data processed for commercial purposes.
+Right to Object to the Use of Sensitive Personal Information: You have the right to object to our use of your sensitive personal information. Sensitive personal information is information about your health, race, religion, sexual orientation, gender identity, political opinions or philosophical beliefs. You should always be mindful about the personal information you share online, especially when it is sensitive in nature.
+Right to Object to Automated Processing: You have a right to object to the processing of your data for the purposes of automated decision making about you.
+Right to not be Discriminated Against: You have a right to not be discriminated against for exercising your rights.
+
+Right to Complain (EU,UK, Switzerland): Should you wish to raise a complaint about the collection or use of your information, you have the right to do so without prejudice to any other rights you may have. You may lodge a complaint with your local data protection authority.
+Right to an Authorized Agent (CA): If you would like to make a request on behalf of a California consumer who is a current or former customer, please provide an email from the email address we have on file for the customer authorizing the request. You may also make a request under the California Consumer Privacy Act on behalf of a California consumer if you provide (1) a signed, written permission from the consumer to act on your behalf, and the consumer verifies their own identity directly with us; or (2) proof that the consumer has provided you with power of attorney pursuant to Probate Code sections 4000 to 4465. We may deny a request from an agent that does not submit proof that they have been authorized by the consumer to act on their behalf.
+
+In order to make privacy requests please visit our privacy portal and fill out the form. You can also email us at privacy@everydayhealth.com. Our contact information can be found in the Contact Information section below.
+
+You may be required to verify your identity before we can give effect to these rights. If you are making a request on behalf of a user, we require a signed authorization letter from the consumer.
+
+If you would like to appeal our response to your request, please respond back to us with your reasoning and what you believe has been omitted, or is incorrect.
+
+Mobile Analytics
+In addition, Lose It! or our partners may use analytics technology to track traffic data about use of the Apps. As noted above, we may share event level data with our analytics partners Amplitude, Singular, and/or Google – as well as both event level data and email addresses with our analytics partner Iterable – to help us learn about and improve use of the Apps. Such partners have the right to retain and use the anonymous traffic data collected through the analytics service from users of the Websites or the Apps. We work to ensure these third parties provide privacy protections equal to those required under this Privacy Policy and Apple's Developer Guidelines.
+
+Interest-Based Advertising
+When you use our apps, third parties may collect data about your mobile device in order to serve ads on other apps or websites that are tailored to your interest. This practice is known as 'interest-based advertising.' Examples of data that may be collected include: IP addresses, Advertising ID, or any ads that you click while using our app. If you wish to opt out, please click here for instructions.
+
+We are providing you with this information and ability to control these settings in accordance with our commitment to the Digital Advertising Alliance's Self Regulatory Principles. To learn more about the principles, please visit http://aboutads.info/consumers/.
+
+Lose It! is a subsidiary of Ziff Davis, LLC, a member of the Digital Advertising Alliance (“DAA”) in the U.S., E.U. and Canada and uses third party assurance platforms to comply with the DAA principles. Lose It! strives to adhere to the self-regulatory organization principles for the DAA (US), the DAAC (Canada) and the EDAA (EU). Online ads on the Services using Online Data are delivered with the DAA Ad Marker Icon, which helps users understand how their data is being used and provides choices for users who want more control. This icon is also on each of our web pages and applications where Online Data is collected that will be used for OBA purposes.
+
+The DAA Ad Marker Icon provides information (and links to other information) on online behavioral ads, who is collecting and using your Online Data, how you can opt-out and more. If you would prefer that we not collect Online Data that may be used to help determine which advertisements to serve you, opt out by clicking this icon, which can be found on most of our webpages and mobile applications.
+
+European Union and Switzerland residents should visit the European DAA by clicking here.
+Canadian residents should visit the DAA of Canada by clicking here (https://youradchoices.ca/en/tools).
+U.S. residents and residents of all other countries or territories not listed above can click here (https://optout.aboutads.info/?c=2&lang=EN) for the DAA site to learn more about the use of cookies, your opt-out choices, and more. You may also opt-out of targeted advertising by submitting a request to opt-out of the sale of your personal information via the Privacy Portal
+
+When you use our website, we share information that we collect from you, such as your email (in hashed form), IP address, or information about your browser or operating system, with our identity partners/service providers. These partners return an online identification code that we may store in our first-party cookie for our use in online, in-app, and cross-channel advertising, and it may be shared with advertising companies to enable interest-based and targeted advertising. To opt-out of this use, please click here (https://youradchoices.com/token).
+
+Links to Other Websites
+Our Websites may contain links to other websites. Please be aware that we are not responsible for the privacy practices of these other sites, and we encourage you to review the policies of each site you use. We cannot control the actions of such third parties or be held responsible for their use of any information that you provide directly to them.
+
+Legal Bases for Processing Your Information
+We rely on the following legal grounds to process your personal information:
+Performance of a contract – If you choose to make a purchase through the Websites or Apps, we need to collect and use your personal information to perform our agreement with you.
+Consent – We may use or disclose some of your personal information as described in this Privacy Policy subject to your consent.
+Legitimate interests – We may use your personal information for our legitimate interests to improve our products and services. Consistent with our legitimate interests and any choices that we offer or consents that may be required under applicable laws, we may use technical information as described in this Privacy Policy and use personal information for our marketing purposes.
+
+International Transfers of Information
+We may transfer your information to recipients in other countries. FitNow Inc., by way of its parent company Ziff Davis, Inc., participates in the E.U.-U.S. Data Privacy Framework, the UK extension to the EU-U.S. DPF, the Swiss-U.S. Privacy Framework and the APEC Cross Border Privacy Rules System. Where we transfer information from the European Economic Area (“EEA”) to a recipient outside the EEA that is not in an adequate jurisdiction, we do so on the basis of standard contractual clauses.
+
+Because of the international nature of our business, we may need to transfer your information within the Ziff Davis group of companies, and to third parties as noted above, in connection with the purposes set out in this Policy. For this reason, we may transfer your information to other countries that may have different laws and data protection compliance requirements to those that apply in the country in which you are located. We remain liable under the DPF Principles if any third parties that we transfer your personal information to process it in a manner inconsistent with the DPF Principles, unless we prove that we are not responsible for the event giving rise to the damage.
+
+FitNow Inc. and its associated affiliates and subsidiaries complies with the EU-U.S. Data Privacy Framework (EU-U.S. DPF) and the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce. FitNow Inc. has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of personal data received from the European Union and the United Kingdom in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF. FitNow Inc. has certified to the U.S. Department of Commerce that it adheres to the Swiss-U.S. Data Privacy Framework Principles (Swiss-U.S. DPF Principles) with regard to the processing of personal data received from Switzerland in reliance on the Swiss-U.S. DPF. If there is any conflict between the terms in this privacy policy and the EU-U.S. DPF Principles and/or the Swiss-U.S. DPF Principles, the Principles shall govern. To learn more about the Data Privacy Framework (DPF) program, and to view our certification, please visit https://www.dataprivacyframework.gov.
+
+We are committed to staying current with developments related to the Data Privacy Framework and may update our transfer mechanisms and safeguards as necessary to remain compliant. Any updates will be reflected in this Privacy Policy.
+
+If you are a European individual with a privacy related complaint, concern or question about FitNow Inc.'s privacy practices, please contact us through our privacy portal. Under certain conditions, more fully described on the Data Privacy Framework website, European individuals may invoke binding arbitration when other dispute resolution procedures have been exhausted.
+
+Where we transfer your personal information from the EEA to recipients located outside the EEA who are not in a jurisdiction that has been formally designated by the European Commission as providing an adequate level of protection for information, we do so on the basis of standard contractual clauses. You may request a copy of the relevant standard contractual clauses using our privacy portal. Please note that when you transfer any personal information directly to an entity established outside the EEA, we are not responsible for that transfer of your information. We will nevertheless process your information, from the point at which we receive the data, in accordance with the provisions of this policy.
+
+Enforcement Authority
+
+The Federal Trade Commission has jurisdiction over our compliance with the EU-U.S. Data Privacy Framework (EU-U.S. DPF) and the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF).
+
+Complaints Mechanism
+
+In compliance with the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF, FitNow Inc. commits to resolve DPF Principles-related complaints about our collection and use of your personal information. EU and UK individuals and Swiss individuals with inquiries or complaints regarding our handling of personal data received in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. DPF should first contact FitNow Inc. at privacy@everydayhealth.com.
+
+In compliance with the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF, FitNow Inc. commits to refer unresolved complaints concerning our handling of personal data received in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF to TrustArc, an alternative dispute resolution provider. The services of Trustarc are provided at no cost to you. For further information please visit https://trustarc.com/dispute-resolution/.
+
+Under certain conditions, a binding arbitration option may be available to you in order to address complaints not resolved by any other means. For further information, please see Annex I of the EU-U.S. Data Privacy Framework Principles at: https://www.dataprivacyframework.gov/framework-article/ANNEX-I-introduction.
+
+In compliance with the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF, FitNow Inc. commits to cooperate and comply respectively with the advice of the panel established by the EU data protection authorities (DPAs) and the UK Information Commissioner's Office (ICO) and the Swiss Federal Data Protection and Information Commissioner (FDPIC) with regard to unresolved complaints concerning our handling of human resources data received in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF in the context of the employment relationship.
+
+For a list of our subsidiaries and affiliates who also adhere to the DPF Principles, please click here.
+
+Our privacy practices described in this Policy comply with the Asia-Pacific Economic Cooperation (“APEC”) Cross Border Privacy Rules System. To learn more about this program, please click here.
+
+Data Security and Breach Handling
+We have implemented appropriate technical and organizational security measures to protect your personal information against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, unauthorized access, and other unlawful or unauthorized forms of Processing in accordance with applicable law. All parties we contract with must agree to provide reasonable data security measures for the personal information we share with them in compliance with applicable laws and regulations. In certain instances, we may use Secure Sockets Layer encryption and/or transfer certain personal information in a non-human readable format to provide protection. However, we cannot guarantee there will not be a breach, and we are not responsible for any breach of security or for the actions of any third parties.
+
+Because the internet is an open system, information transmission via the internet is not completely secure. Although we will implement reasonable measures to protect your information, we cannot guarantee the security of your data transmitted to us using the Internet. Any such transmission is at your own risk, and you are responsible for ensuring that any personal information that you send to us is sent securely.
+
+Data Retention and Deletion
+We will only retain your personal information for as long as necessary to fulfill the purposes for which it was collected and processed, including for the purposes of satisfying any legal, regulatory, accounting or reporting requirements. In some circumstances, we may anonymize your personal information so that it can no longer be associated with you, in which case it is no longer personal information.
+
+It is our policy to retain personal information for 6 months once such personal information is no longer necessary to deliver the Website and Apps and to delete such personal information thereafter. This means that, if you close your account with us, we will delete personal information associated with your account after 6 months. Regarding other types of information we collect as described in this policy, it is our policy to retain such personal information for 6 months and to delete such personal information thereafter.
+
+CALIFORNIA CONSUMERS RIGHTS METRICS
+Pursuant to the California privacy regulations, our consumer rights metrics can be found on our Regulatory Information Site.
+
+Texas Sensitive Date Notice
+NOTICE: We may sell your sensitive personal data, as defined under and in accordance with Texas law.
+
+Contact Information
+We welcome your input on our privacy statement. If you have any questions or suggestions regarding our privacy statement, please contact Lose It!, by email to privacy@everydayhealth.com or by mail to the following address:
+
+Everyday Health
+
+Attention: Legal Department
+
+360 Park Avenue South, 17th Floor
+
+New York, New York 10010
+
+If you are an EU resident, you may contact our Data Protection Officer at dpo@everydayhealth.com.
+
+If you have an unresolved concern regarding your privacy or our use of data that we have not addressed satisfactorily, please contact our U.S.-based third-party dispute resolution provider (free of charge) by clicking here.
+
+Consumer Health Data Privacy Policy
+A. Categories of health data collection, purpose and source:
+Voluntarily provided information related to health interests, conditions, or concerns.
+Inferred data related to your interests and concerns based on your use of our digital properties.
+Information collected through the use of cookies, eTags, Javascript, pixel tags, device ID tracking, anonymous identifiers, and other technologies, including information collected using such methods and technologies about (i) your visits to, and interaction and engagement with, the Services, content and ads on third party websites, applications, platforms and other media channels (“Channels”), and (ii) your interaction with emails including the content and ads therein (collectively, “Online Data”).
+Device type, settings, and software used.
+Log files, which may include IP addresses, browser type, ISP, referrer, accessed pages, operating system, date/time stamps and clicks.
+Web Beacons, which are electronic files that allow a website to count users who have visited that page or to access certain cookies.
+
+Pixel Tags, also known as clear GIFs, beacons, spotlight tags or web bugs, which are a method for passing information from the user's computer to a third party website.
+
+B. Categories of health data collection, purpose and source:
+
+FitNow is owned by Ziff Davis Inc. We share your information with other businesses owned by Ziff Davis, Inc. (“Ziff Davis Companies”) to assist us in operating our services, improving them, and further developing them.
+
+With respect to quizzes and surveys, in the event that responses are or will be publicly disclosed, users will be notified at the time they take such quizzes or surveys. Otherwise, we will disclose only aggregate information to other participants. Where quizzes or surveys allow users to submit written comments, and where FitNow advises users of the possibility of such disclosure at the time they take the quiz or survey, FitNow reserves the right to disclose any information provided by users, provided that no User Information identifying a specific user is disclosed.
+
+We may engage third party providers to assist with the collection, storage and segmentation of your information and the providers are required to maintain the confidentiality of this information. These third party providers may collect User Information from our Services for additional purposes, such as to monitor fraud around the internet.
+
+We may also engage third parties for the purpose of recognizing our users and delivering interest-based content and advertisements to them. We may share your User Information with our partners such as your name, postal address, email, or other identifier. Our partners may also: (i) collect information directly from your device, such as your IP address, device ID, advertising ID, and information about your browser or operating system; (ii) combine User Information about you received from FitNow with information about you from other sites or services; and (iii) place or recognize a unique cookie on your browser.
+
+If we engage a third-party Processor to Process your User Information, the Processor will be subject to binding contractual obligations to: (i) only Process the User Information in accordance with our prior written instructions; and (ii) use measures to protect the confidentiality and security of the User Information, together with any additional requirements under applicable law.
+
+The Services contain links to other sites or partners whose information practices may be different from ours. You should consult the privacy policy of these third parties to learn how your privacy is protected.
+
+C. How to exercise your rights:
+
+In order to exercise your rights with respect to your health data, please visit our Privacy Portal and fill out the form. You can use this portal to request a copy of your data, corrections, delete your data, or other rights applicable to you.
+
+You can also email us at privacy@everydayhealth.com. For more information on your rights, please see the heading “Your Rights With Respect to Your Personal Information.”
+
+D. Changes to this policy
+
+This policy may be amended or updated from time to time at our discretion. For additional information, please refer to the heading “How This Policy May Change.”
+
+Last Updated: 06/24/2026
+
+Copyright 2008-2023 FitNow, Inc., a Ziff Davis company. All rights reserved
+
+Privacy | Terms of Service
+
+Privacy Preferences
+
+Consumer Health Data Privacy
+
+Do Not Sell My Personal Information (https://www.fitnowinc.com/ccpa-privacy-policy/)
