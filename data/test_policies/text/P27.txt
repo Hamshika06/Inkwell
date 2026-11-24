@@ -1,0 +1,341 @@
+Quizlet Privacy Policy
+
+Terms of Service
+
+Privacy Policy
+
+Honour Code
+
+Community Guidelines
+
+Copyright Infringement
+
+Accessibility Statement
+
+Quizlet Privacy Policy
+Last updated: 15 May 2026
+Quizlet, Inc. (“Quizlet“, “we“, “us“) is committed to helping people around the world practice and master whatever they are learning. When you provide information to us, we use it to try to connect you with the right content and help you make studying faster and more effective. This Privacy Policy explains how we collect, use, and disclose the personal information we receive about you online and offline, including when you use our website located at Quizlet.com or our Quizlet software applications via our website and mobile applications (collectively, “Services“). This Policy also outlines certain rights you may have to your personal information. This Policy applies only when you use our Services as a consumer and not as a job applicant, contractor, or employee.
+
+By using our Services, communicating with us, or otherwise interacting with us, you consent and agree to our collection, use, and disclosure of your information as described in this Policy.
+
+Table of contents
+Personal Information We Collect and Sources How We Use Your Personal Information Disclosure of Your Personal Information Your Choices About How We Use Your Personal Information Do Not Track Disclosure How Long We Retain Your Personal Information How We Secure Your Personal Information Third-Party Websites or Platforms Children's Privacy Jurisdictional Rights
+
+EEA, Switzerland, and UK California Privacy Rights in Your State of Residence
+
+Changes to this Policy Contact us
+
+Personal Information We Collect and Sources
+In providing the Services to you, we collect the personal information described below.
+
+Personal Information You Provide to Us
+When you use the Services or otherwise interact with us, we may collect the following personal information: username, date of birth, email address, phone number, password, full name, any profile picture you choose to upload, and/or physical address.
+
+If you log into the Services using a third-party authentication service, such as Google, Facebook, or Apple, these services will authenticate your identity and provide you the option to disclose certain personal information with us, such as your name, date of birth, and email address, to pre-populate our sign up form. You may choose to provide additional information during the linking process to enable certain features on Quizlet.
+
+If you complete a purchase transaction with us, we collect limited payment information and any information needed to process your payment. Our third-party payment processors handle any payment card details and payment instrument information that you may provide.
+
+If you create, upload, transmit, or otherwise post information to the Services or communicate with us, we will collect that information, which may include text, images, audio files, search bar queries, survey responses, support communications, and other information types or formats. We may collect information that you choose to provide to enhance the Services, including your school or subject information. If you participate in a sweepstakes or similar contest, we collect the information necessary for us to issue any relevant payouts, awards, and tax documentation.
+
+When you interact with our website or mobile applications, we will collect information about how and when you use our Services, including the device used to connect to our Services, your operating system version, your IP address and device identifier, the frequency, timing, and duration of your usage, the pages you view, your usage patterns (e.g., clicks, mouse movements, scrolling and typing activity), which websites or search terms referred you to our Services, and information about your interaction with our Services.
+
+You may also choose to provide us with additional information in order to obtain a better user experience when using the Services.
+
+Personal Information We Collect Automatically When You Use the Services, Including via Cookies, Pixels, and Similar Technologies
+We collect certain information from and about you when you interact with our Services, including usage activity such as landing on our website pages, interacting with our website or mobile applications, creating a study set, joining a class or study group, or viewing and interacting with content presented in our Services. This information is automatically collected using various technology services and tools such as cookies, pixels, beacons, tags, session replay, and scripts. These technologies are small pieces of code that run when a website, application, or email is loaded to collect and store data about our users in real-time in order to operate and improve the Services. The vendors who supply us with these tools may collect your information instantaneously and simultaneously during our collection of your information. We also use local storage, which allows data to be stored locally on your browser or device and includes HTML5 local storage and browser cache.
+
+Our website includes social media features and widgets, such as buttons that allow you to post content on third-party websites. These features may use pixels to collect your IP address, device identifier or other data about the page you are visiting on our site, and may set a cookie to enable the feature to function properly. Social media features and widgets are made available to us by the third-party social media platforms that may collect your information via these tools instantaneously and simultaneously during our collection of your information.
+
+We also use cookies and tracking tools to provide and enhance the Services. To learn more, click .
+
+Personal Information We Collect From Third Parties
+We collect information about you from the following categories of third parties.
+
+Our partners and other companies. Quizlet may receive information about you from other sources, including our partners, service providers, or other third parties. For example, the customer support chat feature may be provided by third parties that receive or have access to the content of communications made using those features. We may combine information we collect from you over time and across the Services with the information we receive from other sources and third parties (including personal information that they have collected from or about you in other contexts). This helps us to improve the information’s overall accuracy and completeness. It also helps us to better tailor our interaction with you.
+
+Advertising companies. We allow third-party companies to display advertisements in the Services. These companies use cookies, pixels, and other technologies to collect personal information about you from your browser or device while using our Service or third-party services.
+
+Other users. Quizlet may receive information about you from our users. For example, if a user refers you to Quizlet, we may collect your name and email address from our user to send you an invitation to use Quizlet.
+
+Third-party platforms and publicly available sources. We may collect information from third-party discussion forms, public posts on social media platforms, and other publicly available information sources, in accordance with applicable laws.
+
+How We Use Your Personal Information
+We use your personal information to provide, maintain, improve, and promote the Services, and to communicate with you. The specific purposes of our collection are as follows:
+Providing, maintaining, and personalising the Services. Information you provide to us allows us to help you log in, host your content, enable your use of our study tools, process any payments, and send you transactional communications about your use of the Services. We also use your information to personalise your experience and ensure that you receive relevant recommendations.
+Measuring, analysing, and improving the Services. In order to enhance our Service and deliver a continuously improving experience, we use certain information to analyse usage and performance of the Services, to conduct surveys and user research, and to collect feedback.
+Providing support, resolving issues, and responding to requests. We send you the information and support that you request and other important administrative communications.
+
+Sending you marketing communications and supporting advertisements on our Services and third-party platforms. We may send you information about the Services, new features, promotions, contests, and special offers. We may do so via Quizlet marketing on third-party services. We may use your personal information to deliver, select, optimise, analyse, and measure advertisements that are served via the Services and on third-party platforms. For example, in partnership with our vendors, we may convert your email address or telephone number into marketing or advertising IDs that our vendors use to identify you and your activities across third-party platforms and services. We may also use newer technologies, including clean rooms, matching services, and audience measurement tools.
+
+Additionally, we may create and update profiles and audience segments that can be used for analytics, interest-based advertising, and marketing on the Services, and on websites, mobile apps and other third-party platforms operated by our advertisers and other third-party providers. To better understand our audiences and improve the relevance of our advertising, we may combine information from surveys, registrations, and browsing behavior. People with similar interests or traits may be grouped and assigned a random ID to help us tailor ads shown on our Services.
+Preventing fraud, crime and abuse and the security and integrity of the Services. This includes investigating, detecting and preventing or reporting fraud, misrepresentations, security breaches or incidents, other potentially prohibited or illegal activities or to otherwise help protect your account.
+Protecting our and third parties’ rights and property and enforcing our Terms of Service or other applicable agreements or policies, including our Community Guidelines and Honor Code.
+
+Verifying your identity. In some cases, we may need to verify your identity in order to protect the security and integrity of the Services and your account.
+Complying with any applicable laws or regulations. This includes appropriately responding to lawful requests for information from the government or third parties through legal process.
+Other uses. We may process data for any other purpose disclosed to you in connection with the Services from time to time. If we intend to process your personal information for a purpose other than that set out above and which is not compatible with the original processing purpose, we will provide you with relevant information prior to such processing and will obtain your consent where necessary.
+
+Disclosure of Your Personal Information
+Personal Information You Choose to Disclose via the Services
+Certain information about you, or activities you perform on Quizlet, may be displayed publicly in the Services. For example, information included on your user profile, classes and/or group studies you have joined, high scores you have achieved, or sets you have studied may be visible to other users of the Services.
+
+Third Parties to Whom Quizlet Discloses Personal Information
+Quizlet may disclose your information to third parties in the following circumstances:
+
+For external processing. Quizlet provides personal and non-personal information to our service providers, vendors, partners, payments providers, and other affiliated organisations to process it on our behalf. Our providers process data in accordance with our instructions, Privacy Policy and any other appropriate confidentiality, security or other requirements we deem necessary in order to comply with Quizlet’s obligations. We regularly update a list of our service providers and subprocessors, which you can view here.
+
+To respond to legal and other requests and to prevent harm. Quizlet may provide personal information to third-party entities if we have a good-faith belief that access, use, preservation or disclosure of the information is reasonably necessary to:
+Respond to or meet any applicable law, regulation, legal process or other enforceable governmental request.
+Enforce our Terms of Service, including investigation of potential violations.
+Detect, prevent, or otherwise address fraud, security or technical issues.
+Protect against and prevent harm to the rights, property or safety of Quizlet, our users, or the public as required or permitted by law.
+
+With any successor to all or part of our business. If Quizlet is involved in a merger, acquisition, or sale of all or a portion of its assets, your personal information may be transferred to a receiving party. You will be notified of such change in ownership or uses of your personal information, as well as any choices you may have regarding your personal information.
+
+With your consent. We may otherwise disclose personal information to companies, organisations or individuals outside of Quizlet when we have your consent to do so.
+
+Your Choices About How We Use Your Personal Information
+Email, Text, and Other Communications. You may opt out of receiving certain communications (such as email, push notifications, or text messages) from Quizlet by changing your notification settings in your Quizlet account, or by following the unsubscribe or stop instructions in those messages. Quizlet will still send you transactional communications, such messages about your account transactions.
+
+Sensitive personal information. Quizlet does not currently process sensitive personal information relating to medical or health conditions, racial or ethnic origin, political opinions, or religious or philosophical beliefs. Should we ever collect such information, we will not use sensitive personal information for a purpose other than the purpose for which it was originally collected or subsequently authorised by the individual unless Quizlet has received their affirmative and explicit consent (opt-in).
+
+Cookies and Tracking Tools. You may exercise choice regarding your cookie preferences by clicking . The choices you make are both browser and device specific.
+
+You may also set your cookie preferences through your browser settings. You can learn more about how to manage your cookie preferences here.
+
+Online Ad Choices. Quizlet and our third-party advertising partners may serve advertisements when you use our Services. In order to provide advertisements about goods and services of interest to you, Quizlet and our third-party advertising partners may use information collected from you, from devices associated with you, and from your visits to this and other websites to show you more relevant ads. The Self-Regulatory Principles for Online Behavioral Advertising set forth by the Digital Advertising Alliance (DAA) provide consumers with the ability to opt out of having their online behavior recorded and used for advertising purposes by certain providers who participate in the DAA here. European users can learn more about how to opt out of receiving these types of ads here. The DAA offers a tool for opting out of the collection of cross-app data on a mobile device for interest-based advertising here (https://youradchoices.com/appchoices).
+
+Managing Your Account. You can choose whether the content you create on Quizlet, such as flashcard sets, can be viewed by other users. You may also review, edit, or delete the content you create on Quizlet by using the deletion tools we provide. You may delete your account at any time by signing into your Quizlet account, going to Settings, and selecting Delete account. If you delete your account, the content you have created on Quizlet will be deleted in accordance with our data retention policies. Depending on your location, you may have deletion rights and additional rights regarding your data. See the Jurisdictional Rights section of this Privacy Policy for the rights that apply to you. Regardless of your location, you can request that we delete your data using our data deletion request form. Select Your Privacy and Cookie Choices, select Requests, then select Delete your personal information to access the form. You can also email us at privacy@quizlet.com.
+
+Do Not Track Disclosure
+We recognise certain universally-accepted global privacy control signals that are designed to automate a user’s desire to opt out of certain processing activities, but we do not currently respond to “do not track” signals except as required by applicable law.
+
+How Long We Retain Your Personal Information
+Quizlet retains your personal information for as long as your account is active, to fulfill our legitimate business purposes, or to comply with our legal obligations or document retention policies. When these conditions no longer exist, Quizlet removes that information in accordance with our standard deletion processes. Quizlet may retain and use non-personal information, including information which has been de-identified, aggregated, or anonymised, indefinitely.
+
+We retain records of support tickets and other communications between Quizlet and our users, for example support emails, survey responses, feedback submissions, or comments on our blogs or other posts, indefinitely in order to better manage our support processes, maintain accurate business records, and identify other trends. We reserve the right to publish these communications in order to help us clarify or respond to your request or to help us support other users.
+
+How We Secure Your Personal Information
+The security of your personal information is important to us. Quizlet takes measures reasonably designed to protect against the unauthorised access, use, alteration or destruction of personal information.
+
+We use reasonable efforts to follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. However, the Internet is not 100% secure. We cannot promise that your use of our Services will be completely safe. We encourage you to use caution when using the Internet. If you have any questions about the security of our Services, you can contact us at security@quizlet.com.
+
+Third-Party Websites or Platforms
+We may direct you to, or provide you with an option to, visit third-party websites or platforms. Third-party platforms operate independently from us and we are not responsible for the personal information that you choose to submit to those platforms. We encourage you to review the privacy policies and settings of the third-party platforms that you interact with as they will govern your interactions with those platforms.
+
+Children's Privacy
+While Quizlet is intended for users age 13 and over, if a child requests access to our Services we accommodate them by offering a limited feature set and restricted experience that removes certain features. We offer this restricted experience (“Child Account”) for accounts of all users below the age of 13 and for some users below the age of 16 where applicable under local law.
+
+To create a Child Account, Quizlet will collect the user’s date of birth, username and parent's email address, and account password. We collect a parent’s email address from a child under the age of 13 if they attempt to register in order to notify the parent of their child's use of Quizlet and to seek parental consent for use of the child's personal information. Once the Child Account is created, a child may upload information to the Services (with a parent or guardian's consent). We will also collect information about how and when the child uses our Services, including the device used to connect to our Services, their operating system version, their IP address and device identifier, and the frequency, timing, and duration of their usage.
+
+We collect the above information when a child creates a profile for our Services and then uses our various products and features. This information is used to make the Services operational and for other internal business purposes (e.g., ensuring security of the Services). We may disclose or distribute information from Child Accounts as described in this section and this Privacy Policy, including with parents in order to provide notice of use and gather parental consent, with third parties to support internal operations, and to provide the restricted experience on the Service to the Child Account.
+
+We do not condition a child's participation or access to any activity on Quizlet on the child providing any more information than is reasonably necessary for that activity. We may use aggregated or de-identified information about children for research, analysis, marketing and other commercial purposes.
+
+Service Providers
+
+We work with the following service providers to help us improve our services and understand how they are used.
+
+Google Analytics: We use Google Analytics to understand how people use our sites and services. Google Analytics does not log or store IP addresses. It briefly processes an IP address to derive approximate geographic location, such as city and country, then discards it. Google Analytics uses anonymous identifiers rather than personally identifying information in its reports.
+Crashlytics: We use Crashlytics to track and report any app crashes or issues. This helps us make sure our apps run correctly. Crashlytics does not collect any personal data.
+Firebase: For our mobile app, we use Firebase services to monitor performance, track usage and fix issues. Firebase helps us ensure the Services work as intended. Firebase may temporarily process IP addresses to provide these services, including to derive approximate geographic location. IP retention periods vary by service but are limited to what is needed to provide the Services.
+Snowplow: We use Snowplow for internal analytics. Snowplow collects page views and sessions to validate time on Quizlet for internal reporting and metrics purposes. Snowplow does not collect personal information.
+
+This information is not used to contact you, to build a profile or to serve interest-based targeted advertising to children.
+
+If you have any questions about our use of service providers in relation to children, please contact us at support@quizlet.com.
+
+Parental Rights
+
+Parents and legal guardians of children under 13 must consent to the collection and use of a child's personal information in connection with a Child Account. Parents may review, edit or delete their Child Account's content or account at any time by signing into the child's account. A parent may request deletion, updates, restrictions, or corrections to a Child Account's registration information by contacting support@quizlet.com. Quizlet may ask additional questions or take other steps to verify the identity of a parent or guardian before responding to a request to review or delete a child's information or a request to refuse further collection from a child.
+
+If we make material changes to how we collect and use personal information from children under the age of consent, we will notify parents by email and, when appropriate, obtain additional parental consent for the new uses of the child's personal information.
+
+Kids Privacy Assured by PRIVO: COPPA Safe Harbour Certification
+Quizlet, Inc. is a member of the PRIVO Kids Privacy Assured COPPA safe harbour certification Program (the “Program”). The Program certification applies to the digital properties listed on the certification page that is viewable by clicking on the PRIVO Seal. PRIVO is an independent, third-party organisation committed to safeguarding children's personal information collected online. The PRIVO COPPA safe harbour certification seal posted on this page indicates Quizlet, Inc. has established COPPA compliant privacy practices and has agreed to submit to PRIVO's oversight and consumer dispute resolution process. If you have questions or concerns about our privacy practices, please contact us at privacy@quizlet.com or using the contact information below. If you have further concerns after you have contacted us, you can contact PRIVO directly at privacy@privo.com.
+
+Jurisdictional Rights
+The laws of the place where you reside may give you certain rights with respect to your personal information as described below. These rights only apply to the extent that both you and Quizlet are subject to such laws.
+
+If you are located in the EEA, UK, or Switzerland, please review the “EEA, Switzerland, and UK” section below.
+If you are a resident of California, please review the “California” section below.
+For residents of all other jurisdictions, please review the “Privacy Rights in Your State of Residence” section below.
+
+EEA, Switzerland, and UK
+This section provides additional information about our processing of personal information for individuals who use our Services and are located in the European Economic Area (“EEA”), Switzerland, and United Kingdom and supplements the disclosures provided elsewhere in this Privacy Policy.
+
+Controller Details
+Quizlet, Inc. is an entity incorporated and organised under the laws of the United States. With respect to the personal information discussed in this Privacy Policy, we are the “controller” for such information under the General Data Protection Regulation and comparable laws in the UK and Switzerland (“GDPR”). This means Quizlet determines the purposes and means of processing personal information relating to individuals located in the EEA, Switzerland, and UK. You may contact Quizlet using the information provided in the “Contact Us” section at the end of this Privacy Policy.
+
+Categories, Disclosures, Purposes and Legal Basis of Processing
+The categories of personal information that Quizlet processes regarding individuals in the EEA, Switzerland, and UK, and the sources of that personal information, are described above in the section titled “Personal Information We Collect and Sources.” The purposes for which we use the personal information is described above in the section titled “How We Use Your Personal Information.” The categories of third parties to whom we may disclose personal information are set forth in the section titled “Disclosure of Your Personal Information“.
+
+Quizlet processes your personal information only when we have a lawful basis for doing so. Quizlet relies on the following lawful bases for processing your personal information.
+
+Contract. We may process your personal information where the processing is necessary for the performance of a contract to which you are a party, or to take steps at your request prior to entering into a contract with you. For example, some of the information we collect from you we need to deliver the Services to you and fulfill our agreement under the Terms of service.
+Consent. Sometimes we collect and process your data when you have given us consent to do so. For example, when you choose to receive marketing communications from us, our lawful basis for sending those communications will be your consent. When we rely on consent as our lawful basis, you may withdraw your consent at any time.
+Legitimate Interest. We may process your personal information where doing so is necessary for our legitimate interests and not overridden by your rights and freedoms. For example, we process your personal information pursuant to our legitimate interest in providing, maintaining, and improving our Services, as well as monitoring the use of our Services.
+
+Legal Obligation. We may process your personal information for the purpose of complying with legal obligations (e.g., obligations relating to accounting and taxation).
+Vital Interest/Public Good. In rare cases, we may be required to process your data to protect your vital interests (e.g., to protect your physical safety) or for a task in the public good (e.g., to cooperate with law enforcement).
+
+You are not required to provide personal information to us, but we do rely on your personal information to provide certain of our Services. If you choose not to provide us with your personal information, we may not be able to provide you with a Service or product you request.
+
+Rights Available Under the GDPR and Submitting Rights Requests
+The GDPR provides certain rights to individuals in the EEA, Switzerland, and UK. If you are located in those jurisdictions, you may be able to exercise the following rights. Please note that these rights are subject to limitations and not all rights apply in all circumstances.
+
+Right of access. Subject to certain exceptions, you have the right of access to your personal information that we hold. If you are requesting access to your data in order to protect the rights of others, we may require you to validate your identity before we can release that information to you.
+Right to rectify your personal information. If you discover that the information we hold about you is inaccurate or incomplete, you have the right to have this information rectified (i.e., corrected).
+Right to erasure. You may ask us to delete information we hold about you in certain circumstances. This right is not absolute and it may not be possible for us to delete the information we hold about you, for example, if we have an ongoing contractual relationship or are required to retain information to comply with our legal obligations.
+Right to restrict processing. In some cases, you may have the right to have the processing of your personal information restricted. For example, where you contest the accuracy of your personal information, its use may be restricted until the accuracy is verified.
+
+Right to object to processing. You may object to the processing of your personal information (including profiling) when it is based upon our legitimate interests. You may also object to the processing of your personal information for the purposes of direct marketing and for the purposes of statistical analysis.
+Right of portability. You have the right to receive, move, copy, or transfer your personal information to another controller when we are processing your personal information based on consent or on a contract and the processing is carried out by automated means.
+Right to withdraw consent. In circumstances where we request your consent to process personal information, you have the right to withdraw that consent. Please note that withdrawing consent will not affect the personal information we process using a different lawful basis.
+
+To exercise your right to object as it relates to the use of automatic data collection technologies on our website, including cookies, please click the link at the bottom of our website's homepage and adjust your preferences accordingly. Finally, you may also submit a written request to exercise any of the foregoing rights by clicking the Your Privacy and Cookie Choices link at the bottom of our website's homepage or emailing us at privacy-eu@quizlet.com with the subject “GDPR Request“.
+
+We may need to verify your identity before responding to your request and may request additional information from you to do so. In certain circumstances, we may decline or limit your request, particularly where we are unable to verify your identity as needed to protect your personal information or locate your information in our systems, or where you are not accessing our Services or otherwise interacting with us from the EEA, Switzerland, or UK.
+
+Data Protection Authorities
+If you have a concern about our processing of your personal information, please contact us at privacy-eu@quizlet.com. You also have the right to make a complaint to the appropriate data protection authority. Contact details for applicable Data Protection Authorities can be found using the links below:
+European Economic Area
+United Kingdom
+Switzerland
+
+Automated Decision-Making
+We do not conduct automated processing of personal information, including profiling, for the purposes of making decisions about you.
+
+International Transfers of Personal Information
+Because Quizlet operates in the United States, we may transfer personal information about you from the EEA, UK, and Switzerland to the United States. The United States or other countries to which your personal information is transferred may not provide the same level of protection for personal information as the EEA, Switzerland, and UK. You understand that data stored in the US may be subject to lawful requests by the courts or law enforcement authorities in the US.
+
+In connection with international transfers of personal information, Quizlet complies with the EU-US Data Privacy Framework (EU-US DPF), the UK Extension to the EU-US DPF, and the Swiss-US Data Privacy Framework (Swiss-US DPF). Quizlet has certified to the US Department of Commerce that it adheres to the EU-US Data Privacy Framework Principles (EU-US DPF Principles), the UK Extension to the EU-US DPF, and Swiss-US Data Privacy Framework Principles (Swiss-US DPF Principles) with regard to the processing of personal information received from individuals in the EEA, Switzerland, and UK in reliance on the EU-US DPF, UK Extension to the EU-US DPF, and Swiss-US DPF. If there is any conflict between the terms in this privacy policy and the EU-US DPF Principles and/or the Swiss-US DPF Principles, the Principles will govern. To learn more about the Data Privacy Framework (DPF) program, and to view our certification, please visit https://www.dataprivacyframework.gov
+
+In compliance with the EU-US DPF, the UK Extension to the EU-US DPF, and the Swiss-US DPF, Quizlet commits to refer unresolved complaints concerning our handling of personal information received in reliance on the EU-US DPF and the UK Extension to the EU-US DPF and the Swiss-US DPF to JAMS, an alternative dispute resolution provider based in the United States. Please contact us at privacy-eu@quizlet.com if you have a complaint regarding our handling of your personal information. If you do not receive timely acknowledgment of your DPF Principles-related complaint from us, or if we have not addressed your DPF Principles-related complaint to your satisfaction, please visit jamsadr.com/dpf-dispute-resolution for more information or to file a complaint. The services of JAMS are provided at no cost to you.
+
+With respect to personal information received or transferred pursuant to the DPF, Quizlet is subject to the regulatory enforcement powers of the US Federal Trade Commission. In certain situations, we may be required to disclose personal information in response to lawful requests by public authorities, including to meet national security or law enforcement requirements.
+
+Under certain conditions, more fully described on the Data Privacy Framework website, you may be entitled to invoke binding arbitration when other dispute resolution procedures have been exhausted.
+
+Quizlet is responsible and liable for the processing of personal information it receives, under each Principle, and subsequent transfers to a third party acting as an agent on its behalf, including third-party processing that is inconsistent with the Principles unless Quizlet proves that it is not responsible for the event giving rise to the damage. Whenever we provide information to a third party outside of where you live, we make sure an adequate transfer mechanism is in place such as Standard Contractual Clauses approved by the European Commission or the EU-US/UK/Swiss Data Privacy Framework.
+
+Retention Period
+The criteria we use in determining how long to retain your personal information are described below in the section titled “How Long We Retain Your Information“.
+
+California
+This Privacy Notice and Notice at Collection for California Residents (“Notice”) is provided pursuant to the California Consumer Privacy Act, as amended (“CCPA”), and supplements the information in the general Privacy Policy and applies solely to California residents (or “consumers” as defined by the CCPA). This Notice describes our online and offline practices with respect to the collection, processing, and disclosure of personal information relating to California residents. This Notice is limited to our activities when we are acting as a “business,” as defined by the CCPA.
+
+Information We Collect and Disclose
+In the past 12 months, Quizlet has collected the following categories of personal information from consumers and disclosed such information to the following categories of third parties for the business or commercial purposes described below.
+
+Categories of PI CollectedExamplesCategories of Third Parties to Whom Disclosed
+
+IdentifiersUnique personal identifier, online identifier, IP address; if you fill out a “Contact Us” form or similar, a full name, alias, address, email address, and phone number; if you use the website to log into our application, your username and password; and social security numbers for winning participants of sweepstakes (solely for the purposes of providing tax documentation).
+
+IT and cloud/hosting service providers, such as our email providers, business application providers, managed services providers, and IT consultants
+Online analytics, marketing, and/or advertising providers
+Financial institutions and payment processors
+Professional advisors (accountants, lawyers, and auditors)
+
+Commercial informationRecords of purchases made by you or your organisation, or other purchase histories, customer services inquiries, requests, and communications.
+
+IT and cloud/hosting service providers, such as our email providers, business application providers, hosting providers, managed services providers, and IT consultants
+Financial institutions and payment processors
+Professional advisors (accountants, lawyers, and auditors)
+
+Internet or other similar network activity (or “Internet Activity”)Unique personal identifier, browsing history, search history, information on a consumer's interaction with a website, application, or advertisement, including page views and clicking tendencies.
+
+IT and cloud/hosting service providers
+Online analytics and marketing/advertising service providers
+
+Personal information types listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))A name, signature, address, telephone number, or employment information. Some personal information included in this category may overlap with other categories.
+
+IT and cloud/hosting service providers, such as our email providers, business application providers, hosting providers, managed services providers, and IT consultants
+Online analytics and marketing/advertising service providers
+Professional advisors (accountants, lawyers, and auditors)
+
+Sensory dataAudio recordings that you create or upload.
+
+IT and cloud/hosting service providers, such as our email providers, business application providers, and hosting providers
+
+From time to time, Quizlet may be required to disclose your information to governmental authorities for the purpose of complying with applicable laws and regulations or in response to legal process. We may also disclose your personal information to third parties in connection with the sale of our business or assets, or any merger or similar corporate matter, when your personal information is part of the assets involved in such a transaction.
+
+Finally, we may “aggregate“ or “deidentify“ information from you pursuant to the CCPA, in which event the information is no longer “personal information“. We commit not to re-identify deidentified information.
+
+Applicable Retention Periods
+For each category of personal information identified above, we will retain your personal information only for as long as necessary to fulfill your requests or the purposes for which it was obtained, as set forth in this Notice. The criteria used to determine our retention periods include (i) the fulfillment of the purpose for which the information was collected, (ii) the duration of our ongoing relationship with you, and (iii) the legal obligations to which we are subject.
+
+Categories of Sources of Personal Information
+The categories of personal information that Quizlet processes regarding individuals in California, and the sources of that personal information, are described above in the section titled “Personal Information We Collect and Sources.
+
+Business or Commercial Purposes for Collecting and Disclosing Personal Information
+The purposes for which we use the personal information are described above in the section titled “How We Use Your Personal Information.
+
+Sale or Sharing of Personal Information
+As of the “Last Updated” date above, in addition to what is described above, Quizlet has disclosed personal information in the “Identifiers” and “Internet Activity” categories for the purposes of targeting ads that promote the Services on third-party websites or mobile applications and generating revenue for Quizlet from the display of advertisements within the Services. These activities may be defined as a “share” or “sale” under the CCPA.
+
+To opt out of the sale and sharing of your personal information, please click the Your Privacy and Cookie Choices link at the bottom of our website's homepage or email us at privacy@quizlet.com.
+
+Quizlet does not have any actual knowledge that it “sells“ or “shares“ any personal information of consumers under 16 years of age.
+
+Your Rights Under the CCPA
+Subject to exceptions and limitations, the CCPA provides California residents with the following rights:
+Right to Know. You have the right to request that we provide you the following information about our collection and use of your personal information during the past 12 months (or longer, as permitted by the CCPA):
+The categories of personal information we collected about you;
+The categories of sources for the personal information we collected about you;
+The business and commercial purposes for collecting (or selling or sharing, if applicable) your personal information;
+The categories of third parties to whom we disclose (or sell or share, if applicable) your personal information;
+The specific pieces of personal information we collected about you;
+If we disclosed your personal information for a business purpose, the categories of personal information received by each category of third party; and
+If applicable, the categories of personal information that we sold, and for each category, the categories of third parties to whom such information was sold.
+
+Right to Request Deletion. You have the right to request that we delete personal information we collected from you.
+Right to Correct Inaccurate Information. You have the right to request that we correct inaccurate personal information that we hold about you.
+Right to Opt Out of Sales and Sharing. You have the right to opt out of (a) the sale of personal information, and (b) the sharing of personal information for the purposes of cross-context behavioural advertising (as defined in the CCPA).
+
+California consumers also have the right to limit the use or disclosure of sensitive personal information by the business if such information is used or disclosed for certain purposes, as required by the CCPA. Because Quizlet does not engage in any of those activities, these rights are not available.
+
+Exercising Your Rights
+To exercise the rights described above, you must submit a verifiable consumer request to us (except for requests to opt out of sales and sharing) by clicking the Your Privacy and Cookie Choices link at the bottom of our website's homepage or sending an email to: privacy@quizlet.com with the subject line “CCPA Request.” If you are an agent submitting a request on behalf of a consumer, we may request that you certify your authority to act on a consumer's behalf. To protect the privacy and security of consumers' information, we require a verifiable consumer request (except for requests to opt out of sales and sharing) to allow us to reasonably verify your identity and properly understand and respond to it. Please note that the CCPA provides certain limitations and exceptions to the above rights, which may result in us denying or limiting our response to your request.
+
+Our Commitment Not to Discriminate
+Consistent with the CCPA, we will not discriminate against you for exercising any of your CCPA rights.
+
+California Shine the Light law Disclosure
+The California “Shine the Light” law gives residents of California the right, under certain circumstances, to opt out of the disclosure of certain categories of personal information (as defined in the Shine the Light law) to third parties for their direct marketing purposes (as defined in the Shine the Light law), or in the alternative, that we have a policy to provide a cost-free means for consumers to opt out of any such disclosure. We do not currently disclose your personal information to third parties for their own direct marketing purposes. To opt out of such future disclosures, if any, please email us at privacy@quizlet.com with the subject line “California Shine the Light law opt-out request.”
+
+Privacy Rights in Your State of Residence
+The laws of your state of residency may afford you certain rights with respect to the collection, use, and disclosure of your personal information.
+
+The categories of personal information we collect from and about you are described in the “Personal Information We Collect and Sources” section above. We disclose such personal information to the categories of recipients described in the “Disclosure of Your Personal Information” section above. Further, the activities described in the “California” section of our Privacy Policy are applicable for users located in other states.
+
+We describe how personal information collected from children under the age of 13 is collected, used, and disclosed in the “Children's Privacy“ section above.
+
+We do not conduct automated processing of personal information for the purposes of evaluating, analysing, or predicting an individual's personal aspects in furtherance of decisions that produce legal or similarly significant effects. As a result, we do not provide a right to exercise control over such forms of automated decision-making and profiling.
+
+Depending on your place of residence, but specifically if you live in the following U.S. states: California, Colorado, Connecticut, Delaware, Indiana, Iowa, Kentucky, Maryland, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode Island, Tennessee, Texas, Utah or Virginia, you may exercise any or all of the following rights:
+Right to Know. The right to confirm whether we are processing personal information about you and/or to obtain certain personalised details about the personal information we have collected about you.
+Right to Access and Portability. The right to obtain access to the personal information we have collected about you and, where required by law, the right to obtain a copy of the personal information in a portable and, to the extent technically feasible, readily usable format that allows you to transmit the data to another entity without hindrance.
+Right to Correction. The right to correct inaccuracies in your personal information, taking into account the nature of the personal information and the purposes of the processing of the personal information.
+
+Right to Control Over Sensitive Personal information. The right to exercise control over our collection and processing of certain sensitive personal information (if any).
+Right to Opt Out of Targeted Advertising. The right to direct us not to use or share personal information for certain targeted advertising purposes.
+Right to Opt Out of Sales. The right to direct us not to sell personal information to third parties.
+Right to Deletion. The right to have us delete personal information we maintain about you, subject to certain exceptions or exemptions.
+Right to Withdraw Consent. If the processing of personal information is dependent upon your consent to such processing, the right to withdraw your consent.
+
+We will not retaliate or discriminate against you for making a request to exercise the above rights. To exercise any of the above-described rights, please click the Your Privacy and Cookie Choices link at the bottom of our website's homepage or send an e-mail to: privacy@quizlet.com with the subject line: “Privacy Request.” We may request additional information from you in order to verify your request and/or confirm that you are entitled to make such request.
+
+Your state of residency may afford you the right to appeal any action taken or not taken by Quizlet in response to your request. If this is the case, we will provide you the details of the applicable appeal process as part of our response to your request. You are further entitled to contact the attorney general of your state or a similar supervisory or regulatory authority in your jurisdiction of residence to raise a complaint or concern about our practices or handling of your request.
+
+Changes to this Policy
+Quizlet reserves the right to modify this Privacy Policy at any time, so please review it frequently. If personal information covered by this Privacy Policy is to be used for a new purpose that is materially different from that for which the personal information was originally collected or subsequently authorised, or is to be disclosed to a non-agent third party in a manner not specified in this Privacy Policy, Quizlet will provide you with an opportunity to choose whether to have your personal information so used or disclosed. Requests to opt out of such uses or disclosures of personal information should be sent to us as specified in the ″Contact Us″ section below.
+
+If you disagree with these changes, you may delete your account at any time and/or stop using the Services. Your continued use of the Services constitutes your acceptance of any changes to this Privacy Policy.
+
+Contact us
+If you have any questions about this Privacy Policy, please contact us at quizlet.com/feedback or write to us at:
+
+Quizlet, Inc. Attention: Privacy team 123 Townsend Street, Suite 600 San Francisco, CA 94107 USA +1 (415) 294-0571
+
+privacy@quizlet.com

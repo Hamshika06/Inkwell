@@ -1,0 +1,448 @@
+Privacy Policy
+
+LAST UPDATED September 30, 2026
+
+Privacy Policy
+Welcome to Ulta Beauty! This Privacy Policy helps explain how Ulta Salon, Cosmetics & Fragrance, Inc. (“Ulta Beauty”) collects, uses, stores, and shares your information when:
+You visit Ulta Beauty’s website at www.ulta.com, its mobile application, use its WiFi services, or visit any other digital platform where this Privacy Policy is posted (“Sites”);
+You visit and shop at our physical stores (“Stores”);
+You purchase of and/or access to our products and services (“Products”);
+You communicate with us by e-mail, text, or online chat or telephone (“Communications”); and
+We interact with service providers, partners, governmental agencies, and other third parties to collect and otherwise process your information (“Third Parties”).
+You interact with Ulta Beauty shopping, recommendation, product discovery, or virtual beauty experiences made available through third-party platforms, including artificial intelligence assistants and chatbots. When you access Ulta Beauty experiences through a third-party platform, your use of that platform remains subject to the platform's own terms and privacy policy.
+
+To learn more about your choices concerning your information, see Your Choices below.
+
+To learn more about how our Sites, Products, and Communications use cookies and related technologies (including from Third Parties), see Cookies and Related Tracking Technologies below.
+
+If you are a resident of California, please see our California Privacy Notice below.
+
+If you are a resident of Virginia, Colorado, Connecticut, Utah, Texas, Oregon, Montana, Delaware, Iowa, New Hampshire, Nebraska, New Jersey, Tennessee, Minnesota, Maryland, Rhode Island, Indiana, Kentucky, Louisiana, or Oklahoma - please see our Virginia, Colorado, Connecticut, Utah, Texas, Oregon, Montana, Delaware, Iowa, New Hampshire, Nebraska, New Jersey, Tennessee, Minnesota, Maryland, Rhode Island, Indiana, Kentucky, Louisiana and Oklahoma - Privacy Notice below.
+
+If you are a resident of Nevada, please see our Nevada Privacy Notice below.
+
+If you are a resident of Washington, please see our Washington Health Privacy Notice below.
+
+1. What information do we collect about you?
+Information we collect directly from you
+We collect information about you when you use our Sites, visit our Stores, purchase our Products, and engage in Communications with us, including when you register an account, update your profile, access our Products, make a purchase, participate in the Ulta Beauty Community (“Community”), participate in a promotion or incentive program, participate in our loyalty program, or engage in our customer support. The information we collect includes:
+
+Basic Identifying Information. Information such as your full name, signature, postal address, e-mail address, phone number, account name, username, and other similar identifiers.
+
+Device Identifier and other Unique Identifiers. Information we collect automatically when you engage with our Sites and Products, or engage in Communications with us, such as your device identifier, internet protocol (IP) address, cookies, beacons, pixel tags, mobile ad identifier, and other unique identifiers. For more information, see Cookies and Related Tracking Technologies.
+
+Health Information. Information such as your skin condition, scalp condition, and any other health related information you may share with us in Communications with us, through the Community, through Virtual Beauty Programs, or through AI-powered shopping, recommendation, and product discovery experiences.
+
+Payment Information. Information such as your payment information, credit card information, and other forms of payment to permit you to purchase our Products. We may collect this information directly from you and from our Third Party partners, any other health related information you may share with us in Communications with us or through the Community.
+
+Internet or Other Network Activity. Information such as your browsing or search history, engagement with the Community, and other information regarding your interactions with our Sites, Products, emails, and advertisements. We gather this information automatically from your devices, from you directly, and from our Third Party partners.
+
+Geolocation Information. Information that permits us to determine your general location, such as zip code, so that we can best determine the closest Store to your location, or where to ship our Products, or what Products to offer you. We gather this information directly from you when you engage with our Sites.
+
+Commercial Information. Information such as the nature of the Products you’ve considered on our Sites and in our Stores, your beauty preferences, your Product interests, your shopping goals, your Product comparison activity, your interactions with recommendation tools or shopping assistants, your preferences, your purchase history, your loyalty account history, your engagement with the Community, and related information concerning your commercial activity. We obtain this information directly from you when you engage with our Stores, Sites, and Products and from our Third Party partners.
+
+User Content. Information such as your Communications with us and any other content you provide, such as social media profiles, engagement with the Community, photographs, images, videos, survey responses, comments, product reviews, testimonials, and other content. This may include information, prompts, questions, and other content submitted through AI-powered shopping, recommendation, and product discovery experiences.
+
+Biometric Information. Information such as your facial geometry when you use our Virtual Beauty Try-On feature or related features through our Sites, Stores, or Products. We obtain this information directly from you and from our Third Party partners.
+
+Audio and Visual Information. Information such as photographs, images, videos, and recordings of your voice (such as when we record customer service calls for quality assurance). We obtain this information directly from you and from our Third Party partners.
+
+Inferences. Information such as inferences we may draw on the above information and your interaction with us. We obtain this information directly from you, automatically from your devices, and from our Third Party partners.
+
+Information we collect automatically from you
+When you use our Sites, Products, and engage in Communications with us, we may collect certain information from you automatically, including:
+
+Usage Information. Information such as the features you use on our Sites, the links you click and the items you view, pages you visit, emails and advertisements you view, Products you view and purchase, the time of day you browse, and your referring and exiting pages. We may collect this information through a variety of tools, including but not limited to session replay software, third-party pixels, and other tracking technologies. This information may also be shared with those parties operating the tracking technology.
+
+Device Data. Information about the device you are using, including but not limited to the type of device you use, the temporary or persistent unique device identifier (UDID) placed by us or our service providers, the IP address of your device, your operating system, the type of browser you use, and data from the way you use our Sites.
+
+Location Data. Information such as imprecise location data (such as location derived from an IP address or data that indicates a city or postal code level). Our Sites may also collect information about the location of your device. Your device should require you to provide permission before our Sites obtain precise geolocation information from a browser's geolocation API or from technologies like GPS, WiFi, and/or cell towers. We and our service providers may use this approximate location and/or precise geolocation information, along with other information submitted by you, to provide you with location-based services like local Store information, search results, special offers, and other personalized content. Most browsers and mobile devices allow users to enable or disable precise geolocation using pop-ups or controls located in the settings menu.
+
+Information we collect from our Third Party partners
+From time to time, we may collect information about you from Third Parties, including:
+
+Partners, such as those that offer co-branded Products, sell or distribute our Products, or engage in joint marketing or advertising activities.
+
+Publicly available sources, such as data in the public domain and through widely available media sources.
+
+Service providers, such as those who offer performance services on our behalf for advertising, analytics, payment processing, delivery, data augmentation, data sourcing, fulfillment, fraud prevention and security, cybersecurity, payment processing, and other related services.
+
+AI technology and service providers, such as those that assist us in providing AI-powered shopping, product discovery, recommendation, and virtual beauty experiences.
+
+2. Cookies and Related Tracking Technologies
+Our Sites use a variety of third-party cookies and other related tracking technologies. Those technologies include:
+
+Cookies. Cookies are small data files stored on your device that act as a unique tag to identify your browser. We use two types of cookies on our Sites: session cookies and persistent cookies. Session cookies make it easier for you to navigate our Sites and expire when you close your browser. Persistent cookies help with personalizing your experience, remembering your preferences, and supporting security features. Additionally, persistent cookies allow us to bring you advertising both on and off the Sites. Persistent cookies may remain on your device for extended periods of time, and generally may be controlled through your browser settings. Persistent cookies can be both first-party and third-party managed, meaning your data may be sent to third-parties through these tools.
+
+Pixels (also known as web beacons). This is a type of code that is embedded in a website, video, email, or advertisement that sends information about your use to a server. There are various types of pixels, including image pixels (which are small graphic images) and JavaScript pixels (which contains JavaScript code). When you access a website, video, email, or advertisement that contains a pixel, the pixel may permit us or a third party to collect data through your device and browser. Pixels are used in combination with cookies to track activity by a particular browser on a particular device. We may incorporate pixels from separate entities that allow us to track our communications, bring you advertising both on and off the Sites, and provide you with additional functionality, such as the ability to connect our Sites with your social media account.
+
+App Technologies. This includes technologies included in our mobile applications and Sites that are not browser-based like cookies and cannot be controlled by browser settings. For example, our Sites may include software development kits (SDKs), which is code that sends information about your use to a server. These SDKs allow us to track our Communications, bring you advertising both on and off the Sites, and provide you with additional functionality, such as the ability to connect our Sites with your social media account.
+
+Third Party Analytics Service Providers. We work with companies and analytics systems including those in the table below to help us understand how users access and use the Sites, as well as help us understand market trends and popularity of our Products. As part of this process, we may incorporate analytics and tracking technologies into our own Sites, and some of our Communications such as e-mails. You can learn more about Google Analytics by visiting How Google uses information from sites or apps that use our services.
+
+Session Replay. Our Sites may, from time to time, utilize technology often known as “session replay” technology that allows Ulta Beauty to understand how users interact with the Sites, including replays of their interaction with our Sites. By using our Sites, you represent you have read this disclaimer and understand that Ulta Beauty may use this session replay technology to record how you interact with our Sites, which may be used by Ulta Beauty for its own internal analytical purposes, and to improve and enhance our Sites.
+
+3. How we use your information?
+We use your information to:
+Fulfill your requests, such as Product orders and responses to email questions;
+Support our core business functions, such as order fulfillment, internal business process management, authentication, loss and fraud prevention, and public safety functions;
+Communicate with you about our Products and promotions;
+Provide the Sites and Stores to you;
+Improve our Sites, Products, and Stores;
+Maintain your Ulta Beauty account and Loyalty Program membership;
+Provide you access to the Ulta Beauty Community;
+Improve our marketing and promotions;
+Statistically analyze the usage of our Sites, Products, Communications, and Stores;
+Contact you;
+Resolve disputes, investigate problems, and enforce our terms;
+Reconcile data across internal platforms to maintain accuracy and personalize services;
+Help diagnose problems with our server, manage our Sites, and to enhance our Products; and
+Perform a business transaction, such as a merger, acquisition, sale of assets, bankruptcy, or related transactions.
+
+We may offer AI-powered shopping, product discovery, recommendation, virtual beauty, and related commerce experiences through our Sites and third-party platforms. When you interact with these experiences, we may process information you provide, including beauty interests, Product preferences, Product-related questions, shopping activity, and other information necessary to generate recommendations, Product comparisons, Product bundles, routines, shopping suggestions, virtual beauty experiences, and related services. We may use information processed through these experiences to provide and improve these experiences, personalize recommendations, troubleshoot issues, maintain platform security, support analytics and reporting, and support our business operations. We may work with service providers and technology partners that assist us in operating these experiences and generating responses.
+
+4. How do we disclose your information?
+We may disclose your information in the following circumstances:
+
+With Your Consent. We may disclose or make available your information with your consent, which may be obtained in writing, online, through “click-through” agreements, when you accept our terms for our Sites, orally (including over the telephone), or by other means.
+
+With Service Providers & Business Partners. We may disclose or make available your information with Third Parties, such as AI and technology service providers that support product discovery, recommendation, search, shopping assistance, personalization, and related commerce experiences, other service providers, affiliates and subsidiaries, business partners, credit / debit card processing partners, partners that facilitate billing, shipping, and customer service, third-party auditors and law firms, marketing and advertising networks (including those that provide ad measurement services), internet service providers, data analytics providers, companies that help debug and identify and repair errors that may impair the functionality of our Sites, and third parties that help protect against malicious, deceptive, fraudulent, or illegal activity. We may also disclose your information in connection with financial products or services related to our business, such as private label credit cards. We may also disclose your information in connection with co-branded Product offerings.
+
+In A Business Transfer. We may disclose or make available your information as part of a business transaction, such as a merger or acquisition, joint venture, corporate reorganization, financing, or sale of company assets, or in the unlikely event of insolvency, bankruptcy, or receivership, in which such information could be transferred to third parties as a business asset in the transaction.
+
+In Public Forums. Some of our Sites allow you the ability to post content in a public forum, such as the Community. If you decide to submit information in these public forums, that information will be publicly available.
+
+For Legal Process & Protection. We may disclose or make available your information to satisfy any law, regulation, legal process, governmental request, or where we have a good faith belief that access, use, preservation or disclosure of such information is reasonably necessary to: (1) enforce or apply agreements, or initiate, render, or bill for use of the Sites; (2) protect our rights or interests, property or safety or that of others; (3) in connection with claims, disputes, or litigation - in court or elsewhere; (4) protect users of our Sites and other carriers, providers, or partners from fraudulent, abusive, unlawful, or otherwise improper use of our Sites; (5) facilitate or verify the appropriate calculation of taxes, fees, or other obligations due to a local, state, or federal government.
+
+The use and disclosure of "Virtual Beauty Information" is governed by the Virtual Beauty Try-On. Additional Terms and Conditions in the Site Terms & Conditions.
+
+5. How do we secure your information?
+Although no system or website can guarantee the complete security of your information, we take all commercially reasonable steps to ensure your information is protected in accordance with all applicable laws and regulations, as appropriate to the sensitivity of your information.
+
+6. How long do we keep your information?
+We keep your information for as long as is necessary in accordance with the purpose for which it was collected, our business needs, and our legal and regulatory obligations. If we dispose of your information, we will do so in a way that is secure and appropriate to nature of the information subject to disposal.
+
+7. Links to third party sites
+Our Sites may include links to websites/applications that are owned or operated by Third Parties. Certain Ulta Beauty shopping, recommendation, product discovery, and virtual beauty experiences may be made available through third party platforms. Information collected by Ulta through those experiences is handled as described in this Privacy Policy. Your use of the third party platform remains subject to that platform’s own terms and privacy policies. Please note these links are provided for your convenience and information and may operate independently from us and have their own privacy policies and/or notices. This Privacy Policy does not cover the practices of those websites/applications. We encourage you to review the privacy policies on those websites/applications to see how they collect and use information.
+
+8. Do Not Track
+Our Sites may, from time to time, collect information about your online activities, over time and across our different websites. When you use our Sites or engage with our Products or Communications, third parties may also collect information about your online activities, over time and across different internet websites, online or cloud computing services, online applications, or mobile applications. Some browsers support a “Do Not Track” feature, which is intended to be a signal to websites that you do not wish to be tracked across different websites you visit. Our Sites do not currently change the way they operate based upon detection of a “Do Not Track” or similar signal. Our Sites do, however, recognize a global privacy signal, as outlined in Your Choices below.
+
+9. WiFi Services
+Your use of our Store WiFi service is subject to our WiFi Terms.
+
+10. Social Media Widgets and Single Sign-On Services
+Our Sites use third-party social media widgets such as buttons or similar mechanisms from Facebook, Instagram, Pinterest, TikTok, Threads, X (formerly Twitter), and YouTube. Such third-party features may collect information about you, like your IP address and the page(s) you visit on our Sites. They may also place cookies on your device. These social media widgets are either hosted by a Third Party or by our Sites. Your interactions with those features are governed by the privacy policies of the third-party social media networks that provide them.
+
+11. Virtual Beauty Information
+We collect, use, and share information obtained when you use Ulta Beauty’s Virtual Beauty programs and applications available through our websites, mobile applications, and at certain in-store locations via kiosk or tablet, including GlamLab, Skin Analytics, Skin Advisor, Skin Matching, and Virtual Try On (“Virtual Beauty Programs”). Such information may include, but is not limited to, scans of your face, facial geometry, hands, nails, hair measurements, and other personal features of your face, skin, hair, or other related body parts extracted from photography and video (“Virtual Beauty Information”). By clicking “Yes” on the consent pop-up window or otherwise using the Virtual Beauty Programs, you agree that you have read, understand, and voluntarily consent to providing your Virtual Beauty Information to Ulta Beauty, consistent with this Section. You also agree to our Terms and Conditions, and that you have read and understand our Privacy Policy. You also agree to waive any claims relating to your Virtual Beauty Information or use of the Virtual Beauty Programs. We collect your Virtual Beauty Information when you access and use our Virtual Beauty Programs and allow us access to your camera, photographs, or video content. We use your Virtual Beauty Information to provide you with the Virtual Beauty Programs, enhance those programs, and to offer you products and services from Ulta Beauty. We may also use the Virtual Beauty Information internally for our business purposes, including but not limited to analyzing and improving our Virtual Beauty Programs. We do not use your Virtual Beauty Information for any other purpose. We may share your Virtual Beauty Information for a variety of purposes, including to comply with a legal obligation, where you have authorized us to do so, during a business transaction such as a merger or acquisition, or with our parent, affiliated companies, and third-party vendors and providers who allow us to deliver the Virtual Beauty Programs. These third parties include Ulta Inc., GlamST, LLC, QM Scientific, Advice Me SRL, Perfect Corp, Haut AI, Digital Sense, Cloud factory, Compass Beauty, and ReStyle (collectively, the “Virtual Beauty Companies”). We use commercially reasonable safeguards to secure your Virtual Beauty Information, and require the same from all Virtual Beauty Companies. We only retain your Virtual Beauty Information for so long as is necessary to deliver the Virtual Beauty Programs, to otherwise use for our internal purposes, or to comply with a legal obligation. We will keep your Virtual Beauty Information no longer than three years from the date you last use the Virtual Beauty Programs unless otherwise required by law.
+
+Additional Terms and Conditions in the Site Terms & Conditions.
+
+12. Children
+Our Sites are directed to adults and we do not knowingly collect the personal information from children under the age of 13. If you are the parent or guardian of a child under the age of 13, and you believe your child has provided their personal information to us, please contact us.
+
+13. Your Choices
+US State Rights
+
+Depending on where you live, you may have the following rights:
+
+Right to Know / Access / Portability. Request that we confirm whether we are processing your information, obtain details about the processing activities, and obtain a copy of such information, subject to exceptions.
+
+Right to Delete. Request that Ulta Beauty delete your information, subject to exceptions.
+
+Right to Correct. Request that Ulta Beauty correct your information, subject to exceptions. Regardless of where you live, you may view and correct your account information by logging into your account online or contacting us and requesting such changes. If you would like to make changes to your information relating to your subscriptions, please login to your www.ulta.com account, select “Replenish & Save”, review and update your information or contact Guest Services.
+
+Limit or Opt-Out of the Processing of Sensitive Personal Information. If you live in California, you have a right to ask that Ulta Beauty limit how it processes your sensitive personal information, subject to exceptions. If you live in Iowa or Utah, you have a right to opt-out of the processing of your sensitive personal information, subject to exceptions.
+
+Opt-Out of Selling, Sharing, or Targeted Advertising. Our use of certain online tracking technologies may be considered a “sale”, “sharing”, or “targeted advertising” under applicable law. You can opt-out of this type of activity by clicking the “Your Privacy Choices” link at the bottom of our Sites. Because we may also engage in a “sale”, “sharing” or use of your personal information for targeting advertising purposes outside of the context of online tracking technologies as well, you may separately opt-out of this process by submitting the request at Data Request (https://privacyportal.onetrust.com/webform/8621deee-797a-4513-9df5-8f408f3caad9/5822e256-953c-4a59-a0b4-8115be5c3c5c). Finally, you may exercise your right to opt-out of the online tracking technologies process by using the Global Privacy Control (GPC) (on the browsers and extensions that support such a signal). If you choose to use the GPC signal, you will need to turn it on for each supported browser extension you use. If you choose to use the GPC signal, you can identify that the signal is being recognized and honored by clicking “Your Privacy Choices” in the footer of the website.
+
+Right to Appeal. Appeal any denial of a Right to Access, Delete, Correct, or Opt-Out, as described above.
+
+To exercise all of your above Choices, please click on the Data Request (https://privacyportal.onetrust.com/webform/8621deee-797a-4513-9df5-8f408f3caad9/5822e256-953c-4a59-a0b4-8115be5c3c5c).
+
+Additional Health Data Rights. If you are a resident of Nevada, Connecticut, or Washington, you have additional rights concerning your health data, including the right to submit a request to know or access, deletion, and the right to appeal any denial of these rights. You may exercise these rights by clicking on the Health Data Request (https://privacyportal.onetrust.com/webform/8621deee-797a-4513-9df5-8f408f3caad9/7e791433-e256-486f-aa4f-fb18a1f00ae9).
+
+Use of ADMT for Profiling or Significant Decision. Many states offer you the right to request opt-out of the use of artificial intelligence or other automated decision-making technology (“ADMT”) for “profiling” or “significant decisions,” as such terms are defined under applicable law, request information related to such decisions, and/or appeal such decisions. However, as further described in our AI Notice, we do not use artificial intelligence or ADMT for profiling or significant decisions in connection with your personal or household use.
+
+Managing Your Preferences & Account
+
+Opt-Out of Promotional Messaging. Regardless of where you live, if you would like to stop receiving promotions, special offers or member-exclusive events, you can update your email preferences by visiting My Account on ulta.com or on our mobile application. You may also notify our Guest Services team by visiting our Contact Us page. Please note it may take up to 6-8 weeks to stop receiving these communications after updating your preferences.
+
+Opt-Out of Texting. Regardless of where you live, you may opt-out of Ulta Beauty text messages, reply "stop" to text messages sent from 95637 (ULTA). This will opt you out of all Ulta Beauty text message campaigns from 95637 (ULTA). To opt out of text messages from Ulta Beauty Messenger service, text STOP to (630) 410-9968. This will opt you out of all Ulta Beauty Messenger text message campaigns from (630) 410-9968. To opt out of transactional text messages from Ulta Beauty, text STOP to 46373. This will opt you out of all Ulta Beauty transactional text messages from 46373. Message and data rates may apply.
+
+Opt-Out of Push Notifications. Regardless of where you live, you may opt-out of Ulta Beauty sending you push notifications by adjusting the permissions on your device.
+
+Opt-Out of Precise Geolocation. Most browsers and mobile devices allow users to enable or disable precise geolocation using pop-ups or controls located in the settings menu. Regardless of where you live, if you have permitted Ulta Beauty to access your precise geolocation data, you may at any time opt-out from further allowing Ulta Beauty to access your precise geolocation data by adjusting the permissions in your browser or device.
+
+Uninstall the Mobile Application. Regardless of where you live, you can uninstall the Ulta Beauty mobile application at any time. You may use the standard uninstall process available as part of your mobile device, or via the mobile application marketplace or network. If you uninstall the mobile application from your device, the Ulta Beauty unique identifier associated with your device will continue to be stored. If you re-install the application on the same device, Ulta Beauty will be able to re-associate this identifier to your previous transactions and activities.
+
+Removing Content From The Community. You can request that we remove content or information you have posted through the Community by submitting a request on https://ulta.ws/community-feedback. Please note that even if we remove your content, historical copies of the content may remain on Ulta’s systems.
+
+Delete Your Ulta Beauty Account on the iPhone. Regardless of where you live, you may delete your Ulta Beauty account at any time from your Ulta Beauty application. We will email you instructions to confirm your identity and finalize your deletion after you submit your account deletion request. Please note: deleting your account will result in the loss of any points associated with your loyalty account. Ulta Beauty may still retain certain information connected to your purchase history as required under applicable law.
+
+14. AI Notice
+Consent to AI Technology
+We do not use artificial intelligence or other automated decision-making technology for “profiling” or “significant decisions,” as such terms are defined under applicable law, in connection with your personal or household use.
+
+If you are a job applicant or employee, please refer to our Artificial Intelligence Notice below for information regarding our collection, use, and processing of your personal information, including any use of artificial intelligence or automated decision-making technology in connection with employment decisions. If you are an applicant or cardholder of the Ulta Beauty Rewards credit card, please refer to our partner’s Privacy Policy for information regarding their collection, use, and processing of your personal information.
+
+However, certain Ulta Beauty services or features, including our chatbot assistant, Ulta® AI may also be supported by third-party vendors that utilize artificial intelligence technology. Additionally, certain Ulta Beauty features and experiences may use artificial intelligence technologies to assist with product discovery, product discovery, product recommendations, virtual beauty experiences, shopping assistance, and related services. These experiences are intended for informational and shopping purposes only and are not medical, diagnostic, or treatment advice. When using an Ulta Beauty feature supported by artificial intelligence, third-party vendors, service providers, or technology providers may record, analyze, or process information to operate and support those experiences. Information you provide through third-party platforms may also be subject to the privacy policies and practices of the platform through which you access the experience.
+
+By using you agree to our Terms and Conditions and consent to the collection, use, analysis, and disclosure of personal information as described in this notice.
+
+If you do not agree with our terms and/or do not consent to such processing, please do not use the applicable feature.
+
+Artificial Intelligence Notice
+If you are a candidate for employment or an employee, Ulta Beauty may use artificial intelligence–enabled tools, including automated or algorithmic systems, in connection with certain employment-related aspects, assessments, or evaluations. These tools may be used for purposes such as recruitment, screening, hiring, promotion, discipline, performance evaluation, or selection for training or advancement, as permitted by law.
+
+Nature of the AI Systems Used
+Ulta Beauty may use one or more AI-enabled systems which may include computational processes that use machine learning, statistical modeling, data analytics, or artificial intelligence and that may be a factor in making employment-related decisions.
+
+Where applicable, the AI system(s) may include, but are not limited to:
+
+Product or System Name: LinkedIn Recruiter
+
+Vendor: LinkedIn
+
+Product or System Name: Indeed AI for Recruiting
+
+Vendor: Indeed
+
+Product or System Name: hireEZ for Sourcing/Recruiting
+
+Vendor: HireEZ
+
+These tools are intended to assist, and not replace, human decision-making and are used as one factor among others in employment decisions. Ulta Beauty may use additional AI systems, as needed, in addition to these systems.
+
+All AI-enabled systems are subject to Ulta Beauty’s Artificial Intelligence / Machine Learning policy.
+
+Employment Decisions and Job-Related Criteria Assessed
+Depending on the role and jurisdiction, AI-enabled tools may assist in evaluating job-related qualifications or characteristics, which may include:
+Skills, experience, education, and work history
+Training, certifications, or licenses
+Job-related competencies or performance indicators
+Responses to job-related screening questions or assessments
+Other lawful, job-related criteria relevant to the position
+
+The AI system(s) may be used in connection with all positions at Ulta Beauty.
+
+Data Collected and Sources of Data
+
+In connection with the use of AI-enabled systems, Ulta Beauty may collect, use, or process job-related information, which may include:
+Information provided directly or indirectly by candidates or employees, such as resumes, applications, employment history, education, skills, or qualifications
+Other employment-related information permitted by law
+
+The data used by these systems may be obtained from:
+Third-party service providers engaged to support employment-related processes, where permitted by law
+
+Data Retention
+
+Information collected or processed in connection with AI-enabled employment tools is retained only for as long as reasonably necessary to support employment-related decisions or to comply with applicable legal, regulatory, or recordkeeping obligations, and is handled in accordance with Ulta Beauty’s data retention and information governance practices.
+
+Requests for Additional Information, Alternatives, or Accommodations
+
+Where applicable by law, candidates and employees may request a reasonable accommodation related to Ulta Beauty’s use of AI in employment decisions.
+
+Requests or questions may be directed to: The Associate Care and Support Center at AssociateCareandSupport@ulta.com or 855-478-5821.
+
+If a written request for information is received, Ulta Beauty will respond within the timeframe required by applicable law.
+
+Limits on Disclosure
+
+In certain circumstances, Ulta Beauty may be unable to disclose specific information if doing so would violate local, state, or federal law or interfere with a law enforcement investigation.
+
+Illinois-Specific Notice and Statutory Disclosure
+
+Illinois law provides the following regarding the use of artificial intelligence in employment decisions:
+
+“775 ILCS 5/2-102(L) – Use of Artificial Intelligence
+
+(1) With respect to recruitment, hiring, promotion, renewal of employment, selection for training or apprenticeship, discharge, discipline, tenure, or the terms, privileges, or conditions of employment, it is a violation for an employer to use artificial intelligence that has the effect of subjecting employees to discrimination on the basis of protected classes under this Article or to use zip codes as a proxy for protected classes under this Article.
+
+(2) It is a violation for an employer to fail to provide notice to an employee that the employer is using artificial intelligence for the purposes described in paragraph (1). The Department shall adopt any rules necessary for the implementation and enforcement of this subdivision, including rules governing the circumstances requiring notice, the timing of notice, and the means of providing notice.”
+
+15. Automated License Plate Recognition Usage and Privacy Policy
+We use Automated License Plate Recognition (“ALPR”) systems where not prohibited by law and in accordance with this Usage and Privacy Policy. An ALPR system is a searchable computerized database resulting from the operation of one or more mobile or fixed cameras combined with computer algorithms to read and convert images of registration plates and the characters they contain into computer-readable data.
+
+We use ALPR systems and collect information from those systems for the security of our premises, employees, guests, and assets; and we use information from the ALPR systems to protect our legal rights and comply with applicable law (“Authorized Purposes”).
+
+Only employees that are necessary to fulfill the Authorized Purposes are permitted to access our ALPR systems or collect information from those systems (“Authorized Personnel”). Authorized Personnel are in our loss prevention, information technology, and legal departments. Authorized Personnel are trained annually on the appropriate access and use of our ALPR systems in compliance with applicable law. This mandatory training includes education on proper access controls, data handling, and penalties for failing to follow our policies.
+
+We have implemented ALPR system access controls, maintain ALPR system access records, and monitor ALPR system access to ensure the security of collected information and compliance with applicable privacy laws.
+
+We do not sell, share, or transfer information collected by an ALPR system to any third party, except for the following purposes:
+To service providers so that they may perform services on our behalf. In such cases they are required to have appropriate training on the use of ALPR systems, and only data necessary for them to provide services for an Authorized Purpose is provided to them.
+To third parties, including law enforcement, in order to (1) support the safety and security of our guests, employees, and others, (2) protect our rights and property and the rights and property of others, and (3) comply with applicable law.
+To identify and correct data errors, Authorized Personnel will periodically compare license plate readings recorded and license plate images captured by the ALPR Systems.
+
+We retain information collected from ALPR systems for a rolling thirty (30) day basis, after which it is deleted or otherwise destroyed. However, we may retain such information beyond thirty (30) days as long as necessary to fulfill an Authorized Purpose, and we will delete or otherwise destroy such information when we determine its retention is no longer necessary to fulfill such Authorized Purpose.
+
+Our official custodian of our ALPR systems responsible for implementing this ALPR Usage and Privacy Policy and ensuring our use of ALPR systems complies with applicable law, is Senior Vice President, Loss Prevention or their designee.
+
+16. California Privacy Notice
+California Consumer Privacy Act
+Rights
+You have a right to submit requests to know/access, delete, correct, opt-out of the sale / sharing of your personal information, and to limit the processing of your sensitive personal information. To submit such requests, please see Your Choices. You have a right to exercise the above rights without being discriminated against.
+
+Notice of Collection
+Below is a list of the categories of personal information Ulta Beauty has collected about California residents in the 12 months preceding the date this Privacy Policy was last updated. This list includes information about: (1) the categories of sources from which the information was collected; (2) the business or commercial purpose for collecting, selling, or sharing the information; and (4) the categories of Third Parties with whom we share the information.
+
+Identifiers (Includes Sensitive Personal Information): Includes information such as your name, signature, alias, postal address, and telephone number, unique personal identifier, online identifier, IP address, account log-in, email address, account name, driver’s license number. Sensitive personal information within this category includes your social security number, driver’s license number, state identification number.
+
+Personal Characteristics (Includes Sensitive Information): Includes information such as your age, race, ethnicity, gender expression, and gender identity. Sensitive personal information within this category includes information about your race.
+
+Financial Information (Includes Sensitive Information): Includes information such as your Ulta Beauty account name and log-in information, bank account number and access code, and credit card and debit card number and access code. Sensitive personal information in this category includes your account log-in and password, bank account number and access code, and credit card and debit card number and access code.
+
+Internet or other Electronic Network Activity Information: Includes information described above.
+
+Biometric information, such as your face or hand geometry.
+
+Commercial Information, such as records of your Products considered and purchased.
+
+Geolocation Information, such as your zip code and general location.
+
+Audio, Electronic, Visual, Thermal, and Related Information: Includes information such as photographs, video recordings, recorded messages, and in some cases personal temperature where appropriate.
+
+Inferences, derived from the above information.
+
+DisclosureCategoriesDescription
+
+How do we collect this informationIdentifiers*We collect this category of information from you directly or automatically from your device(s). We also may collect this information from Third Parties such as financial institutions, payment processors, and social networks.
+
+How do we collect this information?Personal characteristics*We collect this category of information from you directly. We may also collect this information from Third Parties, such as social networks.
+
+How do we collect this information?Financial information*We collect this information directly from you and in some cases our third-party service providers.
+
+How do we collect this information?Internet or other electronic activity informationWe collect this category of information from you or your device(s) when you provide it to us or interact with us online (such as through our Site, as defined above, or our social media). We also collect this information from Third Parties such as online advertising networks, online data aggregators, and social networks.
+
+How do we collect this information?Commercial informationWe collect this category of information from you directly, from Third Parties, or automatically from your device(s).
+
+How do we collect this information?Biometric information*We collect this category of information from you directly
+
+How do we collect this information?Geolocation informationWe collect this category of information from you or your device(s) when you provide it to us or interact with us online (such as through our Site, as defined above, or our social media).
+
+How do we collect this information?Audio, electronic, visual, thermal, and related informationWe collect this category of information from you or your device(s) when you provide it to us or interact with us online (such as through our Site, as defined above, or our social media) or offline (such as through a retail location or over the phone).
+
+How do we collect this information?InferencesWe draw inferences about you from the information we collect from you or your device(s) when you provide it to us or interact with us online (such as through our Site, as defined above, or our social media) or offline (such as through a retail location or over the phone). We also draw inferences about you from the information we collect from Third Parties such as financial institutions, payment processors, and social networks.
+
+Does this include sensitive personal information?Yes. * Denotes which categories may include sensitive personal information. The sensitive information we may collect includes your social security number, driver’s license number, state identification number, account information, financial account information, race, ethnic origin.
+
+Is the information “sold” or “shared”?Yes. We make available your IP address and other persistent online identifiers to our advertising partners. In some instances, this transaction may constitute a “sale” or “sharing” of your personal information under California law.
+
+What is our business purpose for collecting your information?See How we use your information above.
+
+Who do we disclose this information to?See How we use your information above.
+
+How long do we keep this information?We keep the information identified above for so long as is reasonably necessary and proportionate to the original purpose for which we collected the information. We base our criteria in determining appropriate retention periods on regulatory and legal requirements, contractual requirements, business needs, and the expectations of you.
+
+Collection of Sensitive Personal Information
+Several of the categories of personal information described in What information do we collect about you? and may include sensitive personal information, including:
+Basic Identifying Information. Several pieces of information under this category may be considered sensitive personal information, including your social security number, driver’s license number, or state identification number, where applicable.
+Demographic Information. Information such as that about your race, ethnicity, gender expression, gender identity, and sexual orientation may be considered sensitive personal information.
+Financial Information. Information such as your account login and password, bank account number and access code, and credit card and debit card number and access code may be considered sensitive personal information.
+Biometric Information. Information such as your facial geometry may be considered sensitive personal information.
+
+Notice of Disclosure for a Business Purpose
+To learn more about the categories personal information we have disclosed for a business purpose, and the categories of third parties with whom we’ve disclosed such information, please see How do we disclose your information?**
+
+Notice of Sale and Sharing
+We “sell” and “share” your personal information through the use of certain Third Party tools on the Sites and offline, including those relating to analytics and advertising. Specifically, we make available certain of your personal information, online identifiers and other persistent online identifiers with advertising, analytics, and marketing partners that may be considered a “sale” or “sharing” of your personal information, as defined under California law. We don’t knowingly sell or share the personal information or sensitive personal information of any California resident who is 16 years or younger.
+
+Notice of Use of Sensitive Personal Information
+In certain circumstances, we may process your sensitive personal information for the purpose of deriving characteristics about you. You have a right to opt-out of the processing of sensitive personal information. To learn more about how to exercise this right, see Your Choices.
+
+Notice of Financial Incentive
+The purpose of this Notice of Financial Incentive is to explain to California residents the material terms of Ulta’s financial incentive or price or service differences that Ulta offers so that California residents can make an informed decision about whether to participate. Ulta offers a number of different programs that may constitute a “financial incentive” under California law. Below please find a description of each “financial incentive program”.
+
+Financial Discounts
+
+From time to time, Ulta may offer you financial discounts on Products in exchange for you providing personal information. For example, Ulta may offer a discount on a purchase in exchange for an e-mail address or similar information. You may opt-in to such programs by providing Ulta with the personal information requested. You may opt-out of the program at anytime by requesting that the personal information you requested be deleted. However, you may not be able to opt-out of the financial incentive if you’ve already received the financial benefit as part of the program. These price differences are reasonably related to the value of your personal information based on our internal data and good faith estimates of the value of your personal information.
+
+Ulta Beauty Rewards
+
+Ulta Beauty Rewards® is a voluntary loyalty program. By joining Ulta Beauty Rewards®, you receive*:
+Points Earned per $1 Spent: You earn 1 point for every $1 you spend when you shop at Ulta Beauty using your membership ID or Ulta Beauty Rewards® card. Platinum members earn 1.25 points for every $1 (25% more) and Diamond members earn 1.5 points (50% more!).
+Redeemable Points:** Points can be redeemed at various thresholds for dollars off purchases on products and beauty services at Ulta Beauty – Points never expire as long as you are Platinum or Diamond!
+Hundreds of Offers: You get access to member-only offers, plus bonus points offers just for you.
+Birthday Gift: You get a birthday gift and earn double points during your birthday month. And if you’re Platinum or Diamond, you get an extra birthday perk gift!
+
+*Some restrictions apply. Program rules are available in store or online.
+
+**Terms and restrictions apply to base points earned and redemption thresholds. Click here for details](https://www.ulta.com/rewards/terms-and-conditions)).
+
+You may have the option to link your Ulta Beauty Rewards® account to an account you have on Instacart, Uber Eats, and/or DoorDash. For purchases on Ulta Beauty via the DoorDash Marketplace, on Ulta Beauty via the Instacart Marketplace, or on Ulta Beauty via the Uber Eats Marketplace, Members must link their Ulta Beauty Rewards® Account on the Ulta Beauty storefront using the phone number associated with their Account to earn Ulta Beauty Rewards® base tier points on DoorDash, Instacart or Uber Eats purchases. Purchases linked to phone numbers associated with more than one Ulta Beauty Rewards® Account will not earn points on purchases on Ulta Beauty via the DoorDash Marketplace, Instacart Marketplace or Uber Eats Marketplace. Platinum and Diamond members will earn at their increased rate of 1.25 and 1.5 points per dollar. Purchases made at Ulta Beauty on TikTok Shop and Ulta Beauty on Google AI surfaces (including Gemini and AI Mode) are not eligible to earn Ulta Beauty Rewards® points.
+
+You will not be able to earn bonus points (including the 2X Birthday bonus points and Ulta Beauty Rewards® Credit Card 2X points) or redeem your Ulta Beauty Rewards® points, or redeem your birthday gift, Platinum or Diamond extra birthday perk, or Diamond Welcome gift on Ulta Beauty via the DoorDash Marketplace, Ulta Beauty via the Instacart Marketplace, Ulta Beauty via the Uber Eats Marketplace, Ulta Beauty on TikTok Shop, or Ulta Beauty on Google AI surfaces (including Gemini and AI Mode). Lastly, not all promotions at Ulta Beauty will be available at such third-party partners, so please refer to exact coupon disclosures for information.
+
+Additionally, the Ulta Beauty Rewards® Credit Card cannot not be used as a form of tender on Ulta Beauty via the DoorDash Marketplace, Ulta Beauty via the Instacart Marketplace, Ulta Beauty via the Uber Eats Marketplace, Ulta Beauty on TikTok Shop, or Ulta Beauty on Google AI surfaces (including Gemini and AI Mode). Ulta Beauty Rewards® Mastercard holders will earn 1 point for every $3 spent on Ulta Beauty via the DoorDash Marketplace, Ulta Beauty via the Instacart Marketplace, Ulta Beauty via the Uber Eats Marketplace, Ulta Beauty on TikTok Shop, or Ulta Beauty on Google AI surfaces (including Gemini and AI Mode).
+
+In order to provide you with the incentives described above, we use personal information about you including your name, phone number, email address, purchase history, birthdate, etc. to identify you as a member of the program and provide you with relevant messaging, experiences, and deals. These financial incentives are reasonably related to the value of the data you provide.
+
+We incur a variety of expenses related to the Ulta Beauty Rewards® program. We make this investment in order to offer a more personalized and relevant Guest experience. Expenses associated with the program include but are not limited to the 1-1.5 base point earnings when you shop at Ulta Beauty, 2X bonus points (plus, extra birthday perk for Platinum & Diamond members) when you provide your birthday, redeemable points valid toward dollars off hundreds of products and beauty services plus, access to offers only available to Ulta Beauty Rewards® members. The expense associated with the program incentives will vary as it is dependent on your engagement with the loyalty program, including total annual spend at Ulta Beauty and frequency and depth of discounts you choose to use.
+
+You may opt-out of the Ulta Beauty Rewards program at any time by contacting us at privacyrequests@ulta.com and requesting to opt-out of the program.
+
+CALIFORNIA’S “SHINE THE LIGHT” LAW
+If you are a California resident and an Ulta Beauty customer, you have the right to request information from us once per calendar year regarding the customer information we share with third parties for the third parties’ direct marketing purposes. To request this information, please send an email to privacyrequests@ulta.com with ‘Request for California Privacy Information’ in the subject line and in the body of your message. We will provide the requested information to you via an email response.
+
+CALIFORNIA’S “ERASER BUTTON” LAW
+If you are a California resident under 18 years old and a registered user of the Site (as defined above), you can request that we remove content or information that you have posted to our website or other online services. Fulfillment of the request may not ensure complete or comprehensive removal (e.g., if the content or information has been reposted by another user). To request removal of content or information, please contact us or call customer service at (866) 983-8582.
+
+17. Virginia, Colorado, Connecticut, Utah, Texas, Oregon, Montana, Delaware, Iowa, New Hampshire, Nebraska, Tennessee, Minnesota, Maryland, New Jersey, Rhode Island, Indiana, Kentucky, Louisiana and Oklahoma Privacy Notice
+Notice of Collection
+To learn more about the categories of personal data, including sensitive personal data, we collect about you and how we use it, please see What information do we collect about you? and How do we use your information? To learn more about the categories of personal data we share with third parties, and the third parties with whom we may share your personal data, please see How we disclose your information.
+
+Notice of Sale and Targeted Advertising
+We “sell” your personal data and engage in targeted advertising through the use of certain Third-Party tools on the Sites and offline, including those relating to analytics, marketing and advertising. Specifically, we make available certain of your personal data and online identifiers with third parties (such as advertising, analytics, and marketing partners) which may be considered a “sale” of your personal data and a use of your personal data for targeted advertising as defined under applicable law.
+
+Rights
+You have a right to submit a request to access, know, portability, delete, correct, and to opt-out of the sale or processing of your personal data for targeted advertising purposes. If you live in Delaware, Oregon, or Minnesota, you have a right to request a list of specific third parties to which Ulta has disclosed your or any personal data. If you live in Connecticut, you have a right to request a list of specific third parties to which Ulta has “sold” your personal data, as such term is defined under applicable law. If you live in Maryland, you have a right to request a list of categories of third parties to which Ulta has disclosed your personal data. You also have a right to appeal a denial of any of these requests. To learn more about these rights, see Your Choices.
+
+Colorado Bona Fide Loyalty Program Disclosure
+There are no categories of personal data or sensitive personal data collected through the Ulta Beauty Rewards® program that are sold or processed for targeted advertising. Certain categories of personal data and sensitive data collected through the Ulta Beauty Rewards® program may be shared with Third Party partners, such as name, phone number, email address, and purchase history. If you submit a request to delete your personal data as part of the Colorado Bona Fide Loyalty Program, deleting such data may impact your ability to participate in loyalty program because such data is necessary to provide you with loyalty program benefits.
+
+18. Nevada Privacy Notice
+Sale of Personal Information
+If you are a Nevada resident, you have the right to submit a request directing us not to make any sale of your personal information. Ulta Beauty does not sell your personal information as defined under Nevada law. However, to request email confirmation that we do not sell your personal information, please send an email to privacyrequests@ulta.com with “Nevada Opt-Out of Sale” in the subject line and in the body of your message. We will provide the requested information to you via an email response.
+
+Health Data Privacy Notice
+You have certain rights over how we process your health data under Nevada law. For the purpose of this section, “health data” refers to information that is linked or reasonably capable of being linked to you and that is used to identify any past, present, or future health status of you. This may include any health condition or treatment.
+
+What categories of health data do we collect from you, and why do we collect it? When you engage with GLAMlab, Virtual Beauty Programs, AI-powered shopping experiences, recommendation experiences, or product discovery experiences, we may collect information concerning your skin conditions, hair concerns, treatments, beauty preferences, and related information that you choose to provide. The purpose of this collection is to provide you with product recommendations, virtual beauty experiences, shopping assistance, product discovery experiences, and related services.
+
+Who do we collect your health data from, and how do we collect it? We collect your health data from you when you directly engage with GLAMlab or other Virtual Beauty Programs, and when you choose to provide health-related information through AI-powered shopping experiences, recommendation experiences, product discovery experiences, or virtual beauty experiences made available through our Sites or through third-party platforms.
+
+How do we use your health data? We use your health data to provide Product recommendations, support virtual beauty experiences, assist with product discovery and shopping experiences, determine appropriate recommendations based on skin or hair concerns, and for other related purposes.
+
+Do we share your health data, and with whom? Yes, we share your health data with service providers and technology providers that support GLAMlab, Virtual Beauty Programs, analytics services, AI-powered shopping experiences, recommendation experiences, and product discovery experiences.
+
+How will you notify me of any material changes to this notice? See Section 17 below.
+
+Will any third parties track my health data across other websites? We do not knowingly permit third parties to collect or use your health data for advertising purposes.
+
+Your Nevada Health Data Rights
+
+You have a right to submit a request for access, deletion, and appeal. To exercise these rights, see Your Choices above.
+
+19. Washington Health Privacy Notice
+If you are a Washington resident, the following disclosures are provided to you pursuant to the Washington MY Health MY Data Act. For the purpose of this section, the phrase “health data” means information that is linked or reasonably linkable to you and that identifies your past, present, or future physical or mental health status. Physical health status can include individual health conditions or treatment.
+
+What categories of health data do we collect from you, and why do we collect it? When you engage with GLAMlab, Virtual Beauty Programs, AI-powered shopping experiences, recommendation experiences, or product discovery experiences, we may collect information concerning your skin conditions, hair concerns, treatments, beauty preferences, and related information that you choose to provide. The purpose of this collection is to provide you with product recommendations, virtual beauty experiences, shopping assistance, product discovery experiences, and related services.
+
+Who do we collect your health data from, and how do we collect it? We collect your health data from you when you directly engage with GLAMlab or other Virtual Beauty Programs, and when you choose to provide health-related information through AI-powered shopping experiences, recommendation experiences, product discovery experiences, or virtual beauty experiences made available through our Sites or through third-party platforms.
+
+How do we use your health data? We use your health data to provide Product recommendations, support virtual beauty experiences, assist with product discovery and shopping experiences, determine appropriate recommendations based on, skin or hair concerns, and for other related purposes.
+
+Do we share your health data? Yes, we share your health data with service providers and technology providers that support GLAMlab, Virtual Beauty Programs, analytics services, AI-powered shopping experiences, recommendation experiences, and product discovery experiences.
+
+What rights do you have concerning your health data? You have a right to submit a request for access, deletion, and appeal. To exercise these rights, see Your Choices above.
+
+20. Changes
+Ulta Beauty may change this Privacy Policy from time to time. Ulta Beauty will notify you about changes to this Privacy Policy, as appropriate under applicable law, which may include notice posted on the Sites or in Communications with you.
+
+21. Contacting us
+If you have any questions concerning this Privacy Policy, please send an e-mail to privacyrequests@ulta.com.
+
+22. Accessibility
+If you require a copy of this Privacy Policy in an alternative format, please contact us. A consumer with a disability may also contact Guest Services at (866) 983-8582 to access this policy in an alternative format.

@@ -1,0 +1,41 @@
+policy_id,company,homepage,policy_url,last_updated,saved_on,n_chars,status
+P01,Ulta,https://www.ulta.com,https://www.ulta.com/company/privacy,"September 30, 2026",2026-11-24,63716,ok
+P02,Shein,https://us.shein.com,https://m.shein.com/us/Consumer-Privacy-Notice-s-101.html,"November 12, 2026",2026-11-24,49258,ok
+P03,Warby Parker,https://www.warbyparker.com,https://www.warbyparker.com/privacy-policy,"November 5, 2026",2026-11-24,42685,ok
+P04,Temu,https://www.temu.com,https://www.temu.com/bgp_private_policy.html,"December 7, 2026",2026-11-24,32654,ok
+P05,DoorDash,https://www.doordash.com,https://help.doordash.com/en-us/legal/article/cx-privacy-policy,"July 1, 2026",2026-11-24,46641,ok
+P06,Uber,https://www.uber.com,https://www.uber.com/global/en/privacy-notice-riders-order-recipients/,"October 22, 2026",2026-11-24,59796,ok
+P07,Instacart,https://www.instacart.com,https://www.instacart.com/privacy,"January 15, 2026",2026-11-24,49294,ok
+P08,Grubhub,https://www.grubhub.com,https://www.grubhub.com/legal/privacy-policy,"January 5, 2026",2026-11-24,40947,ok
+P09,Netflix,https://www.netflix.com,https://help.netflix.com/legal/privacy,"April 10, 2026",2026-11-24,70243,ok
+P10,Deezer,https://www.deezer.com,https://www.deezer.com/legal/personal-datas,,2026-11-24,25638,ok
+P11,Pandora,https://www.pandora.com,https://www.pandora.com/privacy,"March 18, 2026",2026-11-24,92957,ok
+P12,Paramount+,https://www.paramountplus.com,https://privacy.paramount.com/en/policy,"May 12, 2026",2026-11-24,51043,ok
+P13,TikTok,https://www.tiktok.com,https://www.tiktok.com/legal/page/us/privacy-policy/en,"July 15, 2026",2026-11-24,27715,ok
+P14,Starbucks,https://www.starbucks.com,https://www.starbucks.com/privacy,"January 22, 2026",2026-11-24,46713,ok
+P15,Telegram,https://telegram.org,https://telegram.org/privacy,,2026-11-24,33037,ok
+P16,Discord,https://discord.com,https://discord.com/privacy,"December 15, 2026",2026-11-24,39767,ok
+P17,Strava,https://www.strava.com,https://www.strava.com/legal/privacy,"January 1, 2026",2026-11-24,27238,ok
+P18,Peloton,https://www.onepeloton.com,https://www.onepeloton.com/privacy-policy,"October 1, 2025",2026-11-24,70029,ok
+P19,Lose It!,https://www.loseit.com,https://www.fitnowinc.com/privacy/loseit/,06/24/2026,2026-11-24,60441,ok
+P20,Nike,https://www.nike.com,https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.commerce.nikedotcom.web&country=US&language=en&requestType=redirect,"June 30, 2026",2026-11-24,55720,ok
+P21,Lyft,https://www.lyft.com,https://www.lyft.com/privacy,"July 1, 2026",2026-11-24,31004,ok
+P22,Hopper,https://www.hopper.com,https://hopper.com/legal/privacy-policy,,2026-11-24,41836,ok
+P23,Turo,https://turo.com,https://turo.com/us/en/policies/privacy,"October 31, 2025",2026-11-24,38642,ok
+P24,Vimeo,https://vimeo.com,https://vimeo.com/legal/privacy/policy,"October 7, 2026",2026-11-24,25729,ok
+P25,Calm,https://www.calm.com,https://www.calm.com/privacy-policy,"October 13, 2026",2026-11-24,27568,ok
+P26,Riot Games,https://www.riotgames.com,https://www.riotgames.com/en/privacy-notice,"April 28, 2026",2026-11-24,61489,ok
+P27,Quizlet,https://quizlet.com,https://quizlet.com/privacy,15 May 2026,2026-11-24,50229,ok
+P28,Grammarly,https://www.grammarly.com,https://superhuman.com/legal/privacy-policy,"November 16, 2026",2026-11-24,37268,ok
+P29,AccuWeather,https://www.accuweather.com,https://legal.accuweather.com/privacy-policy/,"October 31, 2025",2026-11-24,53565,ok
+P30,Life360,https://www.life360.com,https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy,"Nov. 9, 2026",2026-11-24,79566,ok
+P31,GasBuddy,https://www.gasbuddy.com,https://www.gasbuddy.com/privacy,"November 25, 2024",2026-11-24,48419,ok
+P32,Zillow,https://www.zillow.com,https://www.zillow.com/corporate/zg-privacy-notice/,"November 15, 2025",2026-11-24,55086,ok
+P33,Venmo,https://venmo.com,https://venmo.com/legal/us-privacy-policy,"November 17, 2025",2026-11-24,49699,ok
+P34,Cash App,https://cash.app,https://cash.app/us/en/legal/privacy,"June 8, 2026",2026-11-24,40643,ok
+P35,Robinhood,https://robinhood.com,https://robinhood.com/us/en/support/articles/privacy-policy/,"August 18, 2026",2026-11-24,37996,ok
+P36,Chime,https://www.chime.com,https://www.chime.com/policies/chime/privacy-policy/,"Nov 9, 2026",2026-11-24,75608,ok
+P37,Substack,https://substack.com,https://substack.com/privacy,"May 14, 2026",2026-11-24,33067,ok
+P38,Dropbox,https://www.dropbox.com,https://www.dropbox.com/privacy,"January 1, 2027",2026-11-24,17921,ok
+P39,Letterboxd,https://letterboxd.com,https://letterboxd.com/legal/privacy-notice/,,2026-11-24,31692,ok
+P40,Bumble,https://bumble.com,https://bumble.com/privacy-policy/en,,2026-11-24,74346,ok

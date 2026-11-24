@@ -1,0 +1,226 @@
+Privacy Policy
+
+Effective Date: November 5, 2026
+At Warby Parker, we’re all about helping you see things a little more clearly. This Privacy Policy (“Policy”) describes how we collect, use, disclose, and otherwise process personal information when you interact with Warby Parker Inc. (“Warby Parker,” “we,” “us,” or “our”), and any of our affiliates, including Eye Doctors and their practices, such as Walnut Vision Care, to which we may provide certain administrative or management services (“Affiliates”). This Policy applies to the processing of personal information obtained through our retail locations; websites that link to this Policy, including warbyparker.com (each, a “Site”); and mobile applications (each, an “App”) (collectively, the “Services”).
+
+This Policy does not apply to your Protected Health Information (“PHI”) that is governed by the Health Insurance Portability and Accountability Act of 1996 (“HIPAA”). For information on our use and disclosure of PHI, our legal duties with respect to your PHI, and your rights with respect to your PHI and how to exercise them, please refer to our Notice of Privacy Practices.
+
+For additional details about the personal information we collect and the rights afforded to residents of certain U.S. States, including California, please scroll to the Additional State Privacy Law Disclosures section below.
+
+For additional details about how we process personal information in connection with Warby Parker’s Intelligent Eyewear products, please scroll to the Intelligent Eyewear section below.
+
+Licensed optometrists and ophthalmologists (“Eye Doctors”) perform medical services at our locations. Some of these Eye Doctors have practices that are independent from Warby Parker (“Independent Practices”). This Policy does not apply to Independent Practices or to the websites or mobile applications they may operate. Please review the Independent Practices’ privacy notices for information on how they process customer information.
+
+From time to time, we may clarify, revise, or update this Policy, which may include making changes to the way we process personal information. If we make any changes to this Policy, we will revise the date at the top of the Policy. Changes to this Policy will become effective once they are posted. If we make material changes to our data processing activities, we will provide additional notice or obtain your consent, where required by applicable law.
+
+Personal Information Collection
+We collect personal information for our business purposes from various sources, including personal information that you provide to us through the Services and other communications; from entities you have requested or authorized in connection with our Services; that we receive from third parties, including your Eye Doctor, in order for us to provide Services or complete your purchase; that we collect automatically when you access our Services from your mobile device(s); and from other third parties.
+
+We collect the following types of personal information, as further described in the Personal Information Use section below:
+Identifiers, such as name, email address, mailing address, phone number, username, IP address, and unique identifiers.
+Commercial information, such as records of purchases and payment information.
+Health information, such as prescriptions, eye exam notes, and other information that relates to your past and present health or vision conditions (including medications, ailments, and prescriptions). Some health information may be subject to other laws and regulations, including HIPAA. Our Notice of Privacy Practices and not this Policy applies to health information covered by HIPAA.
+Characteristics of protected classifications, such as age and other demographic information.
+Contents of communications and profiles, such as surveys and questionnaires; customer service queries; emails, texts, chats, or calls between you and Warby Parker; and third-party account profile information.
+
+Internet or other electronic network activity information, such as log data; information about the devices and computers you use to access our Services; browser history, URLs of referring/exit pages, and search terms; and information about your use of our services, including timestamps of actions taken.
+Geolocation data, such as GPS signals, device sensors, and Wi-Fi access points, where you have permitted access to that information.
+Electronic, visual, or similar information, such as photos, scans of your face and facial measurements for optional virtual features such as our virtual Try-On and Advisor feature.
+
+The categories above include personal information that is considered sensitive under certain data privacy laws, including health information, precise geolocation data, and personal information of a child.
+
+Personal Information Use
+We use and process the above categories of personal information for the following purposes.
+
+Provide our products and Services. We process personal information to manage customer experience, including providing our Services and products, information you request, and customer support; communicating with you, including via telephone, text, chat, or email in order, for example, to respond to your comments or questions and to send you updates about your order; facilitating the sale and delivery of your purchases; delivering gift cards, and other products in accordance with your instructions; providing features and personalized content within our Services when you grant us access to information from your device, including location-based services; maintaining quality; conducting internal research; understanding your use of our Services to help us improve the customer experience; and otherwise providing, personalizing, and improving our products and Services.
+Create accounts. When you create an account with us, you provide your first and last name, email address, and password so we can register your account.
+
+Provide online features. You may provide us with information when you use certain online features, such as ordering, purchasing accessories, or buying a gift card. This information may include (1) your first and last name; email address; phone number; home, physical, or shipping address; and date of birth; (2) information about the products you try on and purchase; (3) information about other people, such as when you direct us to send a gift card; or (4) any other identifiers that we may use to identify or contact a specific person.
+Process transactions. When you make a purchase, we may request information from you to facilitate the transaction and deliver the goods you requested. We may ask you to provide payment information, which may include payment card information, vision insurance plan information, billing address, and shipping address.
+Provide augmented reality and virtual measurement features. For certain online, App, and in-store features, you may choose to submit (or we may ask your permission to use your device camera to take) a photo, facial scan, or other image of you to provide interactive services. For example:
+
+Our Virtual Try-On feature leverages your camera’s depth measurement technology to measure multiple data points on your face so you can use augmented reality to virtually place frames on your face in a realistic position and to scale. We can also guide you to the best “width” frames based on your facial data points. This data is only processed while you are using the Virtual Try-On feature. We do not store these scans or measurements or share this data with any third parties. We may store the final conclusions we make from your face scan (such as the best “width” frames for you).
+Our Virtual Advisor feature allows you to combine your results from a style quiz with our Virtual Try-On feature to try on frames and get personalized frame recommendations made just for you. Our in-house Artificial Intelligence Tools will use your preferences to create a curated list of frames we think you may like. You may also add your prescription so that our Advisor can further curate your recommendations.
+
+Our Measure Pupillary Distance (“PD”) tool leverages your camera’s depth measurement technology to measure your facial features, including your PD and segment height. Your PD measurement is required to fill your glasses prescription. You can choose if you would like to store your PD measurement in your Warby Parker account. If you choose to add your PD measurement to your account, the measurement may be used by Warby Parker to fill future prescriptions.
+Perform Virtual Vision Tests.
+When you use Virtual Vision Test, you disclose certain information about yourself by (1) answering a series of questions to determine whether you are eligible to participate in Virtual Vision Test, (2) performing a series of tasks to help Eye Doctors determine whether to issue you a renewed prescription (the “Vision Test”), (3) recording your audio responses to the Vision Test tasks, and (4) communicating with Warby Parker or our Eye Doctors in connection with your use of Virtual Vision Test.
+
+When you use the Virtual Vision Test App, we may collect information about your mobile device, such as IP address, device information, and unique device identifiers, and we may derive your approximate location from your IP address. When you permit the Virtual Vision Test App to access your location through your mobile device settings, we may collect the precise location of your device when the Virtual Vision Test App is running in the foreground or background. Your location information is necessary to confirm your location while using the Virtual Vision Test App, so we can be sure that your results are reviewed by an Eye Doctor licensed in your state.
+Communicate with you. If you contact us in person; by phone (calling or texting), email, instant message (including Facebook Messenger), live chat; through social media or our App; or by some other means, we may keep a record of your contact information and the content of the communication for later reference. When we send you emails, we may track whether you open them to learn how to deliver a better customer experience and improve our Services. We receive responses to any survey that you choose to complete for us.
+
+Link your account to a Third-Party Account. Some parts of our Services can be linked to your accounts with third-party services, such as your social media or Google account (“Third-Party Accounts”), or you may be able to register for an account on our Services with your Third-Party Account. If you connect a Third-Party Account to our Services or interact with us through a Third-Party Account, we may receive information about you, including your Third-Party Account profile information, your photo, and information about your use of the Third-Party Account (for example, if you select a Warby Parker product to purchase through the account). If you mention us through your Third-Party Account, we may collect publicly available information and content related to your comment.
+
+Offer in-store Wi-Fi. When you connect to our in-store Wi-Fi from your mobile device, we receive information about you and your device, including your device’s MAC address, IP address, received signal strength indicator (RSSI), and technical details about your device such as its operating system, device type (including make and model), and technical capabilities. We will also receive information about how you use our Wi-Fi network while you are connected, including the store location, the areas of the store you visit, the names and/or internet addresses of the websites you visit and the applications you use, and how long you interact with such sites or applications. If your mobile device is configured to search for available Wi-Fi networks, we may receive information about your device even if you choose not to connect to our Wi-Fi services.
+Provide our Warby Parker App. When you download and use our App, we receive information from your mobile device, such as IP address, device information, and unique device identifiers. We may also receive information about your precise location from your device, but only if you enable location tracking on your device.
+
+Market and advertise to you. We use personal information to deliver content and marketing communications that we think may interest you, including ads or offers tailored to you based upon your browsing and usage history, both within these Services and on other websites and mobile applications; provide you information, recommendations, and marketing materials about our products and Services; and for short-term, transient use including contextual customization of ads.
+Administer the Services and provide online advertising. Like most websites, our Services may incorporate tracking technology such as “pixel tags”, “web beacons”, and “cookies” that allow us and our vendors to collect information about your actions on our Services. Our Cookies and Online Tracking Technologies section below describes how we use online tracking technologies.
+Operate our retail locations. We may collect personal information about you when you visit our stores. Like most retailers, we have in-store video surveillance for security, fraud, and loss prevention purposes. In addition, we analyze videos to help us understand customer behavior and retail traffic within our physical spaces.
+
+Manage our commercial customer relationships. We process personal information to offer administrative, management, and other business services to our commercial customers, such as Affiliates and some Independent Practices, including to confirm, reschedule, or provide other services related to your eye exam.
+Manage our business operations. We process personal information to operate our business, including performing system administration, business analytics, and technology management; providing reporting related to transactions and interactions, including online interactions you may have with us or others on our behalf; maintaining records; auditing our business; and identifying and maintaining relationships with prospective customers, business clients, suppliers, and other vendors.
+
+Comply with legal and business requirements. We process personal information for legal and compliance purposes, including complying with applicable law, regulations, court orders, and other legal obligations; assisting in investigations, regulatory requests, litigation, or arbitration; protecting and defending our rights and property, or the rights or safety of third parties; enforcing our terms, policies, or any agreements with third parties; complying with health and safety obligations; and preventing crime.
+Maintain security and integrity. We process personal information to maintain the security and integrity of our Services, individuals, and business, including verifying identity; protecting our Services from cyber risks; preventing, identifying, investigating, and responding to fraud, illegal or malicious activities, and other liabilities; enhancing security; enforcing our policies and terms; protecting our rights and the rights of others; fulfilling our legal obligations; and generally providing you with a secure experience when using our Services.
+
+Engage in corporate restructuring activities. We process personal information when we engage in corporate restructuring activities, including evaluating or executing a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets, as part of regular business operations or pursuant to a bankruptcy, liquidation, or similar proceeding.
+
+We may also use and process the above categories of personal information for any other purpose at your direction and with your consent. We may combine personal information collected from other parties with other information we collect about you.
+
+Personal Information Disclosure
+We disclose personal information to the following entities for the purposes set out above.
+
+Affiliates. We disclose personal information to our corporate entities and Affiliates to provide goods and services and otherwise manage our business.
+Vendors. We may disclose personal information to our vendors, service providers, data processors, third party contractors, payment processors, and others who perform services for us for purposes such as: order fulfillment; delivery services; payment processing; vision insurance claim processing; account registration; website-related services, such as web hosting, improvement of website-related services and features; maintenance services; marketing services; and data analytics.
+Marketing, Analytics, and Advertising Partners. We may disclose personal information to our partners that support our marketing, analytics, and advertising activities. Some of these partners use cookies and other technologies to collect information about your online activities on our Services and across other online services in order to deliver more relevant advertising when you are using the Services or other websites.
+
+Your Eye Doctor and Dispensing Optician. We may disclose your personal information to your Eye Doctor so that they may provide you services, to confirm the prescription information you provide us, or if you’ve asked us to obtain your prescription information from your Eye Doctor. At your request, we may also disclose your personal information to a dispensing optician.
+Your Vision Insurance Carrier. We may disclose your personal information to your vision insurance carrier so they can process your claim and so that we receive payment.
+Social Media Providers. We may include widgets, toolbars, or icons from social media providers on our Services that allow you to interact with and disclose personal information to them. These social media providers may collect information about your interactions with our Services, including browsing information. Such collection may occur where the widgets, toolbars, or icons are visible, even when you do not click on or otherwise activate the widgets, toolbars, or icons. The privacy policy of the relevant social media network controls the collection, use, and disclosure of all personal information collected by that social media network.
+
+Law Enforcement, Regulators, Professional Advisors, and Similar Entities. We reserve the right to access, read, preserve, and disclose any information that we reasonably believe is necessary to comply with any applicable law, court order, subpoena, legal process, or government request; cooperate with law enforcement; enforce or apply this Privacy Policy, our Terms of Use and other agreements; detect, prevent, or otherwise address fraud, security, or technical issues; or protect the rights, property, or safety of Warby Parker, our employees, our customers, or others.
+Manufacturers and Product Partners. We may disclose personal information to manufacturers and product partners in connection with customer service, warranty, product safety, quality, and regulatory compliance matters.
+Parties to a Corporate Transaction. We may disclose personal information as part of a merger, acquisition, or other sale or transfer of all or part of our assets or business or with other entities as you have authorized or requested.
+
+We may also disclose your personal information to any other entities at your direction and with your consent.
+
+Cookies and Online Tracking Technologies
+We, vendors acting on our behalf, and our third-party advertising partners may use cookies, software development kits (SDKs), pixels, and other types of online tracking technologies (collectively “Cookies”) on our Services to collect and analyze information about interactions with the Services. We, our vendors, and our advertising partners may use Cookies for several purposes, including storing information to support functionality; helping you access and navigate the Services more efficiently; recognizing your login information and preferences, so that you do not need to enter the information each time you visit the Services; analyzing your use of the Services, including by collecting information about which pages on our Services you viewed or links you clicked and how you interacted with our content during your visit or over multiple visits; customizing your browsing experience by showing you information more likely to be relevant to you; delivering and customizing advertisements; and tracking advertising campaigns.
+
+We may use technology vendors in connection with your activity on certain pages of our Sites. The tools these vendors provide help us control how user personal information is collected by Cookies. These tools also allow us to limit how certain types of website user data, such as details about your activity on our Sites, may be transmitted to other parties.
+
+We may engage third-party web analytics services, such as Google Analytics, to help us understand and analyze how visitors interact with our Services, support our administration of the Services, improve the quality of our Services, and serve ads on our behalf across the internet. We also use this information to implement Google advertising features such as interest-based advertising, audience targeting, and impression reporting.
+
+We, or our vendors, and our advertising partners may collect personal information about your online activities over time and across different devices and online websites when you visit the Site. We, our vendors, and our advertising partners may link the information collected by Cookies to other information collected about you.
+
+Third-Party Integrations and Social Features
+We may engage vendors to provide certain interactive features on the Services. Your use of these interactive features is voluntary, and we may retain the information that you submit through the features. For example, we may offer an interactive chat feature on our Services to respond to your questions and for other customer service purposes. When you participate in the interactive chat, either with a virtual or live agent, the contents of the chat may be captured and kept as a transcript. By using these features, you understand that our vendors may process the information obtained through the feature to provide the service on our behalf.
+
+Our Services offer certain functionalities that permit you to initiate interactions between the Services and external services, including social networks such as Facebook, X, Pinterest, Instagram, Snapchat, and Google+, that we do not own or control, even if you access them through our Services. These social features may enable you to “like” or “share” our content or otherwise connect the Services to a Third-Party Account (e.g., to pull or push information to or from the Services). If you use such social features, information you post or provide access to may be publicly displayed by the third-party service you use and both Warby Parker and the third party may have access to certain information about you and your use of the Services and the third-party service. We encourage you to carefully review the privacy policies of any third-party services you access so that you know how they will collect, use, and disclose your personal information.
+
+Intelligent Eyewear
+Warby Parker offers Intelligent Eyewear in partnership with Google and Samsung (“Third-Party Technology Partners”). These partners operate, maintain, or control the AI, camera, microphone, speaker, data processing, cloud computing, and other technology features embedded in or associated with Intelligent Eyewear (collectively, “Third-Party Technology Features”). The Third-Party Technology Features are provided by the applicable Third-Party Technology Partner. Information you provide to, or that is collected or processed by, a Third-Party Technology Partner in connection with your use of the Third-Party Technology Features or any associated third-party app or service is subject to that Third-Party Technology Partner’s terms and privacy policy. Warby Parker does not collect information directly from your use of Third-Party Technology Features (note, however, that if you try on Warby Parker-owned Intelligent Eyewear during an in-store demonstration, we will collect any information you capture with that eyewear through the Warby Parker-controlled account to which it is connected).
+
+Warby Parker may share information with, and receive information from, Third-Party Technology Partners as necessary to fulfill your order or assist with customer service requests relating to Intelligent Eyewear. For example, Warby Parker may disclose to our Third-Party Technology Partners your contact information and information about an issue you are experiencing, and in turn, our Third-Party Technology Partners may share information with us to help resolve the issue. Any information that we receive from our Third-Party Technology Partners will be subject to this Privacy Policy, and any information that we disclose to our Third-Party Technology Partners will be processed pursuant to their own privacy policies.
+
+Mobile Devices and Applications
+We may disclose your personal information to our Affiliates, business partners, service providers, and other third parties, as further described in the Personal Information Disclosure section above. To the extent we provide these parties access to your personal information obtained through our Apps, we require that they provide the same level of personal information protection as required by this Privacy Policy.
+
+We will retain your personal information only for as long as we reasonably consider it necessary for achieving the purposes set out in this Privacy Policy, or for as long as we are legally permitted or required to retain it. If you no longer wish to provide your personal information through our App, you may uninstall our App from your device. Note that this action will not delete your user account or any information we previously collected via the App, nor does it affect our personal information collection through our other Services.
+
+Our vendors may also collect information about your mobile device from other tracking technologies while you are near or in our stores to help us better understand our customers and how they use our Services. These services may include Google Analytics and Adjust Technology.
+
+Your Choices
+Access and Correction of Personal Information. Through your account settings, you can access, view, and edit certain types of personal information, including name, password, mailing address, billing address, email address, and phone number. The information you can view and edit may change as our Services change.
+
+Deletion of Personal Information/Account. You can request deletion of your personal information/account (e.g., name, password, mailing address, billing address, email address, and phone number) by filling out the request form located here. You can also request deletion of your personal information/account within our Apps by clicking on “Delete Account” in your App account settings and following the instructions to complete your request. After completing the steps to request deletion of your account, we will contact you to ask that you confirm your decision to delete your personal information/account. Once your personal information/account is deleted, you will no longer be able to access your account.
+
+We may retain certain of your personal information, like order history and prescriptions in our systems for certain legal, security, and business records.
+
+Marketing Communication Opt Outs. If you decide you don’t want to receive marketing emails from us, you can opt out in your account settings or click the “Unsubscribe” link in our emails. Opting out or unsubscribing will not prevent you from receiving emails about orders or other transactions you make through our Services or emails in response to a specific request from you, such as password recovery. If you have previously opted in to receive text messages and decide that you no longer want to receive text messages from us, you can opt out in your account settings or by replying STOP to a text message you receive from us.
+
+App Opt Outs. If you would like to opt out of the use of your mobile app activity for targeted advertising purposes, you may do so by visiting your device privacy settings. If you wish not to share information with us from your mobile device, such as geolocation and your unique device identifier, you may turn off location tracking at any time in your app settings or disable Bluetooth on your device. If you wish to stop receiving push notifications from us on your mobile device, you can update your device settings.
+
+Social Features Opt Outs. If you wish to limit the information available to us through your Third Party Accounts, such as Google or social media, you should visit the privacy settings of your Third Party Accounts to learn about your options.
+
+Cookie Opt Outs. You can opt out of certain disclosures of personal information through Site Cookies by visiting www.warbyparker.com/cpra and selecting “Opt out of the sale or sharing of personal information with third parties.”
+
+You can learn about how to opt out of receiving personalized website advertisements from our advertising partners who are members of the Network Advertising Initiative or who subscribe to the Digital Advertising Alliance’s Self-Regulatory Principles for Online Behavioral Advertising by visiting the opt-out sections on the websites of each of those organizations. Links to those sites are below. Note that because your election to opt out is managed through cookies, if you delete these cookies or use a different browser, you will have to make the same selection again.
+
+Network Advertising Initiative Opt-Out Tool (http://www.networkadvertising.org/choices)
+Digital Advertising Alliance Opt-Out Tool (http://www.aboutads.info/choices)
+
+You may be able to set your web browser to reject Cookies entirely or require that your browser request permission from you before accepting each new Cookie. You can also delete Cookies from your web browser once you leave the Site.
+
+Some of the vendors and advertiser partners we work with offer tools that you can use to limit or opt out of their Cookies, such as:
+Google. For more information on how Google Analytics uses data, visit support.google.com/analytics/answer/6004245. If you do not want Google Analytics to collect and use information about your use of our Services, then you can install an opt-out (https://tools.google.com/dlpage/gaoptout) in your web browser. You also may opt out from Google Analytics for Display Advertising or the Google Display Network by using Google’s Ads Settings located at www.google.com/settings/ads.
+Adjust Technology. If you do not want Adjust Technology to collect and use information about your use of our Services, you can opt out at www.adjust.com/forget-device.
+Meta/Facebook. If you want to change your privacy and advertising settings with Facebook, review your Ad Preferences at facebook.com/adpreferences or log in to your Facebook account and navigate to the Privacy Center at facebook.com/privacy/center.
+
+Microsoft. For information on how Microsoft processes personal information through tracking technologies to provide Microsoft Advertising, view the Microsoft Privacy Statements at privacy.microsoft.com/en-us/privacystatement.
+
+We do not control these third parties' collection or use of your information to serve interest-based advertising.
+
+Your web browser may have settings that allow you to transmit a “Do Not Track” signal when you visit various websites or use online services. Like many websites, we do not respond to Do Not Track signals received from browsers. To learn more about “Do Not Track” signals, visit allaboutdnt.com. You may set your browser to notify you of or decline the receipt of Cookies; however, certain features of the Site may not function properly or be available if your browser is configured to disable Cookies. We are not responsible for opt-out processes provided by external parties.
+
+If you choose to limit collection of your information in these ways, certain Service features may not function properly, or at all, and certain Services may not be available to you.
+
+You may still see “contextual” ads even if you opt out of interest-based ads. These ads, however, are based on the context of what you are looking at on the websites and pages you visit. Even if you opt out of interest-based ads you will still receive these non-personalized, contextual ads.
+
+External Websites
+The Services may contain links to external websites. Please be aware that we cannot control and are not responsible for the information collection practices of such websites, which may differ from our privacy practices. We encourage you to review and understand the privacy policies of these websites before providing any information to them. The inclusion of a link to another website or online service does not imply our endorsement.
+
+Security
+We implement reasonable technical, organizational, and administrative measures to help safeguard your information against unauthorized or unlawful processing and against accidental loss, destruction, or damage. Unfortunately, we cannot guarantee complete security of any information.
+
+Children’s Information
+The Sites and Apps are not directed to children under the age of 13 and we do not knowingly collect personal information from individuals under the age of 13 through the Sites and Apps. If we become aware that we have received personal information from children under the age of 13 through the Sites or Apps, we will delete it in accordance with applicable law. If you are a parent or legal guardian of a minor, you may use our Services on behalf of such minor child.
+
+Services in our retail locations may be available to children under the age of 13. Where required by law, we seek to obtain the verifiable parental consent from the child’s parent or guardian. Where the law requires us to obtain verifiable parental consent and we learn that a child under the age of 13 has provided us with personal information independently without the permission of their parent or guardian, we will delete that information in accordance with applicable law.
+
+Additional State Privacy Law Disclosures
+This section provides additional disclosures for residents of certain U.S. states, including California, Colorado, Delaware, Maryland, Minnesota, New Jersey, and Oregon as required under the applicable state privacy laws of those states (“Applicable State Privacy Laws”). Residents of Washington should review our Washington Consumer Health Data Privacy Policy.
+
+Categories of Personal Information We Collect, Use, and Disclose for Business Purposes. We also collect the following categories of personal information, as described in greater detail in the Personal Information Collection and Personal Information Use sections above:
+Personal Records (including information described in Cal. Civ. Code § 1798.80(e)), including name, signature, physical characteristics or description, address, telephone number, education, employment, employment history, and medical information.
+Inferences drawn from any of the personal information we collect, including about the content or ads that may be of interest to you.
+
+Sale and Sharing of Personal Information. We disclose personal information to our vendors and partners to facilitate cross-contextual behavioral advertising, targeted advertising, and other advertising and marketing (collectively, “Targeted Advertising”). While we do not knowingly sell personal information for monetary value, we may “sell” personal information for valuable consideration or share personal information for Targeted Advertising under Applicable State Privacy Laws. In this context, the categories of personal information we sell and/or share for Targeted Advertising are: Identifiers, Personal Records, Internet or Other Electronic Network Activity Information, and Geolocation Data.
+
+We sell and share personal information for Targeted Advertising to our Marketing, Analytics, and Advertising Partners and our Social Media providers for marketing, analytics, and advertising purposes, as further described in this Privacy Policy. Please note that we do not share or otherwise disclose opt-in consent data for our transactional or marketing text message programs to any third parties for those third parties’ own marketing purposes.
+
+Applicable State Privacy Law Rights. Residents of states with Applicable State Privacy Laws have certain rights related to their personal information.
+
+Right to Access and Data Portability. You may have the right to confirm whether we are processing your personal information, to access your personal information, and to obtain a copy of personal information you provided to us in a portable format.
+
+Right to Request Third Party Information. Oregon and Minnesota residents may request a list of specific third parties which we may have disclosed your personal information. Delaware and Maryland residents may request a list of categories of third parties to which we may have disclosed your personal information.
+
+Right to Delete. You may have the right to request that we delete personal information about you, subject to certain exceptions.
+
+Right to Correct. You may have the right to request that we correct any incorrect personal information that we collect or retain about you, subject to certain exceptions.
+
+Right to Opt Out of Targeted Advertising and Sales of Personal Information. You may have the right to opt out of the sale of your personal information and to request that we do not share your personal information for Targeted Advertising.
+
+Rights related to Profiling and Automated Decision Making. We do not offer an opportunity to exercise these rights because we do not use personal information for profiling or automated decision making in furtherance of decisions that produce legal or similarly significant effects.
+
+Exercising Your Rights.
+
+To exercise your rights to Access, Data Portability, Delete, and Opt Out of Sales and Targeted Advertising that does not use Cookies click here.
+To exercise your rights to Opt Out of Sales and Targeted Advertising using Cookies, please click here for web browsers or visit our preference center in the App and update your settings to opt out of the sale or sharing of personal information with third parties. If you choose to use the Global Privacy Control (GPC) browser signal, you’ll be opted out of online sales or sharing of personal information and will need to turn it on for each browser you use.
+To exercise your rights to Correct and to Request Third Party Information, please email us at [email protected].
+To exercise your rights to Access, Data Portability, Delete, Correct, and to Opt Out of Sales and Targeted Advertising that does not use Cookies, you may also call 855.400.2932.
+
+Verification. In order to exercise some of these rights, you may need to verify your identity to protect your security and personal information, which may include providing certain information.
+
+Authorized Agent. Under certain Applicable State Privacy Laws, you may elect to have an agent exercise some of your rights for you. Even if you choose to use an agent, we may, as permitted by law, require you to confirm your identity directly with us or confirm that the agent has permission to submit the request.
+
+Appeal. We may deny your privacy rights request in certain circumstances, including if we are unable to process the request or the personal information is subject to an exception. If you are a resident of certain states whose privacy rights request has been denied by us and you believe we denied it in error, you may email us at [email protected] for reconsideration.
+
+Non-Discrimination. We will not discriminate or retaliate against you because of your exercise of any of your privacy rights.
+
+How Long We Keep Your Information. We will retain your personal information only for as long as we reasonably consider it necessary for achieving the purposes set out in this Policy, or for as long as we are legally required or permitted to retain it, including where retention of personal information is reasonably necessary to:
+Manage your relationship with us, carry out our operations, or satisfy another purpose for which we collected the personal information;
+Meet our legal obligations;
+Carry out a disclosed purpose that is reasonably compatible with the context in which the personal information was collected; or
+Protect or defend our rights or property.
+
+Where personal information is used for more than one purpose, we will retain it until the purpose with the latest period expires.
+
+Additional California Disclosures. The California Consumer Privacy Act (“CCPA”) requires additional disclosures for California consumers. The disclosures in this Privacy Policy that describe how and why we collect, use, and disclose personal information also describe how we have collected, used, and disclosed personal information in the preceding twelve (12) months.
+
+The Right to Know. In addition to the rights outlined above, California residents have the right to request that we disclose the following information under the CCPA:
+Specific pieces of information that we have collected about you;
+Categories of personal information we have collected about you;
+Categories of sources from which the personal information is collected;
+Categories of third parties to whom we disclose personal information; and
+The business or commercial purpose for collecting, selling, or sharing personal information.
+
+Sale and Sharing of Personal Information. We do not have actual knowledge that we sell or share the personal information of California Consumers under the age of 16 years.
+
+Sensitive Personal Information. We do not use sensitive personal information for purposes of inferring characteristics about a consumer. Accordingly, we do not offer the opportunity to limit the use or disclosure of sensitive personal information under the CCPA.
+
+Shine the Light. If you’re a resident of California, you can request a notice identifying the categories of personal information, as defined by California Civil Code Section 1798.83, we share with our Affiliates and/or third parties for their direct marketing purposes and the contact information for such Affiliates and/or third parties. Please submit a written request to [email protected].
+
+Contact Us
+If you have any questions about viewing or updating your information, this Privacy Policy, or our privacy practices, please contact us at [email protected].
