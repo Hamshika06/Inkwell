@@ -1,0 +1,424 @@
+Privacy Policy
+
+Skip to content
+
+Privacy Policy
+Last Revised: October 31, 2025
+
+Política de privacidad
+
+At AccuWeather, We want to assure that We provide You, as a User, with information and choice about Our policies and practices. We do this so You may make informed decisions whether or not You want to use AccuWeather Sites and how You choose to use them.
+
+Please read this Privacy Policy carefully before using AccuWeather Sites. When You use AccuWeather Sites, You consent to the terms and conditions and the practices described in this Privacy Policy. It applies to You if You access AccuWeather Sites directly, through a third-party or by other means. It takes precedence over any conflicting terms published by a third party regarding Your access or use of AccuWeather Sites.
+
+ACCUWEATHER SITES, AND THE PRODUCTS, SERVICES AND ADVERTISING MADE AVAILABLE THROUGH THEM, ARE NOT INTENDED FOR USE BY CHILDREN UNDER THE AGE OF 18. AccuWeather does not knowingly collect any information from children under 18 years of age. We will undertake to delete any details from such users where a parent or guardian has notified Us that any such details have been obtained.
+
+CONTENTS
+DEFINITIONS WE USE IN THIS PRIVACY POLICY
+WHAT INFORMATION DO WE COLLECT?
+HOW DO WE USE THE INFORMATION?
+HOW DO WE SHARE THE INFORMATION?
+WHERE IS THE INFORMATION STORED?
+HOW LONG IS THE INFORMATION STORED?
+HOW CAN YOU ACCESS AND CONTROL YOUR INFORMATION?
+CALIFORNIA RESIDENTS
+COLORADO, CONNECTICUT, VIRGINIA AND UTAH RESIDENTS
+NEVADA RESIDENTS
+EU/UK/SWITZERLAND RESIDENTS
+DATA SECURITY
+A NOTE ABOUT LINKS TO EXTERNAL WEBSITES/ONLINE SERVICES FROM ACCUWEATHER SITES
+USE BY CHILDREN UNDER AGE 18
+CHANGES TO THIS PRIVACY POLICY
+HOW DO YOU CONTACT US?
+
+1. DEFINITIONS WE USE IN THIS PRIVACY POLICY
+We use certain defined terms in this Privacy Policy. They have the following meanings:
+
+“AccuWeather,” “We,” “Our,” and “Us” refers to AccuWeather, Inc. and any and all entities that are controlled by or under common control with AccuWeather, Inc.
+
+“AccuWeather Sites” include but are not limited to all AccuWeather wired and mobile websites, digital products, services, websites, applications, data, content, advertising, and other elements from which You are accessing this Privacy Policy. These other elements may include sign-up screens, contests, data input and tracking, and other interfaces.
+
+“Online Behavioral Advertising,” also referred to as “OBA,” which is also sometimes called “interest-based advertising,” uses information collected across multiple web sites that You visit in order to predict Your preferences and to show You advertisements that are most likely to be of interest to You.
+
+“Personally Identifiable Information” or “PII” means information by that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. This information includes things such name, address and email address. Your username and a password You supply are examples of PII. Information about a device or the location of a device may be PII.
+
+“Providers,” refers to non-AccuWeather entities such as, but not limited to, service providers, advertisers, vendors, data collection services and other third parties. These Providers may also collect or receive information about You.
+
+“User,” “You,” “Your,” and “Visitor,” whether in the singular or plural refers to a natural person who views, downloads or interacts with any AccuWeather Sites.
+
+2. WHAT INFORMATION DO WE COLLECT?
+We may collect Your PII or device information, including Your device’s location, when You use the AccuWeather Sites. Users are informed during the registration or onboarding process for certain AccuWeather Sites of the information We may collect about You or Your device and prompted to provide that information or grant Us access to it for specified purposes such as delivering our services, making product improvements, and push notifications.
+
+Information We ask You to provide. We may ask You to provide PII in order for you to benefit from the specified features or to participate in a particular activity on the AccuWeather Sites. We may request PII when we ask You to register for fee-based services, although some free products and services may also request or require registration. For example, We may request PII from You when You create an account, download an application or content through AccuWeather Sites, upload content (e.g., photos, videos) to AccuWeather Sites, engage with the AccuWeather Sites’ chat functionality, subscribe to e-mail newsletters or other content made available by AccuWeather Sites, or report a problem with Your account or AccuWeather Sites. As a registered subscriber or user, You may be able to download software, enter contests or sweepstakes, order e-mail newsletters or participate in additional services or other promotions offered on AccuWeather Sites.
+
+Account Login Information. When You create an account or sign in on AccuWeather Sites, We collect Your profile, credentials, name, username, email address, and password (“Login Information”). We also generate general identifiers (e.g., account ID) and record timestamps and technical logs to administer Your account and protect the AccuWeather Sites. If you forget Your password, We provide a reset link to Your verified email address. We do not disclose or transmit Your existing password.
+
+Information Your device provides passively about the device, the network it is on and the device’s location. Your use of AccuWeather Sites may result in the assignment of unique identifiers (IDs). Some of these IDs are generated by Your device and some of these are provided to Your device by Us or our Providers. These may be in the form or numbers or combinations of letters, numbers and other characters or other codes. These may be used to allow AccuWeather and its Providers and others who assist AccuWeather in the support of AccuWeather Sites to know Your device’s location, web browsing movements or information about the environment near the device. When You use certain AccuWeather Sites, We allow You to choose when and how often to share Your device location data with Us and the purposes for which We or our Providers may use Your device location data. Basic AccuWeather app features will still function if You choose not to share Your device location data to receive personalized content and advertising.
+
+When you use AccuWeather Sites, your device may send us some or all of the following:
+GPS Coordinates. The GPS coordinates of a device. On many devices, enabling or disabling “Location Services” (or a similar setting) controls whether the device sends GPS coordinates.
+Internet Protocol (IP) Address. An IP Address is a number automatically assigned by Your Internet Service Provider (ISP). The IP address is the host computer a device uses to connect to the ISP’s network to send information to Us or to our Providers and for a device to receive information back from Us or from our Providers.
+Device ID. A Device ID is a combination of letters and numbers that is unique to the device You are using. The Device ID identifies the device, regardless of who is using the device. On many devices, the Device ID is provided by the device manufacturer and stored permanently in the memory of the device. Depending on how the manufacturer configured the device, You may not be able to change it.
+
+Advertising ID (AAID) or ID for Advertising (IDFA). These are combinations of letters and numbers that are unique to the device You are using. However, these identifiers may not be permanent. Depending on Your device, You may be able to reset them through the settings of Your device or Your browser.
+Information about the performance of Your device. This may include information such as the operating system and version the device is using and the version of Our application the device is using.
+
+Cookies. Cookies are files with small amounts of data, which may include an anonymous unique identifier. If You are accessing an AccuWeather Site through a browser, including a browser on a mobile device, cookies may be sent to the browser and stored in the device’s memory. This identifies the device the next time it accesses an AccuWeather Site through a browser. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if You do not permit the device to accept cookies, Your experience may not be optimal when You return to an AccuWeather Site because We may not recognize the device. We use both “session cookies” or “persistent cookies.” Session cookies are temporary and expire once You close Your browser or once Your session ends. Persistent cookies remain on Your device for much longer or until You or Your browser erase them. Persistent cookies have varying durations that are dependent on their expiration date. Cookies help Us improve the AccuWeather Site by providing Us with information about which parts of the AccuWeather Site are most popular, enabling Us to analyze technical and navigational information about the AccuWeather Site, and helping Us to detect and prevent fraud. We also use cookies and other data collection tools to help improve Your experience with the AccuWeather Site. These tools use cookies to collect standard Internet log information and visitor behavior information in an anonymous form. The information generated by the cookie about your use of the AccuWeather Site (including IP address and geolocation) is transmitted to our data collection tool Providers. This information is then used by Us to evaluate visitors’ use of the AccuWeather Site and to compile statistical reports on website activity for Us. You can learn more about how We use cookies here.
+
+Pixel Tags, Web Beacons, Flash Shared Objects/HTML5 Local Storage/HTML5 Mini Databases. Many mobile devices use these technologies which allow for the storage of information on the mobile devices and, in effect, allow the enhancement of internet browsing. The Flash Shared Objects, HTML5 Local Storage and HTML5 Mini Databases also allow the device to track a user’s web browsing movements across the internet and not just on one particular website. You can learn more about how we use these technologies here.
+
+If you turn off “Location Services” or a similar setting that controls GPS functionality, the device still may automatically send or receive this other information as long as you have these other communications types enabled. You should read the instructions related to Your device, operating system or browser to learn about how to control the information Your device may transmit.
+
+We do not respond to web browser Do Not Track signals at this time.
+
+Weather observations, videos and other information You choose to upload or submit to Us. You may have the opportunity to submit information about Yourself and your surroundings, such as weather-related data You observe, as well as your present precise geolocation or another location of interest. You also may be able to post or submit photos, videos, graphics, information, comments, and other content to an AccuWeather Site, including through the AccuWeather Site’s chat functionality. When you submit this information, it becomes the property of AccuWeather, and you accept responsibility for its accuracy, appropriateness and legality. It may be distributed and become publicly available. It may be viewed, read, collected, or used by others, outside of Our control, including any geo-location, tags, or other metadata in the submission.
+
+Information about You that You choose to share through Social Media. You may engage with Our content on or through social media services or other third-party platforms such as Facebook, Twitter and others that are integrated to an AccuWeather Site. We refer to those here generally as “Social Media.” You should read the privacy policies and terms of use of the Social Media platforms You use and check Your privacy settings on those Social Media platforms.
+
+Information You provide AccuWeather if You contact Us directly. If You contact AccuWeather, We may keep a record of that contact or correspondence.
+
+Your Mobile Device SMS / Text Messages. You may decide to opt-in and consent to receiving SMS / text messages from AccuWeather. If you do, we will collect your phone number. By providing your phone number and clicking submit online, you agree to our Terms of Use and this Privacy Policy, and authorize us to make or initiate sales calls, text messages and prerecorded voicemails to that phone number using an automated system. Your agreement is not a condition of purchasing any products, goods or services and you may elect to do business with us over the phone. Message & data rates may apply and message frequency may vary.
+
+3. HOW DO WE USE THIS INFORMATION?
+It is important for Us to know Our users. AccuWeather uses the information it collects to:
+Provide the AccuWeather Sites to You and to improve the AccuWeather Sites
+Create and manage Your account with AccuWeather
+Operate, improve and personalize the products and services We offer and to give each user a more consistent and personalized experience when interacting with Us
+Provide You weather alerts at the location(s) You provide Us
+Provide You a user-friendly and engaging service with content We believe will be most relevant to You
+Deliver to You targeted or contextual advertising We and our advertising Providers believe will be most relevant to You
+Analyze the traffic and use patterns on AccuWeather Sites
+Provide You up-to-date information on Our products, Our services and the AccuWeather Sites
+Process and verify subscriptions, including payment related to such subscriptions
+Bill for subscription-based AccuWeather Sites and other services
+Process Your data rights requests
+Respond to Your inquiries and requests
+
+For security, to detect fraud or illegal activities, and for archival and backup purposes in connection with the provision of the AccuWeather Sites
+For Our business purposes, such as data analysis, audits, developing new products, enhancing the AccuWeather Sites, improving our products and services, identifying AccuWeather Site usage trends, and determining the effectiveness of our promotional campaigns
+As we believe to be necessary or appropriate: (i) under applicable law; (ii) to comply with legal process; (iii) to respond to requests from public and government authorities; (iv) to enforce this Privacy Policy and Our Terms of Use; (v) to protect Our operations or those of any of Our affiliates; (vi) to protect Our rights, privacy, safety or property, and/or that of Our affiliates, You, or others; and (vii) to allow Us to pursue available remedies or limit the damages that We may sustain.
+
+AccuWeather uses Your Login Information to:
+Create and manage Your account
+Authenticate sign-ins
+Perform billing and payment
+Provide and personalize account-based features You select (for example, saved locations and preferences)
+Perform service, product, user, and data analytics to operate, improve, and personalize the AccuWeather Sites (including in aggregated or deidentified form)
+Perform advertising and measurement analytics
+Marketing and Promotion:
+If You provide an email address when creating an account, We will (where permitted by law) use that email to send You emails about AccuWeather’s products, services, and information through:
+AccuWeather email marketing campaigns
+AccuWeather email promotional advertisements
+Surveys
+Newsletters
+You can opt out of these marketing, promotional advertising, and survey emails at any time by scrolling to the footer of the email, finding and clicking the link labeled “unsubscribe”, and then following the instructions.
+
+4. HOW DO WE SHARE THIS INFORMATION?
+We may disclose information to Our affiliated companies.
+
+We also may disclose information to unaffiliated third-party Providers. We deliver valuable information to You on AccuWeather Sites free of charge or at low rates. We can accomplish this by working with Providers, who may receive or collect your PII to provide services to us or for their own purposes. You can find a list of these Providers here. We update this list from time to time, so You should review it from time to time. You also should visit the sites of these Providers and review their privacy terms and disclosures.
+
+These unaffiliated third-party Providers may:
+Provide services to Us, such as website hosting and moderating, mobile application hosting, data analysis, payment processing, order fulfillment, infrastructure provision, IT services, providing chat functionalities, customer service, e-mail and direct mail delivery services, credit card processing, auditing services and other services. We need to provide certain information in order to enable them to provide those services to Us. For example, We may use Providers to administer the process for You to make submissions of videos to AccuWeather Sites and/or to host or store such submissions for Us.
+
+Serve advertisements when You visit AccuWeather Sites and Other Websites. Providers may use information about Your visits to AccuWeather Sites and other web sites in order to provide advertisements about goods and services they believe may be of interest to You. AccuWeather Sites may be designed to utilize Online Behavioral Advertising (OBA). This means that certain information regarding Your internet viewing behaviors or practices, over periods of time and perhaps involving websites or applications which are not AccuWeather Sites, may be used for the purpose of choosing advertising to display to You. If You would like more information about this practice and to know Your choices about not having this information used by these companies, see https://www.aboutads.info/choices or https://networkadvertising.org/​managing/opt_out.asp or https://choice.live.com/​AdvertisementChoice or https://youronlinechoices.eu/.
+
+Use the information to offer promotions to you for other products and services. For example, many wireless products may be made available through cooperative arrangements with Providers who offer specialized products, information or services that We believe work well with the AccuWeather Sites.
+Use the information in combination with other information. Providers may have obtained other information directly from You or from other sources that are not related to Us and not related to Your use of AccuWeather Sites.
+
+We also may disclose PII we collect if We think it is necessary under applicable law or to comply with legal process, such as a court order or subpoena. This may include laws outside your country of residence.
+
+We may also disclose PII as we believe to be necessary or appropriate:
+to comply with legal process
+to respond to requests from public and government authorities, including public and government authorities outside your country of residence
+to support external auditing, compliance and corporate governance functions
+to protect Our rights, privacy, safety, or property or Yours or to pursue available remedies or limit damages We may sustain
+to a third party in the event of a reorganization, merger, sale, joint venture, assignment, transfer, or other disposition of all or any portion of Our business, assets, or stock (including in connection with a bankruptcy or similar proceeding).
+
+Disclosures of Login Information
+
+Payment. We use a Provider platform to process Your payments. We do not collect Your financial information for payment. We disclose the required account credentials to Our Provider to bill You and for You to make a payment. The Provider is under contract that restricts their use only for billing and payment.
+Email Address. We do not sell or share Your email address to third parties for marketing campaigns and promotional advertisements that are not for AccuWeather products and services.
+
+5. WHERE IS THE INFORMATION STORED?
+AccuWeather Sites are controlled and operated from within the United States. PII may be stored and processed in any country where we have facilities or Providers. When You consent to use AccuWeather Sites, You are consenting to the transfer of information to countries outside of your country of residence, including to the United States, which may provide for different data protection rules than in Your country.
+
+6. HOW LONG IS THE INFORMATION STORED?
+We retain PII for as long as You have a registered account with Us or as long as needed to provide You services on the AccuWeather Sites or as required by applicable law. If You request that We delete or restrict certain PII about You controlled by Us, We will comply with your request where necessary, but We may retain and use the PII for a period of time. For example, We may use the records to follow-up on a request, resolve a dispute or as needed to comply with applicable law. In addition, some PII may be stored on back-up files for financial, legal, or technical reasons.
+
+Retention of Login Information. We retain Login Information for as long as You maintain an account on the AccuWeather Sites, unless a longer period is required to comply with law, resolve disputes, or protect Our rights.
+
+7. HOW CAN YOU ACCESS AND CONTROL YOUR INFORMATION?
+Accessing, deleting or correcting your PII. If you would like to access, delete or correct the PII AccuWeather maintains about you, please call us at 1-800-562-6452 or visit https://www.accuweather.com/en/contact.
+
+Controlling Information Your Device Sends to Us. Most devices and web browsers offer privacy settings and options where you can control the information that Your device sends. Changing these settings will not prevent you from seeing advertisements and offers, but those advertisements and offers may not be tailored to your interests and needs. You may disable cookies, reset your IDFA or AAID, or turn off location-based (GPS) services. We do not override these settings or options, and You can change them at any time. We encourage you to use them to enhance your choices and personalize your experiences. However, in order to access certain content, features, services, products, or benefits of AccuWeather Sites, you may be required to provide Us certain information. Basic AccuWeather app features will still function if You choose not to share Your device location with Us to receive local content and customized advertising.
+
+Cookies. You can manage your cookie preferences as described in Our Cookie Policy.
+
+Online Behavioral Advertising (OBA). If You desire to opt-out of OBA described above in the section “How Do We Share Your Information?”, You should visit https://www.aboutads.info/choices for web-based advertising), and https://www.aboutads.info/appchoices for mobile advertising. This hyperlink and process is the recommended tool for the Digital Advertising Alliance Self-Regulatory Principles of Online Behavioral Advertising, to which AccuWeather endeavors to adhere, as a member of the Interactive Advertising Bureau. You may also opt out of third party cookies by clicking the “Do Not Sell or Share My Personal Information” link located at the footer of Our websites or by going to Settings > Privacy Settings and toggling the button that states “Do Not Sell or Share My Personal Information” on Our mobile applications.
+
+Accessing and updating Your online account information. If You have an account with Us where You voluntarily provided PII through email, registration forms, the best way to access or control this information is to visit the applicable AccuWeather Site to update Your online profile or change Your password. If You have a user name or password associated with an account, You are responsible for maintaining the confidentiality of Your user name and password.
+
+Unsubscribing from marketing and promotional advertising emails. To unsubscribe from an AccuWeather marketing email, scroll to the bottom or footer of the email and find the text labeled “unsubscribe”, click the link, and then follow the on-screen instructions. Unsubscribing from marketing emails does not affect service or transactional emails (e.g., account, security, subscription, payment, or legal notices), which are necessary to provide the services You request. Unsubscribing from marketing emails does not delete Your personal information retained in Your account; it stops You from receiving emails. If You would like to simultaneously unsubscribe and delete Your information, email Your request to support@accuweather.com.
+
+8. CALIFORNIA RESIDENTS
+Shine the Light Law. California Civil Code Section 1798.83, known as the “Shine the Light” law, permits users who are California residents to request and obtain from us once annually, free of charge, information about PII (if any) we disclosed to third parties for direct marketing purposes in the preceding calendar year. If applicable, this information would include a list of the categories of PII that was shared and the names and addresses of third parties with which we shared information in the immediately preceding calendar year. We do not respond to web browser Do Not Track signals at this time.
+
+CPRA. The California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (“CPRA”) provides California residents with specific rights regarding their PII. The below describes such rights and how You (if You are a California resident) may exercise such rights, and Our information practices, including the categories of PII We collect, use, retain, disclose, sell or share, and how and why we collect, disclose, sell or share such information.
+
+Consumer Rights
+Right to Know You have the right to request that We disclose what PII We collect, use, disclose, sell or share. Specifically, You may request that We disclose to You the following:
+The categories of PII We have collected about You.
+The categories of sources from which the PII is collected.
+The business or commercial purpose for collecting, selling or sharing PII.
+The categories of third parties with whom We disclose PII.
+The specific pieces of PII We have collected about You.
+
+You may also request that We disclose to you:
+The categories of PII that We have sold or shared about You and the categories of third parties to whom the PII was sold or shared, by category or categories of PII for each third party to whom the PII was sold or shared.
+The categories of PII that We disclosed about You for a business purpose and the categories of persons to whom it was disclosed for a business purpose.
+
+Right to Request Deletion You have the right to request that We delete any PII about You which We have collected from You. If it is necessary for Us to maintain Your PII for certain purposes, We are not required to comply with Your deletion request. If We determine that We will not delete your PII when You request Us to do so, We will inform You and tell You why We are not deleting it.
+
+Right to Opt-Out of Sale or Sharing of PII You have the right to direct a business that “sells” or “shares” (as such terms are defined in the CPRA) PII about You to third parties not to sell or share Your PII. The collection of data through certain cookies for our targeting advertising purposes may be considered a “sale” and is considered “sharing” under the CPRA. To opt-out of the sale or sharing of PII by AccuWeather on Our websites, please click the “Do Not Sell or Share My Personal Information” link located at the footer of Our websites. To opt-out of the sale or sharing of PII by AccuWeather on Our mobile applications, please go to Settings > Privacy Settings and toggle the button that states “Do Not Sell or Share My Personal Information”.
+
+Right to Correct Inaccurate PII You have the right to request a business that maintains inaccurate PII about You to correct that inaccurate PII, taking into account the nature of the PII and the purposes of the processing of the PII.
+
+Right to Limit Use and Disclosure of Sensitive PII You have the right to direct a business that collects sensitive PII about You to limit its use of Your sensitive PII (1) to that use which is necessary to perform the services or provide the goods reasonably expected by an average consumer who requests those goods or services; (2) for certain business purposes; and (3) as authorized by the implementing regulations of the CPRA. As mentioned below, we collect, use and disclose your precise geolocation, which is considered sensitive PII under the CPRA, on Our mobile applications with your consent. To limit AccuWeather’s use of your sensitive PII on Our mobile applications, please go to Settings > Privacy Settings and toggle the button that states “Limit the Use of My Sensitive Personal Information” web page.
+
+No Discrimination You have the right not to be discriminated against because You exercised any of Your aforementioned rights.
+
+How to Submit a Request
+To exercise the rights described above, you must submit a verifiable request to us. You can do so by calling us at 1-800-562-6452 or by visiting https://www.accuweather.com/en/contact.
+
+If You maintain an online account with Us, We will verify Your identity for a request through the normal account authentication process, meaning You will need to sign on with Your username and password.
+
+If You do not maintain an online account with Us, You will be asked to provide certain information to help Us verify your identity. The information We ask You to provide to initiate a request may differ depending upon the type of request, the type, sensitivity and value of the PII that is the subject of the request, and the risk of harm to You that may occur as a result of unauthorized access or deletion, among other factors.
+
+You may designate an authorized agent to make a request on Your behalf by providing the agent with signed written permission to do so.
+
+If We cannot verify Your identity or authority to make the request, We will not be able to comply with Your request. We will inform You if We cannot verify Your identity or authority. We will only use PII provided in a verifiable request to verify the requestor’s identity or authority to make the request.
+
+How We collect, use, disclose, sell, and/or share PII of California Residents
+AccuWeather has collected the following categories of PII and used, disclosed, sold or shared such information in the twelve (12) months prior to the effective date of this Privacy Policy:
+
+Category Disclosed for a Business or Commercial Purpose? Categories of Third Parties to Whom the Information was Disclosed Sold or Shared? Categories of Third Parties to Whom the Information was Sold or Shared Purpose(s) for Selling or Sharing
+
+Identifiers, such as name, alias,
+
+postal address, unique personal identifier, online identifier, Internet Protocol address, email
+
+address, account name, or other similar identifiers. Yes • Service providers. • Law enforcement,
+
+courts, governmental / regulatory authorities to enforce our rights; protect our property or protect
+
+the rights, property or safety of others; as needed to support external auditing, compliance and
+
+corporate governance functions; respond to a subpoena, regulation, binding order, legal process,
+
+governmental request or other legal or regulatory process; or to pursue available remedies or limit
+
+damages we may sustain. • Third parties as part of a corporate transaction, such as a
+
+divestiture, merger, consolidation, or asset sale, or in the unlikely event of bankruptcy. Yes Third-party website analytics and digital advertising
+
+service providers. • Provide the AccuWeather Site to You and to improve
+
+the AccuWeather Site • Operate, improve and personalize the products and services We offer and to
+
+give each user a more consistent and personalized experience when interacting with Us • Provide
+
+You weather alerts at the location(s) You provide us • Provide You a user-friendly and engaging
+
+service with content We believe will be most relevant to You • Deliver to You targeted or
+
+contextual advertising We and our advertising Providers believe will be most relevant to You •
+
+Analyze the traffic and use patterns on AccuWeather Sites • Process Your data rights
+
+requests • For security, to detect fraud or illegal activities, and for archival and backup
+
+purposes in connection with the provision of the AccuWeather Sites • For Our business purposes,
+
+such as data analysis, audits, developing new products, enhancing the AccuWeather Sites, improving
+
+our products and services, identifying AccuWeather Site usage trends, and determining the
+
+effectiveness of our promotional campaigns • As we believe to be necessary or appropriate: (i)
+
+under applicable law; (ii) to comply with legal process; (iii) to respond to requests from public
+
+and government authorities; (iv) to enforce this Privacy Policy and Our Terms of Use; (v) to protect
+
+Our operations or those of any of Our affiliates; (vi) to protect Our rights, privacy, safety or
+
+property, and/or that of Our affiliates, You, or others; and (vii) to allow Us to pursue available
+
+remedies or limit the damages that We may sustain.
+
+PII categories listed in the California
+
+Customer Records statute (Cal. Civ. Code § 1798.80(e)), such as name, physical
+
+characteristics or description, address, telephone number, bank account number, credit card number,
+
+debit card number, or any other financial information. Yes No N/A N/A
+
+Commercial information, such as
+
+products or services purchased, obtained, or considered, or other purchasing or consuming histories
+
+or tendencies. Yes Yes Third-party website analytics and digital
+
+advertising service providers. • Provide the AccuWeather Site to You and
+
+to improve the AccuWeather Site • Operate, improve and personalize the products and services We
+
+offer and to give each user a more consistent and personalized experience when interacting with
+
+Us • Provide You weather alerts at the location(s) You provide Us • Provide You a
+
+user-friendly and engaging service with content We believe will be most relevant to You • Deliver
+
+to You targeted or contextual advertising We and our advertising Providers believe will be most
+
+relevant to You • Analyze the traffic and use patterns on AccuWeather Sites • Process Your
+
+data rights requests • For security, to detect fraud or illegal activities, and for archival and
+
+backup purposes in connection with the provision of the AccuWeather Sites • For Our business
+
+purposes, such as data analysis, audits, developing new products, enhancing the AccuWeather Sites,
+
+improving our products and services, identifying AccuWeather Site usage trends, and determining the
+
+effectiveness of our promotional campaigns • As We believe to be necessary or appropriate: (i)
+
+under applicable law; (ii) to comply with legal process; (iii) to respond to requests from public
+
+and government authorities; (iv) to enforce this Privacy Policy and Our Terms of Use; (v) to protect
+
+Our operations or those of any of Our affiliates; (vi) to protect Our rights, privacy, safety or
+
+property, and/or that of Our affiliates, You, or others; and (vii) to allow Us to pursue available
+
+remedies or limit the damages that We may sustain.
+
+Internet or other electronic network activity
+
+information, including, but not limited to, browsing history, search history, and
+
+information regarding a consumer’s interaction with an Internet Web site, application, or
+
+advertisement Yes Yes
+
+Geolocation data Yes Yes
+
+Inferences drawn from any PII to create a
+
+profile about a consumer reflecting the consumer’s preferences, characteristics, psychological
+
+trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes.
+
+Yes Yes
+
+Audio, electronic, visual, or similar
+
+information. Yes No N/A N/A
+
+We collect, use and disclose the following categories of sensitive PII:
+
+Categories of Sensitive PII Collected Disclosed for a Business Purpose? Categories of Third Parties to whom the Sensitive PII is Disclosed Sold or Shared? Categories of Third Parties to Whom the Information was Sold or Shared Purpose(s) for Selling or Sharing
+
+Precise geolocation (only on Our mobile applications) Yes • Service providers. • Law enforcement, courts, governmental / regulatory authorities to enforce our rights; protect our property or protect the rights, property or safety of others; as needed to support external auditing, compliance and corporate governance functions; respond to a subpoena, regulation, binding order, legal process, governmental request or other legal or regulatory process; or to pursue available remedies or limit damages we may sustain. • Third parties as part of a corporate transaction, such as a divestiture, merger, consolidation, or asset sale, or in the unlikely event of bankruptcy. Yes, but only with your consent. Third-party website analytics and digital advertising service providers. • Provide Our mobile applications to You and to improve Our mobile applications • Operate, improve and personalize Our mobile applications and to give each user a more consistent and personalized experience when interacting with Us Provide You weather alerts at the location(s) You provide Us • Provide You a user-friendly and engaging service with content We believe will be most relevant to You • Deliver to You targeted or contextual advertising We and our advertising Providers believe will be most relevant to You • Analyze the traffic and use patterns on Our mobile applications • Process Your data rights requests • For security, to detect fraud or illegal activities, and for archival and backup purposes in connection with the provision of Our mobile applications • For Our business purposes, such as data analysis, audits, developing new products, enhancing Our mobile applications, improving our products and services, identifying Our mobile applications’ usage trends, and determining the effectiveness of our promotional campaigns • As We believe to be necessary or appropriate: (i) under applicable law; (ii) to comply with legal process; (iii) to respond to requests from public and government authorities; (iv) to enforce this Privacy Policy and Our Terms of Use; (v) to protect Our operations or those of any of Our affiliates; (vi) to protect Our rights, privacy, safety or property, and/or that of Our affiliates, You, or others; and (vii) to allow Us to pursue available remedies or limit the damages that We may sustain
+
+Account login credentials, such as name and email Yes Service providers. Yes, shared for restricted purposes. Third-party payment processing service providers. • Shared to service providers to create, secure, and maintain Your account; authenticate sign‑ins; detect/prevent fraud and abuse; and comply with law. • Account credentials shared to service providers for payment purposes. We do not collect Your financial information for payment.
+
+AccuWeather collects the PII, including the sensitive PII, described above from or through the following categories of sources:
+You, directly and indirectly, including when you access the AccuWeather Sites or make any purchases through the AccuWeather Sites;
+Providers, including those that provide analytics services to help us understand the activity on the AccuWeather Sites;
+Publicly available information.
+
+AccuWeather collects and discloses the PII, including the sensitive PII, described above for a variety of business purposes as described in the section entitled “How Do We Use This Information?”.
+
+As stated in the section entitled “How Long is the Information Stored?”, We will retain the PII, including the sensitive PII, described above for as long as necessary to fulfill the purpose for which it was collected, or as required by applicable laws or regulation.
+
+PII of Minors
+AccuWeather does not have actual knowledge that it sells or shares PII about minors under the age of 18.
+
+9. COLORADO, CONNECTICUT, VIRGINIA AND UTAH RESIDENTS
+The categories of PII We process about You is set forth in the section entitled “What Information Do We Collect?”. The purposes for processing such PII are set forth in the section entitled “How Do We Use This Information?”. We disclose the PII we process about You with the third parties set forth in the section entitled “How Do We Share This Information?”.
+
+If You are a resident of Virginia, Colorado, Connecticut and Utah, You have the rights to:
+Confirm whether or not We are processing Your PII and access such PII;
+For Virginia, Colorado and Connecticut residents, correct inaccuracies in Your PII, taking into account the nature of the PII and the purposes of the processing of Your PII;
+Delete PII provided by, or, for Virginia, Colorado and Connecticut residents obtained about, You;
+Obtain a copy of Your PII We process, in a portable and, to the extent technically feasible, readily usable format that allows You to transmit the data to another entity without hindrance, where the processing is carried out by automated means; and
+Opt out of the processing of PII for purposes of:
+Targeted advertising;
+The sale of PII; or
+For Virginia, Colorado and Connecticut residents, profiling in furtherance of decisions that produce legal or similarly significant effects concerning You. We do not engage in profiling in furtherance of decisions that produce legal or similarly significant effects concerning You.
+
+You may exercise these rights by:
+Phone: 1-800-562-6452
+Website: https://www.accuweather.com/en/contact
+
+Only You may make a verifiable request related to Your PII. The verifiable consumer request must:
+Provide sufficient information that allows Us to reasonably verify You are the person about whom We collected PII; and
+Describe Your request with sufficient detail that allows Us to properly understand, evaluate, and respond to it.
+
+We reserve the right to verify Your identity in connection with any requests regarding PII to help ensure that We provide the information We maintain to the individuals to whom it pertains and allow only those individuals to exercise rights with respect to that information. We cannot respond to Your request or provide You with PII if We cannot verify Your identity or authority to make the request and confirm the PII relates to You.
+
+In the event we deny your request, you may appeal our denial by contacting us in the same manner by which you submitted your request.
+
+We process Your PII for the purposes of targeted advertising, and under Colorado and Connecticut laws, Our processing may qualify as a “sale”. We share Your Internet activity, such as your Internet Protocol (“IP”) address, information on Your interaction with the AccuWeather Sites, device information, geolocation data, and cookie data with Our third-party analytics and digital advertising service providers. To opt-out of such sharing of information with Our third-party analytics and digital advertising service providers on Our websites, please click the “Do Not Sell or Share My Personal Information” link located at the footer of Our websites. To opt-out of the sharing of information with Our third-party analytics and digital advertising service providers on Our mobile applications, please go to Settings > Privacy Settings and toggle the button that states “Do Not Sell or Share My Personal Information”.
+
+10. NEVADA RESIDENTS
+Under Nevada law, AccuWeather does not sell Your PII. However, if You are a Nevada resident, You may submit a request that We not sell any PII We have collected about You by contacting Us at https://www.accuweather.com/en/contact.
+
+11. EU/UK/SWITZERLAND RESIDENTS
+Regulation (EU) 2016/679 (“GDPR”), any national law of an EU member state adopted pursuant to the GDPR, the U.K. Data Protection Act of 2018, and the Switzerland Federal Act on Data Protection (collectively, “Data Protection Laws”) provide EU, U.K. and Swiss residents with specific rights regarding their PII. The below describes such rights and how You (if You are an EU, U.K. or Swiss resident) may exercise such rights, and Our information practices, including Our legal bases for processing Your PII.
+
+With respect to PII, the responsible controller is:
+
+AccuWeather, Inc. 385 Science Park Road, State College, PA 16803
+
+The categories of PII We process about You is set forth in the section entitled “What Information Do We Collect?”. The purposes for processing such PII are set forth in the section entitled “How Do We Use This Information?”.
+
+Our legal bases for processing PII are as follows:
+Performance of Contract. We may use Your information to perform Our contractual services or prior to entering into an agreement with You. If You use the AccuWeather Sites or if You contact Us to request services, We use Your information to provide to You the features and functionality of the AccuWeather Sites and Our services, including for customer service.
+Legitimate Interest. We may use information for our legitimate interests, except where such interests are overridden by Your interests or fundamental rights and freedoms. For instance, We may use Your PII to contact You and respond to your requests and inquiries, to administer our business, to identify prevent and detect fraud or to pursue or defend Ourselves against legal claims.
+
+Consent. We may use Your information with Your consent. In these instances, We will ask You to grant Us consent to use Your information. You are free to grant or deny permission. If You deny permission, We will not be able to process Your information to conduct the activity to which the consent relates. For example, We will not be able to send you marketing materials that You request. You are also free to withdraw your consent at any time. A withdrawal of consent will not affect processing that has been completed during the time in which the consent was valid. If You have granted Us consent to use Your information, We will use it only for the purposes specified when We request Your consent. This includes use for Our marketing campaigns. If You sign up for Our email newsletter, You allow Us to use Your email address for marketing related to the AccuWeather Sites, and Our services and products. You may unsubscribe from such emails at any time by following the link to unsubscribe at the bottom of Our marketing emails. You may also contact Us to request that We remove You from Our email list. However, please note that unsubscribing may prevent You from receiving email messages regarding updates, improvements, or offers.
+
+Fulfillment of Legal Obligations. We may use Your information to comply with Our legal obligations. To comply with regulations, laws or any authority requests, We may disclose Your information to authorities or other officials or otherwise process Your information pursuant to legal obligations We are subject to (e.g., retain certain information according to tax or commercial laws, respond to Your requests to exercise Your rights under Data Protection Laws).
+Login Information: We use Your Login Information to create and administer Your account and provide the features You request. We keep the AccuWeather Sites secure, prevent fraud and abuse, and perform analytics to improve Our services.
+
+We disclose the PII we process about You with the third parties set forth in the section entitled “How Do We Share This Information”.
+
+As mentioned in the section entitled “How Long is the Information Stored?”, We will retain Your PII for as long as necessary to fulfill the purpose for which it was collected, or as required by applicable laws or regulation. Copies of information that you have updated, modified, or deleted will remain in our systems if applicable law requires us to retain it.
+
+As mentioned in the section entitled “Where is the Information Stored?”, We provide the AccuWeather Sites from servers located in the United States. If you are accessing the AccuWeather Sites from the EU, U.K. or Switzerland, We will only transfer your PII to the United States through the use of appropriate safeguards.
+
+You have the right to request that We confirm what PII we collect or hold about You, provide a copy of Your PII to You in a machine-readable format and to ask us to correct or update the PII. You also have the right to ask us to delete Your PII that we hold, in accordance with applicable law. However, the deletion of the PII may impact Your access, use and ability to use features on the AccuWeather Sites. You have the right to restrict Our processing of Your PII under certain circumstances. Additionally, You have the right to object, on grounds relating to Your particular situation, at any time to Our processing of Your PII, which is based on public interest or Our legitimate interests, including the profiling of data. In this case, We will stop processing Your PII, except for where We have compelling legal grounds for the processing which override Your interests, rights and freedoms, or for the exercise or defense of possible legal claims. You further have a right to object to the processing of your personal data for direct marketing purposes.
+
+To exercise any of the aforementioned rights, please contact us by calling us at 1-800-562-6452 or by visiting https://www.accuweather.com/en/contact.
+
+If you are in the EU and wish to lodge a complaint concerning EU GDPR, you may do so with the relevant regulator located in the EU country in question. You can find the various regulator contact details here: https://edpb.europa.eu/about-edpb/about-edpb/members_en. With regard to the UK, you also have the right to lodge a complaint with the Information Commissioner’s Office, who may be contacted using the details here: https://ico.org.uk/make-a-complaint.
+
+12. DATA SECURITY
+We employ technical and organizational security measures designed to protect the security of information submitted through the AccuWeather Sites. However, the security of information transmitted through the Internet can never be guaranteed. We are not responsible for any interception or interruption of any communications through the Internet or for changes to or losses of data. Users of the AccuWeather Sites are responsible for maintaining the security of any password, user ID or other form of authentication involved in obtaining access to password protected or secure areas of any of the AccuWeather Sites. In order to protect Us, You and Your data, We may suspend Your use of the AccuWeather Sites, without notice if any breach of security is suspected. Access to and use of password protected and/or secure areas of the AccuWeather Sites are restricted to authorized users only. Unauthorized access to such areas is prohibited.
+
+13. A NOTE ABOUT LINKS TO EXTERNAL WEBSITES / ONLINE SERVICES FROM ACCUWEATHER SITES
+The AccuWeather Sites may contain links to third-party websites and online services – for example, the AccuWeather Sites may link to Greenhouse Software, Inc. when You attempt to apply for a position with AccuWeather. Any access to and use of such third-party websites and online services is not governed by this Privacy Policy but is instead governed by the privacy policies of those third-party websites and online services, and we are not responsible for the information practices of such third-party websites and online services. You should read and understand such third-party websites and online services’ terms of use and policies before using their sites or entering into agreements with them. If You have questions or concerns about their sites, terms or conditions, or privacy policies, You should contact the third party directly. AccuWeather neither endorses nor accepts responsibility for the contents of the third-party websites or online services. For convenience, We may provide information and contact information about our Providers, but We cannot ensure that the contact information is correct or accurate.
+
+14. USE BY CHILDREN UNDER AGE 18
+AccuWeather Sites are not directed to children and AccuWeather does not intend to collect any PII from children. Please do not allow children under age 18 to use AccuWeather Sites, provide any PII to AccuWeather, or ask questions on AccuWeather Sites. If We are notified with verifiable information that a child under age 18 has provided PII to Us, We will delete that information as soon as reasonably possible. If You become aware that a child under age 18 has provided such information, please send Us a detailed email with all identifiable information at customerservice@accuweather.com so We may delete this information. We have no way to control the use of an access device that You allow a child under age 18 to use, and therefore the device may be sending Us information about the device’s location and other factors. PLEASE EXERCISE CONTROL OF YOUR DEVICES TO PREVENT MINORS FROM GETTING INTO A SITUATION WHERE THEIR LOCATION MAY BE DISCLOSED TO US, OUR PROVIDERS, OR OTHER THIRD PARTIES.
+
+15. CHANGES TO THIS PRIVACY POLICY
+As AccuWeather expands its offerings and as technology evolves, We may, from time to time, update Our privacy practices to address these changes. We encourage You to check here on a regular basis for updates to this Privacy Policy. If We make any material changes to this Privacy Policy, We will notify you of such changes.
+
+16. HOW DO YOU CONTACT US?
+If You have any questions regarding this Privacy Policy, please contact us by calling us at 1-800-562-6452 or by visiting https://www.accuweather.com/en/contact.
+
+For all other inquiries or issues relating to AccuWeather’s products or services, please contact AccuWeather’s support group at the following email: support@accuweather.com.

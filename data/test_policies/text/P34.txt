@@ -1,0 +1,385 @@
+Privacy Notice
+
+Effective: June 8, 2026
+
+We’ve included annotations in these gray boxes as a guide to our notices. Annotations aren’t part of the notices and have no legal effect, but they should help you follow the text.
+
+If you visit our website or use Cash App, this privacy notice applies to you. It explains what data we collect about you, what we do with it, when and why we share it with others, how long we keep it, how we secure it, what cookies are and what they (and similar technologies) do, and what choices you have to control your data.
+
+By using Cash App you consent to these data practices.
+
+This Privacy Notice describes how Block, Inc. (formerly known as "Square, Inc.") and our affiliates (collectively, “Cash App,” “we,” and “us”) collect, use, disclose, retain, or otherwise process your information when you (“you,” “your”) visit our website at https://cash.app/ ("website") or download Cash App through a relevant app store and sign up for a Cash App account, and when you otherwise interact with our services, including through the app or our website (collectively, “Services”).
+
+This Privacy Notice applies to your use of our Services, and covers only information collected in connection with your access to and use of our Services. Please read this Privacy Notice carefully. By continuing to interact with our Services, you are consenting to the practices described in this Privacy Notice.
+
+Our Privacy Notice explains:
+
+Information We Collect About You
+
+Sources of Information We Collect About You
+
+How We Use Your Information
+
+When and With Whom We Share Your Information
+
+Cookies and Other Similar Automated Technologies
+
+How Long We Keep Your Information
+
+Your Rights and Choices
+
+Children's Personal Information
+
+How We Secure Information
+
+Storage and Processing
+
+Changes to this Privacy Notice
+
+How to Contact Us
+
+Additional Information for Residents of Certain U.S. States
+
+U.S. Consumer Privacy Notice
+
+INFORMATION WE COLLECT ABOUT YOU
+We use your data to make Cash App’s products and services work better for you and for others. This describes what data we get about you.
+
+We need to collect information about you to provide you with the Services or the support you request. We also may collect information about you in other circumstances described below. Specifically, we collect the categories of personal information described below.
+
+Information You Provide to Access our Services
+We use data you put into our systems when you use or interact with Cash App, like financial information, information that identifies who you are, transaction information, and any other data you give us.
+
+We collect the following categories of information you provide when you apply or sign up for a Cash App account, go through our identity or account verification process, authenticate into your account, communicate with us, answer our surveys, participate in contests or promotions offered by us or our partners, or otherwise use our Services:
+
+Identification Information, such as: Your name, email address, zip or postal code, phone number, Cashtag, signature, and authentication credentials (for example, information you use to log in to your Cash account), including Internet Protocol (“IP”) address.
+
+Additional Identification Information, such as: Your full mailing address; date of birth; government-issued identification, including Social Security number, passport, or driver’s license; and photographs, facial scan and biometric information extracted from such images for verification purposes.
+
+Financial Information, such as: Bank account and payment card numbers you add to your Cash App account, as well as your Cash App Card number if you have one.
+
+Contacts Information. In order to provide you with the Service, we will also need to collect information from you about the intended recipient of the payment you request us to make. We will therefore ask you to provide contact details of your intended recipient. You can do this by manually entering a phone number or email address into Cash App. You can also choose to let us access your phone contacts information, as described below (under Information You Provide to Enhance Your Experience).
+
+Transaction Information. When you use our Services to make, accept, or request payments, we collect information such as: when and where the transactions occur, the names of the transacting parties, a description of the transactions, the payment or transfer amounts, and the devices and payment methods used to complete the transactions.
+
+Employment Information. In order to provide you with certain Services, such as staff management features, we may also need to collect your employee identification number, job title, salary information, hire date, paystub, work schedule, timecard information, and benefits enrollment information.
+
+Mobile Phone Plan Information. If you sign up for and use a Cash App Mobile phone plan, we collect and process information from you and through our phone service partner Gigs Wireless, such as name, email address, billing address, phone and device information, including, if applicable, information about your current mobile network carrier for number porting, subscription and service plan details, billing and invoice data, and usage data. Cash App does not have, and Gigs Wireless does not have, access to the content of phone calls, messages, or internet data.
+
+Information You Provide to Enhance Your Experience
+We also use data you give us to make your experience with Cash App better, like contacts you choose to upload to make it easier for you to exchange money with them.
+
+You can choose to provide us with additional information to improve your user experience when using our Services:
+
+Contacts Information. You can choose to let us access and upload your phone contacts information to make it easier for you to find the people you want to send money to, to help you invite your friends to Cash App, for account and identity verification and fraud prevention purposes, to reduce the risk you will send payments to the wrong person, or to provide other personalized services. You can update your settings to stop sharing your phone contacts with us at any time.
+
+Other Information You Provide. We collect information that you voluntarily provide to us, including your photograph, if you choose to upload a picture to the Services; survey responses; participation in contests, or other prospective marketing forms or devices; suggestions for improvements; referrals; information (including call recordings and transcripts) provided to our customer support, including communications with chatbots; or any other actions you perform on the Services.
+
+Information We Collect From Your Use of our Services
+We may also get data from the devices you use when you interact with our systems, like your location and information about the device you’re using. We use this data to do things like help protect your account from hackers, combat fraud, check if payments are being made or received legally and by you, market and advertise to you, and make our products and services better for you and others.
+
+We may collect information about you and the devices you use to visit our website or access the Services, such as through Cookies and Other Similar Automated Technologies. The information that we collect includes:
+
+Geolocation Information. The location of your device, including your IP address and location of your network provider. This may include precise geolocation information. For more information and to learn how to disable collection of precise geolocation information from your mobile device, please see below.
+
+Device Information. Information about your device, including your hardware model, operating system and version, device name, unique device identifier, country and language setting, and information about the device’s interaction with our Services.
+
+Internet or Other Electronic Network Activity Information. Information about how you use and interact with our Services, including the date and time of your use of the Services, “log-in” and “log-out” information, browser type, mobile network information, including the domain name of your internet service provider, other attributes about your browser, any specific page you visit on our platform, content you view, features you use, your search terms, and the website you visited before you visited or used the Services.
+
+SOURCES OF INFORMATION WE COLLECT ABOUT YOU
+We also collect data about you from you, your devices, our affiliates, companies that help us verify your identity, do a credit check, prevent fraud or assess risk, partners and merchants that you transact with, and marketing and advertising partners.
+
+We collect information about you from the following categories of sources:
+
+You directly, when you submit information to us or allow us to access information
+
+Your devices and how you interact with our Services (see Cookies and Other Similar Automated Technologies below)
+
+Our group companies, including our other business units such as Square, or affiliates
+
+Other sources, including:
+
+Identity Verification Services. Information from third-party verification services (e.g., identity verification agencies, app stores, and companies which provide third party analytics (see Cookies and Other Similar Automated Technologies below)), and publicly available sources. In some circumstances, where lawful, this information can include your government-issued identification number.
+
+Credit, Compliance, and Fraud Partners. Information about you from third parties for any credit investigation, credit eligibility, fraud detection process, or collection procedure, or as may otherwise be required by applicable law. This includes, without limitation, the receipt and exchange of account or credit-related information with any credit reporting agency or credit bureau, where lawful, and any person or corporation with whom you have had, currently have, or may have a financial relationship, including without limitation past, present, and future places of employment, financial institutions, and personal reporting agencies. Your personal information may also be screened against relevant sanctions watchlists.
+
+Partner and Merchants. When you transact with or use Services provided through our partners or merchants, they may disclose personal information, including transaction information, payment history, and data relating to Service provisioning or usage, with us.
+
+Third-Party Marketing and Advertising partners. Information about you may be collected from third party partners such as advertisers, data brokers, or advertising platforms. The information we receive from these sources may include inferred characteristics, advertising segments, interests, preferences, or other data used to enhance or supplement the profiles we maintain about our customers.
+
+HOW WE USE YOUR INFORMATION
+We use your data to do things like make sure the products you are using work, help you log in to your account, verify who you are, secure your data, fight fraud, follow the law, enforce our agreements, figure out what new products we can build, for marketing, and to tailor our products to you.
+
+We may collect, use and share information about you for the following reasons:
+
+Providing, Improving, and Developing our Services
+Determining whether the Services are available in your location;
+
+Processing or recording payment transactions or money transfers;
+
+Displaying your historical transaction information;
+
+Connecting you with other customers you already know;
+
+Providing, maintaining and improving our Services;
+
+Developing new products and services;
+
+Delivering the information and support you request;
+
+Improving, personalizing and facilitating your use of our Services, content and applications, including by training artificial intelligence (AI) and other machine learning models;
+
+Developing a credit risk profile about you to assess your creditworthiness;
+
+Drawing inferences from any of the information we collect to create a profile about you that may reflect, for example, your credit risk profile, your preferences, characteristics, shopping habits, and other behavior, to enhance our Services to you and maintain a trusted environment;
+
+Measuring, tracking and analyzing trends and usage in connection with your use or the performance of our Services, including promotions or discounts offered by us or our partners; and
+
+Otherwise providing you with the products and features you choose to use.
+
+Communicating with You About our Services
+Sending you communications as necessary about our Services, such as payment reminders, authentication requests, and Service updates;
+
+Sending you surveys and getting your feedback about our Services; and
+
+Sending you other information relating to our Services.
+
+Protecting our Services and Maintaining a Trusted Environment
+Conducting investigations, complying with and enforcing any applicable laws, regulations, legal requirements, and industry standards, and responding to lawful requests for information from the government or to valid legal process;
+
+Contacting you to resolve disputes, collect fees and help you with our Services;
+
+Debugging to identify and fix errors that impair how our Services function;
+
+Making sure you follow our Terms of Service or other applicable agreements or policies;
+
+Investigating, detecting, preventing, recovering from, or reporting fraud, misrepresentations, security breaches or incidents, other potentially prohibited, malicious, or illegal activities, or to otherwise help protect your account, including to dispute chargebacks on your behalf;
+
+Protecting your, our, or our other customers’ rights or property, or the security or integrity of our Services, including by using and training AI and other machine learning models to protect our services and maintain a trusted environment;
+
+Verifying or maintaining the quality and safety of our Services; and
+
+Verifying your identity (e.g., through government-issued identification numbers).
+
+Advertising and Marketing
+Advertising and Marketing our Services to you, including to serve you advertisements around the web based on your activity over time and across other sites and services (see Cookies and Other Similar Automated Technologies below). For example, you might see an ad for Cash App on another website after visiting our website or browsing one of our product pages;
+
+Communicating with you about opportunities, products, services, contests, promotions, discounts, incentives, surveys, and rewards offered by us and select partners; and
+
+Starting on or after February 9, 2026: In connection with our commerce media network, we may use data about your activity, such as your shopping history, app browsing behavior, card transactions, and general location information to show you personalized advertisements for other brands outside of Cash App. You can opt out of (or where required by applicable law, opt into) this activity by visiting Account & Settings in your account and clicking Privacy.
+
+Other Uses
+For any other reason we may tell you about at the time we collect your information, with your consent, or at your direction.
+
+WHEN AND WITH WHOM WE SHARE YOUR INFORMATION
+We share your information with others in the circumstances described in this section. For example, with other people with whom you interact when you use our services; within our family of companies (including our other business units, like Square and our affiliates, such as Afterpay), who may offer services that we think could be useful to you; with service providers who help us run our services; or if we need to share your information to comply with the law.
+
+We may share your information with the following categories of service providers and third parties:
+
+With Other Users of our Services
+
+With other users of our Services. For example, we may share information with the person(s) with whom you transact when you make or accept a payment or money transfer using our Services. This helps them know they’re getting money from you (or that you requested a payment from them). We may also make certain information available to other Cash App customers to help them know they’re transacting with the right person, such as your name, Cashtag, prior transaction history, when you joined Cash App and whether you appear in their contacts, and the number of people in their contacts who have also transacted with you. If you choose, we may also allow you to share additional information about you and your use of our Services with other Cash App customers.
+
+With our Affiliates and Group Companies
+Within our group companies, including our other business units such as Square, and corporate affiliates, for the reasons outlined above. For example, we may share your information internally to provide you with enhanced services from Cash App and our other company products you use, to understand how you engage with our company products to help make our Services better for you and for everyone, and to help us build Services tailored to your preferences.
+
+With our Service Providers and Partners
+With service providers who help us provide, maintain, and improve our Services, such as: technology providers or potential partners to store information, provide software (including artificial intelligence technologies) or programs to help us provide the Services; research, marketing or event providers that help us run our advertising campaigns, contests, special offers, or other events or activities; fee collection service providers to help us enforce our legal rights; and customer service providers;
+
+With identity verification providers to help us with fraud prevention and to assist us in meeting our AML, "know your customer", background checking and other compliance requirements; or
+
+With financial partners, such as financial institutions, payment networks and processors, payment card associations, credit bureaus and other entities, in connection with your payment or to otherwise help us provide the Services.
+
+With phone service partners, such as Gigs Wireless, to provision and manage wireless services for customers who sign up for Cash App Mobile phone plans.
+
+With Advertising Partners, Including Analytics Providers and Advertising Platforms
+With advertising partners, such as analytics providers and advertising platforms who help us run our advertising campaigns, analyze our site, run contests, special offers, or other events or activities, and track metrics on our behalf or in connection with our Services.
+
+Starting on or after February 9, 2026: In connection with our commerce media network, we may share your information such as interest categories, masked identifiers, and device data, with advertising technology providers (such as analytics providers and advertising platforms) who help us show you personalized ads for other brands outside of Cash App.
+
+With Merchants
+We share your information with merchants in connection with your payments. For example, when you use Cash App Pay to initiate a purchase with a merchant, we will provide the merchant your information for the merchant to process and fulfill your transaction.
+
+Neighborhoods on Cash App: When you use Neighborhoods on Cash App, including when you follow a Square Seller on Neighborhoods on Cash App or claim an offer for Local Cash at a Square Seller, we may share your information with such Square Sellers, including your identifying information, rewards or other benefits you may be eligible for from Square Sellers, and other information related to your use of Neighborhoods on Cash App. To stop us from sharing your information with Square Sellers for Neighborhoods on Cash App purposes, you can unfollow specific Square Sellers in the app at any time.
+
+Business Transfers and Corporate Changes
+To a subsequent owner, co-owner, or operator of one or more of the Services; or
+
+If we do or try to do a corporate merger, consolidation, or restructuring (including during due diligence and negotiation of these); the sale of substantially all of our stock and/or assets; the financing, acquisition, divestiture, or dissolution of all or a portion of our business; or other corporate change.
+
+Safety and Compliance with Law
+If we believe that disclosure is reasonably necessary (i) to comply with any applicable law, regulation, legal process or governmental request (e.g., from creditors, tax authorities, law enforcement agencies, in response to a garnishment, levy, or lien notice, etc.); (ii) to establish, exercise or defend our legal rights; (iii) to enforce or comply with our Terms of Service or other applicable agreements or policies; (iv) to protect our or our customers’ rights or property, or the security or integrity of our Services; (v) for an investigation of suspected or actual illegal activity; or (vi) to protect us, users of our Services or the public from harm, fraud, or potentially prohibited or illegal activities.
+
+With Others with Your Consent
+With your consent or at your direction. For example:
+
+At your direction or as described at the time you agree to share; or
+
+When you authorize a third party application or website to access your information.
+
+Aggregated and Anonymized Information
+We also may share (within our group of companies, including our other business units such as Square, or with affiliates, service providers, or other third parties) aggregated and/or anonymized information that does not specifically identify you or any individual user of our Services.
+
+COOKIES AND OTHER SIMILAR AUTOMATED TECHNOLOGIES
+Digital cookies and similar technologies help us make our services better to use by doing things like recognizing when you’ve signed in, analyzing how you use our services so we can make them more useful to you, giving you a more personalized experience, and making our ads to you more relevant.
+
+When you visit or interact with our Services, or open emails we send you, we and our third party partners may obtain certain information about you using cookies, web server logs, pixels, web beacons, and other automated technologies (collectively, "cookies").
+
+We may use cookies to collect information about you, such as your device information, internet activity information, and inferences as described above in Information We Collect From Your Use of Our Services. We may use the following types of cookies on the Services:
+
+Strictly Necessary Cookies: Strictly necessary cookies are cookies that are necessary to enable core services like secure login, cookie preferences, identity management, and fraud prevention. These cookies are always active and cannot be turned off or opted out of. For example, without these cookies, you would not be able to stay logged in while navigating between pages on the website.
+
+Functionality Cookies: These cookies enable us to remember you when you return to our Services, preferences you may have indicated and information you have provided to us to give you a customized experience.
+
+Performance and Analytical Cookies: We and our third party partners may use these cookies to analyze the usage of our Services; to assess their performance; to understand users’ interactions with them; to conduct testing of different service designs; and to recognize and count the number of unique users of the Services. This helps us to improve our Services and to plan our Service capacities.
+
+Retargeting or Advertising Cookies: We and our third party partners may use cookies to collect information about your online activity on the Services and across other sites and services, such as your browsing and purchasing activity and your activity on mobile sites and applications, to show you relevant ads on third-party sites and analyze your online activity. Advertising based on your activity across other sites and services is called “targeted advertising” or “interest-based advertising.” We may be able to associate the information we collect through cookies with other information we collect about you, such as from third parties. If you reject these cookies, you may still receive ads, but they will be less personalized.
+
+We set some of these automated technologies ourselves, but others are set by third party partners. For example, we may use other companies’ web analytics and advertising services, which use automated technologies to help us evaluate how you and others use our websites and to help us serve you more relevant advertising. We may disclose your information to these third parties and other service providers who use the information to help us figure out how you and others use our online services.
+
+You can manage your cookie preferences for our website by clicking "Your Privacy Choices" link in the footer of our website
+
+You may also be able to stop or disable cookies via your browser settings. Please note, however, that without cookies all of the features of our online services may not work properly. If you use a mobile device, you can manage how your device and browser share certain device data by changing the privacy and security settings on your mobile device. You can learn more about cookies and how to manage your preferences by visiting http://www.allaboutcookies.org.
+
+HOW LONG WE KEEP YOUR INFORMATION
+We keep your information as long as you keep using our products and services. After that, we keep it for as long as we need it to do things like fight fraud, collect fees you owe, resolve disputes with (or involving) you, follow the law, enforce our agreements and defend our rights in court.
+
+We keep your information as long as is necessary for the purposes identified in this Privacy Notice, including to provide you the Services, to comply with applicable law and legal obligations, and to defend our legal rights, property and users. Even after you close your account, we can retain information about you and any transactions or Services in which you may have participated for a period of time that is consistent with certain criteria, such as applicable law, applicable statute of limitations, or as we believe is reasonably necessary to comply with applicable laws, regulations, legal processes, or governmental requests, to detect or prevent fraud, to collect fees owed, to resolve disputes, to address problems with our Services, to assist with investigations, to enforce our Terms of Service or other applicable agreements or policies, or to take any other actions consistent with applicable law.
+
+YOUR RIGHTS AND CHOICES
+You can ask us to close your account, control your location information, opt out of receiving promotional messages from us or opt out of targeted advertising.
+
+As described below, we give you choices over your personal information.
+
+You may also be entitled to certain rights with respect to your personal information depending on the jurisdiction in which you reside and subject to exceptions under applicable laws. Please see Additional Information for Residents of Certain U.S. States below for more details.
+
+Location Information
+
+In order to provide certain Services, we may require access to location information, including geolocation information collected from your device. If you do not consent to collection of this information, certain Services may not function properly and you may not be able to use those Services. You can stop our collection of location information or limit the sharing of precise location information at any time by changing the preferences on your mobile device. You also may stop our collection of location information via mobile application by following the standard uninstall process to remove the Cash App mobile application from your device.
+
+Do Not Track
+
+Certain web browsers allow you to instruct your browser to respond to Do Not Track (“DNT”) signals to website you visit, informing those sites that you do not want your online activities to be tracked. At this time, our websites are not designed to respond to DNT signals or similar mechanisms from browsers.
+
+Promotional Communications
+
+You can opt out of receiving in-app push notifications or emails containing promotional messages from us by following the instructions on screen or by following the instructions in those emails. If you have consented to receiving them, we may send you promotional messages via text, with instructions on how you can "opt out" of getting future promotional texts from us. If you decide to opt out, we may still send you non-promotional communications in-app, or via email and text, in accordance with your chosen preferences for such communication, such as transaction receipts and messages about your account, or our processing of your information in accordance with the provision of our Services. Any records relating to your consent to receive text messages will not be shared with any third parties, other than service providers or partners that help us with sending text messages to you.
+
+Commerce Media Network
+
+If you are a Cash App customer and would like to opt out of (or where required by applicable law, opt into) targeted advertising and related data sharing in connection with our commerce media network, you can visit “Account & Settings” in your account and click “Privacy.”
+
+Deactivate or Close Your Account
+
+You may deactivate or close your account at any time by logging into your Cash App account and visiting https://cash.app/support.
+
+CHILDREN’S PERSONAL INFORMATION
+If you are a child under 13, your parent or guardian must sign up for or authorize our services on your behalf. If you sign up for our services and we later learn you are a child under 13 for an unauthorized account, we will delete the data we collected from you.
+
+A parent or guardian must sign up for or authorize Services for children under the age of 13. Please see the Privacy Notice for Children for more information on how we process data of children under the age of 13. We do not knowingly sell or share for targeted advertising the personal information of children under the age of 16. If we learn that any information we collect has been provided by a child under the age of 13 for an unauthorized account, we will promptly delete that information.
+
+HOW WE SECURE INFORMATION
+We do a lot to keep your data safe. While we think we have strong defenses in place, no one can ever guarantee that hackers won’t be able to break into our sites or steal your data while it is stored or flowing from you to us or vice versa.
+
+We take reasonable measures, including administrative, technical, and physical safeguards, to protect your information from loss, theft, and misuse, and unauthorized access, disclosure, alteration, and destruction. Nevertheless, the internet is not a 100% secure environment, and we cannot guarantee absolute security of the transmission or storage of your information. We hold information about you both at our own premises and with the assistance of third-party service providers.
+
+For more information about our security practices, please visit https://cash.app/security.
+
+STORAGE AND PROCESSING
+We operate in many countries, and we (or our service providers) may move your data and process it outside the country where you live.
+
+We may, and we may use third-party service providers to, process and store your information in the United States, Australia, New Zealand, Canada, Japan, the United Kingdom, the European Union, and other countries. Authorized employees, representatives, and agents will have access to your information for the purposes described in this Privacy Notice.
+
+CHANGES TO THIS PRIVACY NOTICE
+We can change this privacy notice. When the changes impact your rights or how we use your data in important ways, we’ll tell you first, which may be through our app, website, or by email.
+
+We may amend this Privacy Notice from time to time by posting a revised version and updating the “Effective Date” above. The revised version will be effective on the “Effective Date” listed. We will provide you with reasonable prior notice of material changes in how we use your information, which may include notification through our app or website, or by email, if you have provided one. If you disagree with these changes, you may cancel your account at any time. If you keep using our Services, you consent to any amendment of this Privacy Notice.
+
+HOW TO CONTACT US
+You can contact us with any questions or concerns as described below.
+
+Please contact us with any questions or concerns regarding this Privacy Notice at Block, Inc. 1955 Broadway, Suite 600, Oakland CA 94612, U.S.A. or by logging into your Cash App account and visiting https://cash.app/support.
+
+If you have any questions or concerns regarding our Privacy Notice, or if you believe our Privacy Notice or applicable laws relating to the protection of your personal information have not been respected, you may contact or file a complaint with our privacy team as listed above. We will respond to let you know when you can expect a further response. We may request additional details from you regarding your concerns and may need to engage or consult with other parties in order to investigate and address your issue. We may keep records of your request and any resolution. If you remain dissatisfied, you can also make a formal complaint to the applicable privacy regulator in your jurisdiction.
+
+ADDITIONAL INFORMATION FOR RESIDENTS OF CERTAIN U.S. STATES
+This section supplements the Privacy Notice above. It applies only to certain personal information we collect about individuals who are residents of states whose consumer privacy laws apply to financial institutions subject to the federal Gramm-Leach-Bliley Act (GLBA). These laws, however, do not apply to information that is governed by the GLBA and Fair Credit Reporting Act. As a result, this section does not apply with respect to, for example, information that we collect about residents of these states who apply for, obtain, or use our financial products and services for personal, family, or household purposes (e.g., Cash App customers). For more information about how we collect, disclose, and secure information relating to Cash App customers, please refer to our U.S. Consumer Privacy Notice.
+
+Collection, Disclosure, Sale, and Sharing of Personal Information
+
+The following chart details which categories of personal information we collect and process, as well as which categories of personal information we disclose for our operational business purposes or share for purposes of cross-context behavioral or targeted advertising, including within the preceding 12 months. While we do not sell personal information as that term is commonly understood, we “share” personal information for advertising purposes, using cookies and similar technologies to show you targeted ads about our Services across the internet. Also see Cookies and Other Similar Technologies above. We do not knowingly “sell” or “share” personal information of minors under 16 years of age.
+
+Categories of Personal Information
+
+Disclosed to Which Categories of Service Providers or Contractors for Operational Business Purposes
+
+Shared with Which Categories of Third Parties for Cross-Context Behavioral or Targeted Advertising
+
+Identifiers, such as IP address, and other online identifiers
+
+Our group companies and corporate affiliates who help us provide our Services to you; vendors who help us provide, maintain, and improve our Services, and other entities who otherwise help us provide the Services
+
+Advertising partners (including ad platforms and analytics providers)
+
+Geolocation data, such as device location and approximate location derived from IP address
+
+Our group companies and corporate affiliates who help us provide our Services to you; vendors who help us provide, maintain, and improve our Services, and other entities who otherwise help us provide the Services
+
+Advertising partners (including ad platforms and analytics providers)
+
+Internet or network activity information, such as browsing history, search history, interactions with our online properties or ads, and inferences drawn from such information
+
+Our group companies and corporate affiliates who help us provide our Services to you; vendors who help us provide, maintain, and improve our Services, and other entities who otherwise help us provide the Services
+
+Advertising partners (including ad platforms and analytics providers)
+
+Rights and Requests
+
+You may make the following requests:
+
+To know whether we process your personal information, and to access such personal information.
+
+If you are a California resident, you may also request that we disclose to you the following information:
+
+The categories of personal information we collected about you and the categories of sources from which we collected such personal information;
+
+The business or commercial purpose for collecting, ”sharing,” or selling your personal information;
+
+The categories of third parties to whom we disclosed your personal information;
+
+The categories of your personal information about you that we sold or “shared” and the categories of third parties to whom we sold or “shared” such personal information; and
+
+The categories of your personal information about you that we disclosed for a business purpose, and the categories of service providers or contractors to whom we disclosed your personal information.
+
+If you are an Oregon or Minnesota resident, you may also request that we disclose to you the categories of personal information we process about you and the third parties to whom we have disclosed your personal information.
+
+To correct inaccuracies in your personal information.
+
+To have your personal information deleted.
+
+To receive the specific pieces of your personal information, including a copy of your personal information in a portable format.
+
+To opt out of the “sale” of your personal information.
+
+To opt out of targeted advertising, including the “sharing” of your personal information for cross-context behavioral advertising.
+
+You have the right not to be unlawfully retaliated or discriminated against for exercising your privacy rights.
+
+To make a request under #1-4, above, visit https://cash.app/support or call 1-800-969-1940. To help protect your privacy and maintain security, we take steps to verify your identity before granting you access to your personal information or complying with your request, where permitted by law.
+
+We will verify and respond to your request consistent with applicable law, taking into account the type and sensitivity of the personal information subject to the request. We may decline to honor your request where an exception applies. For example, as described above, these rights do not apply to personal information governed by GLBA.
+
+We may need to request additional information to verify your identity and protect against fraudulent requests. If you make a request to delete, we may ask you to confirm your request before we delete your personal information. Please note that you may no longer be able to use our Services if you delete your personal information.
+
+To opt out of the “sharing” of your personal information for cross-context behavioral advertising, click on the “Your Privacy Choices” link in the footer of our website.
+
+We also process opt-out preference signals, such as the Global Privacy Control (GPC). These signals set your opt-out preferences only for the particular browser or device you are using and any consumer profile that we associate with that browser or device. Please note that you should enable the GPC signal separately for each browser and/or device from which you would like to be opted out. For information about how to use the Global Privacy Control, please visit https://globalprivacycontrol.org/.
+
+Please see Privacy Requests Metrics (https://cash.app/legal/us/en-us/privacy-metrics) for details on the number of privacy rights requests that we received and processed in the last year.
+
+Authorized Agents
+
+If an agent would like to make a request on your behalf as permitted under applicable law, the agent may use the submission methods noted in the section above. We will process the agent’s request consistent with applicable law. As part of our verification process, we may request that the agent provide, as applicable, proof concerning their status as an authorized agent. In addition, we may require that you verify your identity as described in the section above or confirm that you provided the agent permission to submit the request.
+
+U.S. CONSUMER PRIVACY NOTICE
+This document requires a PDF plugin to view it in browser. Please view or download the document if it is not displayed above.

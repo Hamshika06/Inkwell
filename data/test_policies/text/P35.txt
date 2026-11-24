@@ -1,0 +1,326 @@
+Getting started
+
+Account and login
+
+Investing
+
+Agentic trading and cards
+
+Robinhood Gold
+
+Robinhood Strategies
+
+Robinhood Advisor Network
+
+Robinhood Crypto
+
+Robinhood Ventures
+
+Robinhood Social
+
+Robinhood Legend
+
+Robinhood Derivatives
+
+Retirement
+
+Robinhood Concierge
+
+Bank transfers and linking
+
+Robinhood Banking
+
+Robinhood Platinum Credit Card
+
+Robinhood Gold Credit Card
+
+Spending
+
+Robinhood Wallet
+
+Robinhood Chain
+
+Documents and taxes
+
+General questions
+
+Help Center
+
+Help Center
+
+Robinhood US User Privacy Statement
+
+Effective Date: August 18, 2026
+
+This Robinhood US User Privacy Statement (the “Privacy Statement”) applies to mobile apps, websites, and other online services that provide features or functionality for US account holders and applicants (collectively, “Users” or “You”) of Robinhood’s (“we,” “our,” or “us”) Financial Entities (Robinhood Financial LLC, Robinhood Securities, LLC, Robinhood Crypto, LLC, Robinhood Money, LLC, Robinhood Credit, Inc., Robinhood Derivatives, LLC, Robinhood Asset Management, LLC, and Robinhood Ventures DE, LLC and Robinhood Ventures Fund I, collectively, “Robinhood Financial Entities” ).
+
+The personally identifiable financial information Robinhood’s Financial Entities collect about you is generally subject to a law called the Gramm-Leach-Bliley Act (the “GLBA”). You can review the GLBA-financial privacy notices in connection with our Services: Robinhood Financial LLC; Robinhood Securities, LLC; Robinhood Derivatives, LLC; Robinhood Crypto, LLC; Robinhood Asset Management, LLC; Robinhood Ventures DE, LLC; and Robinhood Ventures Fund II; and separately for Robinhood Credit, Inc. and Robinhood Money, LLC. This Privacy Statement supplements our GLBA-financial privacy notices to provide more information about our data handling practices online.
+
+This Privacy Statement also applies to users of the social media product offered by Robinhood Tape, LLC (“Robinhood Social” or “Social”) (together with the Robinhood Financial Entities, the “Services”). The personally identifiable information that Robinhood Social collects about you is generally subject to US state privacy laws, as applicable. This Privacy Statement accordingly provides information about our privacy practices with respect to customer data collected and processed by our non-financial products and services, such as Social.
+
+This Privacy Statement applies whenever You are logged in to the Services or interact with us through online customer service channels. For information about how we process other information we collect through our website and other services for website visitors, please review our Robinhood Markets US Web Visitor Privacy Statement.
+
+Select the link to jump to a specific section:
+INFORMATION WE COLLECT AND HOW WE COLLECT IT
+HOW WE USE YOUR INFORMATION
+RETENTION OF INFORMATION
+DISCLOSURES OF INFORMATION
+THIRD-PARTY TRACKING AND ONLINE ADVERTISING
+YOUR CONTROLS
+CHILDREN
+SOCIAL
+CHANGES TO THIS PRIVACY STATEMENT
+HOW TO CONTACT US
+
+1. INFORMATION WE COLLECT AND HOW WE COLLECT IT
+1. INFORMATION WE COLLECT AND HOW WE COLLECT IT
+Information You Provide
+We collect information you provide when you use, or apply to use, our Services or otherwise engage or communicate with us, such as:
+Identity Data, such as your name, date of birth, marital status, social security number, selfies/photographs/videos, government-issued identification documents, and other data on government-issued identification documents;
+Contact Data, such as your email address, mailing address, and telephone number;
+Financial Data, such as your bank account and payment card details, and information about your income, account balances, financial transaction history, credit history, tax information, and credit scores;
+Profile Data, such as your username and password, your knowledge assessment results, your interests, preferences, feedback, and survey responses;
+Stored Content, such as photos from your mobile phone gallery or contacts stored in your mobile device. We only collect this information with your permission;
+
+Information you provide us when using our Pay & Request Service or Gifting: In order to conduct a money transfer using our Pay & Request Service, or to facilitate the gifting of funds to a custodial account, we collect information (including name, email address or phone number, and payment information) from you about you and about the intended recipient of the payment or gift you request us to make;
+Conversations and chats with AI Agents: When you interact with a chatbot on the application and/or the website, we may collect your input and conversation data to provide an output or further customize our answers to you. The answers from our chatbots and AI features are provided for informational purposes only and are not investment advice, investment research or recommendations to buy, sell or hold any security or assets; and
+
+Other Information You Provide: We collect additional personal information that you choose to provide to us, such as via focus groups, survey responses, contests, sweepstakes, customer support, data you provide in memos when using our Pay & Request Service, or other means. If you do choose to upload your photograph to our Service, please note that all images must adhere to our App Use Standards which you are required to comply with to use any of the Robinhood Services. You may also provide us with information about additional authorized users, including Identity Data, Contact Data, and Financial Data relating to them.
+
+Information We Collect Automatically or Generate
+We also collect certain information about you automatically when you use our Services, whether directly or through an external artificial intelligence (AI) agent, such as:
+Usage Information: We collect information about your activity on our Services, which includes device identifiers (like IP address or mobile device identifiers), pages or features you use, time and date of access, and other similar usage information.
+Transactional Information: When you receive, submit, or complete a transaction via the Services, we collect information about the transaction, such as transaction amount, type and nature of the transaction, time and date of the transaction, and location of the merchant for credit card transactions.
+Credit Card Rewards Information: We process information relating to the credit card rewards you accumulate and redeem as a credit card customer, including the partners and/or merchants with whom you redeem the rewards.
+
+Location and Device Data: We may collect the approximate or precise geolocation of your mobile device in accordance with your device permissions. You can stop the collection of this precise location information at any time (review Your Controls for details). Please note that to trade Events Contracts, you may be required to enable access to precise geolocation data so that we can ensure compliance with applicable laws and regulations. We, and some of our third-party partners and service providers, may also approximate your location by your IP address.
+
+Information Collected Through Tracking Technologies: We, and some of our service providers and third-party partners, also use technologies, including cookies and web beacons and software development kits (“SDKs”), to automatically collect certain types of usage and device information when you use our Services or interact with our emails. For example, the information collected through these technologies may include your IP address, browser type, internet service provider, platform type, device type, operating system, date and time stamp, a unique device or account ID, usage information, and other similar information. For information about how to disable cookies, review Your Controls.
+Inferred Data: We may infer additional information about you from the information you provide, or from your interactions with our Services, such as your product interests or preferences.
+Biometric Data: We extract facial geometry data from selfies/photographs/videos to verify your identity and detect/prevent fraud.
+
+Information We Collect from Other Sources
+We also obtain information about you from other sources as described below.
+
+Vendors and Business Partners: We collect information about you from companies that we do business with, such as name, contact data, inferences about your preferences and attributes, as well as inferred fraud risk, from identity verification and fraud prevention partners.
+Financial Account Linking: We may receive financial account information about you from third parties, such as your financial institutions. For example, Robinhood offers account linking and aggregation services through Plaid, Inc. ("Plaid"). Your use of Plaid is subject to their End User Privacy Policy as well as their End User Services Agreement.
+Connected Services: If you link, connect, or log in to your Robinhood Account with a third-party service (e.g., Google, Apple, or a third-party artificial intelligence (AI) agent), the third-party service may send us information such as your profile information from that service. This information varies and is controlled by that service or as authorized by you via your privacy settings at that service.
+
+Publicly Available Data: This may include contact information, your interactions with our social media platforms, and other information from publicly available sources, such as public websites.
+Advertising Data: We collect information in connection with our ad campaigns that surface on other platforms, such as the ads you click on and other interactions with our ads.
+Data from other users: If you are in another user’s contact list and they choose to disclose that list with us, then we will process the contact information and, in the event of a referral, your association with that user.
+Credit Information: We may receive credit-related information about you from third parties, such as credit bureaus. For example, if you apply for a credit card with Robinhood, we may collect your credit history and credit scores from credit bureaus and other partners.
+
+2. HOW WE USE YOUR INFORMATION
+2. HOW WE USE YOUR INFORMATION
+We use the information we collect for purposes described below or as otherwise described to you at the point of collection:
+Maintain and provide the Services, including to process account applications, authenticate your identity, repair our Services, support, process and record transactional information, and handle billing and account management;
+Send you transactional or relationship information, including confirmations, invoices, technical notices, customer support responses, software updates, security alerts, support and administrative messages, and information about your transactions;
+Communicate with you about offers and other things we think you will be interested in, such as newsletters, product announcements, partner offerings, surveys, contests or sweepstakes, events or announcements, and personalized advertising;
+Personalize our Services, such as by suggesting content or customizing content or ads we show you;
+Monitor and improve our Services, including analyzing usage, research and development;
+Facilitate contests, sweepstakes, and promotions and process and deliver entries and rewards;
+
+Help protect the safety and security of our Services, business, and users, such as to investigate and help prevent fraud or other unlawful activity;
+Protect or exercise our legal rights or defend against legal claims, including to enforce and carry out contracts and agreements; and
+Comply with applicable laws and legal obligations, such as compliance obligations associated with being a regulated broker-dealer and compliance obligations associated with being a money services business.
+Any other lawful purpose for which we obtain your consent.
+
+We may develop or leverage AI functionalities, including machine learning, to enhance your experience, improve and optimize our processes, products and services, and protect your account from fraud. For these purposes, some of your data, including but not limited to your inputs and conversations with our chatbots and AI features, may be used to train, test, improve, or enhance our AI functionalities from time to time. We provide notice and obtain consent where required under applicable law.
+
+For more information on agentic trading on a Robinhood account and external AI agents, please refer to our Customer Agreement.
+
+3. RETENTION OF INFORMATION
+3. RETENTION OF INFORMATION
+We retain your personal information for as long as necessary to achieve the original purpose(s) for which we collected it and to comply with relevant laws. For example, we may retain certain data for the duration of your relationship with us and for a period of up to 5 years after the relationship ends in order to comply with our obligations as a regulated financial institution.
+
+We may also keep your personal data for a longer period if required by law, in connection with an ongoing or potential claim, or for another legitimate legal or regulatory reason.
+
+4. DISCLOSURES OF INFORMATION
+4. DISCLOSURES OF INFORMATION
+We are committed to maintaining your trust, and we want you to understand when and with whom we disclose information about you. We disclose information about you in the instances described below.
+
+Authorized vendors: We disclose information about you with vendors who perform services for us, such as identification verification, fraud prevention, advertising, mailing services, tax and accounting services, contest fulfillment, web hosting, marketing, advertising, and analytics services. For example, we may use an identification verification service provider, such as Persona, to help determine whether a selfie you take matches the photo in your government-issued identification. The information collected from your photo and your voice by our vendors for these purposes may include biometric data. Data collected for the purpose of opting in to text messaging services will not be sold or shared with third parties for their marketing or promotional purposes.
+Marketing partners: We disclose information about you to third-party advertising and analytics services, including as described in Third-Party Tracking and Online Advertising. For example, we may share personal data such as your hashed email address or your device ID with marketing partners to help us market Robinhood products to you across third-party websites and online services.
+
+Banking and credit card partners: Where applicable to the product you use, we also disclose information about you to other entities, such as banking partners, credit card issuers that provide our credit cards, and credit card rewards partners (e.g., travel or shopping rewards partners) through which you can redeem rewards.
+Companies in which you hold securities: Robinhood may provide your name, address, email address, and securities positions to requesting companies in which you hold securities.
+
+Robinhood affiliates: Where appropriate, we disclose information about you to other companies owned or controlled by Robinhood Markets. For example, if you are a Robinhood Financial customer, we may disclose information about you to Robinhood Securities, LLC to provide you with custody and other related services, as described in your customer agreement, or to Robinhood Credit, Inc. to facilitate your completion of an application for a credit card. This information could include, but is not limited to, your name, address, telephone number, and/or social security number. These companies will process any information disclosed to them in the same manner as described in this Privacy Statement. To learn more about how you can limit sharing between Robinhood affiliates, review Your Controls.
+Substantial corporate transactions: We may disclose information about you in connection with a substantial corporate transaction, a merger, consolidation, reorganization, financing, change in control or acquisition of all or a portion of our business by a third party, or in the unlikely event of a bankruptcy or similar proceeding.
+
+Legal purposes: We disclose information about you if we believe that disclosure is in accordance with, or required by, any applicable law or legal process or to protect and defend the rights, interests, safety, and security of Robinhood, our users, or the public.
+With your consent: We disclose information about you for any other purposes disclosed to you with your consent.
+
+With other users of our Services: We may disclose information about you with other users of our Services, such as our Pay & Request Service, for which you may not have yet enrolled. In such cases, we will disclose your Pay & Request profile which includes: your profile picture, username, full name, the year you joined, and the transaction history between you and the person viewing it, with other Robinhood users. For payments and requests, this helps others know they’re getting money from you (or that you requested a payment from them). Your Pay & Request profile will be visible to anyone on Robinhood unless you adjust your profile visibility settings. You may opt-out of Pay & Request profile visibility at any time. For our credit cards, we also disclose information about you, such as your Transactional Information, to the primary account holder if you are an authorized user of a credit card. We will also share certain information about you with other users of Social if you sign up for Social. For more information, review Social.
+
+We may also disclose information with others in an aggregated or otherwise de-identified form that does not reasonably identify you.
+
+5. THIRD-PARTY TRACKING AND ONLINE ADVERTISING
+5. THIRD-PARTY TRACKING AND ONLINE ADVERTISING
+We and third-party partners may use cookies, pixels, device identifiers, and similar technologies to collect information from and about your use of our Services, including when we use third-party advertising and analytics services to better understand your online activity and serve you targeted advertisements. The information collected may include IP address, web browser, mobile network information, pages viewed, time spent, links clicked, conversion information, and other Internet and electronic activity information and device information. We and our third-party partners use this information to, among other things, analyze and track data, determine the popularity of content, and deliver advertisements targeted to your interests on our Services and other platforms, as well as to provide advertising-related services to us such as reporting, attribution, analytics, and market research.
+
+Information collected and processed by these partners may be subject to those partners’ own policies. For example, we use Google Ads and you can review How Google uses information from sites or apps that use our services for information about how Google processes the information it collects.
+
+The information that is collected may be collected over time and combined with information collected on different websites and online services and across your devices, including to deliver targeted advertising to you, both on and off our websites.
+
+For more information about targeted advertising, including to learn about options for opting out of having your web browsing information used for targeted advertising purposes, please visit www.aboutads.info/choices. If you are an account holder, you may have additional choices as described below.
+
+Review Your Controls for more information. You should also review your mobile device settings and controls for features that allow you to opt out or opt in to having certain information collected for behavioral advertising purposes. Note, as a self-directed broker-dealer, we do not advertise on behalf of specific securities or investment options on our Services.
+
+6. YOUR CONTROLS
+6. YOUR CONTROLS
+Account profile: You can update certain account profile information by logging into your account. For example, you may choose to upload a photograph of yourself, but are not required to in order to use our Services. You may also choose to update your username, and will be prompted to do so if you decide to use Robinhood Social (review Social). For some Robinhood Services (e.g., our credit cards), some information cannot be changed due to legal requirements, and in those cases we may not be able to accommodate your request. Please note that any changes you make to your account profile must be in accordance with our App Use Standards.
+
+Pay & Request Profile visibility: Your Pay & Request profile will be visible to anyone on Robinhood unless you adjust your profile visibility settings. You may opt-out of Pay & Request profile visibility at any time.
+
+Access to your device data and precise location: You may disconnect our mobile app’s access to certain stored device information and your device’s precise location through your device’s settings. For instance, you can withdraw permission for the app to access your contact list or photo gallery.
+
+How to control your communications preferences. You can stop receiving promotional emails from us by selecting the “unsubscribe” link in those emails. We may still send you service-related or other non-promotional communications, such as account notifications, receipts, security notices and other transactional or relationship messages. If you are receiving text messages from us and wish to stop receiving them, you can respond with “STOP” to the number from which you received the message.
+
+Affiliate sharing opt out: In some cases, you can limit sharing certain information between Robinhood affiliates. Review the GLBA-financial privacy notices of our Financial Entities (Robinhood Financial LLC; Robinhood Securities, LLC; Robinhood Derivatives, LLC; Robinhood Crypto, LLC; Robinhood Asset Management, LLC; Robinhood Ventures DE, LLC; Robinhood Ventures Fund I; and Robinhood Ventures Fund II; and separately for Robinhood Credit, Inc. and Robinhood Money, LLC) for more details. If you want to exercise this right, please contact us at privacy@robinhood.com.
+
+Data sharing permissions: Account holders have certain choices about the sharing of their personal information with marketing partners for Robinhood’s marketing purposes. If You disable these permissions, we will no longer share personal information with marketing partners to more effectively market our services across third-party websites and services. Check out Managing your privacy choices (https://robinhood.com/us/en/support/articles/data-sharing-preferences/) for more details.
+
+Cookie controls: Many web browsers are set to accept cookies and similar tracking technologies by default. If you prefer, you can set your browser to delete or reject these technologies. If you choose to delete or reject these technologies, this could affect certain features of our Services. If you use a different device, change browsers, or delete the opt-out cookies that contain your preferences, you may need to perform the opt-out task again.
+
+Additional US State Privacy Rights: Residents of some states may have rights with respect to their personal information, such as rights to access, delete, or correct such information and to opt out of certain processing activities. These rights do not apply where personal information is governed instead by federal financial privacy laws, such as the GLBA.
+
+Depending on which Robinhood affiliate you interact with, the nature of your relationship with us, and the products or services you use, your personal information may be subject to different privacy laws. In some cases, some or all of your information may be exempt from certain state privacy laws, such as the California Consumer Privacy Act (CCPA), because it is governed by federal financial privacy laws like the Gramm-Leach-Bliley Act (GLBA).
+
+For example, if your relationship with us is limited to personal financial services (such as maintaining a brokerage account), the personal information we collect about you is generally covered by GLBA rather than state privacy laws. However, if you use other services, such as Robinhood Social, some of your information may be subject to applicable state privacy laws.
+
+As a result, in some cases, we may have no obligation to accept any Data Subject Requests (“DSRs”), and in other cases, we may have no obligation to honor a particular DSR, because of the nature of the personal information that is collected or maintained.
+
+7. CHILDREN
+7. CHILDREN
+With the exception of authorized users of our credit cards, we do not knowingly collect or solicit any information from anyone under the age of 13 through our Services. If we become aware that a child under 13 has provided us with personal information for any reason other than being added as an authorized user by their parent or guardian, we will take reasonable steps to delete that information. If you reasonably believe that we might have information from a child under 13 who is not an authorized credit card user, please contact us at privacy@robinhood.com.
+
+If you attempt to add an authorized user to your account who is under the age of 13, we will request that you represent that you are the parent or legal guardian of that individual and that you consent to our collection and use of the child’s personal information in accordance with the Robinhood Children’s Privacy Notice.
+
+8. SOCIAL
+8. SOCIAL
+Robinhood Social (“Social”) is a social media product that allows eligible Users to create a profile, share trading-related content, follow other Users, and view a personalized feed of content. Social is available only to Users who meet applicable eligibility requirements and who complete the Social onboarding flow, including acknowledging applicable disclosures and agreements.
+
+Information We Collect in Connection with Social
+When you sign up for and use Social, we collect the following categories of information:
+
+Information You Provide to Social
+Social Profile Information, such as your Social username, profile photo (if you choose to upload one), profile biography (if provided), selected profile settings, follower and following lists, certain account-level statistics displayed on your profile (for example, performance metrics such as profit and loss over a specified period), self-attestations regarding licensed status, insider status, association with a regulated financial institution, or other eligibility-related criteria.
+
+Social Content, such as:
+Posts you create about trades;
+Comments, reactions, and other interactions with other Users’ content; and
+Content you create manually, including text or other media permitted under our App Use Standards.
+
+Social Usage Information, such as:
+Content you view, engage with, or search for within Social;
+The order and frequency of interactions;
+Device and log data associated with Social activity.
+
+We may also generate Inferences based on your Social activity, such as inferences about your interests, engagement patterns, or content preferences, which we use to personalize your Social experience.
+
+Information Collected from Robinhood Affiliates
+Certain account information from your Robinhood Financial, Robinhood Crypto, or other Robinhood affiliate accounts may be used to confirm eligibility for Social. Certain trade or financial information from those affiliates may also be used to generate Social posts, or to display profile statistics.
+
+Financial Information, such as:
+Trade details you choose to share (which may include transaction type, asset type and name, and portfolio performance metrics).
+
+Eligibility and Compliance Information, such as:
+Results of automated checks (for example, licensing checks using existing compliance datasets); and
+Information relating to fraud, AML, sanctions, or other restrictions that may affect access to Social.
+
+How We Use Information for Social
+We use information collected in connection with Social to:
+Provide and maintain Social features, including profile creation, content posting, feed ranking, notifications, and follower management;
+Display your shared content and selected profile information to other Users in accordance with your settings;
+Generate and display trading-related posts or profile statistics;
+Personalize the order and selection of content shown in your feed, including through machine learning models that use recent activity signals;
+Enforce our Terms and App Use Standards, including content moderation, fraud prevention, and abuse detection;
+Conduct eligibility checks at onboarding and on an ongoing basis to determine continued access to Social;
+Comply with legal and regulatory obligations, including restrictions applicable to licensed users, insiders, associated persons, and other restricted categories of Users; and
+Improve and develop Social features and related Services.
+
+How Social Information Is Shared
+Some of our business activities may be considered “sales,” “sharing,” or “targeted advertising” under applicable US state laws. Your Social information may be shared as follows:
+
+With Other Users of Social
+If you create a Social profile, certain information will be visible to other Users depending on your settings, which may include:
+Your Social username and profile photo (if provided);
+Your profile statistics;
+Posts, comments, reactions, and other content you share; and
+Your follower and following lists.
+
+We also may provide users with the capability to share content outside of the Social product (e.g. on other social media platforms).
+
+If you deactivate your Social profile, your content and profile will no longer be visible to other Users, but may be retained by us as described below. If you delete your Social profile, we will delete your Social data in accordance with applicable law and our retention policies. For more information on deactivation and deletion, review Your Controls for Social.
+
+With Robinhood Affiliates
+We may disclose information to other Robinhood affiliates (e.g., Robinhood Financial, Robinhood Crypto, Robinhood Derivatives) to:
+Verify your eligibility to access Social;
+Enable trade-sharing functionality across Robinhood Financial, Robinhood Crypto, or other affiliated entities;
+Perform analytics and evaluate user engagement;
+Enforce compliance restrictions; and
+Improve the relevant Robinhood financial product and related Services.
+
+With Service Providers
+Similarly to how Robinhood Financial Entities share your information with service providers (review Disclosures of Information), Social discloses Social-related information (i.e., information derived from your interactions with Social) to vendors and service providers who perform services on our behalf, such as:
+Cloud hosting and infrastructure providers;
+Content moderation and safety vendors;
+Analytics providers;
+Fraud detection and security partners; and
+Customer support tools.
+
+These service providers are authorized to use your information only as necessary to provide services to us and not for their own purposes.
+
+For Advertising and Analytics
+We may share certain identifiers (such as hashed email address or device identifiers) and online activity information with advertising and analytics partners to support cross-context behavioral advertising and measurement, subject to applicable law and your data sharing preferences, as described in Disclosures of Information and Third-Party Tracking and Online Advertising above.
+
+Retention of Social Information
+We retain Social-related personal information for as long as reasonably necessary to:
+Provide the Social feature to you;
+Comply with legal and regulatory obligations;
+Resolve disputes and enforce agreements; and
+Maintain appropriate business and financial records.
+
+If you delete your Social profile, we will delete your Social profile information, posts, comments, reactions, interactions, and follower relationships, except to the extent retention is required or permitted by law, or necessary to comply with regulatory, fraud prevention, or recordkeeping obligations.
+
+Your Controls for Social
+In addition to the controls described in Your Controls above, Social Users may have the ability to:
+Opt-Out of Data Sharing: To opt-out of the sharing of your personal information for cross-context behavioral advertising:
+Go to Account (person icon)→ Menu (3 bars) or Settings (gear)
+Select Security and Privacy → Manage your data → Your privacy choices
+Social Profile Data Deletion and Deactivation: You have the ability to deactivate your Social profile, which hides your profile from other users without deleting your historical data. You may also initiate a full deletion of your social profile, which will remove your profile, posts, comments, follower data, and any other data collected through your use of Social (though underlying trade data is retained by the originating Robinhood financial entity as required by law). To delete your Social profile:
+Go to Account (person icon)→ Menu (3 bars) or Settings (gear)
+Select Robinhood Social → Deactivate or delete your account
+
+You may also exercise additional applicable state privacy rights, including rights to access or correct personal information, where such rights apply and are not preempted by federal financial privacy laws such as the Gramm-Leach-Bliley Act, as described above.
+
+Robinhood Social Notice at Collection
+We may collect the personal information and sensitive personal information categories listed in the following table. We collect some information directly through your use of Social, and other information may be shared with Social by other Robinhood affiliates (including Robinhood Financial and Robinhood Crypto). For each category of information, the table describes: how your personal information is collected, how we determine the expected retention period, the purpose for use, and whether it is shared with third parties for cross-context behavioral advertising (subject to your data sharing preferences).
+
+Some of our business activities may be considered “sales,” “sharing,” or “targeted advertising” under applicable US state laws. Social does not process sensitive personal information as defined under applicable state privacy laws.
+
+Personal Information CategoryCollectionRetention PeriodProcessing Purpose(s)Do we Share with Third Parties?
+
+Identifiers (e.g., real name, alias, postal address, unique personal identifier, online identifier, IP address, email address, account name)You provide this information, or we collect it from the relevant Robinhood affiliate, or, in the case of IP address and device identifiers, we collect it automaticallyWe will retain any identifiers you provide to Social for as long as necessary to provide Social to you, or until you ask us to delete it. Identifiers we collect from a Robinhood affiliate will be retained by said affiliate for as long as required by law, legal process, or regulation. We may retain data as required by any applicable law or legal process.To provide Social; to provide customer supportYes, we may share with advertising partners
+
+Commercial Information (e.g., records of products or services purchased, obtained, or considered, or other purchasing histories)We collect your account and transaction history from the relevant Robinhood affiliateWe will delete any commercial information we receive about you from a Robinhood affiliate upon request, but the Robinhood affiliate will retain that data as long as required by law, legal process, or regulation.To provide Social; to verify transaction for sharing on Social; to display your profit and loss ratio to other usersNo
+
+Social Content (e.g., your commentary on a trade, comments or reactions to other users’ posts)You provide this information directly when you use Robinhood SocialWe will retain any Social content for as long as necessary to provide Social to you, or until you ask us to delete it. We may retain data as required by any applicable law or legal process.To provide Social; to personalize the order in which we show you other users’ posts; to monitor for fraud or violations of Terms of Use; to communicate with you about products and offersNo
+
+Usage data or other similar network activity (e.g., interactions with the app, search history within the app)We collect this information automatically through your use of Robinhood SocialWe will retain usage data for as long as necessary to provide Social to you or until you ask us to delete it. We may retain data as required by any applicable law or legal process.To provide Social; to personalize the order in which we show you other users’ posts; to communicate with you about products and offersYes, we may share with advertising partners
+
+Inferences drawn from other personal information (e.g., profiles reflecting preferences, characteristics, behavior, attitudes)We may infer additional information about you from the information you provide, or from your interactions with our ServicesWe will retain inferences for as long as necessary to provide Social to you or until you ask us to delete it. We may retain data as required by any applicable law or legal process.To provide Social; to personalize the order in which we show you other users’ posts; to communicate with you about products and offersYes, we may share with advertising partners
+
+9. CHANGES TO THIS PRIVACY STATEMENT
+9. CHANGES TO THIS PRIVACY STATEMENT
+This Privacy Statement will evolve with time, and when we update it, we will revise the "Effective Date" above and post the new statement and, in some cases, we provide additional notice (such as adding a statement to our website or sending you a notification). To stay informed of our privacy practices, we recommend you review the statement on a regular basis as you continue to use our Services.
+
+10. HOW TO CONTACT US
+10. HOW TO CONTACT US
+If you have questions about this Privacy Statement, including about how to exercise your privacy rights, contact us at privacy@robinhood.com.
+
+Was this article helpful?
+
+Reference No. 5851910

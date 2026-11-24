@@ -1,0 +1,438 @@
+Chime U.S. Privacy Notice
+
+Updated: Nov 9, 2026
+California consumers can find specific disclosures, including “Notice at Collection” details, by clicking here. If you’re a California resident and apply for a job with us, please see our Chime Applicant Privacy Notice.
+Chime understands you may have questions about privacy. This Privacy Notice (“Notice”) describes the types of personal information we collect, how we use the information, with whom we may share it, and the choices available to you. We also describe measures we take to protect the security of the information and how you can contact us about our privacy practices.
+
+This Privacy Notice applies to Chime Financial, Inc. and its affiliates and subsidiaries (collectively, “Chime” “we” or “us”). To the extent that you obtain products from Chime Capital, LLC, Chime Payments, Inc., and Chime Insurance Services, LLC, they are considered affiliates and/or subsidiaries of Chime Financial. This Privacy Notice applies to all the products and services offered by Chime (including on our website (“Site”) and mobile application (“App”) (collectively, the “Services”)) to U.S. consumers, except where a product or service has a separate privacy notice that does not incorporate this Privacy Notice. Certain individuals also may be provided with additional privacy notices, as described below:
+
+Chime Members: When you sign up for an account with Chime, Chime may collect and use your personal information on behalf of The Bancorp Bank, N.A. or Stride Bank, N.A. (collectively, Chime’s “Bank Partners”) to facilitate the provision of banking services pursuant to The Bancorp Bank, N.A. Consumer Privacy Notice and the Stride Bank, N.A. Consumer Privacy Notice as applicable. The personal information processed in such cases is subject to our Bank Partners’ privacy notices and laws such as Gramm-Leach-Bliley Act and may be excluded from some comprehensive state privacy laws. Federal law requires our Bank Partners to provide notice to certain consumers to explain what personal information they collect, how they share it, and how consumers may limit our Bank Partners’ sharing of the information. The privacy practices of our Bank Partners are subject to their privacy notices, which we strongly suggest you review. Chime is not responsible for our Bank Partners’ information practices or privacy notices but may publish the notices and process data subject requests as their service provider.
+
+1.Information We Obtain
+2.How We Use the Information We Obtain
+A.Use Purposes
+B.Analytics Services
+C.Interest-Based Advertising
+3.How We Share the Information We Obtain
+4.Your Choices
+5.How We Protect Personal Information
+6.Children’s Privacy
+7.Links to Third-Party Services and Features
+8.State Specific Disclosures
+A.California Consumers
+B.Colorado Consumers
+C.Connecticut Consumers
+D.Montana Consumers
+E.Oregon Consumers
+F.North Dakota Consumers
+G.Texas Consumers
+H.Utah Consumers
+I.Vermont Consumers
+J.Virginia Consumers
+9.Updates to Our Privacy Notice
+10.How to Contact Us
+
+1. Information We Obtain
+The personal information we collect and obtain depends on how you interact with us, the Services you use, and the choices you make. We collect information about you from different sources and in various ways when you use our Services, including information you provide directly, information collected automatically, information from third-party data sources, and data we infer or generate from other data. The types of personal information we may collect about you includes:
+Identifiers such as name, Social Security number, date of birth, postal and email address, and phone number;
+
+Government-issued photo ID, such as a driver’s license or passport, photograph, proof of address documentation (such as a utility bill) and proof of identity documentation (such as a marriage document);
+Login credentials for your Chime account;
+Financial information, including your account number from our Bank Partners, Chime account transaction history, information about your linked non-Chime accounts (such as transaction information and balances, payroll account information, etc.), and payment card information;
+Direct deposit status (whether you electronically deposit a portion of your regular paycheck or benefit payment above a minimum threshold);
+
+Information included on a tax return you provide;
+Credit score and other credit history data from a credit reporting agency, if you enroll in certain features of the Services;
+Employment information, including occupation, information about your employer, employee email address, and income details (such as source of income, approximate or expected income and how frequently you are paid);
+Physical characteristics, demographic information and similar details (such as sex, gender, race, color, marital or family status, citizenship status, military or veteran status, signature, language preference and national origin) present in documents (e.g., IDs, tax returns) you provide;
+
+Commercial information, including interest in a product or service, purchasing or consuming tendencies, and receipts or records of purchase or enrollment in products or Services;
+Voice recordings (such as when you call Chime’s member services);
+Social media handles;
+Lease or rent information you provide us, such as lease details and documents, rent amount, landlord/property manager name and contact details.
+Information you provide through member services interactions and that you provide about your experience with Chime, including via questionnaires, surveys, participation in user research or other feedback;
+Information provided by identity verification and fraud prevention platforms;
+
+Information provided by marketers and other websites on which Chime advertises;
+Information you provide through contacts integration, including a list of contacts from your phone’s operating system;
+Profile photos and other information you choose to provide for your Chime profile;
+Other information you choose to provide, such as through our “Contact Us” feature, emails or other communications (such as with member services), referrals, chatbots, surveys, research participation, on social media pages, or in registrations and sign-up forms;
+
+Inferences, including new information from other data we collect, including using automated means to generate information about your likely preferences or other characteristics (“inferences”). For example, we may infer your general geographic location (such as city, state, and country) based on your IP address;
+The types of personal information we may collect about you also include types that may be classified as sensitive personal information, including:
+
+Biometric Data: We or our identity verification partners may collect documents that contain your photograph or require you to provide a photo of yourself. This information and data derived from these images may be considered biometric data and may be used to verify your identity or meet regulatory obligations . We will retain biometric data for as long as necessary to satisfy the purpose of collection or no more than 3 years after your account is closed, unless otherwise required by law;
+
+Precise geolocation data derived from a device and that is used or intended to be used to locate you within a geographic area that is equal to or less than the area of a circle with a radius of 1,750 feet; and
+Demographic data such as racial or ethnic origin, or religious or philosophical beliefs.
+
+Information Collected by Automated Means. We may use automated technologies on our Services to collect information about your equipment, browsing actions and usage patterns. These technologies help us (1) remember your information so you do not have to re-enter it; (2) track and understand how you use and interact with our Services, including our online forms, tools or content; (3) tailor the Services around your preferences; (4) measure the usability of our Services and the effectiveness of our communications; and (5) otherwise manage and enhance our products and Services, and help ensure they are working properly. Information collected by automated means may include:
+
+Site Visitor information: When you visit our Site, we may obtain certain information by automated means, such as cookies, web beacons, web server logs and other technologies. A “cookie” is a text file that websites send to a visitor’s computer or other internet-connected device to uniquely identify the visitor’s browser or to store information or settings in the browser. A “web beacon,” also known as an internet tag, pixel tag or clear GIF, links web pages to web servers and cookies and may be used to transmit information collected through cookies back to a web server. The information we collect in this manner may include your device IP address, unique device identifier, web browser characteristics, device characteristics, operating system, language preferences, referring URLs, clickstream data, and dates and times of website visits. Your browser may tell you how to be notified about certain types of automated collection technologies and how to restrict or disable them. Please note, however, that without these technologies, you may not be able to use all the features of our Services.
+
+App User Information: When you use our App, we also may collect certain information by automated means, such as through device logs, server logs and other technologies. The information we collect in this manner may include the device type used, the mobile operating system, device identifiers and similar unique identifiers, device settings and configurations, IP addresses, battery and signal strength, usage statistics, referring emails and web addresses, dates and times of usage, actions taken on the App, and other information regarding use of the App. In addition, we may collect your device’s geolocation information. Your device’s operating platform may provide you with a notification when the App attempts to collect your precise geolocation. Please note that if you decline to allow the App to collect your precise geolocation, you may not be able to use all the App’s features. Your device may tell you how to be notified about certain types of automated collection technologies and how to restrict or disable them. Please note, however, that without these technologies, you may not be able to use all the features of our Services. You can manage how your device and browser share certain device data by adjusting the privacy and security settings on your mobile device.
+
+2. How We Use the Information We Obtain
+A. Use Purposes
+We use the personal information we collect for purposes described in this privacy notice or as otherwise disclosed to you. For example, we use personal information for the following purposes:
+Provide the Services;
+Process and fulfill transactions;
+Establish and manage Chime accounts;
+Personalize your experience on our Services;
+Remember you and the information you share with the Services including on forms and applications.
+Facilitate payroll or other direct deposits (including tax refunds) to your Chime account;
+Facilitate transfers or API connections between external bank accounts and Chime accounts;
+
+Verify your identity, including to facilitate a name change request;
+Respond to inquiries, provide member support and resolve disputes;
+Send you communications, including emails, text messages, and App push notifications, that you request or that we are permitted to send;
+Determine your eligibility for, and administer your participation in, certain features of the Services, including, but not limited to, surveys, contests, sweepstakes, promotions and rewards;
+Facilitate and manage referrals from business partners and third-parties;
+Identify recipients and facilitate transfers for PayAnyone;
+
+Advertise and market our products and Services, and to send you information about third-party products and Services;
+Provide you targeted offers and notify you of third-party locations where you may use our products and Services;
+Provide member support and quality assurance, and conduct customer service training;
+Collect fees and other amounts owed in connection with your Chime account;
+
+Operate, evaluate and improve our business (including researching and developing new products and Services; enhancing, improving, debugging and analyzing our products and Services; managing our communications; establishing and managing our business relationships; and performing accounting, auditing and other internal functions);
+Maintain and enhance the safety and security of our products and services and prevent misuse;
+Protect against, identify and prevent fraud and other criminal activity, claims and other liabilities;
+Exercise our rights and remedies and defend against legal claims; and
+Comply with and enforce applicable legal requirements, relevant industry standards and Chime policies;
+
+Develop, maintain, and improve our services by using machine learning, AI, and risk modeling.
+To provide our services using privacy preserving de-identified data. Chime will not attempt to re-identify de-identified data provided to us if that was not the intended purpose for the data or without providing proper notice to you.
+B. Analytics Services
+
+We may use analytics on our Services. For example, we use Google Analytics to better understand how you interact with our Site. We also use Google Maps to better understand how our Services are used and to provide you with a map of nearby ATMs. The information we obtain through our Services may be disclosed to or collected directly by these third parties. To learn more about Google Analytics and Google Maps, please visit https://www.google.com/policies/privacy/partners/.
+C. Interest-Based Advertising
+On our Services, we may obtain information about your online activities to provide you with advertising about products and Services that may be tailored to your interests.
+
+You may see our ads on other websites because we use third-party ad services. Through these ad services, we can target our messaging to users considering demographic data, users’ inferred interests and browsing context. These services track your online activities over time and across multiple websites and apps by collecting information through automated means, including through the use of cookies, web server logs, web beacons and other similar technologies. The ad services use this information to show you ads that may be tailored to your individual interests. The information ad services may collect includes data about your visits to websites that serve Chime advertisements, such as the pages or ads you view and the actions you take on the websites or apps. This data collection takes place both on our Services and on third-party websites and apps that participate in these ad services. This process also helps us track the effectiveness of our marketing efforts.
+
+To learn how to opt out of interest-based advertising, see our “Your Choices” section in this Notice.
+3. How We Share the Information We Obtain
+We may share the personal information we obtain about you with our affiliates and subsidiaries; our Bank Partners; other companies in connection with co-branded products, services or programs; joint marketing partners; research study partners; and consumer reporting agencies.
+
+We also may share the information we obtain about you with vendors and other entities we engage to perform services on our behalf, such as payment and check deposit processors, fraud and risk detection and mitigation tools, and modeling and analytics tools. See Analytics and Interest Based Advertising above for more information about how we use and share for these purposes.
+
+We may share personal information you provide with other Chime members (including whether you are a Chime member, whether you accept payments or direct deposits via Chime, your profile picture, name, or other information you provide as part of our public Chime Profile (such as in connection with a member referral, use of the PayAnyone service, use of SpotMe Boost service, or other social profile you may create).
+
+We also may disclose personal information and sensitive personal information (1) if we are required to do so by law or legal process (such as a court order or subpoena); (2) in response to requests by government agencies, such as law enforcement authorities; (3) to establish, exercise or defend our legal rights; (4) when we believe disclosure is necessary or appropriate to prevent physical or other harm or financial loss; (5) in connection with an investigation of suspected or actual illegal activity; (6) to defend our decisions related to a member dispute, which includes sharing limited dispute and decision related information, as permitted by law, with the press if the member has shared related details of the dispute with the press already; (7) in connection with the sale, transfer, merger, acquisition, joint venture, reorganization, divestiture, dissolution, or liquidation of our business or asset (disclosure associated with these events includes full transfer of your personal information to the resulting entitles); or (8) otherwise with your consent.
+
+When you sign up to receive text messages from Chime, we will not share your phone number or the fact that you opted in with any third party for marketing purposes. We only share this information with the service providers who help us deliver those messages (such as our messaging platform and mobile carriers). Separately, Chime may use hashed phone numbers for advertising audience matching as described in Section II.C (Interest-Based Advertising) of this Privacy Notice. This does not involve sharing your text message sign-up information.
+4. Your Choices
+We offer you certain choices in connection with the personal information we collect from you.
+
+Communications preferences. You can choose to not receive certain promotional communications from us by following the “unsubscribe” hyperlink at the bottom of promotional emails or by replying “STOP” to promotional texts. These choices do not apply to certain informational communications, including certain surveys and mandatory service communications. If you decide you do not want to receive push notifications from Chime, you can use the settings on your mobile device to turn them off. We also offer push notifications on certain web browsers, which can also be turned off on your browser’s settings.
+
+Submitting an opt-out or privacy request. Different states offer different opt-out rights and Chime makes it easy for you to submit an opt-out or privacy request through the Chime Privacy Hub. There, you can submit a variety of opt-outs as required in your state of residence. Simply enter your information so we know who you are and the privacy rights applicable to your state will be populated. You can also email us at [email protected]. If you designate an authorized agent to make an access or deletion request on your behalf, we may require you to provide proof that you’ve authorized the agent to do so and to verify your own identity directly with us.
+
+Submitting a Sale, Share, or Targeted Advertising Opt-Out Request. If you live in a state that offers sale, share, or targeted advertising opt-out rights, you can make a request to opt out by toggling off the “Do not sell or share my personal information” toggle in your Chime App settings or by submitting a request through the Chime Privacy Hub. In addition, if you visit our website, you should also click on our “Do Not Sell or Share” link at the bottom of our homepage or use the Global Privacy Control (GPC) signal, but these options will only apply to the browser on which you've made your request until you clear your cookies. It will not change App-related practices or your account settings when you are not signed in to your Chime account. When we detect a GPC signal, we will make reasonable efforts to respect your choices indicated by the GPC setting or similar control that is recognized by regulation or otherwise widely acknowledged as a valid opt-out preference signal.
+
+Additional settings for Cookies and similar technologies.
+Cookie controls. Most web browsers are set to accept cookies by default. If you prefer, you can go to your browser settings to learn how to delete or reject cookies. If you choose to delete or reject cookies, this could affect certain features or services of our website. If you choose to delete cookies, settings and preferences controlled by those cookies, including advertising preferences, may be deleted and may need to be recreated. Some cookies can be turned off for residents of certain states by following the “Do not sell or share my personal information” link at the bottom of our webpage.
+
+Mobile advertising ID controls. iOS and Android operating systems provide options to limit tracking and/or reset the advertising IDs. You can change your preferences on your device.
+Email web beacons. Most email clients have settings that allow you to prevent the automatic downloading of images, including web beacons, which prevents the automatic connection to the web servers that host those images.
+Advertising controls. You can also visit DAA (www.aboutads.info/choices) and NAI (http://www.networkadvertising.org/choices/) to learn more about opt-out controls in the U.S.
+
+Do Not Track. Some browsers have incorporated “Do Not Track” (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked. Because there is not a common understanding of how to interpret the DNT signal, our websites do not currently respond to browser DNT signals.
+
+5. How We Protect Personal Information
+We maintain administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized access, destruction, loss, alteration, disclosure or use. To help us protect personal information, use a strong password and never share your password with anyone or use the same password with other sites or accounts.
+
+6. Children’s Privacy
+Our Services are not directed to children and you must be 18 or older to open an account with us. In connection with the Services, we do not knowingly solicit or collect personal information from children under the age of 13 without parental consent. If you believe that a child under age 13 may have provided us with personal information without parental consent, please contact us as specified in the How To Contact Us section of this Privacy Notice.
+
+7. Links to Third-Party Services and Features
+Our Services may provide links to other online services, and may include third-party features such as apps, tools, widgets and plug-ins. These online services and third-party features may operate independently from us. The privacy practices of the relevant third parties, including details on the information they may collect about you, are subject to the privacy disclosures of these parties, which we strongly suggest you review. To the extent any linked online services or third-party features are not owned or controlled by Chime, we are not responsible for these third parties’ information practices.
+
+Plaid Technologies. If you elect to interact with or use the Plaid Technologies, Inc. (“Plaid”) feature in the Services, we may share certain personal information about you with Plaid, and Plaid may collect your information from financial institutions. By using the Plaid service, you acknowledge and agree that Plaid will collect and use your personal information in accordance with Plaid’s privacy policy, which is available at https://plaid.com/legal. Additionally, by using the Plaid Services, you acknowledge and agree that Chime may use your personal information obtained from Plaid in accordance with any legally permissible purpose described under this Notice.
+
+8. State Specific Disclosures
+The state specific disclosure sections below apply solely to consumers who reside in the states listed. If you are a resident of one of these states, and the processing of personal information about you is subject to the applicable state privacy laws, you have certain rights with respect to that information.
+A. California Consumers
+If you are a California resident and apply for a job with us, please see our Chime Applicant Privacy Notice.
+1. Notice of Collection
+We may collect (and may have collected during the 12-month period prior to the effective date of this Notice) the following categories of personal information about you:
+
+Identifiers such as a real name, postal address, unique personal identifiers (such as a device identifier; cookies, beacons, pixel tags, mobile ad identifiers and similar technology; customer number, unique pseudonym, or user alias; telephone number and other forms of persistent or probabilistic identifiers), online identifier, internet protocol address, email address, account name, Social Security number, driver’s license number, passport number, and other similar identifiers;
+
+Additional Data Subject to Cal. Civ. Code § 1798.80. Signature, physical characteristics or description, state identification card number, education, bank account number, credit card number, debit card number, and other financial information;
+Protected Classifications. Characteristics of protected classifications under California or federal law, such as race, color, national origin, age, sex, gender, marital status, citizenship status, and military and veteran status;
+Commercial Information. Commercial information, including records of personal property, products or services purchased, obtained, or considered, and other purchasing or consumer histories or tendencies;
+
+Online Activity. Internet and other electronic network activity information, including, but not limited to, browsing history, search history, and information regarding your interaction with websites, applications or advertisements;
+Geolocation Data. We use your IP address to determine your general location (such as city, state, or zip code);
+Sensory Information. Audio, electronic, visual, and similar information;
+Employment Information. Professional or employment-related information;
+
+Inferences drawn from any of the information identified above to create a profile about you reflecting your preferences, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes;
+Sensitive Personal Information
+Government ID. Government identification such as social security numbers, driver’s license, state identification card, or passport number;
+Account access information. Information such as account log-in, financial account, debit card, or credit card number in combination with any required security or access code, password, or credentials allowing access to an account;
+
+Precise geolocation data. Data derived from a device and that is used or intended to be used to locate you within a geographic area that is equal to or less than the area of a circle with a radius of 1,850 feet;
+Sensitive demographic data. Racial or ethnic origin, religious or philosophical beliefs, or union membership;
+Biometric information. For the purpose of uniquely identifying an individual.
+Notice of Use of Personal Information
+We may use (and may have used during the 12-month period prior to the effective date of this Notice) your personal information for the purposes described in our Chime Privacy Notice and for the following business purposes specified in the CCPA:
+
+Performing Services, including maintaining or servicing accounts, providing customer service, processing or fulfilling orders and transactions, verifying customer information, processing payments, providing advertising or marketing services, providing analytics services, or providing similar services;
+Auditing related to a current interaction with you and concurrent transactions, including, but not limited to, counting ad impressions to unique visitors, verifying positioning and quality of ad impressions, and auditing compliance;
+Short-term, transient use, including, but not limited to, the contextual customization of ads shown as part of the same interaction;
+
+Detecting security incidents, protecting against malicious, deceptive, fraudulent, or illegal activity, and prosecuting those responsible for that activity;
+Debugging to identify and repair errors that impair existing intended functionality;
+Undertaking internal research for technological development and demonstration;
+Undertaking activities to verify or maintain the quality or safety of a service or device that is owned, manufactured, manufactured for, or controlled by us, and to improve, upgrade, or enhance the service or device that is owned, manufactured, manufactured for, or controlled by us.
+
+3. Sources of Personal Information
+During the 12-month period prior to the effective date of this Notice, we may have obtained personal information about you from the following categories of sources:
+Directly from you, such as when you sign up for an account or contact member services, or participate in, sweepstakes, promotions, or research or survey activities;
+Our Bank Partners;
+Your devices, when you use our Site or App;
+Your family or friends, such as when they provide us with your contact information by choosing to share their phone contacts with Chime;
+Payment processors;
+External banks (i.e., banks other than our Bank Partners) if you link a non-Chime bank account;
+
+Credit reporting agencies;
+Our affiliates and subsidiaries;
+Vendors who provide services on our behalf;
+Our joint marketing partners;
+Our business partners (such as referring websites);
+Online advertising services and advertising networks;
+Data analytics providers;
+Government entities;
+Operating systems and platforms;
+Social networks;
+Data brokers;
+Data aggregators, such as Plaid.
+
+4. Categories of third parties with whom personal information was shared
+During the 12-month period prior to the effective date of this Notice, we may have shared your personal information with certain categories of third parties, as described below. When we share personal information with our Bank Partners, we do so as their service provider. The privacy practices of our Bank Partners are subject to their privacy notices (see The Bancorp Bank, N.A. Consumer Privacy Notice and the Stride Consumer Privacy Notice), which we strongly suggest you review. Chime is not responsible for our Bank Partners’ information practices or privacy notices. We may have disclosed the following categories of personal information about you for a business purpose to the following categories of third parties:
+
+Category of Personal Information
+Category of Third Party
+Identifiers
+Our Bank Partners, other Chime users, our marketing partners, and your employer
+Additional Data Subject to Cal. Civ. Code § 1798.80 Law
+Our Bank Partners, our marketing partners
+Protected Classifications
+Our Bank Partners
+Commercial Information
+Our Bank Partners and our marketing partners
+Biometric Information
+Our Bank Partners and identity verification partners
+Online Activity
+Our Bank Partners and our marketing partners
+Geolocation data
+Our Bank Partners
+Sensory Information
+Our Bank Partners
+Employment Information
+Our Bank Partners, our marketing partners
+Category of Personal Information
+Identifiers
+
+Category of Third Party
+Our Bank Partners, other Chime users, our marketing partners, and your employer
+Category of Personal Information
+Additional Data Subject to Cal. Civ. Code § 1798.80 Law
+Category of Third Party
+Our Bank Partners, our marketing partners
+Category of Personal Information
+Protected Classifications
+Category of Third Party
+Our Bank Partners
+Category of Personal Information
+Commercial Information
+Category of Third Party
+Our Bank Partners and our marketing partners
+Category of Personal Information
+Biometric Information
+Category of Third Party
+Our Bank Partners and identity verification partners
+Category of Personal Information
+Online Activity
+Category of Third Party
+
+Our Bank Partners and our marketing partners
+Category of Personal Information
+Geolocation data
+Category of Third Party
+Our Bank Partners
+Category of Personal Information
+Sensory Information
+Category of Third Party
+Our Bank Partners
+Category of Personal Information
+Employment Information
+Category of Third Party
+Our Bank Partners, our marketing partners
+
+In addition to the categories of third parties identified above, during the 12-month period prior to the effective date of this Notice, we may have shared personal information about you with the following additional categories of third parties: government entities; other persons to whom we have a legal obligation to disclose personal information (including, for example, in response to a duly issued subpoena or search warrant); and other persons to whom you authorize Chime to disclose your personal information.
+5. California Privacy Rights
+
+If you are a California resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have a right to request that we disclose to you, twice in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of the Selling or Sharing of your Personal Information. You have the right to opt out of the selling or sharing of your data. The CCPA requires us to describe the categories of personal information we sell or share to third parties and how to opt-out of future sales. It is important to know that the definition of “sale” and “share” is very broad and the common flow of information for advertising and analytics may be considered a sale or sharing. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under the CCPA, personal information includes unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. “Share” is defined as providing personal information to a third party to target advertising to a consumer based on information about their activity on multiple websites across the internet. In the last 12 months, when you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements. We do not knowingly sell or share the personal information of minors under 16 years of age. Learn more about how to opt-out in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Shine the Light Request. You have the right to request that we provide you with (a) a list of certain categories of personal information we have disclosed to third parties for their direct marketing purposes during the immediately preceding calendar year and (b) the identity of those third parties.
+Joint Marketing with other Financial Institutions. You have the right to opt-out of joint marketing with other financial institutions. If you would like to opt out of joint marketing with other financial institutions by submitting a request through the Chime Privacy Hub.
+
+Appeal. You have the right to appeal our decision to refuse to act on a CCPA data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 45 days, we will provide you with a written explanation of the justification for declining to act on your request.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to verify your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or sharing). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. Further, we may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Retention. We retain personal information for as long as necessary to provide the Services and fulfill the transactions you have requested, comply with our legal obligations, resolve disputes, enforce our agreements, and other legitimate and lawful business purposes. Because these needs can vary for different data types in the context of different Services, actual retention periods can vary significantly based on criteria such as user expectations or consent, the sensitivity of the data, the availability of automated controls that enable users to delete data, and our legal or contractual obligations.
+
+Notice of Financial Incentives. Chime may offer rewards or prizes for participation in certain activities that may be considered a “financial incentive” under California law. These activities may involve the collection of personal information. The categories of personal information we collect is limited to what information you provide us, but may include: identifiers, protected class/demographic information, commercial information, online activities, geolocation information (general and precise), sensory information, employment information, and inferences. Activities we engage in that may be considered a financial incentive include surveys where we may provide compensation such as a gift card or SpotMe bonus in exchange for your time and responses, or a prize through your participation in promotions and sweepstakes. Participation in these programs may be subject to separate terms and conditions. Your participation in these programs is voluntary and you can terminate at any time as explained in any applicable terms. When we offer gift cards in exchange for your participation in a survey or when we engage in promotions or sweepstakes, the amount provided is reasonably related to the value of the data you provide, which takes into account a number of factors, including, the anticipated benefit we receive such as product improvement, better understanding how you use our products, to enhance our understanding of consumer and market trends, increased consumer engagement, and the anticipated expenses we incur in relation to the collection, storage, and use of the information we receive. The value may vary across surveys, promotions, and sweepstakes.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+B. Colorado Consumers
+
+If you are a Colorado resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have the right to request that we disclose to you, once in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You also have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+
+Deletion. You also have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of the Selling and Targeted Advertising. You have the right to opt out of targeted advertising, and the sale of your personal information. Colorado law requires us to describe the categories of personal information we sell or share to third parties and how to opt-out of future sales. It is important to know that the definition of “sale” is very broad and the common flow of information for advertising and analytics may be considered a sale. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under Colorado law, personal information may include unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. In the last 12 months, when you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements. We do not knowingly sell the personal information of minors under 16 years of age. Learn more about how to opt-out of targeted advertising or the sale of personal information in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Appeal. You have the right to appeal our decision to refuse to act on a CPA data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 45 days, we will provide you with a written explanation of the reasons in support of our response. If you disagree with our explanation, you have the right to file a complaint with the Colorado Attorney General HERE.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or targeted advertising). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+C. Connecticut Consumers
+
+If you are a Connecticut resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have a right to request that we disclose to you, once in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You also have rights to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Selling and Targeted Advertising. You have the right to opt-out of targeted advertising and the sale of personal information. It is important to know that the definition of “sale” is very broad and the common flow of information for advertising and analytics may be considered a sale. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under Connecticut law, personal information may include unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. When you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements.. Learn more about how to opt-out of targeted advertising or the sale of personal information in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best is technically feasible.
+
+Appeal. You have the right to appeal our decision to refuse to act on a CTDPA data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 60 days, we will provide you with a written explanation of the reasons in support of our response. If you disagree with our explanation you have the right to contact or file a complaint with the Connecticut Attorney General HERE.
+Non-Discrimination & Other Information. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or targeted advertising). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+D. Montana Consumers
+
+If you are a Montana resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have a right to request that we disclose to you, once in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Selling and Targeted Advertising. You have the right to opt out of targeted advertising, and the sale of your personal information. It is important to know that the definition of “sale” is very broad and the common flow of information for advertising and analytics may be considered a sale. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under Montana law, personal information may include unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. When you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements. Learn more about how to opt-out of targeted advertising or the sale of personal information in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Appeal. You have the right to appeal our decision to refuse to act on data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 60 days, we will provide you with a written explanation of the justification for declining to act on your request. If you disagree with our explanation, you have the right to file a complaint with the Montana Attorney General HERE.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or targeted advertising). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+E. Oregon Consumers
+
+If you are an Oregon resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have a right to request that we disclose to you the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Selling and Targeted Advertising. You have the right to opt out of targeted advertising, and the sale of your personal information. It is important to know that the definition of “sale” is very broad and the common flow of information for advertising and analytics may be considered a sale. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under Oregon law, personal information may include unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. When you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements. Learn more about how to opt-out of targeted advertising or the sale of personal information in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Third Parties. You have the right to request information about the third parties to which we disclose personal information. To request this information, email [email protected] with the subject line “Oregon Third Party Sharing Request”.
+
+Appeal. You have the right to appeal our decision to refuse to act on data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 60 days, we will provide you with a written explanation of the justification for declining to act on your request. If you disagree with our explanation, you have the right to file a complaint with the Oregon Attorney General HERE.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or targeted advertising). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+F. North Dakota Consumers
+
+If you are a North Dakota resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Joint Marketing with other Financial Institutions. You have the right to opt-out of joint marketing with other financial institutions. If you would like to opt out of joint marketing with other financial institutions by submitting a request through the Chime Privacy Hub.
+G. Texas Consumers
+If you are a Texas resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+
+Access. You have a right to request that we disclose to you, twice in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Selling and Targeted Advertising. You have the right to opt out of targeted advertising, and the sale of your personal information. It is important to know that the definition of “sale” is very broad and the common flow of information for advertising and analytics may be considered a sale. Chime does not provide information that you might typically think of as personal information to third parties in exchange for money; however, under Texas law, personal information may include unique identifiers, including things like IP addresses, cookie IDs, pixel tags, and mobile ad IDs. The law defines a “sale” broadly to include simply making such personal information available to third parties in some cases. When you access our online Services, we may let advertising and analytics providers collect IP addresses, cookie IDs, advertising IDs, and other unique identifiers, which may be collected along with device and usage data, and information about your interactions with our online Services and advertisements. Learn more about how to opt-out of targeted advertising or the sale of personal information in the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Appeal. You have the right to appeal our decision to refuse to act on data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 60 days, we will provide you with a written explanation of the justification for declining to act on your request. If you disagree with our explanation, you have the right to file a complaint with the Texas Attorney General HERE.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales or targeted advertising). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+H. Utah Consumers
+
+If you are a Utah resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+Access. You have a right to request that we disclose to you, once in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+
+Obtaining a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+Deletion. You have a right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Targeted Advertising. You have a right to opt-out of targeted advertising and the sale of personal information. We do not “sell” data as it is defined under Utah law. However, Chime has combined various opt-outs into one (sale, share, and targeted advertising opt-outs). To opt-out of targeted advertising, see the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+
+Third Party Sharing. To access the categories of third parties with whom personal information was shared During the 12-month period prior to the effective date of this Notice, please consult the table under “California Consumers” as our data sharing is the same regardless of the state of our members.
+I. Vermont Consumers
+If you are a Vermont resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+
+Joint Marketing with other Financial Institutions: You have the right to opt-out of joint marketing with other financial institutions. If you would like to opt out of joint marketing with other financial institutions by submitting a request through the Chime Privacy Hub.
+J. Virginia Consumers
+If you are a Virginia resident, you have rights regarding your personal information. Those rights and other state-specific information is described below:
+
+Access. You have a right to request that we disclose to you, twice in a 12-month period, the personal information we have collected about you. You also have a right to request additional information about our collection, use, disclosure, or sale of such personal information, which is also provided in this Notice.
+Correction. You have the right to request that we correct inaccurate personal information under certain circumstances, subject to a number of exceptions.
+Deletion. You have the right to request that we delete your personal information under certain circumstances, subject to a number of exceptions.
+
+Opt-Out of Targeted Advertising. You have the right to opt-out of targeted advertising and the sale of personal information. We do not “sell” data as it is defined in under Virginia law. However, Chime has combined various opt-outs into one (sale, share, and targeted advertising opt-outs). To opt-out of targeted advertising, see the “How to Submit a Sale, Share, or Targeted Advertising Opt-Out Request” section under “Your Choices” in this Notice.
+
+Obtaining a portable copy of your personal information. You have the right to obtain a portable copy of your personal information. To obtain a copy of your personal information that you previously provided to us in a portable format, please submit an “Access” request as described above. While these requests are distinct, we have not identified any technically feasible and readily usable format that would allow you to transmit this data to another controller. Therefore, we will provide you a copy of your personal information so that we honor your request as best as is technically feasible.
+
+Appeal. You have the right to appeal our decision to refuse to act on data privacy request within a reasonable period after you receive our decision. To appeal our decision, forward your denial email to [email protected] for Chime’s Privacy Team to review your data subject request. Within 60 days, we will provide you with a written explanation of the justification for declining to act on your request. If you disagree with our explanation you have the right to file a complaint with the Virginia Attorney General HERE.
+Non-Discrimination. You have the right to not be discriminated against for exercising any of your privacy rights.
+
+Authentication/Verification. To help protect your privacy and maintain security, we will take steps to authenticate your identity before granting you access to your personal information or complying with your request (except for a request to opt-out of sales). We may require you to provide any of the following information: your name, date of birth, the last four digits of your Social Security number, the email and physical addresses associated with your Chime account, one or more recent transactions, and the last four digits of one or more Chime-branded cards associated with your account. If you ask us to provide you with specific pieces of personal information, we may require you to sign a declaration under penalty of perjury that you are the consumer whose personal information is the subject of the request. We may decline a request where we are unable to authenticate you as the person to whom the data relates, the request is unreasonable or excessive, or where otherwise permitted by applicable law.
+
+Declining Requests. Except for the automated controls described in this Notice, if you send us a request to exercise your rights or the choices in this section, to the extent permitted by applicable law, we may charge a fee or decline requests in certain cases. For example, we may decline requests where granting the request would be prohibited by law, could adversely affect the privacy or rights of another person, would reveal a trade secret or other confidential information, would interfere with a legal or business obligation that requires retention or use of the data, or because the data at issue is not covered under the law you are asserting.
+
+9. Updates to Our Privacy Notice
+We may update this Privacy Notice from time to time and without prior notice to you to reflect changes in our personal information practices or applicable law. We will indicate at the top of the Notice when it was most recently updated.
+10. How to Contact Us
+You can update your privacy preferences directly by using the Chime Privacy Hub or as otherwise stated under “Your Choices” in this Notice. You can also submit a request or ask us questions about this Privacy Notice by writing to us at [email protected]

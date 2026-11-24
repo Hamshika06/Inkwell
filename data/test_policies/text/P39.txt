@@ -1,0 +1,396 @@
+Privacy notice
+
+Last updated: August 2026
+
+What is Letterboxd?
+Personal data we collect and process
+How we use your personal data (our purposes) and our legal basis for processing it
+Who we share your personal data with
+Cookies and similar tracking technology
+How we keep your personal data secure
+International data transfers
+Data retention
+Your data-protection rights
+Updates to this Privacy Notice
+How to contact us
+EU and UK representatives
+
+We recommend that you read this Privacy Notice in full to ensure you are completely informed about your personal data. However, if you only want to access a particular section of this Privacy Notice, use the relevant link above to jump to that section.
+
+Letterboxd respects your right to privacy. This Privacy Notice explains who we are, how we collect, share and use personal data about you and how you can exercise your privacy rights. This Privacy Notice only applies to personal data that we collect through our website at letterboxd.com (“Website”), our official Letterboxd App (“App”) or the Letterboxd API (“API”) (together, the “Services”). Letterboxd Limited is the controller of the data. To understand the terms under which you use the services that we offer, please read our Terms of Use.
+
+If you have any questions or concerns about our use of your personal data, please contact us using the contact details in the How to contact us section below.
+
+What is Letterboxd?
+Letterboxd is a global social platform for grass-roots film discussion and discovery, headquartered in New Zealand but with group companies all around the world. You can use Letterboxd as a diary to record and share your opinion about films as you watch them, or just to keep track of films you’ve seen in the past. Showcase your favorites on your profile page. Rate, review and tag films as you watch them. Find and follow your friends to see what they’re enjoying.
+
+For more information about Letterboxd, see our About section.
+
+↑ Back to top
+
+Personal data we collect and process
+The personal data we collect from you, either directly or indirectly, will depend on how you interact with us and with our Services. We collect personal data about you from the following different sources:
+
+Information that you provide directly We collect personal data directly from you when you choose to provide us with this information online, through our Services and through your other interactions with us (such as surveys, customer-service communications, competitions or other promotional programmes in which you may participate). Certain parts of our Services ask you to provide personal data when you engage with the following aspects of our Services: profile creation, customer-service interactions and purchase of a subscription.
+
+Information that we collect indirectly We collect your personal data indirectly, including through automated means from your device when you use our Services. Some of the information we collect indirectly is captured using cookies and other tracking technologies, as explained further in the Cookies and similar tracking technology section below.
+
+Information from third parties We also collect your personal data from third party sources, i.e. our service providers that provide operational assistance, marketing and analytics services, as well as payment services (including Paddle, Apple and Google). Information received from third parties will be checked to ensure that the third party either has your consent or is otherwise legally permitted or required to disclose your personal data to us.
+
+The table below describes the categories of personal data we collect from and about you through our Services. We will combine this information with other information contained in our systems.
+
+Personal Data Description Source
+
+Identity and contact data such as your name, email address and password.
+
+Directly from you
+
+Account data such as your login information (email and password) and profile information (including your given and family names, pronouns, location, bio and other platform preferences). You may also create a username, connect a social-media handle and create or upload an avatar to use on the Letterboxd platform.
+
+Directly from you
+Indirectly from you
+From third parties
+
+Payment data such as truncated credit or debit card details, payment method, payment statements, your billing address, payments and orders to and from you, and other details of services that you have purchased through the Services.
+
+We do not collect or store your full credit or debit card details (which are processed by payment service providers who are separate controllers of your data. Please refer to your payment service provider’s privacy notice for further details on their data collection practices).
+
+From third parties
+
+Communications data such as your feedback on our Services and other communications with us (including when you interact with our customer service agents offline), any queries you raise, competition and survey entries, chat, email or call history on the Services or with third party service providers. This will include information as to how you contact customer services and the channel of communication that you use or any information that you send to us.
+
+Directly from you
+Indirectly from you
+From third parties
+
+Preference data such as your interests based on your use of our Services and other websites and online services, your subscriptions, survey responses, promotions you enter, preferences in relation to receiving marketing materials from us, communication preferences, your preferences for particular services and your subscription details.
+
+Directly from you
+Indirectly from you
+From third parties
+
+Device data collected from (or as a result of your using) your device (including by means of cookies and similar tracking technology), including your IP address, your ISP, and the browser you use to visit our Website or App platform to download our App, device type, unique device identification numbers or other identifiers including advertising identifiers.
+
+Indirectly from you
+
+Service usage data such as activity and interaction with the Services (e.g. via Website pages or the App), information that we capture using cookies and similar technologies (see the Cookies and similar tracking technology section below). This will include page views and searches, log-in information, clicks, operating system, information about content viewed, watched or downloaded for offline access, length of visits to certain pages, length of Service use, purchase history and other functional information on Service performance (for example, application version information, diagnostics, and crash logs).
+
+Indirectly from you
+
+Location data collected using IP address from which we can identify your approximate geographic location, e.g. technical information that associates your location to your use of the Services.
+
+Indirectly from you
+
+Communications data such as your feedback on our Services and other communications with us (including when you interact with our customer service agents offline), any queries you raise, competition and survey entries, chat, email or call history on the Services or with third party service providers. This will include information as to how you contact customer services and the channel of communication that you use or any information that you send to us.
+
+Directly from you
+Indirectly from you
+From third parties
+
+Uploaded content such as any personal data in media that you upload onto our Services (such as avatars) or upload photos to social media (where you allow us to use such images).
+
+Directly from you
+Indirectly from you
+
+User-generated content such as any personal data you provide as part of reviews, lists, comments or when sharing content as part of the social functions on the Services, requests for assistance from customer service, or when you take part in competitions or surveys.
+
+Directly from you
+
+We do not collect any sensitive personal data about you, such as health-related information or information about your race or ethnicity, or sexual orientation.
+
+↑ Back to top
+
+How we use your personal data (our purposes) and our legal basis for processing it
+We use the personal data that we collect from and about you only for the purposes described in this Privacy Notice or for purposes that we explain to you at the time we collect your information. Depending on our purpose for collecting your information, we rely on one of the following legal bases:
+
+Contract—we require certain personal data in order to provide the goods and support the services you purchase or request from us;
+
+Consent—in certain circumstances, we may ask for your consent (separately from any contract between us) before we collect, use, or disclose your personal data, in which case you can voluntarily choose to give or deny your consent without any negative consequences to you;
+
+Legitimate interests—we will use or disclose your personal data for the legitimate interests of either Letterboxd or a third party, but only when we are confident that your privacy rights will remain appropriately protected. If we rely on our (or a third party’s) legitimate interests, these interests will normally be to: operate, provide and improve our organisation, including our Services; communicate with you and respond to your questions; improve our Services or use the insights to improve or develop marketing activities and promote our products and services; detect or prevent illegal activities (for example, fraud); and/or to manage the security of our IT infrastructure, and the safety and security of our employees, customers, vendors and visitors. Where we require your data to pursue our legitimate interests or the legitimate interests of a third party, it will be in a way which is reasonable for you to expect as part of the running of our organization and which does not materially affect your rights and freedoms. We have identified below what our legitimate interests are; or
+
+Legal obligation—there are instances where we must process and retain your personal data to comply with laws or to fulfill certain legal obligations.
+
+The following table provides more details on our purposes for processing your personal data and the related legal bases. The legal basis under which your personal data is processed will depend on the data concerned and the specific context in which we use it.
+
+Purpose/Activity Type of personal data Lawful basis for processing including basis of legitimate interest
+
+Register your profile on our Services, to manage and administer your account, to facilitate purchases you make.
+
+Identity and contact data
+Account data
+Payment data
+Communication data
+Device data
+Performance of a contract with you.
+
+Publish your reviews, lists, comments and other user generated content you have provided to us to show on our platform.
+
+User-generated content
+Uploaded content
+Identity and contact data
+Performance of a contract with you.
+
+Provide and deliver services, to fulfill orders and deliver content to you, including delivery of electronic receipts.
+
+Identity and contact data
+Account data
+Communication data
+Payment data
+Device data
+Location data
+Performance of a contract with you.
+Consent (in the case of processing of location data).
+
+Process transactions.
+
+Identity and contact data
+Account data
+Communication data
+Payment data
+Performance of a contract with you.
+
+Respond to your communications regarding our Services, send you Service updates, confirmations, invoices, technical notices, updates, security alerts, support and administrator messages, respond to your enquiries, requests or complaints.
+
+For example, when you first subscribe, we may send you a welcome email that provides information about your subscription and your account. If you purchase a subscription, we may send you an email confirming your subscription. We may also send you other emails concerning your account status and renewals.
+
+Identity and contact data
+Account data
+Payment data
+Communication data
+Uploaded content
+User-generated content
+Device data
+Services usage data
+Performance of a contract with you.
+Otherwise, as necessary for our legitimate interests (to operate, provide and improve our business; to communicate with you)—where our communications are not necessary to perform or enter into a contract with you.
+
+Reviewing communications with you for customer support and quality assurance and training purposes, and related recordkeeping.
+
+Identity and contact data
+Account data
+Payment data
+Communications data
+Uploaded content
+Device data
+Services usage data
+Necessary for our legitimate interests (to operate, provide and improve our business; to communicate with you)—where our communications are not necessary to perform or enter into a contract with you.
+
+Keep our business, including our Services, our employees, customers, vendors, and visitors secure and address threats to their safety or the safety of others; to detect and prevent fraud. For example, online we use malware- and spyware-monitoring tools to detect suspicious activity and algorithms to detect unauthorized access.
+
+Identity and contact data
+Account data
+Payment data
+Device data
+Services usage data
+Communications data
+Location data
+Necessary for our and our third parties’ legitimate interests (to operate and provide our business, including our Services; to detect or prevent illegal activities—e.g. fraud—and/or to manage the security of our IT infrastructure, and the safety and security of our employees, customers, vendors, and visitors).
+
+Manage compliance with our terms of service.
+
+Identity and contact data
+Account data
+Communications data
+Payment data
+Uploaded content
+User-generated content
+Performance of a contract with you.
+Otherwise, as necessary for our legitimate interests (to operate, provide and improve our business, including our Services; to detect or prevent illegal activities (e.g. fraud) and/or to manage the security of our IT infrastructure, and the safety and security of our employees, customers, vendors, and visitors.
+Legal obligations.
+
+To administer and maintain our Services and our IT systems (including monitoring, troubleshooting, data analysis, testing, system maintenance, repair and support, reporting and hosting of data).
+
+Identity and contact data
+Account data
+Device data
+Services usage data
+Our and our third parties’ legitimate interests (to operate, provide and improve our business, including our Services; to detect or prevent Illegal activities (e.g. fraud) and/or to manage the security of our IT infrastructure).
+
+Manage our use of tracking technologies such as cookies (including enabling you to manage your cookie preferences) and analyze collected data to learn about our Services, to improve our Services, and to develop new products and services. This includes website analytics, identifying browsing/​purchasing trends and patterns and evaluating this information on an aggregated, group(s) basis.
+
+Account data
+Device data
+Services usage data
+Location data
+Account data
+Preference data
+Communications data
+Consent (where required under applicable law—see cookie-consent tool on our website).
+Otherwise (for strictly necessary cookies) our legitimate interests to operate, provide and improve our business, including our Services, to improve our Services or use the insights to improve or develop marketing activities and promote our products and services.
+
+Analyse data including metrics related to consumer transactions and behaviour, to assess trends and the effectiveness of our advertising and marketing campaigns, to help us understand your needs and provide you with better service and offers, to drive customer engagement, promote our brand, and inform other business decisions by understanding consumer behavior.
+
+Account data
+Payment data
+Device data
+Services usage data
+Communications data
+Preference data
+Consent (where required under applicable law).
+Otherwise our legitimate interests (to operate, provide and improve our business, including our Services, to improve our Services or use the insights to improve or develop marketing activities and promote our products and services).
+
+Contact current and prospective customers (including Services visitors) about our products and services, promotions, competitions and events we think may be of interest, including our newsletter and other promotional mailers and electronic communications.
+
+Account data
+Services usage data
+Preference data
+Communication data
+Uploaded content
+User-generated content
+Consent (where required under applicable law).
+Otherwise our legitimate interests (to operate, provide and improve our business; to communicate with you and to develop marketing activities and promote our products and services).
+
+Personalise and customise your experience, including to provide local or otherwise targeted content and information for customers, and to tailor the content and advertising served on our Services.
+
+Account data
+Preference data
+Services usage data
+Device data
+Consent (where required under applicable law).
+Otherwise our legitimate interests (to operate, provide and improve our business, including our Services, to use the insights to improve or develop marketing activities and promote our products and services).
+
+Personalise, target, and deliver advertising for our products and services on third-party websites, apps, and other online services (including to identify audiences and individuals like you to better tailor our marketing campaigns and communications), and measure the effectiveness of our campaigns and adjust our methods.
+
+Account data
+Preference data
+Services usage data
+Contact device data
+Consent (where required under applicable law).
+Otherwise our legitimate interests (to improve our business, to promote our products and services and to use the insights to improve or develop our marketing activities).
+
+Analyze social-media performance metrics to evaluate and execute social-media campaigns, including to interact with our current and prospective customers on various social-media channels to promote our products, run contests and promotions, answer questions and otherwise drive and monitor customer engagement and satisfaction.
+
+Account data
+Preference data
+Communication data
+Uploaded content
+User-generated content
+Services usage data
+Device data
+Consent (where required under applicable law).
+Otherwise our legitimate interests (to improve our business, to promote our products and services and to use the insights to improve or develop marketing activities).
+
+Administer sweepstakes, competitions or surveys.
+
+Identity and contact data
+Account data
+Communication data
+Uploaded content
+User-generated content
+Our legitimate interests (to drive customer engagement and to collect user perceptions and measure satisfaction).
+
+Comply with legal and regulatory obligations to which we are subject, including our obligations to respond to your requests under data protection law.
+
+Identity and contact data
+Account data
+Payment data
+Services usage data
+Location data
+Communication data
+Uploaded content
+User-generated content
+Legal obligation.
+
+Protect our legal rights (including where necessary, to share information with law enforcement and others), for example to defend claims against us and to conduct litigation to defend our interests.
+
+Identity and contact data
+Account data
+Payment data
+Location data
+Services usage data
+Communication data
+Our legitimate interests to protect our business interests.
+
+↑ Back to top
+
+Who we share your personal data with
+We share your personal data with the following categories of recipients:
+
+our group companies, who provide data processing services necessary to provide you with our goods and services (for example, to support the delivery of, provide functionality on, or help to enhance the security of our Services), or who otherwise process personal data for purposes described in this Privacy Notice. Our group companies, to which we transfer your personal data, are located in New Zealand and the United States of America;
+
+third-party service providers and partners who provide data processing services to us as necessary to provide you with our goods and/or services (to support the delivery of, provide functionality on, or help to enhance the security of our Services), or who otherwise process personal data for purposes described in this Privacy Notice. This includes data processing service providers (including Vimeo, used to power the Letterboxd Video Store and provide customer support in relation to Letterboxd Video Store; Zendesk in relation to customer support services; Cloudflare, in relation to providing global content distribution; and Playwire in relation to advertising solutions), website hosts and website analytics providers.
+
+third-party payment services—the Services rely on third parties to process payments, so the Services necessarily must share personal information with the relevant payment processor in order to know which account the payment will be applied to, and where applicable, for the payment provider to meet its reporting obligations to us. We do not otherwise store any of your payment information. All payments are processed by Paddle, Apple, Google, or Stripe (depending on the Service you purchase) as merchant of record (collectively, the “Resellers”). As the payment process is entirely and independently carried out by the Resellers, you submit the relevant payment details directly to the Reseller and their own terms and privacy notices govern the use of their services. The Resellers’ respective privacy policies are at paddle.com, apple.com, policies.google.com and stripe.com.
+
+any competent law-enforcement body, regulatory, government agency, court or other third party (such as our professional advisers) where we believe disclosure is necessary (i) as a matter of applicable law or regulation, (ii) to exercise, establish or defend our legal rights or so a third party can defend theirs, or (iii) to protect your vital interests or those of any other person;
+
+a buyer (and its agents and advisers) in connection with any actual or proposed purchase, merger or acquisition of any part of our business, provided that we inform the buyer it must use your personal data only for the purposes disclosed in this Privacy Notice; or
+
+any other person with your consent to the disclosure (obtained separately from any contract between us).
+
+↑ Back to top
+
+Cookies and similar tracking technology
+Cookies—A cookie is a small piece of data that is stored on your computer or mobile device at a website’s request, and transmitted to the website’s server with each request you make. Like many websites, we use cookies and similar technologies to collect additional website usage data and to operate our services. Although most web browsers automatically accept cookies, many browsers’ settings can be set to decline cookies or alert you when a website is attempting to place a cookie on your device. However, some of our services may not function as expected if you disable cookies. When your browser or device allows it, we use both session cookies and persistent cookies to keep you signed in, to better understand how you interact with our services, to monitor aggregate usage patterns, and to personalize and otherwise operate our services such as by providing account security and personalized content. Our service also uses cookies and similar tracking technologies such as the Common ID cookie to provide its services. Cookies are important mechanisms for measuring advertising effectiveness and ensuring a robust online advertising industry. The Common ID cookie stores a unique ID in the first-party domain that is accessible to our ad partners. This ID can be utilized to improve user matching, especially when delivering ads to iOS and macOS browsers. Users may opt out of Common ID tracking.
+
+Advertising privacy (applies to non-subscribers and casual visitors only)—When you use our website without a paid subscription, pre-selected companies may access and use certain information on your device and about your interests to serve ads or personalized content. You may change your consent choices at any time (this link will only work for users who see ads).
+
+Log data—We also receive information when you view content on, or otherwise interact with, our services, which we refer to as “Log Data”, even if you have not created a Letterboxd account. This Log Data includes information such as your IP address, browser type, operating system, the referring web page, pages visited, location, your mobile carrier, device information (including device and application IDs), search terms, and cookie information. We use Log Data to operate our services and to ensure their secure, reliable, and robust performance. For example, we use Log Data to protect the security of your account and to determine what features are popular on our services. We also use this data to improve the content we show you and to identify potential misuse of our services.
+
+↑ Back to top
+
+How we keep your personal data secure
+We use appropriate technical and organizational measures to protect the personal data that we collect and process about you. The measures are designed to provide a level of security appropriate to the risk of processing. We utilize encryption in transit for all data. Security is an important part of our development process at Letterboxd. We constantly monitor our systems and work actively with security experts to ensure industry standards are included as part of our information security programme.
+
+Where you have created an account with us that uses a unique password to enable you to access our Services, it is your responsibility to keep this password secure and confidential.
+
+↑ Back to top
+
+International data transfers
+In some cases, where your personal data is transferred to another Letterboxd company or third parties, it is processed in countries other than the country in which you are resident. These countries may have data-protection laws that are different to the laws of your country (and, in some cases, may not be as protective).
+
+Specifically, our Services’ servers are located in the United States of America, Australia and New Zealand, and our group companies in New Zealand and the United States of America. Our third-party service providers and partners operate around the world. This means that when we collect your personal data we will process it in any of these countries.
+
+Where we transfer your personal data to countries or organizations outside of the European Economic Area and the UK, which have been formally recognized as providing an adequate level of protection for personal data, we rely on the relevant “adequacy decisions” from the European Commission and “adequacy regulations” (data bridges) from the Secretary of State in the UK.
+
+Where the transfer is not subject to an adequacy decision or regulations, we have taken appropriate safeguards to ensure that your personal data will remain protected in accordance with this Privacy Notice and applicable laws. The safeguards we use to transfer personal data are in case of both our group companies and third-party service providers and partners, the European Commission’s Standard Contractual Clauses as issued on 4 June 2021 under Article 46(2) and the UK International Data Transfer Agreement permitted under Article 46(2) of the UK GDPR for the transfer of data originating in the UK.
+
+↑ Back to top
+
+Data retention
+We retain the personal data we collect from you where we have an ongoing legitimate need to do so (for example, to provide you with a service you have requested or to comply with applicable legal, tax or accounting requirements). In certain circumstances, we will need to keep your information for legal reasons after your account has been deleted.
+
+When we have no ongoing legitimate need or legal reason to process your personal data, we will either delete or anonymize it or, if this is not possible (for example, because your personal data has been stored in backup archives), we will securely store your personal data and isolate it from any further processing until deletion is possible.
+
+↑ Back to top
+
+Your data-protection rights
+Individuals located in the UK and EEA have the following data-protection rights. To exercise any of them see specific instructions below or contact us using the contact details provided in the How to contact us section below.
+
+You may access, correct, update or request deletion of your personal data. If you have registered an account with Letterboxd, you can access, correct, delete, or modify the personal information you provided to us and associated with your account via your Settings page.
+
+You can object to processing of your personal data, ask us to restrict processing of your personal data or request portability of your personal data, (i.e. your data to be transferred in a readable and standardized format). Letterboxd provides you a means to download the information you have shared through our Services by using the account export option on your Settings page.
+
+You have the right to opt-out of marketing communications and/or push notifications we send you at any time. You can exercise this right by clicking on the “unsubscribe” or “opt-out” link in the marketing emails we send you, or by visiting the Notifications section of your Settings page. If you choose to opt out of marketing communications, we will still send you non-promotional emails, such as emails about your account or our ongoing business relations.
+
+If we have collected and processed your personal data with your consent, you can withdraw your consent at any time by using the contact details provided in the How to contact us section below. Withdrawing your consent will not affect the lawfulness of any processing we conducted prior to your withdrawal, nor will it affect processing of your personal data conducted in reliance on lawful processing grounds other than consent.
+
+You have the right to complain to a supervisory authority about our collection and use of your personal data. For more information, please contact your local supervisory authority (contact details for supervisory authorities in Europe and for the UK). Certain supervisory authorities will require that you exhaust our own internal complaints process before looking into your complaint.
+
+We respond to all requests we receive from individuals wishing to exercise their data protection rights in accordance with applicable data protection laws.
+
+↑ Back to top
+
+Updates to this Privacy Notice
+We may update this Privacy Notice from time to time in response to changing legal, regulatory, technical or business developments. When we update our Privacy Notice, we will take appropriate measures to inform you, consistent with the significance of the changes we make.
+
+You can see when this Privacy Notice was last updated by checking the “last updated” date displayed at the top of this Privacy Notice.
+
+↑ Back to top
+
+How to contact us
+If you have any questions or concerns about our use of your personal data, please email us at: .
+
+↑ Back to top
+
+EU and UK representatives
+If you are located in the European Economic Area, our representative for the purposes of Article 27 of the GDPR is:
+
+EU Representative Osano International Compliance Services Limited ATTN: XYCS 25 North Wall Quay Dublin 1 D01 H104 Ireland
+
+If you are located in the United Kingdom, our representative for the purposes of Article 27 of the UK GDPR is:
+
+UK Representative Osano UK Compliance Limited ATTN: XYCS 42–46 Fountain Street Belfast Antrim BT1-5EF Northern Ireland
+
+↑ Back to top
