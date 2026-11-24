@@ -94,11 +94,30 @@ class ExtractionTests(unittest.TestCase):
         self.assertTrue(looks_like_policy(policy, "https://a.example/legal"))
         self.assertFalse(looks_like_policy("Welcome to our shop. Buy shoes today. " * 80, "https://a.example/"))
 
+    def test_policy_title_variants_help_identify_short_policy_pages(self):
+        body = "We collect your personal information and use your information to provide our services. " * 8
+        examples = ["Acme | Privacy Notice", "Your Privacy Statement", "Notice of Privacy Practices", "Data Protection Notice"]
+        for title in examples:
+            with self.subTest(title=title):
+                self.assertTrue(looks_like_policy(body, "https://a.example/legal", title))
+        self.assertFalse(looks_like_policy("Welcome to Acme", "https://a.example/", "Privacy Notice"))
+        self.assertFalse(looks_like_policy("A short welcome message. " * 20, "https://a.example/", "Privacy Notice"))
+
     def test_finding_the_policy_link(self):
         links = [("Cookie policy", "https://a.example/cookies"), ("Do Not Sell", "https://a.example/privacy-choices"),
                  ("Privacy Policy", "https://a.example/legal/privacy"), ("Blog", "https://a.example/blog")]
         self.assertEqual(best_link(links, "https://a.example/"), ("https://a.example/legal/privacy", "Privacy Policy"))
         self.assertIsNone(best_link([("Blog", "https://a.example/blog")], "https://a.example/"))
+
+    def test_finding_alternative_policy_link_labels(self):
+        examples = [
+            ("Privacy Notice", "https://a.example/privacy-notice"),
+            ("Your Privacy Statement", "https://a.example/legal/privacy"),
+            ("Notice of Privacy Practices", "https://a.example/privacy"),
+            ("Data Protection Notice", "https://a.example/data-protection"),
+        ]
+        found = sum(best_link([(label, href)], "https://a.example/") == (href, label) for label, href in examples)
+        self.assertEqual(found, len(examples))
 
     def test_site_name(self):
         self.assertEqual([site_name(u) for u in ["https://www.walgreens.com/x", "https://bbc.co.uk/", "https://policies.google.com/privacy"]],
@@ -119,6 +138,13 @@ class FlowTests(unittest.TestCase):
             result = read_policy("https://a.example/privacy")
         self.assertEqual((result["status"], result["site"]), ("ok", "A"))
         self.assertIn("We collect", result["text"])
+
+    def test_short_policy_with_notice_title_is_read_directly(self):
+        body = "We collect your personal information and use your information to provide our services. " * 8
+        html = f"<html><head><title>Acme | Privacy Notice</title></head><body><main><h1>Acme | Privacy Notice</h1><p>{body}</p></main></body></html>"
+        with self.pages({"https://a.example/legal": html}):
+            result = read_policy("https://a.example/legal")
+        self.assertEqual(result["status"], "ok")
 
     def test_homepage_asks_before_using_what_it_found(self):
         home = '<body><p>Welcome to our shop.</p><footer><a href="/privacy">Privacy Policy</a></footer></body>'
