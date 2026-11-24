@@ -2,7 +2,10 @@
 import { isLeaving, renderAccountMenu } from "./account.js";
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, priorityChips, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
-import { inkLine } from "./progress.js";
+import { checkScreen, inkLine } from "./progress.js";
+import { glossify } from "./words.js";
+import { readDataFlows } from "./visuals.js";
+import { initTour } from "./tour.js";
 import { askAfterSteps, openReviewModal } from "./reviews.js";
 import { openStore } from "./store.js";
 import { asLink, el } from "./shared.js";
@@ -127,6 +130,66 @@ function renderModelMeta() {
     : m.test_macro_f1 ? `Macro-F1 ${m.test_macro_f1.toFixed(2)} on held-out test paragraphs.` : "";
 }
 
+/* ---------- Tidying pasted text, and checking it is a privacy policy ---------- */
+
+// The same words the server's link reader looks for, plus a rough English test.
+const POLICY_WORDS = /personal (?:information|data)|your (?:information|data)|third[- ]part|cookies|we collect|privacy/gi;
+const ENGLISH = /\b(?:the|and|of|to|we|you|your|is|in|for|with|that|our|or|this|may|are)\b/gi;
+const TERMS = /terms of (?:service|use)|arbitration|governing law|you agree to (?:these|the) terms/i;
+
+/** Web page code pasted by mistake (view-source): keep only the readable text, a paragraph per block. Null if it isn't code. */
+function stripHtml(text) {
+  if ((text.match(/<\/?(?:p|div|br|li|h[1-6]|html|body|span|a|section|table|tr|td|ul|ol)\b[^>]*>/gi) || []).length < 3) return null;
+  const doc = new DOMParser().parseFromString(text, "text/html");  // Parsing only: scripts in it never run.
+  doc.querySelectorAll("script, style, noscript, template, svg, head").forEach((n) => n.remove());
+  doc.querySelectorAll("p, div, li, h1, h2, h3, h4, h5, h6, section, article, tr, br, table, ul, ol").forEach((n) => n.after("\n\n"));
+  return (doc.body?.textContent || "").replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+/**
+ * Text copied from a web page often has no blank lines, so a whole policy reads as one paragraph and the model only
+ * sees its start. Long blocks are split at line breaks (or, with none, between sentences) into paragraphs of a few
+ * hundred characters; short lines such as headings stay with the text after them. The words are unchanged.
+ */
+function tidyParagraphs(text) {
+  const blocks = text.replace(/\r\n?/g, "\n").split(/\n[ \t]*\n/);
+  if (!blocks.some((block) => block.trim().length > 1500)) return text;  // Nothing to split: leave it exactly as pasted.
+  return blocks.map((block) => {
+    if (block.trim().length <= 1500) return block;
+    const lines = block.includes("\n");
+    const pieces = lines ? block.split("\n") : block.match(/[^.!?]+(?:[.!?]+["')\]]*\s*|$)/g) || [block];
+    const out = [];
+    let cur = "";
+    for (const piece of pieces) {
+      cur += lines && cur ? `\n${piece}` : piece;
+      if (cur.trim().length >= 400) { out.push(cur.trim()); cur = ""; }
+    }
+    if (cur.trim()) out.length && cur.trim().length < 150 ? (out[out.length - 1] += `${lines ? "\n" : " "}${cur.trim()}`) : out.push(cur.trim());
+    return out.join("\n\n");
+  }).join("\n\n");
+}
+
+/** Why this text may not be a privacy policy Inkwell can read, or null. */
+function doubtAbout(text) {
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const hits = (text.match(POLICY_WORDS) || []).length;
+  if (words >= 25 && (text.match(ENGLISH) || []).length / words < 0.05) {
+    return "This doesn't look like English. Inkwell reads English privacy policies only, so most answers would come back as “Not mentioned”. Many sites have an English version: look for a language switch at the bottom of their page.";
+  }
+  if (hits >= 2) return null;
+  if (TERMS.test(text)) return "This looks like terms of service, not a privacy policy. Terms cover the rules for using a service; what happens to your data is usually in a separate privacy policy, often linked at the bottom of the same page.";
+  return "This doesn't look like a privacy policy: we found almost none of the words policies use, like “personal information”, “cookies” or “third parties”. The answers would probably all say “Not mentioned”.";
+}
+
+/** Asks before checking text that may not be a policy. Resolves true to go ahead. */
+function askFirst(message) {
+  $("status").className = "status ask";
+  $("status").replaceChildren(el("span", {}, message), el("span", { class: "ask-actions" },
+    el("button", { type: "button", class: "btn btn-primary", onclick: () => { state.checkAnyway = true; setStatus(""); run(); } }, "Check it anyway"),
+    el("button", { type: "button", class: "btn btn-ghost", onclick: () => { setStatus(""); $("policy").focus(); } }, "Paste something else")));
+  $("status").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 /* ---------- Input ---------- */
 
 function updateCounts() {
@@ -144,7 +207,7 @@ function updateCounts() {
     el("span", {}, `${text.length.toLocaleString()} characters`), el("span", {}, plural(n, "paragraph")),
     el("span", { class: bytes > maxBytes() || n > MAX_PARAGRAPHS ? "over" : null }, `${(bytes / 1000).toFixed(1)} KB of ${kb(maxBytes())}`));
   const warn = n === 1 && text.length > 1500
-    ? "This reads as one long paragraph, so Inkwell can only quote it back whole. Leave blank lines between paragraphs, or use “Fix line breaks”."
+    ? "This reads as one long block. When you check it, Inkwell splits it into paragraphs so each part is read and quoted on its own."
     : bytes > maxBytes() ? `That's over the ${kb(maxBytes())} limit${state.guest ? " for a free check. Create a free account for up to 1,000 KB, or trim the policy" : ". Trim the policy before checking it"}.`
     : n > MAX_PARAGRAPHS ? `Inkwell reads up to ${MAX_PARAGRAPHS} paragraphs at a time. Split the policy in two and check each half.` : "";
   $("warn").textContent = warn; $("warn").hidden = !warn;
@@ -198,11 +261,27 @@ async function run(linkUrl = null, confirmed = false) {
   if (!$("policy").value.trim() && !linkUrl) return setStatus("Paste a link or a policy first, or load the sample.", "error");
   if (!ready()) return setStatus("Inkwell is still warming up. Try again when the status light turns green.", "error");
   const link = linkUrl || asLink($("policy").value);
+  let note = "";
+  if (!link) {
+    // Pasted text: clean it up first (the words are unchanged), then make sure it's something Inkwell can read.
+    const original = $("policy").value;
+    const plain = stripHtml(original);
+    const tidy = tidyParagraphs(plain ?? original);
+    if (tidy !== original) {
+      $("policy").value = tidy; updateCounts();
+      note = plain !== null ? "We removed the web page code you pasted and kept its text. "
+        : `We split the long block into ${plural(paragraphs(tidy), "paragraph")}, so each part is checked and quoted on its own. `;
+    }
+    const doubt = state.checkAnyway ? null : doubtAbout(tidy);
+    state.checkAnyway = false;
+    if (doubt) return askFirst(note + doubt);
+  }
   setStatus("");
   $("run").disabled = true;
-  $("ink").hidden = false;
-  const ink = inkLine($("ink"), stageNames());
-  const stop = (message = "", kind = "") => { ink.fail(); $("ink").hidden = true; $("run").disabled = false; setStatus(message, kind); };
+  // The check takes over the page: the inkwell fills as the line moves, then "Done!", then the results.
+  const screen = checkScreen();
+  const ink = inkLine(screen.box, stageNames(), { big: true });
+  const stop = (message = "", kind = "") => { ink.fail(); screen.close(); $("run").disabled = false; setStatus(message, kind); };
   if (link) {
     ink.stage(0, `Step 1 of 3 · Reading ${link.replace(/^https?:\/\//i, "").slice(0, 48)}…`, 4000);
     if (!(await readLink(link, confirmed, true))) { const message = $("status").textContent; return stop(message, $("status").className.includes("error") ? "error" : ""); }
@@ -225,16 +304,22 @@ async function run(linkUrl = null, confirmed = false) {
   } catch (error) {
     return stop(error.message, "error");
   }
+  // A short "Done!" breather, then the screen fades away to the results waiting underneath.
+  const who = result.report?.company;
+  await screen.done("Done!", state.guest ? `Your breakdown${who ? ` of ${who}'s policy` : ""} is ready.` : `Your report card${who ? ` for ${who}` : ""} is ready.`);
   $("run").disabled = false;
   const short = state.source?.text === text && text.length < 3000;
   if (short) setStatus("That page was short, so it may be only part of the policy. If so, paste the full text.");
-  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false });
+  else if (note) setStatus(note.trim());
+  if (result.report) result.report.dataFlows = readDataFlows(result.segments);  // Kept with saved work for the map.
+  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false, mapPick: null });
   showBreakdown(state.guest);  // Free checks open on the breakdown; accounts open on the report card.
   renderResults();
   $("results").classList.remove("reveal"); void $("results").offsetWidth; $("results").classList.add("reveal");
-  await afterAnalysis(text);
   showTab("overview");
-  $("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("results").scrollIntoView({ block: "start" });  // In place before the screen fades, so it reveals the report.
+  await screen.close();
+  await afterAnalysis(text);
 }
 
 /* ---------- Results ---------- */
@@ -319,6 +404,7 @@ function renderReport() {
       el("summary", {}, `See all ${r.checks.length} answers`),
       el("ul", { class: "checks" }, ordered.map((c, i) => renderCheck(c, i, concerns[c.id])))),
     el("p", { class: "rc-note" }, r.limitation)));
+  glossify($("report"), ".receipt, .check-meaning, .for-you", state.current?.name || r.company);
   state.animated = true;
 }
 
@@ -641,6 +727,7 @@ async function connect() {
   updateCounts();  // Free checks have a lower size limit.
   if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u && !isLeaving()) location.replace("/"); });
   document.body.dataset.auth = "ready";
+  initTour({ signedIn: !state.guest });
   checkApi();
   // Priorities and saved policies load after the page shows: account storage can take a few seconds,
   // or time out when Firestore isn't set up. afterAnalysis waits for this before matching saved policies.

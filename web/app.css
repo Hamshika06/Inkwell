@@ -115,6 +115,9 @@ textarea#policy::placeholder { color: var(--text-3); }
 kbd { padding: 1px 6px; border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 5px; background: var(--surface-2); font: 11px var(--font-mono); }
 .status { min-height: 1.4em; margin: 0; font-size: 13.5px; color: var(--text-2); text-align: center; }
 .status.error { color: var(--danger); }
+.status.ask { display: grid; gap: 10px; justify-items: center; max-width: 620px; margin: 0 auto; padding: 14px 16px; border-radius: var(--radius-sm);
+  background: var(--warn-soft); color: var(--text); line-height: 1.5; }
+.ask-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .status.busy::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px; border: 2px solid var(--border-strong); border-top-color: var(--brand); border-radius: 50%; animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -288,3 +291,39 @@ tr.split .verdict { color: var(--warn); font-weight: 600; }
 .arrive-card .btn-block { margin-bottom: 12px; }
 .arrive-other { background: none; border: 0; padding: 0; color: var(--text-3); font: inherit; font-size: 13.5px; cursor: pointer; text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { .results.reveal, .arrive-card.enter { animation: none; } .welcome-line i { transition: none; } }
+
+/* The "Done!" breather (the inkwell's own styles are in base.css) */
+.done-screen { z-index: 20; animation: done-in .35s ease-out; }
+.done-screen h1 { font-size: 40px !important; }
+@keyframes done-in { from { opacity: 0; } }
+.ink-progress.narrow .inkwell { width: 52px; }
+@media (prefers-reduced-motion: reduce) { .done-screen, .check-screen, .done-inner { animation: none; } }
+
+/* Dashboard deck: saved checks as 3D cards; the front one opens */
+.deck { margin: 4px 0 22px; }
+.deck-stage { position: relative; height: 290px; perspective: 1200px; transform-style: preserve-3d; touch-action: pan-y; }
+.deck-card { position: absolute; left: 50%; top: 18px; width: 260px; margin-left: -130px; padding: 18px 18px 14px; border-radius: 16px; background: var(--surface);
+  border: 1px solid var(--border); color: var(--text); text-decoration: none; box-shadow: 0 20px 34px -16px rgba(23, 29, 85, .4);
+  transform: translateX(calc(var(--off) * 190px)) translateZ(calc(var(--abs) * -130px)) rotateY(calc(var(--off) * -40deg));
+  z-index: calc(10 - var(--abs)); opacity: calc(1 - var(--abs) * .22); transition: transform .5s cubic-bezier(.2, .8, .2, 1), opacity .4s, box-shadow .3s; }
+.deck-card:hover { text-decoration: none; }
+.deck-card.front { box-shadow: 0 36px 56px -20px rgba(23, 29, 85, .55); transform: translateZ(40px); }
+.deck-card h3 { margin: 0 0 8px; font: 600 20px var(--font-display); }
+.deck-date { margin: 0 0 2px; font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); }
+.deck-num { margin: 4px 0 0; color: var(--text-3); font-size: 13px; } .deck-num b { font: 600 24px var(--font-display); color: var(--text); }
+.deck-nav { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+@media (max-width: 640px) { .deck-card { width: 230px; margin-left: -115px; transform: translateX(calc(var(--off) * 120px)) translateZ(calc(var(--abs) * -160px)) rotateY(calc(var(--off) * -45deg)); } }
+@media (prefers-reduced-motion: reduce) { .deck-card { transition: none; } }
+
+/* The check as a whole temporary page */
+.check-screen { z-index: 20; animation: done-in .3s ease-out; }
+.check-inner { width: min(760px, 100%); text-align: center; }
+.check-inner .ink-progress { width: 100%; }
+.check-inner .inkwell.big { width: 150px; margin-bottom: 18px; }
+.check-inner .ink-caption { font-size: 15px; margin-top: 10px; }
+.done-inner { animation: done-in .35s ease-out; }
+.done-inner h1 { margin: 6px 0 6px; font: 600 42px/1.1 var(--font-display); }
+.done-inner p { margin: 0; color: var(--text-2); font-size: 16px; }
+.check-screen.leaving { transition: opacity .45s; }
+
+.check-inner .ink-label { font-size: 13px; }

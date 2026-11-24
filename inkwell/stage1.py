@@ -10,8 +10,8 @@ FAQS={"What do they collect about me?":"Data Collection & Use",
       "Will they tell me when the policy changes?":"Policy Scope & Changes"}
 
 def segment(text):
-    # Blank lines delimit paragraphs; trim boundaries without altering evidence text.
-    boundaries=[0]+[m.end() for m in re.finditer(r"\n[ \t]*\n",text)]+[len(text)]
+    # Blank lines delimit paragraphs (Windows "\r\n" endings too); trim boundaries without altering evidence text.
+    boundaries=[0]+[m.end() for m in re.finditer(r"\n[ \t\r]*\n",text)]+[len(text)]
     result=[]
     for a,b in zip(boundaries,boundaries[1:]):
         while a<b and text[a].isspace(): a+=1

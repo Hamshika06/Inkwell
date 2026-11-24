@@ -6,6 +6,7 @@
 //   — Comes with the service   nothing to switch off; the choice is whether to use it
 import { DAY, TEMPLATES, apiBase, deadline, el, getSettings, listRequests, mailto, saveRequests, saveSettings, shortDate } from "./common.js";
 import { highlightTips, scanPage } from "./scan.js";
+import { classify, orbitSvg, readDataFlows } from "./orbit.js";
 
 const root = document.getElementById("view");
 const S = { settings: null, api: "", tab: null, auth: null, config: null, scan: null, result: null };
@@ -185,7 +186,8 @@ async function check(url) {
     setStatus("Checking what it says…", "busy");
     const { report } = await api("/report", { text: page.text });
     // Kept for this browser session only, so reopening the popup shows the card again. Not the policy text.
-    S.result = { url: page.url, site: page.site || siteName(), fixes: page.fixes || [], report, gpcMentioned: GPC_WORDS.test(page.text), at: Date.now() };
+    const flows = readDataFlows(page.text.split(/\n[ \t]*\n/).map((text, id) => ({ id, text })));
+    S.result = { url: page.url, site: page.site || siteName(), fixes: page.fixes || [], report, flows, gpcMentioned: GPC_WORDS.test(page.text), at: Date.now() };
     await chrome.storage.session.set({ [resultKey()]: S.result });
     cardView();
   } catch (error) {
@@ -213,7 +215,7 @@ function cardView() {
   if (handled.length) {
     nodes.push(el("div", { class: "ok" }, el("i", {}, "✓"), el("span", {},
       el("b", {}, handled.length > 1 ? "Selling and sharing your data: " : handled[0].id === "sale" ? "Selling your data: " : "Sharing your data: "),
-      `your browser is already telling ${site} not to (Global Privacy Control is on). Companies must follow it in California and several other US states; elsewhere it may be ignored.`,
+      `your browser is already telling ${site} not to (Global Privacy Control). Companies must follow it in California and several other US states; elsewhere it may be ignored.`,
       S.result.gpcMentioned ? ` ${site}'s policy mentions this signal.` : "")));
   }
   if (red.length) nodes.push(group("red", "Worth knowing", red.map((c) => redLine(c, concern[c.id] || c.title))));
@@ -221,6 +223,7 @@ function cardView() {
   if (green.length) nodes.push(group("grn", "In your favour", green.map((c) => line(c, c.title, el("small", {}, c.label)))));
   nodes.push(
     el("p", { class: "status", id: "status", role: "status" }),
+    S.result.flows?.recipients?.length ? mapBlock() : null,
     el("button", { class: "btn", onclick: () => openTab(`${S.api}/app.html?url=${encodeURIComponent(S.result.url)}`) }, "See the full report on Inkwell →"),
     rateStrip(site),
     el("p", { class: "fine" }, "Colours describe each answer, not the company. Wording checks, not legal advice. ",
@@ -244,6 +247,43 @@ function rateStrip(site) {
   return el("div", { class: "rate" }, el("div", {}, el("b", {}, "Enjoying Inkwell?"), el("small", {}, "Tap a star to rate it on Inkwell.")), stars);
 }
 
+/* ---------- Where your data goes: a small button that opens the orbit ---------- */
+
+// Red answers the extension can fix; the "don't sell or share" signal counts as limiting sale and sharing.
+function mapFlows() {
+  const { report, flows } = S.result;
+  const concerns = report.checks.filter((c) => c.tone === "bad").map((c) => ({ id: c.id, fixable: fixFor(c).tier !== "none", steps: [] }));
+  const isLimited = (c) => S.settings.gpc && (c.id === "sale" || c.id === "sharing");
+  return classify(flows.recipients, concerns, isLimited);
+}
+
+function mapBlock() {
+  if (!S.mapOpen) {
+    return el("button", { class: "map-btn", "aria-expanded": "false", onclick: () => { S.mapOpen = true; cardView(); document.querySelector(".map-panel")?.scrollIntoView({ block: "nearest" }); } },
+      el("span", { "aria-hidden": "true" }, "◎"), " Where does my data go?");
+  }
+  const flows = mapFlows(), site = S.result.site;
+  const pick = flows.find((f) => f.key === S.mapPick) || flows.find((f) => f.kind === "limit") || flows[0];
+  const art = el("div", { class: "map-art" });
+  art.innerHTML = orbitSvg(flows, { company: site, selected: pick.key, compact: true, id: "orb-ext" });  // Escaped inside orbitSvg.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) art.querySelectorAll("animateMotion").forEach((a) => a.parentElement.remove());
+  art.addEventListener("click", (e) => { const g = e.target.closest(".planet"); if (g) { S.mapPick = g.dataset.key; cardView(); } });
+  const check = pick.fix && S.result.report.checks.find((c) => c.id === pick.fix.id);
+  const fix = check && fixFor(check);
+  const say = { limit: `${pick.name} · you can limit this`, limited: "✓ You limited this", service: "Comes with using the service", some: "Only in some cases, such as when the law requires it" }[pick.kind];
+  return el("section", { class: "map-panel", "aria-label": "Where your data goes" },
+    el("p", { class: "tight" }, el("strong", {}, "Where your data goes")),
+    art,
+    el("div", { class: "map-pick", role: "group", "aria-label": "Who gets your data" }, flows.map((f) => el("button", {
+      class: `map-chip k-${f.kind}${f === pick ? " on" : ""}`, "aria-pressed": String(f === pick), onclick: () => { S.mapPick = f.key; cardView(); } }, f.name))),
+    el("p", { class: "map-key" }, el("span", { class: "k-limit" }, "● Inner: you can limit"), el("span", { class: "k-service" }, "● Middle: comes with it"), el("span", { class: "k-some" }, "○ Outer: only sometimes")),
+    el("blockquote", { class: "map-quote" }, `“${pick.quote}”`),
+    el("div", { class: "map-actions" },
+      pick.kind === "limit" && fix?.run ? el("button", { class: "mini", onclick: (e) => fix.run(e.currentTarget) }, "✂ Fix it") : null,
+      el("span", { class: "fine top0" }, say)),
+    el("button", { class: "linklike map-fold", "aria-expanded": "true", onclick: () => { S.mapOpen = false; cardView(); } }, "▴ Fold the map"));
+}
+
 const group = (cls, title, lines) => el("section", { class: `grp ${cls}` }, el("h4", {}, el("i", {}), title, el("em", {}, String(lines.length))), lines);
 
 function quote(c) {
@@ -260,9 +300,17 @@ function redLine(c, title) {
   const tier = TIERS[fix.tier];
   const due = deadline(S.settings.region);
   const label = fix.tier === "now" ? `${tier.text} · ${fix.effort}` : fix.tier === "req" ? `${tier.text} · up to ${due.text}` : tier.text;
-  const button = fix.button ? el("button", { class: `mini${fix.tier === "req" ? " ghost" : ""}`, onclick: (e) => {
-    e.preventDefault(); e.stopPropagation(); fix.run(e.currentTarget);
-  } }, fix.button) : null;
+  // One-click fixes are a real switch (slides and glows green); the others stay buttons.
+  const button = !fix.button ? null : fix.tier === "now"
+    ? el("label", { class: "fx-switch", title: fix.button, onclick: (e) => e.stopPropagation() },
+        el("input", { type: "checkbox", "aria-label": `${fix.button}: ${title}`, onchange: (e) => {
+          if (!e.target.checked) return;
+          e.target.disabled = true;
+          fix.run(e.target.closest(".fx-switch"));
+        } }), el("span", { class: "fx-track", "aria-hidden": "true" }, el("span", { class: "fx-thumb" })))
+    : el("button", { class: `mini${fix.tier === "req" ? " ghost" : ""}`, onclick: (e) => {
+      e.preventDefault(); e.stopPropagation(); fix.run(e.currentTarget);
+    } }, fix.button);
   return el("details", { class: "line fixrow" },
     el("summary", {}, el("span", { class: "t" }, title),
       el("span", { class: "meta" }, el("span", { class: `eff ${tier.cls}` }, `${tier.icon} ${label}`), button)),
@@ -281,8 +329,9 @@ function fixFor(c) {
     case "sale":
     case "sharing": {
       const own = find("sale");
-      return { tier: "now", effort: "1 switch", button: "Turn on", run: turnOnGpc, note: [
-        "Turns on Global Privacy Control: every site you visit is told not to sell or share your data. Companies must follow it in California and several other US states; elsewhere it may be ignored. Chrome will ask to let Inkwell add the signal on all sites.",
+      // The button says what the person gets (the selling stops), not what we flip (the signal goes on).
+      return { tier: "now", effort: "1 click", button: c.id === "sale" ? "Stop selling" : "Stop sharing", run: turnOnGpc, note: [
+        "Tells every site you visit: don't sell or share my data (a browser signal called Global Privacy Control). Companies must follow it in California and several other US states; elsewhere it may be ignored. Chrome will ask to let Inkwell send it on all sites.",
         c.id === "sharing" ? " Companies that run the service for them still get your data." : "",
         own ? [" Or use ", link(own.text || "their own page", own.url), "."] : ""] };
     }
@@ -314,11 +363,15 @@ async function turnOnGpc() {
   // Chrome may close the popup while it asks; the background worker then finishes the job (see "pending").
   chrome.storage.session.set({ pending: { gpc: true } });
   const allowed = await chrome.permissions.request({ origins: ["<all_urls>"] });
-  if (!allowed) { chrome.storage.session.remove("pending"); return setStatus("Nothing changed: Chrome needs that permission to send the signal to every site.", "error"); }
+  if (!allowed) { chrome.storage.session.remove("pending"); resetSwitches(); return setStatus("Nothing changed: Chrome needs that permission to send the signal to every site.", "error"); }
   await msg("gpc-set", { on: true });
   chrome.storage.session.remove("pending");
   S.settings.gpc = true;
   if (S.result) cardView(); else settingsView();
+}
+
+function resetSwitches() {
+  document.querySelectorAll(".fx-switch input").forEach((i) => { i.checked = false; i.disabled = false; });
 }
 
 async function blockLocation(button) {
@@ -326,9 +379,9 @@ async function blockLocation(button) {
   chrome.storage.session.set({ pending: { block: origin } });
   const allowed = await chrome.permissions.request({ permissions: ["contentSettings"] });
   chrome.storage.session.remove("pending");
-  if (!allowed) return setStatus("Nothing changed: Chrome needs permission to change this site's location setting.", "error");
+  if (!allowed) { resetSwitches(); return setStatus("Nothing changed: Chrome needs permission to change this site's location setting.", "error"); }
   await chrome.contentSettings.location.set({ primaryPattern: `${origin}/*`, setting: "block" });
-  button.replaceWith(el("span", { class: "done" }, "✓ Blocked"));
+  setTimeout(() => button.replaceWith(el("span", { class: "done" }, "✓ Blocked")), 450);  // Let the switch finish sliding.
 }
 
 /* ---------- ✉ Request: written for you, deadline tracked ---------- */
@@ -405,4 +458,14 @@ function settingsView() {
 }
 
 document.getElementById("open-settings").addEventListener("click", settingsView);
+// The card leans a little toward the mouse (off with "reduce motion").
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const view = document.getElementById("view");
+  view.addEventListener("pointermove", (e) => {
+    const r = view.getBoundingClientRect();
+    view.style.setProperty("--ry", `${((e.clientX - r.left) / r.width - 0.5) * 5}deg`);
+    view.style.setProperty("--rx", `${-((e.clientY - r.top) / r.height - 0.5) * 3}deg`);
+  });
+  view.addEventListener("pointerleave", () => { view.style.removeProperty("--ry"); view.style.removeProperty("--rx"); });
+}
 init();

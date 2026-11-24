@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="community.css">
+  <link rel="stylesheet" href="tour.css">
   <script>document.documentElement.classList.add("js"); try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <script src="config.js"></script>
   <script type="module" src="home.js"></script>
@@ -63,28 +64,25 @@
         </ul>
       </div>
 
-      <div class="hero-demo rise" style="--d:2" aria-label="Example report card for a fictional app">
-        <div class="demo-card" id="demo">
-          <div class="demo-head">
-            <div>
-              <p class="eyebrow">Privacy report card</p>
-              <p class="demo-title">Pigeonpost Privacy Policy</p>
+      <div class="hero-3d rise" style="--d:2" aria-label="Example report for a fictional app: what its policy means">
+        <div class="hv-stage" id="demo">
+          <div class="hv-floor" aria-hidden="true"></div>
+          <div class="hv-rig">
+            <div class="hv-paper hv-back2" aria-hidden="true"></div>
+            <div class="hv-paper hv-back1" aria-hidden="true"></div>
+            <div class="hv-paper hv-front">
+              <div class="h3-head"><p class="eyebrow">Pigeonpost Privacy Policy</p><span class="demo-badge">Fictional example</span></div>
+              <div class="hv-lines" aria-hidden="true"><i></i><i></i><i class="g-red"></i><i></i><i></i><i class="g-red"></i><i></i><i class="g-yel"></i><i></i><i></i><i class="g-grn"></i><i></i></div>
             </div>
-            <span class="demo-badge">Fictional example</span>
+            <ul class="hv-cards">
+              <li class="hv-far good" aria-hidden="true" style="--x:60%;--y:12%;--z:-160px;--n:0"><span class="dot"></span>Deletes messages after 30 days</li>
+              <li class="bad beam" style="--x:50%;--y:10%;--z:150px;--n:1"><span class="dot"></span>Shares your data with advertisers<b>Yes</b></li>
+              <li class="bad beam" style="--x:56%;--y:30%;--z:210px;--n:2"><span class="dot"></span>Collects your location<b>Yes</b></li>
+              <li class="unknown beam" style="--x:53%;--y:51%;--z:130px;--n:3"><span class="dot"></span>Sells your data<b>Not said</b></li>
+              <li class="good" style="--x:48%;--y:71%;--z:90px;--n:4"><span class="dot"></span>Lets you delete your data<b>Yes</b></li>
+            </ul>
           </div>
-          <ul class="demo-rows">
-            <li class="bad"><span class="ic">!</span><span class="t">Shares your data with advertisers</span><span class="v">Yes</span></li>
-            <li class="bad"><span class="ic">!</span><span class="t">Collects your location</span><span class="v">Yes</span></li>
-            <li class="good"><span class="ic">✓</span><span class="t">Lets you delete your data</span><span class="v">Yes</span></li>
-            <li class="good"><span class="ic">✓</span><span class="t">Deletes messages after you leave</span><span class="v">30 days</span></li>
-            <li class="unknown"><span class="ic">?</span><span class="t">Sells your data</span><span class="v">Not mentioned</span></li>
-          </ul>
-          <div class="demo-receipt">
-            <span class="q">“</span>We share your personal information with advertising partners and analytics providers…
-            <span class="src">Paragraph 4 · exact quote</span>
-          </div>
-          <div class="demo-action"><span class="ic">⊘</span><span><strong>Opt out of targeted ads</strong><br>Settings › Privacy</span></div>
-          <span class="scan" aria-hidden="true"></span>
+          <div class="hv-well" id="hero-well" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -259,7 +257,7 @@
       <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
       <p>Inkwell by Token Economy · University of Maryland</p>
       <p class="fine">Not legal advice. Verdicts are based on the wording of the text you submit and may miss things said in other words.</p>
-      <nav aria-label="Footer"><a href="#about">About</a><a href="#privacy">Privacy promise</a><a href="#faq">FAQ</a><a href="reviews.html">Reviews</a><a href="guides.html">Guides</a><a href="app.html">Open Inkwell</a></nav>
+      <nav aria-label="Footer"><a href="#about">About</a><a href="#privacy">Privacy promise</a><a href="#faq">FAQ</a><a href="reviews.html">Reviews</a><a href="guides.html">Guides</a><a href="data-map.html">Data map</a><a href="app.html">Open Inkwell</a></nav>
     </div>
   </footer>
 </body>

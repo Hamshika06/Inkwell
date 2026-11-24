@@ -131,6 +131,22 @@ function row(item, [a, b]) {
     open ? el("div", { class: "cmp-detail" }, el("span", {}), detail(item.a), detail(item.b)) : null);
 }
 
+/** The two policies as an open book: answers that differ lift off both pages and a bridge joins them. */
+function book(items, a, b) {
+  const tone = (check) => (check.state === "missing" ? "unknown" : check.tone);
+  const open = (item) => { page.open[item.id] = true; if (!item.differs) page.sameOpen = true; render();
+    document.querySelector(`[data-row="${item.id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" }); };
+  const side = (pick, name, cls) => el("div", { class: `book-page ${cls}` }, el("h3", {}, name),
+    el("ul", {}, items.map((item) => el("li", { class: `book-row tone-${tone(pick(item))}${item.differs ? " lift" : ""}` },
+      el("button", { type: "button", onclick: () => open(item), "aria-label": `${item.title}, ${name}: ${answer(pick(item))}. Show the sentences` },
+        el("span", {}, item.title), el("b", {}, answer(pick(item))))))));
+  return el("div", { class: "book", "aria-label": "Both policies side by side" },
+    side((i) => i.a, a.name, "left"),
+    el("div", { class: "book-gutter", "aria-hidden": "true" }, el("span", { class: "book-gutter-head" }),
+      items.map((item) => el("span", { class: `book-bridge${item.differs ? " on" : ""}` }, item.differs ? "Different" : ""))),
+    side((i) => i.b, b.name, "right"));
+}
+
 function render() {
   const [a, b] = page.results;
   const items = a.report.checks.map((check) => {
@@ -143,6 +159,7 @@ function render() {
   $("compare-results").replaceChildren(el("article", { class: "card compare-card" },
     el("h2", {}, differ.length ? `${a.name} and ${b.name} differ on ${differ.length} of ${items.length} answers` : `${a.name} and ${b.name} give the same ${items.length} answers`),
     el("p", { class: "fine" }, "“Not found” means our wording checks didn't find it in this policy. It isn't proof of what the company does, so read the sentences before deciding."),
+    book(items, a, b),
     differ.length ? [headers, el("ul", { class: "cmp-list" }, differ.map((i) => row(i, page.results)))] : null,
     same.length ? el("details", { class: "all-answers", open: page.sameOpen || !differ.length, ontoggle: (e) => { page.sameOpen = e.target.open; } },
       el("summary", {}, `They say the same on ${same.length}`), el("ul", { class: "cmp-list" }, same.map((i) => row(i, page.results)))) : null,

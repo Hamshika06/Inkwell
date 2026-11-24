@@ -298,8 +298,10 @@ async def fetch_policy(request: Request):
     except ValueError:
         payload = None
     url = payload.get("url") if isinstance(payload, dict) else None
-    if not isinstance(url, str) or not url.strip() or len(url) > 2048:
+    if not isinstance(url, str) or not url.strip():
         raise HTTPException(400, "Body must be JSON: {\"url\": \"...\"}")
+    if len(url) > 2048:
+        raise HTTPException(400, "That link is too long to read. Open the page, copy the policy text, and paste it here instead.")
     try:
         result = await run_in_threadpool(read_policy, url, payload.get("confirmed") is True)
     except FetchError as error:

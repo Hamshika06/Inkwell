@@ -2,6 +2,8 @@
 // policy itself offers (opt-out links, pre-written emails to its privacy address), and saving it all to an
 // account (every check, automatically) so the next check shows what changed. Inkwell states facts; the reader decides what matters.
 import { fingerprint, policyId } from "./store.js";
+import { forYou } from "./words.js";
+import { exposureCells, renderDataMap } from "./visuals.js";
 
 // The things a reader can say matter to them, one per report-card check (same ids).
 export const PRIORITIES = [
@@ -109,6 +111,92 @@ function renderFocus() {
     state.focusSaved ? el("p", { class: "focus-saved", role: "status" }, `✓ Saved to ${where}. We'll use these picks for every policy you check.`) : null);
 }
 
+/* ---------- Fixing: how long each fix takes, and the exposure score ---------- */
+
+// How long a step takes, from what it asks of you. [class, label, time, minutes to do it now]
+const SPEED = {
+  settings: ["set", "⚙ In settings", "~2 min", 2],
+  device: ["set", "⚙ Phone or browser settings", "~1 min", 1],
+  site: ["set", "⚙ On their website", "~3 min", 3],
+  request: ["req", "✉ Request", "up to 45 days", 2],
+};
+const speedOf = (st) => (st.kind === "tip_location" ? SPEED.device : st.to ? SPEED.request : st.target?.kind === "settings" ? SPEED.settings : SPEED.site);
+
+/** The quickest of a concern's steps (they're alternatives: a setting or a request both limit it). */
+function bestStep(c) {
+  const rank = (st) => (st.to ? 99 : speedOf(st)[3]);
+  return report().steps.filter((st) => c.steps.includes(st.id)).sort((a, b) => rank(a) - rank(b))[0] || null;
+}
+
+/** A concern is limited once any of its steps is ticked. */
+const isLimited = (c) => c.fixable && c.steps.some((id) => ui.state.done?.[id]);
+
+function minutesLeft(concerns) {
+  return concerns.filter((c) => c.fixable && !isLimited(c)).reduce((sum, c) => sum + (speedOf(bestStep(c) || {})[3] || 2), 0);
+}
+
+/** Opens the steps on this concern's quickest fix. */
+function fixConcern(c) {
+  const { state } = ui;
+  const step = bestStep(c);
+  if (!step) return;
+  state.showSteps = true;
+  state.stepAt = report().steps.indexOf(step);
+  state.openRequest = step.to ? step.id : null;
+  ui.refresh();
+  const card = document.getElementById(`step-${step.id}`) || document.getElementById("steps");
+  card?.scrollIntoView({ behavior: "smooth", block: "center" });
+  document.getElementById("guided")?.focus({ preventScroll: true });
+}
+
+/**
+ * The exposure score: how many of the 8 key questions have an answer worth knowing (red) that you haven't limited.
+ * It goes down as you take steps. It counts what the policy allows and what you've changed; it isn't a verdict on
+ * the company. Yellow (not clearly answered) and green (in your favour) are shown but not counted.
+ */
+function renderExposure() {
+  const { el, state, plural } = ui;
+  const r = report();
+  const cells = exposureCells(r, state.done);
+  const count = (k) => cells.filter((c) => c.kind === k).length;
+  const left = count("red"), fixed = count("fixed"), total = left + fixed;
+  const open = (r.concerns || []).filter((c) => c.fixable && !isLimited(c));
+  const mins = minutesLeft(r.concerns || []);
+  const right = !total ? ["Nothing to fix", "No answer here is worth flagging"]
+    : !left ? ["All limited ✓", `You limited ${plural(fixed, "thing")}`]
+    : open.length ? [`${open.length} you can limit`, fixed ? `${fixed} limited so far · about ${mins} min to go` : `about ${mins} minutes in total`]
+    : [`${left} come${left === 1 ? "s" : ""} with the service`, "No step in the policy limits these"];
+  const line = !total ? "None of the 8 key questions has an answer worth flagging."
+    : fixed ? `Down from ${total} to ${left}. ${left ? "Keep going: each fix lowers it." : "Nothing left to fix."}`
+    : `${plural(total, "answer")} worth knowing. Limit them and this number goes down.`;
+  const word = { red: "Worth knowing", fixed: "You limited it", yellow: "Not clearly answered", green: "In your favour" };
+  return el("div", { class: "exposure", role: "group", "aria-label": `Your exposure: ${left} of ${cells.length}` },
+    el("div", { class: "exp-num" }, el("p", { class: "exp-k" }, "Your exposure"),
+      el("p", { class: "exp-big" }, String(left), el("small", {}, ` of ${cells.length}`))),
+    el("div", { class: "exp-bar" },
+      el("div", { class: "exp-cells", "aria-hidden": "true" }, cells.map((c) => el("i", { class: c.kind, title: `${c.title}: ${word[c.kind].toLowerCase()}` }))),
+      el("div", { class: "exp-legend" }, ["red", "fixed", "yellow", "green"].filter((k) => k !== "fixed" || fixed)
+        .map((k) => el("span", {}, el("b", { class: k }), `${word[k]} ${count(k)}`)))),
+    el("div", { class: "exp-side" }, el("strong", {}, right[0]), el("small", {}, right[1])),
+    el("p", { class: "exp-line" }, el("span", { class: fixed ? "exp-win" : null }, line), ` It counts what the policy allows and what you've changed; it isn't a rating of ${company()}.`));
+}
+
+/** "Where your data goes": who the policy says gets your data, drawn as a map, with the fix for each. */
+function renderMap() {
+  const { state } = ui;
+  const r = report();
+  const segments = state.result?.segments;
+  // Saved reports keep the map's sentences (report.dataFlows), since the full policy text is never stored.
+  if (!r || !(segments || r.dataFlows)) return null;
+  return renderDataMap({
+    segments, flows: r.dataFlows, report: r, company: company(), isLimited,
+    selected: state.mapPick,
+    onSelect: (key) => { state.mapPick = key; ui.refresh(); document.querySelector(`.dmap-item[aria-pressed="true"]`)?.focus({ preventScroll: true }); },
+    onFix: (id) => { const c = r.concerns.find((k) => k.id === id); if (c) fixConcern(c); },
+    onQuote: state.savedView ? null : (segment) => ui.select(segment),
+  });
+}
+
 /* ---------- The decision: what agreeing means, then the reader's choice ---------- */
 
 export function renderDecision() {
@@ -128,11 +216,13 @@ export function renderDecision() {
     renderChanges(),
     renderFocus(),
     el("h3", { class: "decision-title" }, headline),
+    renderExposure(),
     shown.length ? el("ul", { class: "concerns" }, shown.map(concernRow)) : null,
     shown.length ? el("p", { class: "fine" }, "Tap a line to see the exact sentence from the policy.") : null,
     summary ? el("details", { class: "more-info", open: state.moreOpen, ontoggle: (e) => { state.moreOpen = e.target.open; } }, el("summary", {}, `Also: ${summary}`),
       others.length ? el("p", { class: "fine" }, el("strong", {}, "You didn't pick: "), others.map((c) => c.title.toLowerCase()).join(", "), ".") : null,
       unclear.length ? el("p", { class: "fine" }, el("strong", {}, "Not clearly answered: "), unclear.map((c) => (PRIORITY_LABEL[c.id] || c.title).toLowerCase()).join(", "), ".") : null) : null,
+    renderMap(),
     state.decision ? renderDecided(state.decision) : renderChoices(shown),
     renderSaveRow());
 }
@@ -141,21 +231,29 @@ function concernRow(c) {
   const { el, state } = ui;
   const open = !!state.openConcerns?.[c.id];
   const check = report().checks.find((k) => k.id === c.id);
-  return el("li", { class: `concern ${c.fixable ? "fixable" : "stays"}${open ? " open" : ""}` },
-    el("button", { type: "button", class: "concern-toggle", "aria-expanded": String(open),
-      onclick: () => { state.openConcerns = { ...(state.openConcerns || {}), [c.id]: !open }; ui.refresh(); document.querySelector(`[data-concern="${c.id}"]`)?.focus(); }, "data-concern": c.id },
-      el("span", { class: "concern-chev", "aria-hidden": "true" }, "▸"),
-      el("span", { class: "concern-name" }, c.title),
-      el("span", { class: "concern-tag" }, c.fixable ? "You can limit this" : "No way to limit this found")),
+  const limited = isLimited(c), step = c.fixable && !limited ? bestStep(c) : null, speed = step && speedOf(step);
+  const means = forYou(c.id, company());
+  return el("li", { class: `concern ${c.fixable ? "fixable" : "stays"}${open ? " open" : ""}${limited ? " limited" : ""}` },
+    el("div", { class: "concern-head" },
+      el("button", { type: "button", class: "concern-toggle", "aria-expanded": String(open),
+        onclick: () => { state.openConcerns = { ...(state.openConcerns || {}), [c.id]: !open }; ui.refresh(); document.querySelector(`[data-concern="${c.id}"]`)?.focus(); }, "data-concern": c.id },
+        el("span", { class: "concern-chev", "aria-hidden": "true" }, "▸"),
+        el("span", { class: "concern-name" }, c.title),
+        limited ? el("span", { class: "concern-tag done" }, "✓ Limited")
+          : speed ? el("span", { class: `fix-speed ${speed[0]}` }, `${speed[1]} · ${speed[2]}`)
+          : el("span", { class: "concern-tag" }, "Comes with the service")),
+      step ? el("button", { type: "button", class: "btn btn-primary fix-btn", "data-fix": c.id, onclick: () => fixConcern(c) }, step.to ? "Write request" : "Fix it") : null),
     open ? el("div", { class: "concern-detail" }, el("p", { class: "check-meaning" }, check.meaning),
+      means ? el("div", { class: "for-you" }, el("b", {}, "For you, this means"), means) : null,
       c.note ? el("p", { class: "fine" }, c.note) : null, ui.proof(check)) : null);
 }
 
 function renderChoices(shown) {
   const { el } = ui;
   const r = report();
-  const fixable = shown.filter((c) => c.fixable).length;
-  const limit = fixable === 1 ? "Show me how to limit this" : fixable > 1 ? "Show me how to limit these" : r.steps.length ? "See what I can do" : null;
+  const fixable = shown.filter((c) => c.fixable && !isLimited(c));
+  const mins = minutesLeft(fixable);
+  const limit = fixable.length === 1 ? `Fix it (about ${mins} min)` : fixable.length > 1 ? `Fix them, one at a time (about ${mins} min)` : r.steps.length ? "See what I can do" : null;
   return el("div", { class: "decision-ask" },
     el("p", { class: "decision-q" }, "What do you want to do?"),
     el("div", { class: "decision-actions", role: "group", "aria-label": "What do you want to do?" },
@@ -473,7 +571,7 @@ export function openSaved(id) {
   state.savedView = { id };
   state.result = { report: doc.report, coverage: {}, segments: [], faqs: {} };
   state.current = { id, name: doc.name, url: doc.url || "", fingerprint: doc.fingerprint, saved: true };
-  state.decision = doc.decision || null; state.done = { ...(doc.done || {}) }; state.changes = null;
+  state.decision = doc.decision || null; state.mapPick = null; state.done = { ...(doc.done || {}) }; state.changes = null;
   document.getElementById("workspace").hidden = true;
   document.getElementById("intro").hidden = true;
   const banner = document.getElementById("saved-banner");

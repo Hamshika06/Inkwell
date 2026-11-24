@@ -422,6 +422,7 @@ def company_name(title):
     """"Pigeonpost Privacy Policy (fictional sample)" -> "Pigeonpost"; None when there's no title."""
     if not title:
         return None
+    title = re.sub(r"[\x00-\x1f\x7f]", " ", title)  # Control characters (a stray NUL from a pasted file) never reach the name.
     name = re.split(r"\s[:|–—-]\s|:", re.sub(r"\(.*?\)", " ", title))[0]
     name = re.sub(r"\b(?:online\s+|global\s+|consumer\s+|customer\s+)?(?:privacy|data\s+protection|cookie)\s+(?:policy|notice|statement)\b|"
                   r"\b(?:policy|notice|statement)\b", " ", name, flags=I)
