@@ -339,11 +339,17 @@ def to_text(doc):
 
 
 POLICY_WORDS = re.compile(r"personal (?:information|data)|your (?:information|data)|third[- ]part|cookies|we collect|privacy", I)
+POLICY_DOCUMENT_TITLE = re.compile(
+    r"\b(?:privacy|data protection|personal information|information privacy)\b.{0,50}\b(?:policy|notice|statement|practices?)\b|"
+    r"\bnotice of privacy practices\b", I)
 
 
-def looks_like_policy(text, url):
+def looks_like_policy(text, url, title=""):
+    """Use page text and URL evidence; a recognizable document title can help with short, clean policy pages."""
     hits = len(POLICY_WORDS.findall(text))
     if len(text) >= MIN_POLICY_CHARS and hits >= 8:
+        return True
+    if len(text) >= MIN_CONFIRMED_CHARS and hits >= 2 and POLICY_DOCUMENT_TITLE.search(title):
         return True
     return len(text) >= MIN_CONFIRMED_CHARS and hits >= 3 and bool(re.search(r"privacy|data-?policy", urlsplit(url).path, I))
 
@@ -366,7 +372,7 @@ def best_link(links, page_url):
         score = 0
         if re.fullmatch(r"(?:our |global |online )?privacy(?: policy| notice| statement)?", label):
             score = 5
-        elif re.search(r"privacy (?:policy|notice|statement)", label):
+        elif re.search(r"privacy (?:policy|notice|statement)|notice of privacy practices|data protection (?:policy|notice|statement)", label):
             score = 4
         elif "privacy" in label:
             score = 2
@@ -403,7 +409,8 @@ def read_policy(url, confirmed=False):
     doc = extract(page.html, page.url)
     text = to_text(doc)
     site = site_name(page.url)
-    if looks_like_policy(text, page.url) or (confirmed and len(text) >= MIN_CONFIRMED_CHARS):
+    page_title = doc.h1 or doc.title
+    if looks_like_policy(text, page.url, page_title) or (confirmed and len(text) >= MIN_CONFIRMED_CHARS):
         return {"status": "ok", "text": text, "url": page.url, "site": site, "fixes": fix_links(doc.links, page.url)}
     if confirmed:
         raise FetchError(422, f"That page loads its text in a way we can't read. {COPY_IT}")
@@ -420,6 +427,7 @@ def read_policy(url, confirmed=False):
             probe = download(guess, deadline)
         except FetchError:
             continue
-        if looks_like_policy(to_text(extract(probe.html, probe.url)), probe.url):
+        probe_doc = extract(probe.html, probe.url)
+        if looks_like_policy(to_text(probe_doc), probe.url, probe_doc.h1 or probe_doc.title):
             return {"status": "confirm", "url": probe.url, "label": "Privacy policy", "site": site}
     raise FetchError(422, "We couldn't find a privacy policy on that page. Paste the link to the policy itself, or its text.")
