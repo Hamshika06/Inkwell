@@ -33,10 +33,12 @@ const STEPS = [
     action: () => { if (!$("#policy")?.value.trim()) click("#sample"); setTimeout(() => click("#run"), 120); } },
   { page: "app", target: ".exposure", wait: "report", icon: "◔", title: "Your exposure score.",
     text: "How many answers are worth knowing. Fix one and watch it drop. Lower is better." },
-  { page: "app", target: ".exp-cells", report: true, icon: "●", title: "Red. Yellow. Green.",
-    text: "Red: worth knowing. Yellow: the policy doesn't say clearly. Green: in your favour." },
+  { page: "app", target: ".exposure .exp-cells", report: true, icon: "●", title: "Red. Yellow. Green.",
+    text: "Red: worth knowing. Yellow: the policy doesn't say clearly. Green: in your favour. Fix one and its tile turns green." },
   { page: "app", target: ".fix-btn", report: true, icon: "⚡", title: "Fix it, fast.",
     text: "Each line says how long its fix takes: ⚙ settings take minutes; ✉ requests take up to 45 days, and we write them for you." },
+  { page: "app", target: ".dmap", report: true, icon: "◎", title: "Where your data goes.",
+    text: "Everyone the policy says gets your data, on one map. Red lines you can cut; tap any name for the sentence." },
   { page: "app", target: ".concern-detail .for-you", report: true, icon: "❝", title: "Proof, in plain words.",
     before: () => { if (!$(".concern.open")) click(".concern-toggle"); },
     text: "Tap any line: what it means for you, then the exact sentence it came from. No guesses." },
@@ -148,14 +150,15 @@ function follow(target) {
 /* ---------- Running ---------- */
 
 async function find(step) {
+  if (document.querySelector(".check-screen")) teardown();
   // Tips about the report skip straight away when there's no report on screen.
   if (step.report && !document.querySelector("#results:not([hidden])")) return null;
   const limit = step.wait === "report" ? 150000 : 900, t0 = performance.now();
   for (;;) {
     const n = [...document.querySelectorAll(step.target)].find(visible);
-    if (n) return n;
+    if (n && !document.querySelector(".check-screen")) return n;  // Wait out the checking screen and its "Done!".
     if (performance.now() - t0 > limit) return null;
-    if (step.wait === "report" && performance.now() - t0 > 300 && !ui?.waiting) waitingCard();
+    if (step.wait === "report" && performance.now() - t0 > 300 && !ui?.waiting && !document.querySelector(".check-screen")) waitingCard();
     await new Promise((r) => (waitTimer = setTimeout(r, 150)));
     if (current < 0) return null;  // Closed while waiting.
   }

@@ -3,6 +3,7 @@
 // account (every check, automatically) so the next check shows what changed. Inkwell states facts; the reader decides what matters.
 import { fingerprint, policyId } from "./store.js";
 import { forYou } from "./words.js";
+import { exposureCells, renderDataMap } from "./visuals.js";
 
 // The things a reader can say matter to them, one per report-card check (same ids).
 export const PRIORITIES = [
@@ -156,36 +157,44 @@ function fixConcern(c) {
 function renderExposure() {
   const { el, state, plural } = ui;
   const r = report();
-  const byId = Object.fromEntries((r.concerns || []).map((c) => [c.id, c]));
-  const cells = r.checks.map((k) => {
-    if (k.tone === "bad") return isLimited(byId[k.id] || { steps: [] }) ? "fixed" : "red";
-    return k.tone === "good" ? "green" : "yellow";
-  });
-  const order = { red: 0, fixed: 1, yellow: 2, green: 3 };
-  const sorted = [...cells].sort((a, b) => order[a] - order[b]);
-  const total = cells.filter((c) => c !== "yellow" && c !== "green").length;
-  const left = cells.filter((c) => c === "red").length, fixed = total - left;
+  const cells = exposureCells(r, state.done);
+  const count = (k) => cells.filter((c) => c.kind === k).length;
+  const left = count("red"), fixed = count("fixed"), total = left + fixed;
   const open = (r.concerns || []).filter((c) => c.fixable && !isLimited(c));
   const mins = minutesLeft(r.concerns || []);
-  const dropped = state.lastExposure != null && left < state.lastExposure;
-  state.lastExposure = left;
   const right = !total ? ["Nothing to fix", "No answer here is worth flagging"]
     : !left ? ["All limited ✓", `You limited ${plural(fixed, "thing")}`]
     : open.length ? [`${open.length} you can limit`, fixed ? `${fixed} limited so far · about ${mins} min to go` : `about ${mins} minutes in total`]
     : [`${left} come${left === 1 ? "s" : ""} with the service`, "No step in the policy limits these"];
   const line = !total ? "None of the 8 key questions has an answer worth flagging."
-    : fixed ? `Down from ${total} to ${left}. ${left ? "Keep going: each fix lowers it." : "Nice work."}`
+    : fixed ? `Down from ${total} to ${left}. ${left ? "Keep going: each fix lowers it." : "Nothing left to fix."}`
     : `${plural(total, "answer")} worth knowing. Limit them and this number goes down.`;
   const word = { red: "Worth knowing", fixed: "You limited it", yellow: "Not clearly answered", green: "In your favour" };
   return el("div", { class: "exposure", role: "group", "aria-label": `Your exposure: ${left} of ${cells.length}` },
     el("div", { class: "exp-num" }, el("p", { class: "exp-k" }, "Your exposure"),
-      el("p", { class: `exp-big${dropped ? " drop" : ""}` }, String(left), el("small", {}, ` of ${cells.length}`))),
+      el("p", { class: "exp-big" }, String(left), el("small", {}, ` of ${cells.length}`))),
     el("div", { class: "exp-bar" },
-      el("div", { class: "exp-cells", "aria-hidden": "true" }, sorted.map((c) => el("i", { class: c, title: word[c] }))),
-      el("div", { class: "exp-legend" }, ["red", "fixed", "yellow", "green"].filter((c) => c !== "fixed" || fixed)
-        .map((c) => el("span", {}, el("b", { class: c }), `${word[c]} ${cells.filter((x) => x === c).length}`)))),
+      el("div", { class: "exp-cells", "aria-hidden": "true" }, cells.map((c) => el("i", { class: c.kind, title: `${c.title}: ${word[c.kind].toLowerCase()}` }))),
+      el("div", { class: "exp-legend" }, ["red", "fixed", "yellow", "green"].filter((k) => k !== "fixed" || fixed)
+        .map((k) => el("span", {}, el("b", { class: k }), `${word[k]} ${count(k)}`)))),
     el("div", { class: "exp-side" }, el("strong", {}, right[0]), el("small", {}, right[1])),
     el("p", { class: "exp-line" }, el("span", { class: fixed ? "exp-win" : null }, line), ` It counts what the policy allows and what you've changed; it isn't a rating of ${company()}.`));
+}
+
+/** "Where your data goes": who the policy says gets your data, drawn as a map, with the fix for each. */
+function renderMap() {
+  const { state } = ui;
+  const r = report();
+  const segments = state.result?.segments;
+  // Saved reports keep the map's sentences (report.dataFlows), since the full policy text is never stored.
+  if (!r || !(segments || r.dataFlows)) return null;
+  return renderDataMap({
+    segments, flows: r.dataFlows, report: r, company: company(), isLimited,
+    selected: state.mapPick,
+    onSelect: (key) => { state.mapPick = key; ui.refresh(); document.querySelector(`.dmap-item[aria-pressed="true"]`)?.focus({ preventScroll: true }); },
+    onFix: (id) => { const c = r.concerns.find((k) => k.id === id); if (c) fixConcern(c); },
+    onQuote: state.savedView ? null : (segment) => ui.select(segment),
+  });
 }
 
 /* ---------- The decision: what agreeing means, then the reader's choice ---------- */
@@ -213,6 +222,7 @@ export function renderDecision() {
     summary ? el("details", { class: "more-info", open: state.moreOpen, ontoggle: (e) => { state.moreOpen = e.target.open; } }, el("summary", {}, `Also: ${summary}`),
       others.length ? el("p", { class: "fine" }, el("strong", {}, "You didn't pick: "), others.map((c) => c.title.toLowerCase()).join(", "), ".") : null,
       unclear.length ? el("p", { class: "fine" }, el("strong", {}, "Not clearly answered: "), unclear.map((c) => (PRIORITY_LABEL[c.id] || c.title).toLowerCase()).join(", "), ".") : null) : null,
+    renderMap(),
     state.decision ? renderDecided(state.decision) : renderChoices(shown),
     renderSaveRow());
 }
@@ -561,7 +571,7 @@ export function openSaved(id) {
   state.savedView = { id };
   state.result = { report: doc.report, coverage: {}, segments: [], faqs: {} };
   state.current = { id, name: doc.name, url: doc.url || "", fingerprint: doc.fingerprint, saved: true };
-  state.decision = doc.decision || null; state.lastExposure = null; state.done = { ...(doc.done || {}) }; state.changes = null;
+  state.decision = doc.decision || null; state.mapPick = null; state.done = { ...(doc.done || {}) }; state.changes = null;
   document.getElementById("workspace").hidden = true;
   document.getElementById("intro").hidden = true;
   const banner = document.getElementById("saved-banner");

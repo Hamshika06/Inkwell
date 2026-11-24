@@ -136,3 +136,23 @@ a.mm-feature:hover { text-decoration: none; filter: brightness(1.02); }
 /* The Guides page has its own stylesheet: guides.css. */
 @media (max-width: 560px) { .rv-form, .rv-thanks { padding: 22px 18px 18px; } .stars.big { --size: 36px; } }
 .mm-feature > .mm-pill { justify-self: start; }
+
+/* ---------- Where your data goes: the feature page ---------- */
+.dmp { padding-top: 56px; padding-bottom: 80px; }
+.dmp-hero { max-width: 760px; }
+.dmp-hero h1 { margin: 14px 0 12px; font: 600 clamp(32px, 4.4vw, 52px)/1.08 var(--font-display); letter-spacing: -.02em; }
+.dmp-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+.dmp-demo { margin-top: 34px; }
+.dmp-example { margin: 0 0 8px; font-size: 13.5px; color: var(--text-3); }
+.dmp-demo .dmap { margin: 0; padding: 22px; box-shadow: var(--shadow); }
+.dmp-how { margin-top: 52px; scroll-margin-top: 90px; }
+.dmp-how h2 { margin: 0 0 16px; font: 600 30px var(--font-display); }
+.dmp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.dmp-grid article { padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.dmp-grid h3 { margin: 10px 0 4px; font: 600 17px var(--font-display); }
+.dmp-grid p { margin: 0; color: var(--text-2); font-size: 14px; line-height: 1.5; }
+@media (max-width: 860px) { .dmp-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .dmp-grid { grid-template-columns: 1fr; } }
+.dmp-demo .dmap-body { grid-template-columns: minmax(0, 2.2fr) minmax(240px, 1fr); }
+.dmp-grid .key { display: block; }
+@media (max-width: 760px) { .dmp-demo .dmap-body { grid-template-columns: 1fr; } }

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inkwell · Where your data goes</title>
+  <meta name="description" content="See who gets your data, from a privacy policy's own words: advertisers, analytics, partners. Then cut the lines you don't want.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="community.css">
+  <link rel="stylesheet" href="report.css">
+  <link rel="stylesheet" href="tour.css">
+  <script>document.documentElement.classList.add("js"); try { var t = localStorage.getItem("inkwell-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script src="config.js"></script>
+  <script type="module" src="data-map.js"></script>
+</head>
+<body class="home">
+  <header class="nav scrolled">
+    <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="compare.html">Compare</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="guides.html">Guides</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button type="button" class="icon-btn" id="theme" aria-label="Switch light or dark theme" title="Switch theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-ghost" id="nav-signin" href="login.html">Sign in</a>
+      <a class="btn btn-primary" id="nav-cta" href="app.html">Try it free</a>
+    </div>
+  </header>
+
+  <main class="wrap dmp">
+    <section class="dmp-hero">
+      <span class="mm-pill new">New feature</span>
+      <h1>Where does your data go?</h1>
+      <p class="lead">Policies bury it in sentences like “we may share with trusted partners”. Inkwell draws it as a map: you, the company, and everyone the policy says gets your data. Then it shows which lines you can cut.</p>
+      <div class="dmp-ctas"><a class="btn btn-primary btn-lg" href="app.html">Map a policy now</a><a class="btn btn-lg" href="app.html?sample=1">Try it on the sample</a></div>
+    </section>
+    <section class="dmp-demo" aria-label="Example map">
+      <p class="dmp-example">Example: Pigeonpost, a made-up app. Tap anyone on the map.</p>
+      <div id="dmp-map"></div>
+    </section>
+    <section class="dmp-how" id="how">
+      <h2>Reading the map</h2>
+      <div class="dmp-grid">
+        <article><i class="key key-red" aria-hidden="true"></i><h3>Red line</h3><p>Your data goes there, and the policy gives you a way to stop it. <b>Fix it</b> takes you straight to the setting or writes the request.</p></article>
+        <article><i class="key key-grey" aria-hidden="true"></i><h3>Grey line</h3><p>Your data goes there as part of running the service, like hosting or payments. Your choice is whether to use it.</p></article>
+        <article><i class="key key-dash" aria-hidden="true"></i><h3>Dashed line</h3><p>Only in some cases, such as when the law requires it or if the company is sold.</p></article>
+        <article><i class="key key-dot" aria-hidden="true"></i><h3>Dotted line</h3><p>You already limited it. Your exposure score went down when you did.</p></article>
+      </div>
+      <p class="fine">Every name on the map comes from a sentence in the policy, and tapping it shows that sentence. If a policy doesn't name who it shares with, the map says so instead of guessing.</p>
+    </section>
+  </main>
+
+
+  <footer class="home-footer">
+    <div class="wrap">
+      <a class="brand" href="/"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-name">Inkwell</span></a>
+      <p>Inkwell by Token Economy · University of Maryland</p>
+      <p class="fine">Not legal advice. Verdicts are based on the wording of the text you submit and may miss things said in other words.</p>
+      <nav aria-label="Footer"><a href="/">Home</a><a href="reviews.html">Reviews</a><a href="guides.html">Guides</a><a href="/#faq">FAQ</a><a href="app.html">Open Inkwell</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

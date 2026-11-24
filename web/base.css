@@ -143,3 +143,16 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* The inkwell (checking screen, "Done!", home page) */
+.inkwell { --level: 0; width: 64px; margin: 0 auto 6px; }
+.inkwell svg { display: block; width: 100%; height: auto; overflow: visible; }
+.inkwell .iw-ink { transform-box: fill-box; transform-origin: 50% 100%; transform: translateY(calc((1 - var(--level)) * 100%)); }
+.inkwell .iw-glass { stroke: var(--border-strong); stroke-width: 2; }
+.inkwell .iw-neck { fill: #171d55; } .inkwell .iw-cap { fill: #2a3270; }
+.inkwell .iw-shadow { fill: #11163a; opacity: .12; }
+.inkwell .iw-drop { opacity: 0; }
+.inkwell.full .iw-drop { animation: iw-drop .8s cubic-bezier(.5, 0, .9, .5) .2s; }
+@keyframes iw-drop { 0% { opacity: 1; transform: translateY(-14px); } 85% { opacity: 1; transform: translateY(34px); } 100% { opacity: 0; transform: translateY(38px); } }
+.inkwell.big { width: 120px; margin-bottom: 14px; }
+@media (prefers-reduced-motion: reduce) { .inkwell.full .iw-drop { animation: none; } }

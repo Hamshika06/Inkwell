@@ -25,15 +25,16 @@ function featuresPanel() {
   return el("div", { class: "mm-panel", id: "mm-features", role: "menu", "aria-label": "Features", hidden: true },
     el("div", {}, el("h5", {}, "Check"),
       item("✎", "Check a policy", "Paste a link or text. See what it allows, with the exact sentences.", "app.html", { pill: ["free", "Free"] }),
-      item("▦", "Privacy report card", "8 key questions, what you can limit, and ready-to-send requests.", "app.html?sample=1")),
+      item("▦", "Privacy report card", "8 key questions, what you can limit, and ready-to-send requests.", "app.html?sample=1"),
+      item("◎", "Where your data goes", "A map of who gets your data, from the policy's own words.", "data-map.html", { hl: true, pill: ["new", "New"] })),
     el("div", {}, el("h5", {}, "Go further"),
       item("⇄", "Compare two policies", "Side by side, differences first. Never picks a winner.", "compare.html"),
       item("◫", "Your dashboard", "Every check saved. Check again later to see what changed.", "dashboard.html"),
-      item("⬡", "Chrome extension", "Check a site's policy before you sign up. Fix things in one click.", "guides.html#extension", { hl: true, pill: ["new", "New"] })),
+      item("⬡", "Chrome extension", "Check a site's policy before you sign up. Fix things in one click.", "guides.html#extension")),
     el("div", {}, el("h5", {}, "Featured"),
-      el("a", { class: "mm-feature", href: "guides.html#extension" }, el("span", { class: "mm-pill new" }, "New"),
-        el("p", {}, "Fix it, don't just read it: one switch tells every site not to sell your data."),
-        el("span", { class: "mm-go" }, "About the extension →"))));
+      el("a", { class: "mm-feature", href: "data-map.html" }, el("span", { class: "mm-pill new" }, "New"),
+        el("p", {}, "See where your data goes: advertisers, analytics, partners. Then cut the lines you don't want."),
+        el("span", { class: "mm-go" }, "Explore the data map →"))));
 }
 
 function resourcesPanel() {
@@ -41,7 +42,8 @@ function resourcesPanel() {
   const panel = el("div", { class: "mm-panel", id: "mm-resources", role: "menu", "aria-label": "Resources", hidden: true },
     el("div", {}, el("h5", {}, "Learn"),
       item("❖", "Guides", "What really happens to your data when you click “I agree”.", "guides.html"),
-      item("?", "What we check", "The 8 key questions, and how we find the answers.", home("#checks"))),
+      item("?", "What we check", "The 8 key questions, and how we find the answers.", home("#checks")),
+      item("◎", "Reading the data map", "What the red, grey and dashed lines mean, and how to cut them.", "data-map.html#how")),
     el("div", {}, el("h5", {}, "Community"),
       item("★", "Reviews", "Read what people think of Inkwell, and how they rated it.", "reviews.html", { hl: true }),
       item("✍", "Rate Inkwell", "Tell us how it went. Takes a minute.", null, { onclick: rate })),

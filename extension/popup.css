@@ -108,3 +108,44 @@ blockquote { margin: 6px 0 2px; padding: 6px 10px; border-left: 3px solid #a9b1d
 .rate-star:focus-visible { outline: 3px solid #8f9cff; outline-offset: 1px; border-radius: 4px; color: #f2b01e; }
 .btn.ghost.rate-btn { border-color: #f3dca0; background: #fff8e8; }
 .small-link { display: block; margin: 8px auto 0; font-size: 12.5px; }
+
+/* Depth: the groups sit at different heights (red closest), and the card leans toward the mouse. */
+body { perspective: 900px; }
+#view { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d; transition: transform .25s ease-out; }
+.grp { position: relative; transition: transform .25s, box-shadow .25s; }
+.grp.red { transform: translateZ(26px) translateY(-1px); box-shadow: 0 14px 22px -14px rgba(184, 50, 42, .55); }
+.grp.yel { transform: translateZ(12px); box-shadow: 0 10px 18px -14px rgba(138, 78, 0, .45); }
+.grp.grn { box-shadow: 0 6px 12px -10px rgba(23, 104, 59, .35); }
+
+/* The fix switch */
+.fx-switch { position: relative; flex: none; display: inline-block; width: 46px; height: 26px; cursor: pointer; }
+.fx-switch input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.fx-track { position: absolute; inset: 0; border-radius: 999px; background: #d3d8ef; box-shadow: inset 0 2px 4px rgba(0, 0, 0, .2); transition: background .25s, box-shadow .25s; }
+.fx-thumb { position: absolute; left: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(180deg, #fff, #e9ecf6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3); transition: transform .3s cubic-bezier(.3, 1.4, .5, 1); }
+.fx-switch input:checked + .fx-track { background: linear-gradient(180deg, #2f9e62, #46b97a); box-shadow: 0 0 12px rgba(47, 158, 98, .55); }
+.fx-switch input:checked + .fx-track .fx-thumb { transform: translateX(20px); }
+.fx-switch input:focus-visible + .fx-track { outline: 3px solid #8f9cff; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { #view, .grp, .fx-track, .fx-thumb { transition: none; } }
+
+/* Where your data goes: the small button and the folding orbit */
+.map-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 38px; margin: 4px 0 0; border: 1px solid #a9b1d8;
+  border-radius: 10px; background: #fff; color: var(--brand); font: 600 13.5px system-ui, sans-serif; cursor: pointer; }
+.map-btn:hover { background: #f0f2fc; }
+.map-panel { margin: 6px 0 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; display: grid; gap: 8px; }
+.map-art { border-radius: 10px; background: radial-gradient(ellipse at 52% 55%, #f3f5ff, #fff 70%); }
+.map-art svg { display: block; }
+.map-art .planet { cursor: pointer; animation: planet-float 5s ease-in-out infinite; animation-delay: calc(var(--i) * -0.9s); }
+@keyframes planet-float { 50% { transform: translateY(-3px); } }
+.map-art .ring-line { animation: ring-turn 24s linear infinite; }
+@keyframes ring-turn { to { stroke-dashoffset: -660; } }
+.map-pick { display: flex; flex-wrap: wrap; gap: 5px; }
+.map-chip { border: 1px solid #d3d8ef; background: #fff; border-radius: 999px; padding: 3px 9px; font: 600 11.5px system-ui, sans-serif; color: #3b4268; cursor: pointer; }
+.map-chip.k-limit { color: #b8322a; border-color: #f6c9c5; } .map-chip.k-limited { color: #17683b; border-color: #bfe3cd; }
+.map-chip.on { background: #e1e5fc; border-color: var(--brand); }
+.map-key { display: flex; flex-wrap: wrap; gap: 4px 10px; margin: 0; font-size: 11px; font-weight: 600; }
+.map-key .k-limit { color: #b8322a; } .map-key .k-service { color: #5f6584; } .map-key .k-some { color: #7d84ad; }
+.map-quote { margin: 0; padding: 9px 10px; border-radius: 9px; background: #f0f2fc; font: 12.5px/1.45 Georgia, serif; color: var(--ink); }
+.map-actions { display: flex; align-items: center; gap: 8px; }
+.map-fold { justify-self: center; font-size: 12.5px; }
+@media (prefers-reduced-motion: reduce) { .map-art .planet, .map-art .ring-line { animation: none; } }

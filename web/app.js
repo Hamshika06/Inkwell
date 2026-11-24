@@ -2,8 +2,9 @@
 import { isLeaving, renderAccountMenu } from "./account.js";
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { afterAnalysis, initDecide, loadPriorities, loadSaved, openSaved, priorityChips, renderDecision, renderPasteFocus, renderSteps, startRecheck } from "./decide.js";
-import { inkLine } from "./progress.js";
+import { checkScreen, inkLine } from "./progress.js";
 import { glossify } from "./words.js";
+import { readDataFlows } from "./visuals.js";
 import { initTour } from "./tour.js";
 import { askAfterSteps, openReviewModal } from "./reviews.js";
 import { openStore } from "./store.js";
@@ -277,9 +278,10 @@ async function run(linkUrl = null, confirmed = false) {
   }
   setStatus("");
   $("run").disabled = true;
-  $("ink").hidden = false;
-  const ink = inkLine($("ink"), stageNames());
-  const stop = (message = "", kind = "") => { ink.fail(); $("ink").hidden = true; $("run").disabled = false; setStatus(message, kind); };
+  // The check takes over the page: the inkwell fills as the line moves, then "Done!", then the results.
+  const screen = checkScreen();
+  const ink = inkLine(screen.box, stageNames(), { big: true });
+  const stop = (message = "", kind = "") => { ink.fail(); screen.close(); $("run").disabled = false; setStatus(message, kind); };
   if (link) {
     ink.stage(0, `Step 1 of 3 · Reading ${link.replace(/^https?:\/\//i, "").slice(0, 48)}…`, 4000);
     if (!(await readLink(link, confirmed, true))) { const message = $("status").textContent; return stop(message, $("status").className.includes("error") ? "error" : ""); }
@@ -302,17 +304,22 @@ async function run(linkUrl = null, confirmed = false) {
   } catch (error) {
     return stop(error.message, "error");
   }
+  // A short "Done!" breather, then the screen fades away to the results waiting underneath.
+  const who = result.report?.company;
+  await screen.done("Done!", state.guest ? `Your breakdown${who ? ` of ${who}'s policy` : ""} is ready.` : `Your report card${who ? ` for ${who}` : ""} is ready.`);
   $("run").disabled = false;
   const short = state.source?.text === text && text.length < 3000;
   if (short) setStatus("That page was short, so it may be only part of the policy. If so, paste the full text.");
   else if (note) setStatus(note.trim());
-  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false, lastExposure: null });
+  if (result.report) result.report.dataFlows = readDataFlows(result.segments);  // Kept with saved work for the map.
+  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false, mapPick: null });
   showBreakdown(state.guest);  // Free checks open on the breakdown; accounts open on the report card.
   renderResults();
   $("results").classList.remove("reveal"); void $("results").offsetWidth; $("results").classList.add("reveal");
-  await afterAnalysis(text);
   showTab("overview");
-  $("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("results").scrollIntoView({ block: "start" });  // In place before the screen fades, so it reveals the report.
+  await screen.close();
+  await afterAnalysis(text);
 }
 
 /* ---------- Results ---------- */
