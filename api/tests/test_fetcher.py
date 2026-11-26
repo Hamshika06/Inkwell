@@ -154,6 +154,39 @@ class FlowTests(unittest.TestCase):
                 read_policy("https://a.example/privacy", confirmed=True)
         self.assertIn("copy the policy text", caught.exception.detail)
 
+    # ---- Smaller sites ----
+
+    def test_policy_inside_an_aside_is_read(self):
+        html = f'<body><aside class="sidebar"><p>Side menu</p></aside><main><aside class="text-rich-text w-richtext">{POLICY_BODY}</aside></main></body>'
+        text = to_text(extract(html, "https://a.example/privacy-policy"))
+        self.assertIn("We collect", text)
+        self.assertNotIn("Side menu", text)
+
+    def test_a_home_page_that_talks_about_data_is_not_the_policy(self):
+        home = ("<body><main>" + "<p>Your data is safe with us. We protect your personal information and your data with bank-level privacy. "
+                "No third-party sharing of your information without consent.</p>" * 6 + '</main><footer><a href="/privacy-policy">Privacy Policy</a></footer></body>')
+        with self.pages({"https://a.example/": home}):
+            result = read_policy("https://a.example/")
+        self.assertEqual((result["status"], result["url"]), ("confirm", "https://a.example/privacy-policy"))
+
+    def test_an_error_page_instead_of_the_policy_is_reported(self):
+        def fake(url, deadline):
+            return fetcher.Page("https://a.example/Error.htm?ref=1", "<body><p>We'll be right back!</p></body>", "text/html")
+        with mock.patch.object(fetcher, "download", side_effect=fake):
+            with self.assertRaises(FetchError) as caught:
+                read_policy("https://a.example/about/privacy", confirmed=True)
+        self.assertIn("automated readers", caught.exception.detail)
+
+    def test_the_main_site_is_tried_for_a_subdomain(self):
+        with self.pages({"https://app.a.example/": "<body><div id=root></div></body>", "https://www.a.example/privacy": f"<body>{POLICY_BODY}</body>"}):
+            result = read_policy("https://app.a.example/")
+        self.assertEqual((result["status"], result["url"]), ("confirm", "https://www.a.example/privacy"))
+
+    def test_a_confirmed_page_with_no_privacy_wording_is_refused(self):
+        with self.pages({"https://a.example/privacy": "<body><main>" + "<p>Choose your country to continue to the right site.</p>" * 12 + "</main></body>"}):
+            with self.assertRaises(FetchError):
+                read_policy("https://a.example/privacy", confirmed=True)
+
 
 if __name__ == "__main__":
     unittest.main()

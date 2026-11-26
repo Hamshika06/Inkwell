@@ -16,8 +16,8 @@ const PRIORITY_LABEL = Object.fromEntries(PRIORITIES);
 let ui;  // { state, el, plural, select, refresh, showResults, setStatus }
 export function initDecide(context) { ui = context; }
 
-const report = () => ui.state.result?.report;
-const company = () => ui.state.current?.name || report()?.company || "the company";
+export const report = () => ui.state.result?.report;
+export const company = () => ui.state.current?.name || report()?.company || "the company";
 const dateText = (iso) => (iso ? new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "");
 
 /* ---------- What you care about: a filter on the list, applied as you tap ---------- */
@@ -89,7 +89,7 @@ export function renderPasteFocus() {
     el("p", { class: "paste-picked", role: "status" }, mine.length ? `✓ We'll focus on the ${plural(mine.length, "thing")} you picked.` : "Nothing picked: we'll show everything."));
 }
 
-function renderFocus() {
+export function renderFocus() {
   const { el, state } = ui;
   const mine = state.priorities || [];
   if (state.editingFocus) {
@@ -120,33 +120,25 @@ const SPEED = {
   site: ["set", "⚙ On their website", "~3 min", 3],
   request: ["req", "✉ Request", "up to 45 days", 2],
 };
-const speedOf = (st) => (st.kind === "tip_location" ? SPEED.device : st.to ? SPEED.request : st.target?.kind === "settings" ? SPEED.settings : SPEED.site);
+export const speedOf = (st) => (st.kind === "tip_location" ? SPEED.device : st.to ? SPEED.request : st.target?.kind === "settings" ? SPEED.settings : SPEED.site);
 
 /** The quickest of a concern's steps (they're alternatives: a setting or a request both limit it). */
-function bestStep(c) {
+export function bestStep(c) {
   const rank = (st) => (st.to ? 99 : speedOf(st)[3]);
   return report().steps.filter((st) => c.steps.includes(st.id)).sort((a, b) => rank(a) - rank(b))[0] || null;
 }
 
 /** A concern is limited once any of its steps is ticked. */
-const isLimited = (c) => c.fixable && c.steps.some((id) => ui.state.done?.[id]);
+export const isLimited = (c) => c.fixable && c.steps.some((id) => ui.state.done?.[id]);
 
-function minutesLeft(concerns) {
+export function minutesLeft(concerns) {
   return concerns.filter((c) => c.fixable && !isLimited(c)).reduce((sum, c) => sum + (speedOf(bestStep(c) || {})[3] || 2), 0);
 }
 
-/** Opens the steps on this concern's quickest fix. */
-function fixConcern(c) {
-  const { state } = ui;
+/** Opens the Fix tab on this concern's quickest fix. */
+export function fixConcern(c) {
   const step = bestStep(c);
-  if (!step) return;
-  state.showSteps = true;
-  state.stepAt = report().steps.indexOf(step);
-  state.openRequest = step.to ? step.id : null;
-  ui.refresh();
-  const card = document.getElementById(`step-${step.id}`) || document.getElementById("steps");
-  card?.scrollIntoView({ behavior: "smooth", block: "center" });
-  document.getElementById("guided")?.focus({ preventScroll: true });
+  if (step) ui.openFix?.(step.id);
 }
 
 /**
@@ -182,7 +174,7 @@ function renderExposure() {
 }
 
 /** "Where your data goes": who the policy says gets your data, drawn as a map, with the fix for each. */
-function renderMap() {
+export function renderMap() {
   const { state } = ui;
   const r = report();
   const segments = state.result?.segments;
@@ -265,15 +257,15 @@ function choice(id, label) {
   return ui.el("button", { type: "button", class: "btn btn-lg decision-btn", onclick: () => decide(id) }, label);
 }
 
-function decide(id) {
+export function decide(id) {
   const { state } = ui;
   state.decision = id;
   ui.refresh();
   autosave({ decision: id });
-  if (id === "steps") document.getElementById("steps")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (id === "steps") ui.openFix?.();
 }
 
-function changeAnswer() {
+export function changeAnswer() {
   const { state } = ui;
   state.decision = null; state.showSteps = false;
   ui.refresh();
@@ -378,15 +370,18 @@ function stepCard(step, i, total, checked) {
       i > 0 ? el("button", { type: "button", class: "link", onclick: () => goToStep(i - 1) }, "Back") : null));
 }
 
-function tick(id, on) {
+export function tick(id, on) {
   const { state } = ui;
+  const fixable = (report()?.concerns || []).filter((c) => c.fixable);
+  const allBefore = fixable.length && fixable.every(isLimited);
   state.done = { ...(state.done || {}), [id]: on };
   if (!on) delete state.done[id];
   ui.refresh();
   autosave({ done: state.done });
-  // The last step just got ticked: the app may ask for a review (once).
+  // Everything that can be limited now is, or every step is done: the app may ask for a review (once).
   const steps = report()?.steps || [];
-  if (on && steps.length && steps.every((st) => state.done[st.id])) {
+  const allNow = fixable.length && fixable.every(isLimited);
+  if (on && ((allNow && !allBefore) || (steps.length && steps.every((st) => state.done[st.id])))) {
     document.dispatchEvent(new CustomEvent("inkwell:steps-done", { detail: { site: company(), total: steps.length } }));
   }
 }
@@ -409,7 +404,7 @@ const TEMPLATES = {
   }),
 };
 
-function requestEditor(step) {
+export function requestEditor(step) {
   const { el, state } = ui;
   const user = state.user;
   const f = state.requestFields ||= { name: user?.displayName || "", email: user?.email || "" };
@@ -483,7 +478,7 @@ function diff(before, after) {
     .map((k) => ({ id: k, title: titles[k], from: before[k].label, to: after[k].label }));
 }
 
-function renderChanges() {
+export function renderChanges() {
   const { el, state } = ui;
   const ch = state.changes;
   if (!ch) return null;
@@ -564,7 +559,7 @@ export function startRecheck(id) {
 
 /** dashboard.html -> app.html?open=id: the saved report card and checklist, ready to carry on. */
 export function openSaved(id) {
-  const { el, state } = ui;
+  const { state } = ui;
   const doc = state.saved?.[id];
   if (!doc) return ui.setStatus("That saved check isn't in your dashboard any more. You can start a new one here.", "error");
   if (!doc.report) return startRecheck(id);  // Saved before reports were kept.
@@ -572,14 +567,7 @@ export function openSaved(id) {
   state.result = { report: doc.report, coverage: {}, segments: [], faqs: {} };
   state.current = { id, name: doc.name, url: doc.url || "", fingerprint: doc.fingerprint, saved: true };
   state.decision = doc.decision || null; state.mapPick = null; state.done = { ...(doc.done || {}) }; state.changes = null;
-  document.getElementById("workspace").hidden = true;
-  document.getElementById("intro").hidden = true;
-  const banner = document.getElementById("saved-banner");
-  banner.hidden = false;
-  banner.replaceChildren(
-    el("div", {}, el("strong", {}, doc.name), el("p", { class: "fine" }, `Saved work, last checked ${dateText(doc.checkedAt)}. Your changes here save automatically.`)),
-    el("div", { class: "saved-actions" },
-      el("a", { class: "btn", href: `app.html?recheck=${encodeURIComponent(id)}` }, "Check the latest version"),
-      el("a", { class: "btn btn-primary", href: "app.html" }, "Start a new check")));
+  state.savedView.checkedAt = doc.checkedAt;
   ui.showResults();
 }
+export { dateText };

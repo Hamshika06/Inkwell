@@ -3,6 +3,7 @@
 // or after signing in to review), it opens the review form straight away.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
 import { mountMenus } from "./menu.js";
+import { mountShell } from "./shell.js";
 import { initTour } from "./tour.js";
 import { fmt, openReviewModal, openReviews, reviewCard, signInToReview, starsView } from "./reviews.js";
 import { el } from "./shared.js";
@@ -94,7 +95,7 @@ async function load() {
 
 async function start() {
   $("theme").addEventListener("click", toggleTheme);
-  mountMenus(document.querySelector(".nav-links"));
+  mountMenus(document.querySelector(".nav-links")); mountShell("reviews.html");
   $("rvp-sort").replaceChildren(...SORTS.map(([key, label]) => el("option", { value: key }, label)));
   $("rvp-sort").addEventListener("change", (e) => { page.sort = e.target.value; render(); });
   try {

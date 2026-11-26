@@ -17,7 +17,7 @@ const TIERS = {
   now: { cls: "now", icon: "⚡", text: "Fix now" },
   set: { cls: "set", icon: "⚙", text: "In settings · ~2 min" },
   req: { cls: "req", icon: "✉", text: "Request" },
-  none: { cls: "none", icon: "—", text: "Comes with the service" },
+  none: { cls: "none", icon: "○", text: "Comes with the service" },
 };
 
 const show = (...nodes) => { root.replaceChildren(...nodes); root.scrollTop = 0; };
@@ -72,6 +72,36 @@ async function api(path, body, timeoutMs = 90000) {
   }
 }
 
+/**
+ * Runs inside the open tab: the page's own text, split into paragraphs, and its links. This is the page as your browser
+ * already shows it, so it works on sites that turn automated readers away or build their text with JavaScript.
+ */
+function readThisPage() {
+  const clean = (t) => (t || "").replace(/[ \t\u00a0]+/g, " ").trim();
+  const roots = [...document.querySelectorAll("main, article, [role=main], .policy, #policy, .privacy, #privacy")];
+  const root = roots.sort((a, b) => b.innerText.length - a.innerText.length)[0];
+  const from = root && root.innerText.length > 1500 ? root : document.body;
+  const lines = from.innerText.split(/\n+/).map(clean).filter(Boolean);
+  const paragraphs = [];
+  let heading = "";
+  for (const line of lines) {
+    const looksLikeHeading = line.length < 90 && !/[.:;]$/.test(line) && line.split(" ").length <= 12;
+    if (looksLikeHeading) { heading = heading ? `${heading}\n${line}` : line; continue; }
+    paragraphs.push(heading ? `${heading}\n${line}` : line);
+    heading = "";
+  }
+  while (paragraphs.length > 190) {  // the server reads up to 200 paragraphs: join neighbours until it fits
+    for (let i = 0; i + 1 < paragraphs.length; i++) paragraphs.splice(i, 2, `${paragraphs[i]}\n${paragraphs[i + 1]}`);
+  }
+  const text = paragraphs.join("\n\n");
+  const title = clean(document.title + " " + (document.querySelector("h1")?.innerText || ""));
+  const words = (text.match(/personal (?:information|data)|your (?:information|data)|third[- ]part|cookies|we collect|privacy/gi) || []).length;
+  const own = (text.match(/\b(?:this|our) (?:privacy |data )?(?:policy|notice|statement)\b/gi) || []).length;
+  const named = /privacy|data[- ]?policy|privacy[- ]?notice/i.test(location.pathname + " " + title);
+  const links = [...from.querySelectorAll("a[href]")].slice(0, 600).map((a) => [clean(a.innerText || a.getAttribute("aria-label")).slice(0, 200), a.href]);
+  return { url: location.href, title, text, links, isPolicy: text.length > 1200 && words >= 8 && (named || own >= 3) };
+}
+
 /* ---------- Start ---------- */
 
 async function init() {
@@ -96,6 +126,7 @@ async function init() {
       el("p", {}, "Go to a site you're about to sign up for, then click the Inkwell icon again.")));
   }
   try { S.scan = await runInPage(scanPage); } catch { S.scan = null; }  // Some pages (like the Chrome Web Store) can't be read.
+  try { S.page = await runInPage(readThisPage); } catch { S.page = null; }
   const cached = (await chrome.storage.session.get(resultKey()))[resultKey()];
   if (cached) { S.result = cached; return cardView(); }
   homeView();
@@ -125,6 +156,13 @@ function homeView() {
   if (who) nodes.push(el("p", { class: "who" }, "✓ Signed in as ", who));
   const tips = tipsBlock();
   if (tips) nodes.push(tips);
+  if (S.page?.isPolicy) {
+    nodes.push(el("p", { class: "tight" }, el("strong", {}, `This page is ${siteName()}'s privacy policy.`)),
+      el("button", { class: "btn", id: "check", onclick: () => checkThisPage() }, "Check this page"),
+      el("p", { class: "fine" }, "Read straight from your browser, so it works even on sites that block automated readers."),
+      el("p", { class: "status", id: "status", role: "status" }));
+    return show(el("div", { class: "pad" }, ...nodes));
+  }
   const found = S.scan?.policy?.[0];
   const input = el("input", { type: "text", class: "input", placeholder: "https://…/privacy", "aria-label": "Link to the privacy policy", inputmode: "url" });
   const manual = el("form", { class: "manual", onsubmit: (e) => {
@@ -176,25 +214,63 @@ function tipsBlock() {
 
 /* ---------- Reading the policy ---------- */
 
-async function check(url) {
+const samePage = (a, b) => { try { const x = new URL(a), y = new URL(b); return x.origin === y.origin && x.pathname.replace(/\/$/, "") === y.pathname.replace(/\/$/, ""); } catch { return false; } };
+
+/** Checks the page that's open, using the text your browser already has. */
+async function checkThisPage() {
   const button = document.getElementById("check");
   if (button) button.disabled = true;
-  setStatus(`Reading ${url.replace(/^https?:\/\//i, "").slice(0, 46)}…`, "busy");
+  setStatus("Checking what it says…", "busy");
   try {
-    const page = await api("/fetch-policy", { url, confirmed: true }, 60000);
-    if (page.status !== "ok") throw new Error("That page doesn't look like a privacy policy. Paste the policy's own link.");
-    setStatus("Checking what it says…", "busy");
-    const { report } = await api("/report", { text: page.text });
-    // Kept for this browser session only, so reopening the popup shows the card again. Not the policy text.
-    const flows = readDataFlows(page.text.split(/\n[ \t]*\n/).map((text, id) => ({ id, text })));
-    S.result = { url: page.url, site: page.site || siteName(), fixes: page.fixes || [], report, flows, gpcMentioned: GPC_WORDS.test(page.text), at: Date.now() };
-    await chrome.storage.session.set({ [resultKey()]: S.result });
-    cardView();
+    const { report, fixes } = await api("/report", { text: S.page.text, url: S.page.url, links: S.page.links });
+    await showResult({ text: S.page.text, url: S.page.url, site: siteName(), fixes }, report);
   } catch (error) {
     if (error.signedOut) return signedOutView();
     setStatus(error.message, "error");
     if (button) button.disabled = false;
   }
+}
+
+async function check(url) {
+  if (S.page?.isPolicy && samePage(url, S.tab.url)) return checkThisPage();
+  const button = document.getElementById("check");
+  if (button) button.disabled = true;
+  setStatus(`Reading ${url.replace(/^https?:\/\//i, "").slice(0, 46)}…`, "busy");
+  try {
+    let page;
+    try {
+      page = await api("/fetch-policy", { url, confirmed: true }, 60000);
+    } catch (error) {
+      // The site turned our server away, or builds the page with scripts: your browser can still read it.
+      if (!error.signedOut && /automated readers|JavaScript/i.test(error.message)) return cantReadLink(url);
+      throw error;
+    }
+    if (page.status !== "ok") throw new Error("That page doesn't look like a privacy policy. Paste the policy's own link.");
+    setStatus("Checking what it says…", "busy");
+    const { report } = await api("/report", { text: page.text });
+    await showResult(page, report);
+  } catch (error) {
+    if (error.signedOut) return signedOutView();
+    setStatus(error.message, "error");
+    if (button) button.disabled = false;
+  }
+}
+
+async function showResult(page, report) {
+  // Kept for this browser session only, so reopening the popup shows the card again. Not the policy text.
+  const flows = readDataFlows(page.text.split(/\n[ \t]*\n/).map((text, id) => ({ id, text })));
+  S.result = { url: page.url, site: page.site || siteName(), fixes: page.fixes || [], report, flows, gpcMentioned: GPC_WORDS.test(page.text), at: Date.now() };
+  await chrome.storage.session.set({ [resultKey()]: S.result });
+  cardView();
+}
+
+/** The policy is on another page that our server can't read: open it, and the extension reads it from there. */
+function cantReadLink(url) {
+  show(el("div", { class: "pad" },
+    el("p", { class: "tight" }, el("strong", {}, `${siteName(url)} doesn't let our server read its policy.`)),
+    el("p", {}, "Open the policy page and click the Inkwell icon again. Inkwell will read it from your browser instead."),
+    el("button", { class: "btn", onclick: () => { openTab(url); window.close(); } }, "Open the policy page"),
+    el("button", { class: "btn ghost", onclick: () => homeView() }, "Back")));
 }
 
 /* ---------- The card ---------- */

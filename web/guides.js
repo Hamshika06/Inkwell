@@ -4,6 +4,8 @@
 // The chosen topic is kept in the address (#sale, #delete, ...) so it can be linked to.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
 import { mountMenus } from "./menu.js";
+import { mountShell } from "./shell.js";
+import { initTour } from "./tour.js";
 import { el } from "./shared.js";
 
 const $ = (id) => document.getElementById(id);
@@ -186,7 +188,7 @@ function select(id, scroll, remember = true) {
       t.snippets.map((s) => el("div", { class: "gd-snip" }, el("span", { class: `gd-tag ${s.tone}` }, s.label), el("q", {}, s.text), el("small", {}, s.note)))),
     el("div", {},
       el("div", { class: "gd-helps" },
-        el("div", { class: "gd-helps-t" }, el("img", { src: "logo.svg", alt: "" }), "How Inkwell helps"),
+        el("div", { class: "gd-helps-t" }, el("img", { src: "logo.svg?v=2", alt: "" }), "How Inkwell helps"),
         el("div", { class: "gd-card", "aria-label": "Example from Inkwell's report card" }, t.card.flatMap((r) => [
           el("div", { class: "gd-row" }, el("b", {}, r.title), el("span", { class: `gd-tag ${r.tone}` }, r.verdict)),
           r.quote ? el("p", { class: "gd-quote" }, `“${r.quote}”`) : null])),
@@ -327,7 +329,7 @@ if (location.hash === "#extension") openExtension();
 addEventListener("hashchange", () => { if (location.hash === "#extension") openExtension(); });
 
 $("theme").addEventListener("click", toggleTheme);
-mountMenus(document.querySelector(".nav-links"));
+mountMenus(document.querySelector(".nav-links")); mountShell("guides.html"); initTour();
 (async () => {
   try {
     const ctx = await startAuth();

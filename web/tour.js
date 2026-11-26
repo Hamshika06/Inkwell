@@ -1,79 +1,122 @@
-// The guided tour: short, catchy tips that walk a new visitor through Inkwell, page by page, from the home page
-// to a finished report, their dashboard and the reviews. Each tip has Next, Skip step and ✕ (✕ or Esc closes the
-// whole tour). A small "Tour" button on every page starts it again; first-time visitors are offered it once.
-// Progress is kept in this browser, so the tour carries on across pages. Tips whose target isn't on screen
-// (for example the dashboard for someone without an account) are skipped without a flash.
+// The guided tour. Each page has its own short tour (3 to 7 stops) that explains what the parts of that page do.
+// It never clicks anything for you and never jumps to another page on its own.
+// Back / Next move between stops (the arrow keys work too). ✕ or Esc closes the tour; your place is kept, so the Tour button
+// offers to carry on from that stop or start again. The checker has two tours: one for the paste screen and one for a report.
 
-const KEY = "inkwell-tour", SEEN = "inkwell-tour-seen";
-const PAGES = { home: "/", app: "/app.html", dashboard: "/dashboard.html", reviews: "/reviews.html" };
+const KEY = "inkwell-tour-v2", SEEN = "inkwell-tour-seen";
 const $ = (s) => document.querySelector(s);
 const visible = (n) => !!n && n.getClientRects().length > 0 && getComputedStyle(n).visibility !== "hidden";
 const click = (s) => $(s)?.click();
 
-/** The tour, in order. page: where it shows; target: what it points at; account: only for signed-in people. */
-const STEPS = [
-  { page: "home", target: ".hero h1", icon: "✒", title: "Fine print, decoded.",
-    text: "Paste any privacy policy. See what it really lets them do, with the exact sentence as proof." },
-  { page: "home", target: ".nav-links", icon: "☰", title: "Everything, one menu away.",
-    text: "Features shows what Inkwell does. Resources has guides, reviews and Rate Inkwell." },
-  { page: "home", target: "#nav-signin", icon: "★", title: "Free account, full report.", signedOut: true,
-    text: "Sign up free for the 8-question report card, your fixes and a dashboard. About 20 seconds." },
-  { page: "home", target: ".hero-ctas [data-cta]", icon: "→", title: "Let's try one.", next: "Take me there",
-    text: "Next opens the checker. Bring a policy, or borrow ours." },
+/** Stops for each page. target: what the stop points at. before: shows the right tab first. account / signedOut: who sees it. */
+const TOURS = {
+  home: { name: "the home page", stops: [
+    { target: ".hero h1", title: "What Inkwell does",
+      text: "Inkwell reads a privacy policy and tells you what it lets the company do with your data. Each answer quotes the sentence it comes from." },
+    { target: ".hero-ctas [data-cta]", title: "Start a check",
+      text: "This opens the checker. Paste a link to any privacy policy, or try the sample policy we provide." },
+    { target: "#checks .check-grid", title: "The 8 questions",
+      text: "Every check answers the same 8 questions, such as “Do they sell my data?” and “Can I delete it?”." },
+    { target: ".nav-links", title: "Learn more",
+      text: "Features explains each part of Inkwell. Resources has short guides on selling, sharing and deleting your data." },
+    { target: "#nav-signin", title: "A free account", signedOut: true,
+      text: "An account is free. It saves your checks and writes opt-out emails for you. You can try a check without one." },
+  ], next: { label: "Open the checker", href: "app.html" } },
 
-  { page: "app", target: "#policy", icon: "⎘", title: "Drop it here.",
-    text: "Paste a link to their privacy page, or the whole policy. Links are quickest." },
-  { page: "app", target: "#sample", icon: "✦", title: "No policy handy?", next: "Use the sample",
-    text: "Borrow ours: Pigeonpost, a made-up app with a very real-looking policy.",
-    action: () => { if (!$("#policy")?.value.trim()) click("#sample"); } },
-  { page: "app", target: "#paste-focus:not([hidden]) .prio-chips", icon: "♥", title: "What matters to you?", account: true,
-    text: "Tap what you care about. Your report puts those first, every time." },
-  { page: "app", target: "#run", icon: "▶", title: "One click. Under a minute.", next: "Check it for me",
-    text: "We read every paragraph, sort it into 5 topics and answer 8 key questions.",
-    action: () => { if (!$("#policy")?.value.trim()) click("#sample"); setTimeout(() => click("#run"), 120); } },
-  { page: "app", target: ".exposure", wait: "report", icon: "◔", title: "Your exposure score.",
-    text: "How many answers are worth knowing. Fix one and watch it drop. Lower is better." },
-  { page: "app", target: ".exposure .exp-cells", report: true, icon: "●", title: "Red. Yellow. Green.",
-    text: "Red: worth knowing. Yellow: the policy doesn't say clearly. Green: in your favour. Fix one and its tile turns green." },
-  { page: "app", target: ".fix-btn", report: true, icon: "⚡", title: "Fix it, fast.",
-    text: "Each line says how long its fix takes: ⚙ settings take minutes; ✉ requests take up to 45 days, and we write them for you." },
-  { page: "app", target: ".dmap", report: true, icon: "◎", title: "Where your data goes.",
-    text: "Everyone the policy says gets your data, on one map. Red lines you can cut; tap any name for the sentence." },
-  { page: "app", target: ".concern-detail .for-you", report: true, icon: "❝", title: "Proof, in plain words.",
-    before: () => { if (!$(".concern.open")) click(".concern-toggle"); },
-    text: "Tap any line: what it means for you, then the exact sentence it came from. No guesses." },
-  { page: "app", target: ".concern-detail .term", report: true, icon: "?", title: "Jargon? Hover it.",
-    text: "Dotted words come with a one-line explanation. “Third parties”, decoded." },
-  { page: "app", target: ".decision-ask, .decided", report: true, icon: "⚖", title: "Your call.",
-    text: "Fix it, accept it, or walk away. Inkwell never decides for you." },
-  { page: "app", target: "#guest-banner:not([hidden])", icon: "★", title: "Want the full report?", signedOut: true,
-    text: "Free checks show the breakdown. A free account adds the report card, fixes and your dashboard." },
-  { page: "app", target: "#app-nav:not([hidden]) a[href='dashboard.html']", icon: "◫", title: "It's all saved.", account: true, next: "Show me",
-    text: "Every check lands on your dashboard, with the steps you've ticked." },
+  app: { name: "the checker", stops: [
+    { target: ".shell-nav", title: "Getting around",
+      text: "This menu goes to every part of Inkwell. Close it with ✕ for more room, and bring it back with ☰." },
+    { target: "#policy", title: "Paste the policy here",
+      text: "Paste a link to a company's privacy policy, or the policy text itself. A link usually works best." },
+    { target: "#sample", title: "No policy to hand?",
+      text: "This fills the box with Pigeonpost, a made-up app, so you can see what a report looks like." },
+    { target: "#run", title: "Run the check",
+      text: "Inkwell reads every paragraph and answers 8 questions, in under a minute. Once the report appears, press Tour again to learn how to read it." },
+    { target: ".shell-search", title: "Search from anywhere",
+      text: "Press Ctrl K (⌘K on a Mac) to check a site or reopen an earlier report from any page." },
+  ] },
 
-  { page: "dashboard", target: "#dash-list", icon: "◫", title: "Your privacy history.", account: true,
-    text: "Open any check to pick up where you left off. Check again later to see what changed." },
-  { page: "dashboard", target: ".app-nav a[href='compare.html']", icon: "⇄", title: "Two apps, side by side.", account: true, next: "Last stop",
-    text: "Compare puts two policies next to each other, differences first. It never picks a winner." },
+  report: { name: "your report", stops: [
+    { target: ".rv-tabs", title: "Five tabs",
+      text: "Overview is the summary. Fix lists what you can change. Proof shows the sentences. Map shows who gets your data. Full policy is the whole text." },
+    { target: ".tile-exposure", before: () => click("#rtab-overview"), title: "Your exposure",
+      text: "How many of the 8 answers are worth knowing about. Red is worth knowing, yellow means the policy isn't clear, green is in your favour. It goes down as you fix things." },
+    { target: ".tile-next", before: () => click("#rtab-overview"), title: "What to do first",
+      text: "The quickest change you can make, and roughly how long it takes. The button opens its steps." },
+    { target: ".fix-layout", before: () => click("#rtab-fix"), title: "The Fix tab",
+      text: "Each fix has short steps. When you've done one, mark it as done and the next one opens. Requests to the company are written for you." },
+    { target: ".proof-layout", before: () => click("#rtab-proof"), title: "The Proof tab",
+      text: "Each answer shows the paragraph it comes from, with the exact sentence highlighted. Words with a dotted underline have a short explanation." },
+    { target: ".map-tab .dmap", before: () => click("#rtab-map"), title: "The Map tab",
+      text: "Everyone the policy says gets your data. Red lines are ones you can limit. Tap a name to read the sentence." },
+    { target: ".decide-row", before: () => click("#rtab-overview"), title: "Your decision",
+      text: "When you've made up your mind, note it here for your own records. Inkwell never contacts the company." },
+    { target: ".guest-offer", title: "The full report", signedOut: true,
+      text: "A free check shows the topics and the full text. A free account adds the answers, the fixes and a dashboard." },
+  ] },
 
-  { page: "reviews", target: ".rvp-score", icon: "☆", title: "Hear it from others.",
-    text: "Real ratings from people who checked a policy. We don't edit them or hide low scores." },
-  { page: "reviews", target: ".rvp-score .btn", icon: "✍", title: "Your turn.", final: true,
-    text: "That's the tour! Rate Inkwell in a minute (halves count), or close the tour and explore." },
-];
+  dashboard: { name: "your dashboard", stops: [
+    { target: ".deck", title: "Your saved checks",
+      text: "Each card is a policy you've checked. Flip through them with the arrows, a swipe, or two fingers on a trackpad." },
+    { target: ".dash-filters", title: "Filters",
+      text: "Needs action shows checks with fixes left. Policy changed lists companies whose policy is different since you checked." },
+    { target: "#dash-list", title: "Pick up where you left off",
+      text: "Fix next opens a report on its next fix. The ⋯ menu lets you check a policy again, rename it or remove it." },
+  ] },
 
-let ctx = { signedIn: false }, current = -1, ui = null, raf = 0, waitTimer = 0;
+  compare: { name: "Compare", stops: [
+    { target: "#box-a", title: "First company",
+      text: "Paste a link to the first company's privacy policy, or its text." },
+    { target: "#box-b", title: "Second company",
+      text: "Do the same for the company you want to compare it with." },
+    { target: "#compare", title: "See the differences",
+      text: "Inkwell lists where the two policies differ first, with the sentences side by side. It doesn't pick a winner." },
+  ] },
 
-const pageNow = () => {
-  const p = location.pathname;
-  return p === "/" || p.endsWith("/index.html") ? "home" : p.endsWith("/app.html") ? "app" : p.endsWith("/dashboard.html") ? "dashboard"
-    : p.endsWith("/reviews.html") ? "reviews" : null;
+  map: { name: "the data map", stops: [
+    { target: ".dmap", title: "The map",
+      text: "The company sits in the middle. Everyone the policy says gets your data is placed around it." },
+    { target: ".dmap-list, .dmap-side, .dmap-body > :last-child", title: "Tap a name",
+      text: "Pick any name to read the sentence that mentions it. If you can limit it, Fix it shows you how." },
+    { target: ".dmp-legend, .dmp-grid", title: "Reading the lines",
+      text: "Red lines you can limit, grey lines come with the service, and dashed lines only happen in some cases." },
+  ] },
+
+  reviews: { name: "Reviews", stops: [
+    { target: ".rvp-score", title: "Ratings",
+      text: "Ratings from people who checked a policy with Inkwell. We don't edit them or hide low scores." },
+    { target: ".rvp-score .btn", title: "Leave a review",
+      text: "Checked a policy? Tell others how it went. Half stars count." },
+  ] },
+
+  guides: { name: "Guides", stops: [
+    { target: "#gd-goals", title: "Choose what you want",
+      text: "Pick a goal, such as deleting your data, and the guide shows the topics that matter for it." },
+    { target: ".gd-map", title: "Topics",
+      text: "Each circle is a topic. Open one to see what policies usually say about it, and how Inkwell helps." },
+  ] },
 };
-const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; } };
-const save = (v) => { try { v ? localStorage.setItem(KEY, JSON.stringify(v)) : localStorage.removeItem(KEY); } catch { /* not remembered */ } };
-const seen = () => { try { return !!localStorage.getItem(SEEN); } catch { return true; } };
-const markSeen = () => { try { localStorage.setItem(SEEN, "1"); } catch { /* fine */ } };
+
+let ctx = { signedIn: false }, run = null, ui = null, raf = 0;
+
+/** Which tour fits what's on screen now. The checker has one tour before a check and another once a report is showing. */
+function tourKey() {
+  const p = location.pathname;
+  if (p === "/" || p.endsWith("/index.html")) return "home";
+  if (p.endsWith("/app.html")) return $("#results:not([hidden]) .rv-head") || $("#results:not([hidden]) .guest-offer") ? "report" : "app";
+  for (const k of ["dashboard", "compare", "reviews", "guides"]) if (p.endsWith(`/${k}.html`)) return k;
+  if (p.endsWith("/data-map.html")) return "map";
+  return null;
+}
 const allowed = (s) => !(s.account && !ctx.signedIn) && !(s.signedOut && ctx.signedIn);
+// Only stops that are on this screen count, so "Stop 1 of 3" is always true. Stops behind a tab (before) are kept.
+const onScreen = (s) => !!s.before || [...document.querySelectorAll(s.target)].some(visible);
+const stopsFor = (key) => (TOURS[key]?.stops || []).filter((s) => allowed(s) && onScreen(s));
+
+const loadPlaces = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+const savePlace = (key, i) => { const all = loadPlaces(); if (i == null) delete all[key]; else all[key] = i; try { localStorage.setItem(KEY, JSON.stringify(all)); } catch { /* not kept */ } };
+const markSeen = () => { try { localStorage.setItem(SEEN, "1"); } catch { /* fine */ } };
+const seen = () => { try { return !!localStorage.getItem(SEEN); } catch { return true; } };
 
 function el(tag, props = {}, ...kids) {
   const n = document.createElement(tag);
@@ -88,36 +131,33 @@ function el(tag, props = {}, ...kids) {
 /* ---------- Drawing ---------- */
 
 function teardown() {
-  cancelAnimationFrame(raf); clearTimeout(waitTimer);
+  cancelAnimationFrame(raf);
   ui?.spot.remove(); ui?.pop.remove();
   ui = null;
   removeEventListener("keydown", onKey, true);
 }
 
 function onKey(e) {
+  if (!run) return;
   if (e.key === "Escape") { e.preventDefault(); closeTour(); }
+  else if (e.key === "ArrowRight" && !e.target.closest?.("input, textarea")) { e.preventDefault(); step(1); }
+  else if (e.key === "ArrowLeft" && !e.target.closest?.("input, textarea")) { e.preventDefault(); step(-1); }
 }
 
-function frame(content, { counter, onSkip, nextLabel, onNext, final } = {}) {
+function card(content, actions, counter) {
   teardown();
   const spot = el("div", { class: "tour-spot", "aria-hidden": "true" });
-  const total = STEPS.filter(allowed).length, at = STEPS.slice(0, Math.max(0, current + 1)).filter(allowed).length;
   const pop = el("div", { class: "tour-pop", role: "dialog", "aria-modal": "false", "aria-labelledby": "tour-title" },
     el("div", { class: "tour-top" },
-      counter ? el("span", { class: "tour-count" }, `${at} / ${total}`) : el("span", { class: "tour-count" }, "Inkwell tour"),
-      counter ? el("span", { class: "tour-track", "aria-hidden": "true" }, el("i", { style: `width:${(at / total) * 100}%` })) : null,
-      el("button", { type: "button", class: "tour-x", "aria-label": "Close the tour", title: "Close the tour", onclick: closeTour }, "✕")),
-    content,
-    el("div", { class: "tour-actions" },
-      onSkip ? el("button", { type: "button", class: "tour-skip", onclick: onSkip }, "Skip step") : el("span"),
-      final ? el("button", { type: "button", class: "tour-skip", onclick: closeTour }, "Close tour") : null,
-      onNext ? el("button", { type: "button", class: "tour-next", onclick: onNext }, nextLabel || "Next →") : null));
+      el("span", { class: "tour-count" }, counter ? `Stop ${counter[0]} of ${counter[1]}` : "Tour"),
+      counter ? el("span", { class: "tour-track", "aria-hidden": "true" }, el("i", { style: `width:${(counter[0] / counter[1]) * 100}%` })) : null,
+      el("button", { type: "button", class: "tour-x", "aria-label": "Close the tour (you can carry on later)", title: "Close (you can carry on later)", onclick: closeTour }, "✕")),
+    content, el("div", { class: "tour-actions" }, actions));
   document.body.append(spot, pop);
   ui = { spot, pop };
   updateLauncher();
   addEventListener("keydown", onKey, true);
-  pop.querySelector(".tour-next, .tour-x")?.focus({ preventScroll: true });
-  return ui;
+  pop.querySelector(".tour-next")?.focus({ preventScroll: true });
 }
 
 function place(target) {
@@ -127,6 +167,7 @@ function place(target) {
   if (!target || !visible(target)) {
     spot.style.cssText = "opacity:0";
     pop.style.cssText = `left:${Math.max(12, (vw - pop.offsetWidth) / 2)}px; top:${Math.max(12, (vh - pop.offsetHeight) / 2)}px`;
+    delete pop.dataset.side;
     return;
   }
   const r = target.getBoundingClientRect();
@@ -149,124 +190,124 @@ function follow(target) {
 
 /* ---------- Running ---------- */
 
-async function find(step) {
-  if (document.querySelector(".check-screen")) teardown();
-  // Tips about the report skip straight away when there's no report on screen.
-  if (step.report && !document.querySelector("#results:not([hidden])")) return null;
-  const limit = step.wait === "report" ? 150000 : 900, t0 = performance.now();
+async function findTarget(stop) {
+  stop.before?.();
+  const t0 = performance.now();
   for (;;) {
-    const n = [...document.querySelectorAll(step.target)].find(visible);
-    if (n && !document.querySelector(".check-screen")) return n;  // Wait out the checking screen and its "Done!".
-    if (performance.now() - t0 > limit) return null;
-    if (step.wait === "report" && performance.now() - t0 > 300 && !ui?.waiting && !document.querySelector(".check-screen")) waitingCard();
-    await new Promise((r) => (waitTimer = setTimeout(r, 150)));
-    if (current < 0) return null;  // Closed while waiting.
+    const n = [...document.querySelectorAll(stop.target)].find(visible);
+    if (n) return n;
+    if (performance.now() - t0 > 700 || !run) return null;
+    await new Promise((r) => setTimeout(r, 80));
   }
 }
 
-function waitingCard() {
-  frame(el("div", { class: "tour-body" }, el("p", { class: "tour-icon", "aria-hidden": "true" }, "⏳"),
-    el("h3", { id: "tour-title" }, "Reading the policy…"),
-    el("p", {}, "Press “Check this policy” if you haven't. The tour picks up the moment your report is ready.")),
-    { onSkip: () => go(current + 1) });
-  ui.waiting = true;
-  place(null);
-}
-
-async function show(i) {
-  current = i;
-  if (i >= STEPS.length) return closeTour();
-  const step = STEPS[i];
-  if (!allowed(step)) return show(i + 1);
-  if (step.page !== pageNow()) {
-    save({ i });
-    location.href = PAGES[step.page];
-    return;
+/** Shows stop i, moving in direction dir past any stop whose target isn't on this screen. */
+async function show(i, dir = 1) {
+  if (!run) return;
+  const { stops, key } = run;
+  if (i < 0) i = 0;
+  if (i >= stops.length) return finish();
+  run.i = i;
+  const target = await findTarget(stops[i]);
+  if (!run || run.i !== i) return;
+  if (!target) {
+    const nextI = i + dir;
+    if (nextI < 0) return show(i + 1, 1);
+    return show(nextI, dir);
   }
-  save({ i });
-  step.before?.();
-  const target = await find(step);
-  if (current !== i) return;  // Moved on (closed or skipped) while looking.
-  if (!target) return show(i + 1);
+  savePlace(key, i);
   target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
-  const last = step.final;
-  frame(el("div", { class: "tour-body" },
-    el("p", { class: "tour-icon", "aria-hidden": "true" }, step.icon),
-    el("h3", { id: "tour-title" }, step.title),
-    el("p", {}, step.text)),
-  { counter: true, onSkip: last ? null : () => go(i + 1), nextLabel: last ? "★ Rate Inkwell" : step.next ? `${step.next} →` : "Next →", final: last,
-    onNext: () => {
-      if (last) { closeTour(); click(".rvp-score .btn"); return; }
-      step.action?.();
-      go(i + 1);
-    } });
+  const s = stops[i], last = i === stops.length - 1;
+  card(el("div", { class: "tour-body tour-body-plain" }, el("h3", { id: "tour-title" }, s.title), el("p", {}, s.text)),
+    [i > 0 ? el("button", { type: "button", class: "tour-skip tour-back", onclick: () => step(-1) }, "← Back") : el("span"),
+      el("button", { type: "button", class: "tour-next", onclick: () => step(1) }, last ? "Finish" : "Next →")],
+    [i + 1, stops.length]);
   follow(target);
 }
 
-function go(i) { teardown(); show(i); }
+function step(d) { if (run) show(run.i + d, d); }
 
-/** Closes the tour completely, from any step. */
+function finish() {
+  const key = run?.key, after = TOURS[key]?.next;
+  savePlace(key, null);
+  run = { key, stops: [], i: 0, done: true };
+  card(el("div", { class: "tour-body tour-body-plain" }, el("h3", { id: "tour-title" }, "That's the tour"),
+    el("p", {}, after ? `You've seen ${TOURS[key].name}. You can open the Tour button on any page to learn that page.`
+      : key === "app" ? "Run a check, then press Tour again to learn how to read the report."
+      : "Press Tour on any other page to learn that page.")),
+  [el("button", { type: "button", class: "tour-skip", onclick: closeTour }, "Close"),
+    after ? el("a", { class: "tour-next", href: after.href, onclick: () => closeTour() }, `${after.label} →`) : null]);
+  place(null);
+}
+
+/** Closes the tour. Your place on this page is kept, so the Tour button can carry on from it. */
 export function closeTour() {
-  current = -1;
+  run = null;
   teardown();
-  save(null);
   markSeen();
   updateLauncher();
 }
 
-/** Starts the tour: from the first tip on this page, or from the very beginning. */
-export function startTour(fromStart = false) {
+/** Starts this page's tour at a stop (default: the first). */
+export function startTour(at = 0) {
   markSeen();
   document.querySelector(".tour-offer")?.remove();
-  const here = STEPS.findIndex((s) => s.page === pageNow() && allowed(s));
-  show(fromStart || here < 0 ? 0 : here);
+  const key = tourKey(), stops = stopsFor(key);
+  if (!stops.length) return;
+  run = { key, stops, i: at };
+  show(at);
 }
 
-/* ---------- The launcher and the first-visit offer ---------- */
+/** The Tour button: carry on from where you stopped, or start this page's tour. */
+function launch() {
+  document.querySelector(".tour-offer")?.remove();
+  const key = tourKey(), stops = stopsFor(key), at = loadPlaces()[key];
+  if (!stops.length) return;
+  if (!Number.isInteger(at) || at <= 0 || at >= stops.length) return startTour(0);
+  run = { key, stops, i: at };
+  card(el("div", { class: "tour-body tour-body-plain" }, el("h3", { id: "tour-title" }, "Carry on?"),
+    el("p", {}, `You stopped at stop ${at + 1} of ${stops.length} in the tour of ${TOURS[key].name}.`)),
+  [el("button", { type: "button", class: "tour-skip", onclick: () => { savePlace(key, null); startTour(0); } }, "Start again"),
+    el("button", { type: "button", class: "tour-next", onclick: () => show(at) }, `Carry on from stop ${at + 1} →`)]);
+  place(null);
+}
+
+/* ---------- The Tour button and the first-visit offer ---------- */
 
 function updateLauncher() {
   const b = document.querySelector(".tour-launch");
-  if (b) b.hidden = current >= 0;
+  if (b) b.hidden = !!run || !!document.querySelector(".tour-offer");
 }
 
 function launcher() {
   if (document.querySelector(".tour-launch")) return;
-  document.body.append(el("button", { type: "button", class: "tour-launch", "aria-label": "Start the guided tour", title: "Take the guided tour",
-    onclick: () => startTour(pageNow() === "home") }, el("span", { "aria-hidden": "true" }, "✦"), " Tour"));
+  document.body.append(el("button", { type: "button", class: "tour-launch", "aria-label": "Take a short tour of this page", title: "A short tour of this page",
+    onclick: launch }, el("span", { "aria-hidden": "true" }, "?"), " Tour"));
 }
 
 function offer() {
-  const dismiss = () => { markSeen(); card.remove(); updateLauncher(); };
-  const card = el("div", { class: "tour-offer", role: "dialog", "aria-labelledby": "tour-offer-title" },
+  const key = tourKey(), n = stopsFor(key).length;
+  if (!n) return;
+  const dismiss = () => { markSeen(); box.remove(); updateLauncher(); };
+  const box = el("div", { class: "tour-offer", role: "dialog", "aria-labelledby": "tour-offer-title" },
     el("button", { type: "button", class: "tour-x", "aria-label": "Close", onclick: dismiss }, "✕"),
-    el("p", { class: "tour-icon", "aria-hidden": "true" }, "👋"),
-    el("h3", { id: "tour-offer-title" }, "New here? Take the 60-second tour."),
-    el("p", {}, "Paste → check → fix → done. We'll show you each part as you go."),
+    el("h3", { id: "tour-offer-title" }, "New to Inkwell?"),
+    el("p", {}, `A short tour shows what each part of ${TOURS[key].name} does. ${n} stops, at your own pace.`),
     el("div", { class: "tour-actions" },
-      el("button", { type: "button", class: "tour-skip", onclick: dismiss }, "Skip tour"),
-      el("button", { type: "button", class: "tour-next", onclick: () => { card.remove(); startTour(pageNow() === "home"); } }, "Start tour →")));
-  document.body.append(card);
-  const b = document.querySelector(".tour-launch");
-  if (b) b.hidden = true;  // One invitation at a time.
+      el("button", { type: "button", class: "tour-skip", onclick: dismiss }, "No thanks"),
+      el("button", { type: "button", class: "tour-next", onclick: () => { box.remove(); startTour(0); } }, "Show me")));
+  document.body.append(box);
+  updateLauncher();
 }
 
-const busy = () => !!document.querySelector("dialog[open], #welcome:not([hidden]), #arrive:not([hidden]), .tour-pop");
+const busy = () => !!document.querySelector("dialog[open], #welcome:not([hidden]), #arrive:not([hidden]), .tour-pop, .check-screen");
 
-/**
- * Call once the page knows who's here. { signedIn }: whether account-only tips apply.
- * Resumes a tour in progress, or offers it to a first-time visitor on the home page or the checker.
- */
+/** Call once the page knows who's here. { signedIn }: whether account-only stops apply. */
 export function initTour(context = {}) {
   ctx = { ...ctx, ...context };
   launcher();
-  const saved = load(), page = pageNow();
-  if (saved && Number.isInteger(saved.i)) {
-    const step = STEPS[saved.i];
-    if (step && step.page === page) { show(saved.i); updateLauncher(); return; }
-    // Mid-tour on another page (say, signing in): keep the place; the launcher picks it up from here.
-    if (step && page) { const here = STEPS.findIndex((s, k) => k >= saved.i && s.page === page && allowed(s)); if (here >= 0) { show(here); return; } }
-  }
-  if (!seen() && (page === "home" || page === "app")) {
+  const key = tourKey();
+  if (!seen() && (key === "home" || key === "app")) {
     const tryOffer = (n = 0) => (busy() ? n < 20 && setTimeout(() => tryOffer(n + 1), 500) : offer());
     setTimeout(tryOffer, 1400);
   }

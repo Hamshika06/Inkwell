@@ -5,7 +5,8 @@ import { currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { initTour } from "./tour.js";
 import { openStore } from "./store.js";
 import { el } from "./shared.js";
-import { blocksSvg, exposureCells } from "./visuals.js";
+import { blocksSvg, exposureCells, limitedBy } from "./visuals.js";
+import { miniBar, mountShell, setRecent } from "./shell.js";
 
 const DECISIONS = { steps: "Limiting it", agree: "Accepted as is", leave: "Not accepted" };
 const $ = (id) => document.getElementById(id);
@@ -13,18 +14,51 @@ let store;
 
 const dateText = (iso) => (iso ? new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "");
 
+/** Where a saved check stands: what's left to fix, whether the policy changed, or done. */
+function statusOf(item) {
+  const concerns = item.report?.concerns || [];
+  const isLimited = limitedBy(item.done || {});
+  const fixable = concerns.filter((c) => c.fixable), left = fixable.filter((c) => !isLimited(c));
+  const changed = (item.history || []).length > 0;
+  const decided = item.decision === "agree" || item.decision === "leave";
+  const kind = left.length && !decided ? "action" : "done";
+  return { kind, changed, left: left.length, fixable: fixable.length, decided };
+}
+
+const FILTERS = [["action", "Needs action"], ["changed", "Policy changed"], ["done", "Done"], ["all", "All"]];
+let filter = null;
+
 function row(item) {
-  const done = Object.values(item.done || {}).filter(Boolean).length;
-  const meta = [`Last checked ${dateText(item.checkedAt)}`, item.decision ? DECISIONS[item.decision] : "No decision yet",
-    item.stepsTotal ? `${done} of ${item.stepsTotal} steps done` : null].filter(Boolean).join(" · ");
+  const st = statusOf(item);
   const open = `app.html?open=${encodeURIComponent(item.id)}`;
+  const cells = item.report?.checks ? exposureCells(item.report, item.done) : null;
+  const pill = st.kind === "action" ? el("span", { class: "dpill red" }, `${st.left} to fix`)
+    : st.decided ? el("span", { class: "dpill" }, DECISIONS[item.decision])
+    : st.fixable ? el("span", { class: "dpill green" }, "✓ All limited") : el("span", { class: "dpill" }, "Nothing to fix");
+  const primary = st.kind === "action" ? el("a", { class: "btn btn-primary", href: `${open}&tab=fix` }, "Fix next")
+    : st.changed ? el("a", { class: "btn", href: open }, "See changes") : el("a", { class: "btn", href: open }, "Open");
   return el("li", { class: "saved" },
-    el("div", { class: "saved-main" }, el("a", { class: "saved-name", href: open }, item.name), el("span", { class: "fine" }, meta)),
-    el("div", { class: "saved-actions" },
-      el("a", { class: "btn btn-primary", href: open }, "Open"),
-      el("a", { class: "btn", href: `app.html?recheck=${encodeURIComponent(item.id)}` }, "Check again"),
-      el("button", { type: "button", class: "btn btn-ghost", "aria-label": `Rename ${item.name}`, onclick: () => rename(item) }, "Rename"),
-      el("button", { type: "button", class: "btn btn-ghost", "aria-label": `Remove ${item.name}`, onclick: () => remove(item) }, "Remove")));
+    el("div", { class: "saved-main" },
+      el("a", { class: "saved-name", href: open }, item.name),
+      el("span", { class: "saved-status" }, cells ? miniBar(cells) : null, pill,
+        st.changed ? el("span", { class: "dpill amber" }, `⚑ Policy changed since ${dateText(item.history[0].checkedAt)}`) : null),
+      el("span", { class: "fine" }, `Last checked ${dateText(item.checkedAt)}`)),
+    el("div", { class: "saved-actions" }, primary,
+      el("details", { class: "row-more" }, el("summary", { class: "btn btn-ghost", "aria-label": `More for ${item.name}` }, "⋯"),
+        el("div", { class: "row-menu", role: "menu" },
+          el("a", { role: "menuitem", href: `app.html?recheck=${encodeURIComponent(item.id)}` }, "Check again"),
+          el("button", { type: "button", role: "menuitem", onclick: () => rename(item) }, "Rename"),
+          el("button", { type: "button", role: "menuitem", class: "menu-danger", onclick: () => remove(item) }, "Remove")))));
+}
+
+function listFor(items) {
+  const counts = { action: 0, changed: 0, done: 0, all: items.length };
+  for (const it of items) { const st = statusOf(it); counts[st.kind] += 1; if (st.changed) counts.changed += 1; }
+  if (!filter || (filter !== "all" && !counts[filter])) filter = counts.action ? "action" : "all";
+  const shown = items.filter((it) => { const st = statusOf(it); return filter === "all" || (filter === "changed" ? st.changed : st.kind === filter); });
+  const tabs = el("div", { class: "dash-filters", role: "group", "aria-label": "Show" }, FILTERS.filter(([k]) => k === "all" || counts[k]).map(([k, label]) =>
+    el("button", { type: "button", class: filter === k ? "on" : null, "aria-pressed": String(filter === k), onclick: () => { filter = k; load(); } }, `${label} · ${counts[k]}`)));
+  return [tabs, el("ul", { class: "card saved-list" }, shown.map(row))];
 }
 
 async function load() {
@@ -45,7 +79,8 @@ async function load() {
     return;
   }
   items.sort((a, b) => (b.checkedAt || "").localeCompare(a.checkedAt || ""));
-  box.replaceChildren(deck(items), el("ul", { class: "card saved-list" }, items.map(row)));
+  setRecent(Object.fromEntries(items.map((it) => [it.id, it])));
+  box.replaceChildren(deck(items), ...listFor(items));
 }
 
 /* ---------- The deck: saved checks as 3D cards, each showing its exposure blocks ---------- */
@@ -84,6 +119,18 @@ function deck(items) {
   let x0 = null;
   stage.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
   stage.addEventListener("pointerup", (e) => { if (x0 != null && Math.abs(e.clientX - x0) > 40) go(e.clientX < x0 ? 1 : -1); x0 = null; });
+  // Two-finger swipe on a trackpad (or Shift + mouse wheel): sideways scrolling flips through the cards.
+  // Up/down scrolling is left alone so the page still scrolls.
+  let pull = 0, quietUntil = 0, settle = 0;
+  stage.addEventListener("wheel", (e) => {
+    const dx = e.shiftKey && !e.deltaX ? e.deltaY : e.deltaX;
+    if (Math.abs(dx) <= Math.abs(e.deltaY) && !e.shiftKey) return;
+    e.preventDefault();
+    clearTimeout(settle); settle = setTimeout(() => { pull = 0; }, 180);
+    if (performance.now() < quietUntil) return;  // one flick moves one card, not five
+    pull += dx;
+    if (Math.abs(pull) > 45) { const before = at; go(pull > 0 ? 1 : -1); pull = 0; if (at !== before) quietUntil = performance.now() + 420; }
+  }, { passive: false });
   draw();
   return el("section", { class: "deck", "aria-label": "Your checks at a glance" }, stage, nav);
 }
@@ -102,6 +149,7 @@ async function remove(item) {
 }
 
 async function connect() {
+  mountShell("dashboard.html");
   $("theme").addEventListener("click", toggleTheme);
   let ctx;
   try {

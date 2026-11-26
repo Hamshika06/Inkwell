@@ -11,9 +11,9 @@ let cooldown = null;
 const TAGLINES = [
   "Know what you agreed to, before you agree.",
   "Do they sell your data? Get the answer, and the sentence that proves it.",
-  "No summaries. No guesses. Just receipts.",
+  "Every answer comes with the sentence it's based on.",
   "Find the opt-out link they buried in paragraph 37.",
-  "Privacy policies are long. Your evenings aren't.",
+  "Privacy policies are long. Checking one takes a minute.",
 ];
 
 function rotateTaglines() {
@@ -47,7 +47,7 @@ function setMode(next) {
   $("password").autocomplete = signup ? "new-password" : "current-password";
   $("submit").textContent = signup ? "Create account" : "Sign in";
   $("auth-title").textContent = signup ? "Create your account" : "Welcome back";
-  $("auth-sub").textContent = signup ? "It's free. Unlock every receipt and your opt-out links." : "Sign in to see your full privacy report cards.";
+  $("auth-sub").textContent = signup ? "It's free. You get the full report and your opt-out links." : "Sign in to see your full privacy report cards.";
   message("");
 }
 

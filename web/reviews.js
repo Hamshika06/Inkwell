@@ -153,7 +153,7 @@ export function starPicker(value, onChange) {
 
 /* ---------- The review card ---------- */
 
-const AVATAR = ["#3340c8", "#13919a", "#17683b", "#b8622a", "#8a3fb8", "#b8322a", "#4f6b8a"];
+const AVATAR = ["#0a0a0a", "#13919a", "#17683b", "#b8622a", "#8a3fb8", "#b8322a", "#4f6b8a"];
 const colorFor = (name) => AVATAR[[...name].reduce((h, c) => (h * 31 + c.codePointAt(0)) >>> 0, 7) % AVATAR.length];
 
 export function ago(iso) {
@@ -177,7 +177,7 @@ export function reviewCard(r, opts = {}) {
     r.headline ? el("h4", {}, r.headline) : null,
     r.body ? el("p", { class: "rv-body" }, r.body) : null,
     el("div", { class: "rv-who" },
-      el("span", { class: "rv-av", style: `background:${r.anonymous ? "#7d8396" : colorFor(name)}` }, name[0].toUpperCase()),
+      el("span", { class: "rv-av", style: `background:${r.anonymous ? "#808080" : colorFor(name)}` }, name[0].toUpperCase()),
       el("span", { class: "rv-name" }, name), el("span", { class: "rv-when" }, `· ${ago(r.updatedAt || r.createdAt)}${edited ? " (edited)" : ""}`),
       r.site ? el("span", { class: "rv-site" }, `Checked ${r.site}`) : null),
     opts.onHelpful || opts.onEdit ? el("div", { class: "rv-actions" },
@@ -295,7 +295,7 @@ export async function openReviewModal(opts) {
   function thanks(review) {
     const first = account ? account.split(/\s+/)[0] : "";
     dialog.replaceChildren(el("div", { class: "rv-thanks" },
-      el("img", { class: "rv-logo", src: "logo.svg", alt: "" }),
+      el("img", { class: "rv-logo", src: "logo.svg?v=2", alt: "" }),
       el("h3", { id: "rv-title" }, `Thanks${first && !review.anonymous ? `, ${first}` : ""}`),
       el("p", { class: "rv-sub" }, existing ? "Your review is updated." : "Your review is live on the Reviews page."),
       reviewCard(review, { mine: true }),

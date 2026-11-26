@@ -8,6 +8,8 @@ import { readDataFlows } from "./visuals.js";
 import { initTour } from "./tour.js";
 import { askAfterSteps, openReviewModal } from "./reviews.js";
 import { openStore } from "./store.js";
+import { gloss, initReportView, openFix, renderFixbar, renderHead, renderPanel, tabsFor } from "./reportview.js";
+import { getRecent, mountShell, setRecent } from "./shell.js";
 import { asLink, el } from "./shared.js";
 
 // Mirror the API limits: 1 MB (300 KB for a free check) and at most 200 paragraphs per check.
@@ -196,8 +198,11 @@ function updateCounts() {
   const text = $("policy").value;
   $("link-confirm").hidden = true;
   renderPasteFocus();
+  $("clear").hidden = !text;
+  growBox();
+  if (!text.trim()) { $("counts").replaceChildren(el("span", {}, "Links work best")); $("warn").hidden = true; return; }
   if (asLink(text)) {
-    $("counts").replaceChildren(el("span", {}, "Link: press “Check this policy” and we'll read this page."));
+    $("counts").replaceChildren(el("span", {}, "Link: we'll find and read the policy."));
     $("warn").hidden = true;
     return;
   }
@@ -211,6 +216,20 @@ function updateCounts() {
     : bytes > maxBytes() ? `That's over the ${kb(maxBytes())} limit${state.guest ? " for a free check. Create a free account for up to 1,000 KB, or trim the policy" : ". Trim the policy before checking it"}.`
     : n > MAX_PARAGRAPHS ? `Inkwell reads up to ${MAX_PARAGRAPHS} paragraphs at a time. Split the policy in two and check each half.` : "";
   $("warn").textContent = warn; $("warn").hidden = !warn;
+}
+
+/** The box grows with what you paste, up to about half the screen. */
+function growBox() {
+  const box = $("policy");
+  box.style.height = "auto";
+  box.style.height = `${Math.min(box.scrollHeight + 2, Math.max(220, innerHeight * 0.5))}px`;
+}
+
+/** Chips under the box: the sample, then the sites you've checked before (a click re-checks the current policy). */
+function renderPasteChips() {
+  const recent = getRecent().filter((r) => r.url).slice(0, 4);
+  $("paste-chips").replaceChildren($("sample"), ...recent.map((r) => el("button", { type: "button", class: "pchip",
+    title: `Check ${r.name} again`, onclick: () => { $("policy").value = r.url; updateCounts(); run(); } }, `↺ ${r.name}`)));
 }
 
 function setStatus(text, kind = "") { $("status").textContent = text; $("status").className = `status ${kind}`; }
@@ -312,14 +331,15 @@ async function run(linkUrl = null, confirmed = false) {
   if (short) setStatus("That page was short, so it may be only part of the policy. If so, paste the full text.");
   else if (note) setStatus(note.trim());
   if (result.report) result.report.dataFlows = readDataFlows(result.segments);  // Kept with saved work for the map.
-  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false, mapPick: null });
-  showBreakdown(state.guest);  // Free checks open on the breakdown; accounts open on the report card.
+  Object.assign(state, { result, filter: null, selected: null, expanded: {}, animated: false, allOpen: false, mapPick: null,
+    rtab: null, fixPick: null, proofPick: null, proofCite: 0, sheet: false });
   renderResults();
   $("results").classList.remove("reveal"); void $("results").offsetWidth; $("results").classList.add("reveal");
   showTab("overview");
-  $("results").scrollIntoView({ block: "start" });  // In place before the screen fades, so it reveals the report.
+  scrollTo({ top: 0 });  // In place before the screen fades, so it reveals the report.
   await screen.close();
   await afterAnalysis(text);
+  setRecent(state.saved);
 }
 
 /* ---------- Results ---------- */
@@ -329,17 +349,29 @@ const categories = () => Object.keys(current().coverage);
 
 function renderResults() {
   $("results").hidden = false;
-  for (const id of ["dl-txt", "dl-json"]) $(id).hidden = state.guest;
-  $("breakdown-bar").hidden = state.guest || !!state.savedView;  // Saved work keeps the report, not the full text.
-  renderReport();
-  if (state.savedView) return showBreakdown(false);
-  renderKpis(); renderOverview(); renderFaqs(); renderDoc();
+  $("intro").hidden = true; $("workspace").hidden = true;
+  $("guest-banner").hidden = true;  // The report's own sign-up card says the same, once.
+  if (!state.rtab || !tabsFor().some(([id]) => id === state.rtab)) state.rtab = state.guest || !current().report ? "policy" : "overview";
+  renderArea();
+  if (!state.savedView) { renderKpis(); renderOverview(); renderFaqs(); renderDoc(); }
+}
+
+/** The report header, the open tab and, on phones, the next-fix bar. */
+function renderArea() {
+  if (!state.result) return;
+  $("report-head").replaceChildren(renderHead());
+  const panel = renderPanel();
+  const policy = state.rtab === "policy";
+  $("report").replaceChildren(...(state.guest ? [guestOffer()] : panel ? [panel] : []));
+  $("report").hidden = !state.guest && policy;
+  $("report").setAttribute("aria-labelledby", `rtab-${state.rtab}`);
+  $("breakdown").hidden = !policy || !!state.savedView;
+  $("fixbar-slot").replaceChildren(renderFixbar() || "");
+  if (!state.guest) gloss($("report"));
 }
 
 function showBreakdown(open) {
-  $("breakdown").hidden = !open;
-  $("toggle-breakdown").setAttribute("aria-expanded", String(open));
-  $("toggle-breakdown").textContent = open ? "Hide full breakdown" : "Show full breakdown";
+  if (open) { state.rtab = "policy"; renderArea(); }
 }
 
 /* ---------- Report card ---------- */
@@ -387,26 +419,7 @@ function guestOffer() {
     el("a", { class: "btn btn-primary btn-lg", href: signupUrl() }, "Get my report card, free"));
 }
 
-function renderReport() {
-  if (state.guest) return $("report").replaceChildren(guestOffer());
-  const r = current().report;
-  if (!r) return $("report").replaceChildren();
-  const concerns = Object.fromEntries((r.concerns || []).map((c) => [c.id, c]));
-  // Mine first, in the order the reader sees them in the decision bar; then the rest.
-  const mine = state.priorities || [];
-  const ordered = [...r.checks].sort((a, b) => Number(mine.includes(b.id)) - Number(mine.includes(a.id)));
-  $("report").replaceChildren(el("article", { class: `card report-card${state.animated ? " static" : ""}`, "aria-label": "Privacy report card" },
-    el("header", { class: "rc-head" },
-      el("div", {}, r.title ? el("p", { class: "eyebrow" }, "Privacy report card") : null, el("h2", {}, r.title || "Your privacy report card"))),
-    renderDecision(),
-    renderSteps(),
-    el("details", { class: "all-answers", open: state.allOpen, ontoggle: (e) => { state.allOpen = e.target.open; } },
-      el("summary", {}, `See all ${r.checks.length} answers`),
-      el("ul", { class: "checks" }, ordered.map((c, i) => renderCheck(c, i, concerns[c.id])))),
-    el("p", { class: "rc-note" }, r.limitation)));
-  glossify($("report"), ".receipt, .check-meaning, .for-you", state.current?.name || r.company);
-  state.animated = true;
-}
+function renderReport() { renderArea(); }
 
 /* ---------- Breakdown ---------- */
 
@@ -527,12 +540,12 @@ function select(id, scroll = true) {
 }
 
 function showTab(name) {
-  for (const tab of document.querySelectorAll("[role=tab]")) {
+  for (const tab of document.querySelectorAll("#breakdown [role=tab]")) {
     const on = tab.dataset.tab === name;
     tab.setAttribute("aria-selected", String(on));
     tab.tabIndex = on ? 0 : -1;
   }
-  for (const panel of document.querySelectorAll(".panel")) panel.hidden = panel.id !== `tab-${name}`;
+  for (const panel of document.querySelectorAll("#breakdown .panel")) panel.hidden = panel.id !== `tab-${name}`;
 }
 
 /* ---------- Exports ---------- */
@@ -583,12 +596,10 @@ function wire() {
   $("theme").addEventListener("click", toggleTheme);
   $("sample").addEventListener("click", () => { $("policy").value = SAMPLE; updateCounts(); });
   // "See a sample report" on the home page: fill in the sample and run it once a model is ready.
-  if (new URLSearchParams(location.search).has("sample")) { $("policy").value = SAMPLE; state.autoRun = true; }
+  const params = new URLSearchParams(location.search);
+  if (params.has("sample")) { $("policy").value = SAMPLE; state.autoRun = true; }
+  if (params.get("check")) { $("policy").value = params.get("check"); state.autoRun = true; }
   $("clear").addEventListener("click", () => { $("policy").value = ""; updateCounts(); $("policy").focus(); });
-  $("split").addEventListener("click", () => {
-    $("policy").value = $("policy").value.replace(/\r\n?/g, "\n").replace(/([^\n])\n(?=[^\n])/g, "$1\n\n");
-    updateCounts();
-  });
   $("file").addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -596,7 +607,7 @@ function wire() {
     else { $("policy").value = await file.text(); updateCounts(); setStatus(`Loaded ${file.name}.`); }
     e.target.value = "";
   });
-  const tabs = [...document.querySelectorAll("[role=tab]")];
+  const tabs = [...document.querySelectorAll("#breakdown [role=tab]")];
   for (const tab of tabs) {
     tab.addEventListener("click", () => showTab(tab.dataset.tab));
     tab.addEventListener("keydown", (e) => {  // Arrow keys move between visible tabs.
@@ -607,14 +618,12 @@ function wire() {
       showTab(visible[i].dataset.tab); visible[i].focus(); e.preventDefault();
     });
   }
-  $("dl-json").addEventListener("click", () => download("inkwell-results.json", "application/json",
-    JSON.stringify({ generated: new Date().toISOString(), result: state.result }, null, 2)));
-  $("dl-txt").addEventListener("click", () => download("inkwell-report.txt", "text/plain;charset=utf-8", textReport()));
-  $("toggle-breakdown").addEventListener("click", () => {
-    const open = $("breakdown").hidden;
-    showBreakdown(open);
-    if (open) $("breakdown").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  // ⌘K on this page checks in place, unless a report is showing (then it starts a fresh check).
+  window.inkwellCheck = (value) => {
+    if (!$("results").hidden) { location.href = `app.html?check=${encodeURIComponent(value)}`; return; }
+    $("policy").value = value; updateCounts(); run();
+  };
+  addEventListener("resize", () => { if (state.sheet && !matchMedia("(max-width: 760px)").matches) { state.sheet = false; renderArea(); } });
 }
 
 /* ---------- Welcome moments ---------- */
@@ -640,8 +649,8 @@ function siteOf(url) {
 /** After signing in: "Welcome back, Aniruddhan" for a moment, then the paste page. Returns { done(savedCount) }. */
 function showWelcome(kind) {
   const box = $("welcome"), name = firstName(state.user), started = performance.now();
-  const line = el("i"), sub = el("p", {}, kind === "new" ? "Let's check your first privacy policy." : "Setting up a new check…");
-  box.replaceChildren(el("div", { class: "welcome-inner" }, el("img", { class: "welcome-mark", src: "logo.svg", alt: "" }),
+  const line = el("i"), sub = el("p", {}, kind === "new" ? "Paste a privacy policy to check your first one." : "Setting up a new check…");
+  box.replaceChildren(el("div", { class: "welcome-inner" }, el("img", { class: "welcome-mark", src: "logo.svg?v=2", alt: "" }),
     el("h1", {}, kind === "new" ? `Welcome to Inkwell${name ? `, ${name}` : ""}` : `Welcome back${name ? `, ${name}` : ""}`), sub,
     el("div", { class: "welcome-line", "aria-hidden": "true" }, line)));
   box.hidden = false;
@@ -675,9 +684,9 @@ function renderArrival() {
   const enter = !state.arriveShown;
   state.arriveShown = true;
   $("arrive").replaceChildren(el("div", { class: `card arrive-card${enter ? " enter" : ""}` },
-    el("img", { class: "welcome-mark", src: "logo.svg", alt: "" }),
+    el("img", { class: "welcome-mark", src: "logo.svg?v=2", alt: "" }),
     el("h1", {}, "Welcome to Inkwell"),
-    el("p", {}, "You opened this from the Inkwell extension. Here's the policy you were looking at:"),
+    el("p", {}, "You opened this from the Inkwell extension. This is the policy you were looking at:"),
     el("div", { class: "arrive-from" }, el("strong", {}, site), "·", el("span", {}, url.replace(/^https?:\/\//i, ""))),
     ...focus,
     el("button", { type: "button", class: "btn btn-primary btn-lg btn-block", onclick: () => leaveArrival(true) }, `Check ${site}'s policy`),
@@ -719,11 +728,6 @@ async function connect() {
   const arriving = params.get("url");
   if (arriving && asLink(arriving)) showArrival(asLink(arriving));
   $("guest-banner").hidden = !state.guest;
-  $("app-nav").hidden = state.guest;
-  if (state.guest) {
-    $("run-label").textContent = "Your free check";
-    $("you-get").replaceChildren(...["Every paragraph sorted into 5 topics", "Straight answers to common questions", "The whole policy, readable by topic"].map((t) => el("li", {}, t)));
-  }
   updateCounts();  // Free checks have a lower size limit.
   if (state.ctx.enabled && user) state.ctx.fb.onAuthStateChanged(state.ctx.auth, (u) => { if (!u && !isLeaving()) location.replace("/"); });
   document.body.dataset.auth = "ready";
@@ -735,17 +739,24 @@ async function connect() {
     state.store = await openStore(state.ctx, user);
     await loadPriorities();
     await loadSaved();
+    setRecent(state.saved);
+    renderPasteChips();
     welcome?.done(Object.keys(state.saved || {}).length);
     renderPasteFocus();
     renderArrival();
     const query = new URLSearchParams(location.search);
-    if (query.get("open")) openSaved(query.get("open"));
+    if (query.get("open")) { if (query.get("tab")) state.rtab = query.get("tab"); openSaved(query.get("open")); }
     else if (query.get("recheck")) startRecheck(query.get("recheck"));
     else if (state.result) renderReport();
   })();
 }
 
-initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, refresh: () => { if (state.result) renderReport(); renderArrival(); } });
+mountShell("app.html");
+initDecide({ state, el, plural, select, setStatus, proof: proofFor, showResults: renderResults, openFix: (id) => openFix(id),
+  refresh: () => { if (state.result) renderArea(); renderArrival(); } });
+initReportView({ state, select, rerender: () => renderArea(),
+  exportTxt: () => download("inkwell-report.txt", "text/plain;charset=utf-8", textReport()),
+  exportJson: () => download("inkwell-results.json", "application/json", JSON.stringify({ generated: new Date().toISOString(), result: state.result }, null, 2)) });
 document.addEventListener("inkwell:steps-done", (e) => { if (!state.guest) askAfterSteps({ ctx: state.ctx, user: state.user, ...e.detail }); });
 wire();
 updateCounts();

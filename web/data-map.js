@@ -1,6 +1,7 @@
 // The "Where your data goes" feature page: an explanation, and a live example map of a made-up app's policy.
 import { currentUser, startAuth, toggleTheme } from "./auth.js";
 import { mountMenus } from "./menu.js";
+import { mountShell } from "./shell.js";
 import { initTour } from "./tour.js";
 import { renderDataMap } from "./visuals.js";
 
@@ -26,7 +27,7 @@ function draw() {
 }
 
 $("theme").addEventListener("click", toggleTheme);
-mountMenus(document.querySelector(".nav-links"));
+mountMenus(document.querySelector(".nav-links")); mountShell("data-map.html");
 draw();
 (async () => {
   let signedIn = false;
