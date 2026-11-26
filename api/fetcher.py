@@ -345,6 +345,9 @@ def to_text(doc):
 
 
 POLICY_WORDS = re.compile(r"personal (?:information|data)|your (?:information|data)|third[- ]part|cookies|we collect|privacy", I)
+POLICY_DOCUMENT_TITLE = re.compile(
+    r"\b(?:privacy|data protection|personal information|information privacy)\b.{0,50}\b(?:policy|notice|statement|practices?)\b|"
+    r"\bnotice of privacy practices\b", I)
 
 
 SELF_REFERENCE = re.compile(r"\b(?:this|our) (?:privacy |data )?(?:policy|notice|statement)\b", I)
@@ -398,7 +401,7 @@ def best_link(links, page_url):
         score = 0
         if re.fullmatch(r"(?:our |global |online )?privacy(?: policy| notice| statement)?", label):
             score = 5
-        elif re.search(r"privacy (?:policy|notice|statement)", label):
+        elif re.search(r"privacy (?:policy|notice|statement)|notice of privacy practices|data protection (?:policy|notice|statement)", label):
             score = 4
         elif "privacy" in label:
             score = 2
