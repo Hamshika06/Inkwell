@@ -118,14 +118,14 @@ export function inkwell(big = false) {
   box.className = `inkwell${big ? " big" : ""}`;
   box.setAttribute("aria-hidden", "true");
   box.innerHTML = `<svg viewBox="0 0 120 130"><defs><clipPath id="iw-clip${big ? "-b" : ""}"><path d="M20 52 Q20 40 36 38 L84 38 Q100 40 100 52 L100 108 Q100 120 88 120 L32 120 Q20 120 20 108 Z"/></clipPath>
-<linearGradient id="iw-glass${big ? "-b" : ""}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#e8ebfb" stop-opacity=".25"/><stop offset="1" stop-color="#c9cff3" stop-opacity=".75"/></linearGradient>
-<linearGradient id="iw-ink${big ? "-b" : ""}" x1="0" x2="1"><stop offset="0" stop-color="#2a35b5"/><stop offset=".55" stop-color="#3340c8"/><stop offset="1" stop-color="#1d2580"/></linearGradient></defs>
+<linearGradient id="iw-glass${big ? "-b" : ""}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#f0f0f0" stop-opacity=".25"/><stop offset="1" stop-color="#d6d6d6" stop-opacity=".75"/></linearGradient>
+<linearGradient id="iw-ink${big ? "-b" : ""}" x1="0" x2="1"><stop offset="0" stop-color="#1a1a1a"/><stop offset=".55" stop-color="#0a0a0a"/><stop offset="1" stop-color="#000000"/></linearGradient></defs>
 <ellipse cx="60" cy="123" rx="46" ry="6" class="iw-shadow"/>
-<g clip-path="url(#iw-clip${big ? "-b" : ""})"><g class="iw-ink"><rect x="14" y="36" width="92" height="88" fill="url(#iw-ink${big ? "-b" : ""})"/><ellipse cx="60" cy="36" rx="42" ry="5" fill="#5865e6"/></g></g>
+<g clip-path="url(#iw-clip${big ? "-b" : ""})"><g class="iw-ink"><rect x="14" y="36" width="92" height="88" fill="url(#iw-ink${big ? "-b" : ""})"/><ellipse cx="60" cy="36" rx="42" ry="5" fill="#3a3a3a"/></g></g>
 <path d="M20 52 Q20 40 36 38 L84 38 Q100 40 100 52 L100 108 Q100 120 88 120 L32 120 Q20 120 20 108 Z" fill="url(#iw-glass${big ? "-b" : ""})" class="iw-glass"/>
 <rect x="44" y="22" width="32" height="17" rx="4" class="iw-neck"/><rect x="41" y="18" width="38" height="7" rx="3" class="iw-cap"/>
 <path d="M30 56 Q31 82 30 108" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".6" fill="none"/>
-<path class="iw-drop" d="M60 0 Q54 9 60 16 Q66 9 60 0Z" fill="#3340c8"/></svg>`;
+<path class="iw-drop" d="M60 0 Q54 9 60 16 Q66 9 60 0Z" fill="#0a0a0a"/></svg>`;
   return box;
 }
 

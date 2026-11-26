@@ -3,6 +3,8 @@
 import { renderAccountMenu } from "./account.js";
 import { API, authHeaders, currentUser, isVerified, startAuth, toggleTheme } from "./auth.js";
 import { asLink, el } from "./shared.js";
+import { mountShell } from "./shell.js";
+import { initTour } from "./tour.js";
 
 const $ = (id) => document.getElementById(id);
 const sides = [{ key: "a", label: "Company A" }, { key: "b", label: "Company B" }];
@@ -176,6 +178,7 @@ function reset() {
 }
 
 async function connect() {
+  mountShell("compare.html"); initTour();
   $("theme").addEventListener("click", toggleTheme);
   try {
     page.ctx = await startAuth();

@@ -2,8 +2,8 @@
 
 /* Brand panel with animated ink lines */
 .auth-art {
-  position: relative; overflow: hidden; color: #eef0ff;
-  background: radial-gradient(120% 80% at 10% 0%, #2a35b8 0%, #1a2070 45%, #0e1238 100%);
+  position: relative; overflow: hidden; color: #f0f0f0;
+  background: radial-gradient(120% 80% at 10% 0%, #1f1f1f 0%, #0a0a0a 45%, #000000 100%);
 }
 .ink-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ink-lines path {
@@ -11,7 +11,7 @@
   stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 3.2s ease-out forwards, drift 14s ease-in-out 3.2s infinite alternate;
 }
 .ink-lines path:nth-child(2) { animation-delay: .25s, 3.45s; stroke: rgba(255, 255, 255, .12); }
-.ink-lines path:nth-child(3) { animation-delay: .5s, 3.7s; stroke: rgba(160, 172, 255, .35); stroke-width: 2; }
+.ink-lines path:nth-child(3) { animation-delay: .5s, 3.7s; stroke: rgba(255, 255, 255, .3); stroke-width: 2; }
 .ink-lines path:nth-child(4) { animation-delay: .75s, 3.95s; }
 .ink-lines path:nth-child(5) { animation-delay: 1s, 4.2s; stroke: rgba(255, 255, 255, .09); }
 @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -20,16 +20,16 @@
 .art-inner { position: relative; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 40px 48px; }
 .brand.on-dark { color: #fff; }
 .art-copy { max-width: 480px; }
-.eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #aab3ff; }
+.eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #bdbdbd; }
 .tagline {
   margin: 0 0 32px; min-height: 2.5em; font: 500 clamp(30px, 3.4vw, 44px)/1.15 var(--font-display); letter-spacing: -.015em;
   transition: opacity .45s ease, transform .45s ease;
 }
 .tagline.fade { opacity: 0; transform: translateY(6px); }
 .art-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.art-points li { display: flex; gap: 14px; align-items: baseline; color: #d5d9ff; font-size: 15px; }
-.art-points span { font: 600 12px var(--font-mono); color: #8f9bff; }
-.art-foot { margin: 0; font-size: 12.5px; color: #8e95c9; }
+.art-points li { display: flex; gap: 14px; align-items: baseline; color: #e0e0e0; font-size: 15px; }
+.art-points span { font: 600 12px var(--font-mono); color: #bdbdbd; }
+.art-foot { margin: 0; font-size: 12.5px; color: #9a9a9a; }
 
 /* Sign-in card */
 .auth-panel { display: grid; place-items: center; padding: 40px 24px; background: var(--bg); }
@@ -47,17 +47,17 @@
 .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
 .mode-switch { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; margin-bottom: 18px; border-radius: 11px; background: var(--surface-2); }
-.mode-switch button { height: 34px; border: 0; border-radius: 8px; background: transparent; color: var(--text-3); font-weight: 500; cursor: pointer; }
+.mode-switch button { height: 34px; border: 0; border-radius: 8px; background: transparent; color: var(--text-3); font-weight: 500; cursor: var(--cur-ptr, pointer); }
 .mode-switch button[aria-selected="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow-sm); }
 
 .email-form { display: grid; gap: 14px; }
 .password { position: relative; display: block; }
 .password .input { padding-right: 64px; }
-.reveal { position: absolute; right: 6px; top: 6px; height: 30px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; color: var(--text-3); font-size: 13px; cursor: pointer; }
+.reveal { position: absolute; right: 6px; top: 6px; height: 30px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; color: var(--text-3); font-size: 13px; cursor: var(--cur-ptr, pointer); }
 .reveal:hover { background: var(--surface-2); color: var(--text); }
 .hint { margin: -6px 0 0; font-size: 12.5px; color: var(--text-3); }
 .form-row { display: flex; justify-content: flex-end; margin-top: -4px; }
-.link { border: 0; background: none; padding: 0; color: var(--brand); font-size: 13px; cursor: pointer; }
+.link { border: 0; background: none; padding: 0; color: var(--brand); font-size: 13px; cursor: var(--cur-ptr, pointer); }
 .link:hover { text-decoration: underline; }
 
 .verify { display: grid; gap: 10px; justify-items: center; }

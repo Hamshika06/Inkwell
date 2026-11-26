@@ -59,7 +59,7 @@ export function classify(recipients, concerns, isLimited) {
 /* ---------- Drawing the orbit ---------- */
 
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const COLOR = { limit: "#e5534b", limited: "#2f9e62", service: "#9aa0bd", some: "#a9b1d8" };
+const COLOR = { limit: "#e5534b", limited: "#2f9e62", service: "#a0a0a0", some: "#a3a3a3" };
 const LANE = { limit: 0, limited: 0.5, service: 1, some: 2 };  // Which ring (0.5 = just outside the red one).
 // Angles around each ring, avoiding the top (about 230 to 310 degrees), where the ring labels sit.
 const START = { limit: [28, 212, 118, 330], limited: [40, 160, 320], service: [336, 160, 75, 200], some: [100, 210, 20] };
@@ -80,13 +80,13 @@ export function orbitSvg(flows, { company = "This company", gives = [], selected
   const pick = placed.find((f) => f.key === selected) || placed.find((f) => f.kind === "limit") || placed[0];
 
   const defs = `<defs>
-    <radialGradient id="${id}-hub" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#8d97ff"/><stop offset=".45" stop-color="#3340c8"/><stop offset="1" stop-color="#141a5c"/></radialGradient>
+    <radialGradient id="${id}-hub" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f5f5f5"/><stop offset=".45" stop-color="#0a0a0a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient>
     <radialGradient id="${id}-limit" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffb3ad"/><stop offset=".5" stop-color="#e5534b"/><stop offset="1" stop-color="#a8322b"/></radialGradient>
     <radialGradient id="${id}-limited" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#bff0d3"/><stop offset=".5" stop-color="#2f9e62"/><stop offset="1" stop-color="#1d6b41"/></radialGradient>
-    <radialGradient id="${id}-service" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#e6e9f7"/><stop offset=".55" stop-color="#9aa0bd"/><stop offset="1" stop-color="#5f6584"/></radialGradient>
-    <radialGradient id="${id}-some" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#d3d8ef"/><stop offset="1" stop-color="#9ea6d6"/></radialGradient>
-    <radialGradient id="${id}-you" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#b9c0ff"/><stop offset=".5" stop-color="#4c58e0"/><stop offset="1" stop-color="#2530a6"/></radialGradient>
-    <radialGradient id="${id}-floor" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--orb-floor, #dfe3fb)"/><stop offset="1" stop-color="var(--orb-floor, #dfe3fb)" stop-opacity="0"/></radialGradient>
+    <radialGradient id="${id}-service" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ededed"/><stop offset=".55" stop-color="#a0a0a0"/><stop offset="1" stop-color="#5a5a5a"/></radialGradient>
+    <radialGradient id="${id}-some" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e5e5e5"/><stop offset="1" stop-color="#a3a3a3"/></radialGradient>
+    <radialGradient id="${id}-you" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#9a9a9a"/><stop offset=".5" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient>
+    <radialGradient id="${id}-floor" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--orb-floor, #e9e9e9)"/><stop offset="1" stop-color="var(--orb-floor, #e9e9e9)" stop-opacity="0"/></radialGradient>
     <filter id="${id}-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6"/></filter></defs>`;
 
   const RING = [["limit", "YOU CAN LIMIT"], ["service", "COMES WITH THE SERVICE"], ["some", "ONLY IN SOME CASES"]];
@@ -98,7 +98,7 @@ export function orbitSvg(flows, { company = "This company", gives = [], selected
     if (!compact) {
       const w = label.length * 6.6 + 18;
       out += `<g class="ring-label"><rect x="${cx - w / 2}" y="${cy - ry - 11}" width="${w}" height="20" rx="10" fill="var(--orb-card, #fff)" stroke="${col}" stroke-opacity=".6"/>`
-        + `<text x="${cx}" y="${cy - ry + 3}" text-anchor="middle" font-size="10" font-weight="700" letter-spacing=".9" fill="${kind === "some" ? "#7d84ad" : col}">${label}</text></g>`;
+        + `<text x="${cx}" y="${cy - ry + 3}" text-anchor="middle" font-size="10" font-weight="700" letter-spacing=".9" fill="${kind === "some" ? "#8a8a8a" : col}">${label}</text></g>`;
     }
   });
 
@@ -106,15 +106,15 @@ export function orbitSvg(flows, { company = "This company", gives = [], selected
   const R = 44 * s, yx = compact ? 30 : 58, yy = cy + (compact ? 10 : 20) * s;
   for (let i = 0, n = compact ? 8 : 14; i < n; i++) {
     const t = i / (n - 1), x = yx + 30 * s + (cx - R - 6 - yx - 30 * s) * t, y = yy + (cy - yy) * t ** 1.6 - Math.sin(t * Math.PI) * 26 * s;
-    out += `<circle class="stream" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${((2.2 + 2 * t) * s).toFixed(2)}" fill="#3340c8" opacity="${(0.25 + 0.55 * t).toFixed(2)}" style="--i:${i}"/>`;
+    out += `<circle class="stream" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${((2.2 + 2 * t) * s).toFixed(2)}" fill="#0a0a0a" opacity="${(0.25 + 0.55 * t).toFixed(2)}" style="--i:${i}"/>`;
   }
   if (!compact && gives.length) {
-    out += `<text x="24" y="40" font-size="10.5" font-weight="700" letter-spacing="1" fill="var(--orb-muted, #575e86)">WHAT YOU GIVE THEM</text>`;
+    out += `<text x="24" y="40" font-size="10.5" font-weight="700" letter-spacing="1" fill="var(--orb-muted, #666666)">WHAT YOU GIVE THEM</text>`;
     gives.forEach((g, i) => {
       const w = g.length * 7 + 24;
-      out += `<rect x="24" y="${52 + i * 32}" width="${w}" height="24" rx="12" fill="var(--orb-chip, #eef0fd)" stroke="#c7cdee"/><text x="${24 + w / 2}" y="${68 + i * 32}" text-anchor="middle" font-size="11" font-weight="600" fill="#3340c8">${esc(g)}</text>`;
+      out += `<rect x="24" y="${52 + i * 32}" width="${w}" height="24" rx="12" fill="var(--orb-chip, #f2f2f2)" stroke="var(--orb-chip-line, #d9d9d9)"/><text x="${24 + w / 2}" y="${68 + i * 32}" text-anchor="middle" font-size="11" font-weight="600" fill="var(--orb-chip-text, #0a0a0a)">${esc(g)}</text>`;
     });
-    out += `<path d="M64 ${56 + gives.length * 32} Q56 ${yy - 60} ${yx} ${yy - 30}" stroke="#c7cdee" stroke-width="2" fill="none" stroke-dasharray="3 5"/>`;
+    out += `<path d="M64 ${56 + gives.length * 32} Q56 ${yy - 60} ${yx} ${yy - 30}" stroke="#d9d9d9" stroke-width="2" fill="none" stroke-dasharray="3 5"/>`;
   }
 
   // Beams from the hub, the picked one lit with flowing dots.
@@ -135,20 +135,20 @@ export function orbitSvg(flows, { company = "This company", gives = [], selected
   }
 
   // The hub.
-  out += `<ellipse cx="${cx}" cy="${cy + R + 6}" rx="${R * 1.1}" ry="${R / 3.6}" fill="#11163a" opacity=".2"/>`
-    + `<circle cx="${cx}" cy="${cy}" r="${R + 10 * s}" fill="#3340c8" opacity=".25" filter="url(#${id}-glow)"/>`
+  out += `<ellipse cx="${cx}" cy="${cy + R + 6}" rx="${R * 1.1}" ry="${R / 3.6}" fill="#0a0a0a" opacity=".2"/>`
+    + `<circle cx="${cx}" cy="${cy}" r="${R + 10 * s}" fill="#0a0a0a" opacity=".25" filter="url(#${id}-glow)"/>`
     + `<circle cx="${cx}" cy="${cy}" r="${R}" fill="url(#${id}-hub)"/><ellipse cx="${cx - R / 3}" cy="${cy - R / 2.4}" rx="${R / 2.6}" ry="${R / 5.5}" fill="#fff" opacity=".45"/>`
     + `<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-size="${compact ? 12 : 14}" font-weight="700" fill="#fff">${esc(company.length > 13 ? `${company.slice(0, 12)}…` : company)}</text>`;
-  out += `<ellipse cx="${yx}" cy="${yy + 30 * s}" rx="${24 * s}" ry="${6 * s}" fill="#11163a" opacity=".14"/><circle cx="${yx}" cy="${yy}" r="${26 * s}" fill="url(#${id}-you)"/>`
+  out += `<ellipse cx="${yx}" cy="${yy + 30 * s}" rx="${24 * s}" ry="${6 * s}" fill="#0a0a0a" opacity=".14"/><circle cx="${yx}" cy="${yy}" r="${26 * s}" fill="url(#${id}-you)"/>`
     + `<ellipse cx="${yx - 8 * s}" cy="${yy - 11 * s}" rx="${9 * s}" ry="${4.5 * s}" fill="#fff" opacity=".5"/><text x="${yx}" y="${yy + 5}" text-anchor="middle" font-size="${compact ? 11 : 13}" font-weight="700" fill="#fff">You</text>`;
 
   // The planets, each clickable.
   placed.forEach((f, i) => {
     const [px, py] = f.pos, r = (compact ? 14 : 18) * s * (compact ? 1.6 : 1), col = COLOR[f.kind], on = f === pick;
-    const ink = f.kind === "limit" ? "#b8322a" : f.kind === "limited" ? "#17683b" : "var(--orb-text, #3b4268)";
+    const ink = f.kind === "limit" ? "#b8322a" : f.kind === "limited" ? "#17683b" : "var(--orb-text, #404040)";
     let g = `<g class="planet planet-${f.kind}${on ? " on" : ""}" data-key="${f.key}" style="--i:${i}" tabindex="-1">`;
     if (on) g += `<circle cx="${px}" cy="${py}" r="${r + 12 * s}" fill="${col}" opacity=".35" filter="url(#${id}-glow)"/><circle cx="${px}" cy="${py}" r="${r + 7 * s}" fill="none" stroke="${col}" stroke-width="2" opacity=".85"/>`;
-    g += `<ellipse cx="${px}" cy="${py + r + 3}" rx="${r}" ry="${r / 3.5}" fill="#11163a" opacity=".14"/>`
+    g += `<ellipse cx="${px}" cy="${py + r + 3}" rx="${r}" ry="${r / 3.5}" fill="#0a0a0a" opacity=".14"/>`
       + `<circle cx="${px}" cy="${py}" r="${r}" fill="url(#${id}-${f.kind})"/><ellipse cx="${px - r / 3}" cy="${py - r / 2.6}" rx="${r / 2.6}" ry="${r / 5}" fill="#fff" opacity=".55"/>`
       + `<text x="${px}" y="${py + 4}" text-anchor="middle" font-size="${f.glyph === "Ad" ? 11 : 13}" font-weight="700" fill="#fff">${f.kind === "limited" ? "✓" : esc(f.glyph || "•")}</text>`;
     if (compact) {
@@ -157,7 +157,7 @@ export function orbitSvg(flows, { company = "This company", gives = [], selected
       const phrase = f.phrase.length > 24 ? `${f.phrase.slice(0, 23)}…` : f.phrase, w = Math.max(f.name.length * 7.4 + 20, phrase.length * 5.6 + 24);
       g += `<rect x="${px - w / 2}" y="${py + r + 8}" width="${w}" height="38" rx="10" fill="var(--orb-card, #fff)" stroke="${col}" stroke-opacity="${on ? 0.9 : 0.5}" stroke-width="${on ? 2 : 1.2}"/>`
         + `<text x="${px}" y="${py + r + 24}" text-anchor="middle" font-size="12.5" font-weight="700" fill="${ink}">${esc(f.name)}</text>`
-        + `<text x="${px}" y="${py + r + 38}" text-anchor="middle" font-size="10" fill="var(--orb-muted, #575e86)">“${esc(phrase)}”</text>`;
+        + `<text x="${px}" y="${py + r + 38}" text-anchor="middle" font-size="10" fill="var(--orb-muted, #666666)">“${esc(phrase)}”</text>`;
     }
     out += `${g}</g>`;
   });

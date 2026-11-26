@@ -26,6 +26,9 @@ MIN_CONFIRMED_CHARS = 400
 I = re.IGNORECASE
 
 COPY_IT = "Open the page, copy the policy text, and paste it here instead."
+EXTENSION = "Or open the policy page and use the Inkwell extension, which reads it from your browser."
+SCRIPTED = f"That page builds its text with JavaScript, so we can't read it from here. {COPY_IT} {EXTENSION}"
+BLOCKED = f"That website doesn't let automated readers in. {COPY_IT} {EXTENSION}"
 
 
 class FetchError(Exception):
@@ -141,7 +144,7 @@ def download(url, deadline):
             current = urljoin(f"{scheme}://{host}{target}", headers["Location"])
             continue
         if status in (401, 403, 406, 429, 451, 503):
-            raise FetchError(422, f"That website doesn't let automated readers in. {COPY_IT}")
+            raise FetchError(422, BLOCKED)
         if status in (404, 410):
             raise FetchError(422, "That page doesn't exist. Check the link and try again.")
         if status != 200:
@@ -163,7 +166,9 @@ def download(url, deadline):
 # ---------- HTML to paragraphs ----------
 
 HARD_SKIP = {"script", "style", "noscript", "svg", "template", "iframe", "object", "canvas", "head"}
-SOFT_SKIP = {"nav", "aside", "select", "button", "dialog"}
+SOFT_SKIP = {"nav", "select", "button", "dialog"}
+# Some site builders (Webflow, for one) put the whole policy in an <aside class="rich-text">. Other asides are side menus.
+POLICY_ASIDE = re.compile(r"rich-?text|richtext|prose|content|policy|legal|article|body", I)
 PAGE_FURNITURE = {"header", "footer"}  # Skipped outside <main>/<article>, where they hold site menus.
 BLOCK = {"p", "div", "section", "article", "main", "li", "ul", "ol", "dl", "dt", "dd", "table", "tr", "blockquote", "pre",
          "h1", "h2", "h3", "h4", "h5", "h6", "address", "figure", "details", "summary", "form", "fieldset", "center", "body"}
@@ -206,7 +211,8 @@ class _Reader(HTMLParser):
             return True
         # Inside the main content, "hidden" usually means a collapsed section of the policy, which we want.
         hidden = not self.main_depth and ("hidden" in attrs or attrs.get("aria-hidden") == "true" or re.search(r"display\s*:\s*none", attrs.get("style") or "", I))
-        return bool(hidden or tag in SOFT_SKIP or (tag in PAGE_FURNITURE and not self.main_depth)
+        side_menu = tag == "aside" and not self.main_depth and not POLICY_ASIDE.search(attrs.get("class") or "")
+        return bool(hidden or tag in SOFT_SKIP or side_menu or (tag in PAGE_FURNITURE and not self.main_depth)
                     or attrs.get("role") in ("navigation", "banner", "contentinfo")
                     or BANNER.search(f"{attrs.get('id') or ''} {attrs.get('class') or ''}"))
 
@@ -344,14 +350,37 @@ POLICY_DOCUMENT_TITLE = re.compile(
     r"\bnotice of privacy practices\b", I)
 
 
-def looks_like_policy(text, url, title=""):
-    """Use page text and URL evidence; a recognizable document title can help with short, clean policy pages."""
-    hits = len(POLICY_WORDS.findall(text))
-    if len(text) >= MIN_POLICY_CHARS and hits >= 8:
+SELF_REFERENCE = re.compile(r"\b(?:this|our) (?:privacy |data )?(?:policy|notice|statement)\b", I)
+POLICY_PATH = re.compile(r"privacy|data-?policy|legal|policies|gdpr|ccpa", I)
+# Pages a site shows automated readers instead of the real one.
+STAND_IN = re.compile(r"be right back|access denied|verify (?:that )?you(?: are|'re) (?:a )?human|are you a robot|captcha|"
+                      r"unusual traffic|enable javascript|javascript is (?:disabled|required)|checking your browser", I)
+
+
+def looks_like_policy(text, url):
+    """Real policies mention personal data again and again (about 3 to 5 times per 1,000 characters) and refer to
+    themselves ("this policy"). Home pages that talk about privacy, and near-empty pages that load the policy with
+    scripts, don't."""
+    hits, own = len(POLICY_WORDS.findall(text)), len(SELF_REFERENCE.findall(text))
+    if POLICY_PATH.search(urlsplit(url).path):
+        return (len(text) >= MIN_POLICY_CHARS and hits >= 8) or (len(text) >= MIN_CONFIRMED_CHARS and hits >= 3 and own >= 1)
+    # Any other address (a home page, a sign-up page) has to read like a policy, not just talk about your data.
+    return len(text) >= MIN_POLICY_CHARS and hits >= 20 and hits * 1000 / len(text) >= 1.5 and own >= 3
+
+
+def _stand_in(page, text, asked_path):
+    """True when the site served an error page or a robot check instead of the page we asked for."""
+    went = urlsplit(page.url).path.lower()
+    if went != asked_path.lower() and re.search(r"error|captcha|challenge|blocked|denied", went):
         return True
-    if len(text) >= MIN_CONFIRMED_CHARS and hits >= 2 and POLICY_DOCUMENT_TITLE.search(title):
-        return True
-    return len(text) >= MIN_CONFIRMED_CHARS and hits >= 3 and bool(re.search(r"privacy|data-?policy", urlsplit(url).path, I))
+    return len(text) < MIN_POLICY_CHARS and bool(STAND_IN.search(text))
+
+
+def _root_host(host):
+    """www.quicken.com for simplifi.quicken.com, so the main site's usual policy addresses can be tried too."""
+    labels = host.lower().split(".")
+    keep = 3 if len(labels) >= 3 and labels[-2] in ("co", "com", "org", "net", "ac", "gov", "edu") else 2
+    return "www." + ".".join(labels[-keep:]) if len(labels) > keep else None
 
 
 NOT_THE_POLICY = re.compile(r"cookie|choices|do not sell|settings|preferences|center|centre|children|kids|faq|security|terms", I)
@@ -382,7 +411,9 @@ def best_link(links, page_url):
             score += 1
         if not score or NOT_THE_POLICY.search(label):
             continue
-        scored.append((score + (1 if _site_key(parts.hostname or "") == home else 0), -len(href), href, text))
+        same_site = _site_key(parts.hostname or "") == home
+        app_route = parts.path in ("", "/") and "privacy" in parts.fragment.lower()  # a "#/privacy" page drawn by scripts
+        scored.append((score + (3 if same_site else 0) - (2 if app_route else 0), -len(href), href, text))
     if not scored:
         return None
     best = max(scored)
@@ -409,25 +440,39 @@ def read_policy(url, confirmed=False):
     doc = extract(page.html, page.url)
     text = to_text(doc)
     site = site_name(page.url)
-    page_title = doc.h1 or doc.title
-    if looks_like_policy(text, page.url, page_title) or (confirmed and len(text) >= MIN_CONFIRMED_CHARS):
+    if _stand_in(page, text, urlsplit(_clean_url(url)[3]).path):
+        raise FetchError(422, BLOCKED)
+    hits, own = len(POLICY_WORDS.findall(text)), len(SELF_REFERENCE.findall(text))
+    reads_like_one = hits >= 3 and (own >= 1 or len(text) >= MIN_POLICY_CHARS)
+    if looks_like_policy(text, page.url) or (confirmed and len(text) >= MIN_CONFIRMED_CHARS and reads_like_one):
         return {"status": "ok", "text": text, "url": page.url, "site": site, "fixes": fix_links(doc.links, page.url)}
     if confirmed:
-        raise FetchError(422, f"That page loads its text in a way we can't read. {COPY_IT}")
+        raise FetchError(422, SCRIPTED if len(text) < MIN_POLICY_CHARS else f"That page doesn't read like a privacy policy. {COPY_IT}")
     found = best_link(doc.links, page.url)
     if found:
         return {"status": "confirm", "url": found[0], "label": found[1], "site": site}
     parts = urlsplit(page.url)
     if re.search(r"privacy|policy|legal", parts.path, I):  # A link to the policy itself: don't guess at another page.
-        raise FetchError(422, f"That page loads its text in a way we can't read. {COPY_IT}")
-    # The footer may be drawn by scripts: try the usual addresses.
-    for path in ("/privacy", "/privacy-policy"):
-        guess = f"{parts.scheme}://{parts.hostname}{path}"
-        try:
-            probe = download(guess, deadline)
-        except FetchError:
-            continue
-        probe_doc = extract(probe.html, probe.url)
-        if looks_like_policy(to_text(probe_doc), probe.url, probe_doc.h1 or probe_doc.title):
-            return {"status": "confirm", "url": probe.url, "label": "Privacy policy", "site": site}
+        raise FetchError(422, SCRIPTED)
+    # The footer may be drawn by scripts: try the usual addresses, on this site and then on the main site
+    # (a sign-up page on app.example.com usually has its policy on www.example.com).
+    blocked = False
+    hosts = [parts.hostname] + [h for h in [_root_host(parts.hostname or "")] if h and h != parts.hostname]
+    for host in hosts:
+        for path in ("/privacy", "/privacy-policy", "/legal/privacy"):
+            if time.monotonic() >= deadline - 2:
+                break
+            guess = f"{parts.scheme}://{host}{path}"
+            try:
+                probe = download(guess, deadline)
+            except FetchError as error:
+                blocked = blocked or error.detail == BLOCKED
+                continue
+            if looks_like_policy(to_text(extract(probe.html, probe.url)), probe.url):
+                return {"status": "confirm", "url": probe.url, "label": "Privacy policy", "site": site}
+    if blocked:
+        raise FetchError(422, BLOCKED)
+    if len(text) < 200:
+        raise FetchError(422, "That page builds its text with JavaScript, so we couldn't find its privacy policy link. "
+                              f"Paste the link to the policy itself, or its text. {EXTENSION}")
     raise FetchError(422, "We couldn't find a privacy policy on that page. Paste the link to the policy itself, or its text.")

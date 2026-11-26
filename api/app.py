@@ -15,6 +15,7 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from inkwell.fixes import fix_links
 from api.fetcher import FetchError, read_policy
 from inkwell.common import CLASSES, ROOT
 from inkwell.predict import Predictor
@@ -281,8 +282,14 @@ async def read_policy_body(request, limit, too_big):
 async def report_card(request: Request):
     """The report card alone, for accounts: wording rules only, so it doesn't wait for the model. Used by Compare."""
     await run_in_threadpool(verify_user, request)
-    _, text = await read_policy_body(request, MAX_BYTES, "Policy text exceeds the 1 MB limit")
-    return {"report": await run_in_threadpool(lambda: build_report(segment(text)))}
+    payload, text = await read_policy_body(request, MAX_BYTES, "Policy text exceeds the 1 MB limit")
+    report = await run_in_threadpool(lambda: build_report(segment(text)))
+    # The extension can send the page it read from your browser, with its links, to get the opt-out and settings links too.
+    url, links = payload.get("url"), payload.get("links")
+    if isinstance(url, str) and url.startswith(("http://", "https://")) and isinstance(links, list):
+        pairs = [(str(x[0])[:200], str(x[1])[:2048]) for x in links[:600] if isinstance(x, list) and len(x) == 2]
+        return {"report": report, "fixes": fix_links([p for p in pairs if p[1].startswith(("http://", "https://", "mailto:"))], url[:2048])}
+    return {"report": report}
 
 
 @app.post("/fetch-policy")
